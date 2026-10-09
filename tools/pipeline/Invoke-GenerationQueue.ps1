@@ -158,7 +158,9 @@ foreach ($job in @($spec.jobs)) {
         Move-Item -LiteralPath $file -Destination $target -Force
         $secs = [math]::Round(((Get-Date) - $started).TotalSeconds, 1)
         $done++
-        $rec = New-Object psobject -Property @{ id = $id; ok = $true; seed = [long]$job.seed; width = $width; height = $height; seconds = $secs; peak_vram_mb = $peakVram; peak_temp_c = $peakTemp; prompt = [string]$job.prompt; workflow = [string]$spec.workflow; time = (Get-Date).ToString('s') }
+        $promptText = ''
+        if ($null -ne $job.PSObject.Properties['prompt']) { $promptText = [string]$job.prompt }
+        $rec = New-Object psobject -Property @{ id = $id; ok = $true; seed = [long]$job.seed; width = $width; height = $height; seconds = $secs; peak_vram_mb = $peakVram; peak_temp_c = $peakTemp; prompt = $promptText; workflow = [string]$spec.workflow; time = (Get-Date).ToString('s') }
         Add-Content -LiteralPath $logPath -Value ($rec | ConvertTo-Json -Compress) -Encoding UTF8
         Write-Output ("done  {0}  {1}s  vram {2} MB  {3} C" -f $id, $secs, $peakVram, $peakTemp)
         # Rest between jobs: keeps average power draw and heat down on long unattended runs.

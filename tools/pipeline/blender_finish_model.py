@@ -20,7 +20,7 @@ from mathutils import Vector
 
 def parse_args():
     argv = sys.argv[sys.argv.index("--") + 1:]
-    opts = {"tris": 5000, "tex": 1024, "size": 1.0, "rotx": -90.0}
+    opts = {"tris": 5000, "tex": 1024, "size": 1.0, "rotx": -90.0, "textured": 0, "weld": 1e-5}
     positional = []
     i = 0
     while i < len(argv):
@@ -55,91 +55,110 @@ def main():
     obj.rotation_euler = (math.radians(opts["rotx"]), 0.0, 0.0)
     bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
 
-    # Clean: weld, drop loose bits, consistent outward normals.
-    bpy.ops.object.mode_set(mode="EDIT")
-    bpy.ops.mesh.select_all(action="SELECT")
-    bpy.ops.mesh.remove_doubles(threshold=1e-5)
-    bpy.ops.mesh.delete_loose()
-    bpy.ops.mesh.select_all(action="SELECT")
-    bpy.ops.mesh.normals_make_consistent(inside=False)
-    bpy.ops.object.mode_set(mode="OBJECT")
+    textured = bool(opts["textured"])
+    src_tris = sum(len(p.vertices) - 2 for p in obj.data.polygons)
+    size = int(opts["tex"])
+    scene = bpy.context.scene
+    if not textured:
+        # Vertex-coloured input (TripoSR): clean, decimate, unwrap and bake here.
+        # Textured input (--textured 1) already has UVs and a texture; it is only scaled.
+        # Clean: weld, drop loose bits, consistent outward normals.
+        bpy.ops.object.mode_set(mode="EDIT")
+        bpy.ops.mesh.select_all(action="SELECT")
+        bpy.ops.mesh.remove_doubles(threshold=opts["weld"])
+        bpy.ops.mesh.delete_loose()
+        bpy.ops.mesh.select_all(action="SELECT")
+        bpy.ops.mesh.normals_make_consistent(inside=False)
+        bpy.ops.object.mode_set(mode="OBJECT")
 
-    mesh = obj.data
-    src_tris = sum(len(p.vertices) - 2 for p in mesh.polygons)
 
-    # Keep an untouched copy to bake colours from.
-    bpy.ops.object.duplicate()
-    high = bpy.context.view_layer.objects.active
-    high.name = "bake_source"
-    bpy.ops.object.select_all(action="DESELECT")
-    obj.select_set(True)
-    bpy.context.view_layer.objects.active = obj
+        # Keep an untouched copy to bake colours from.
+        bpy.ops.object.duplicate()
+        high = bpy.context.view_layer.objects.active
+        high.name = "bake_source"
+        bpy.ops.object.select_all(action="DESELECT")
+        obj.select_set(True)
+        bpy.context.view_layer.objects.active = obj
 
-    target = int(opts["tris"])
-    if src_tris > target:
-        mod = obj.modifiers.new("decimate", "DECIMATE")
-        mod.ratio = target / src_tris
-        bpy.ops.object.modifier_apply(modifier=mod.name)
-    bpy.ops.object.shade_smooth()
+        target = int(opts["tris"])
+        if src_tris > target:
+            mod = obj.modifiers.new("decimate", "DECIMATE")
+            mod.ratio = target / src_tris
+            bpy.ops.object.modifier_apply(modifier=mod.name)
+        bpy.ops.object.shade_smooth()
 
-    # Unwrap the low mesh.
-    bpy.ops.object.mode_set(mode="EDIT")
-    bpy.ops.mesh.select_all(action="SELECT")
-    bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.02)
-    bpy.ops.object.mode_set(mode="OBJECT")
+        # Unwrap the low mesh.
+        bpy.ops.object.mode_set(mode="EDIT")
+        bpy.ops.mesh.select_all(action="SELECT")
+        bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.02)
+        bpy.ops.object.mode_set(mode="OBJECT")
 
-    # Source material: vertex colour as emission, so the bake is lighting-free.
-    def colour_material(target_obj):
-        mat = bpy.data.materials.new("vertex_colour")
+        # Source material: vertex colour as emission, so the bake is lighting-free.
+        # If the input already carries a base-colour texture, remember it before materials are replaced.
+        source_image = None
+        for slot in obj.material_slots:
+            if slot.material and slot.material.use_nodes:
+                for node in slot.material.node_tree.nodes:
+                    if node.type == "TEX_IMAGE" and node.image is not None and source_image is None:
+                        bsdf_in = [l for l in node.outputs["Color"].links if l.to_socket.name == "Base Color"]
+                        if bsdf_in:
+                            source_image = node.image
+
+        def colour_material(target_obj):
+            mat = bpy.data.materials.new("vertex_colour")
+            mat.use_nodes = True
+            nodes = mat.node_tree.nodes
+            nodes.clear()
+            out = nodes.new("ShaderNodeOutputMaterial")
+            emit = nodes.new("ShaderNodeEmission")
+            if source_image is not None:
+                # Textured input (TRELLIS.2): bake from its texture.
+                attr = nodes.new("ShaderNodeTexImage")
+                attr.image = source_image
+            else:
+                # Vertex-coloured input (TripoSR).
+                attr = nodes.new("ShaderNodeVertexColor")
+                cols = target_obj.data.color_attributes
+                if len(cols) > 0:
+                    attr.layer_name = cols[0].name
+            mat.node_tree.links.new(attr.outputs["Color"], emit.inputs["Color"])
+            mat.node_tree.links.new(emit.outputs["Emission"], out.inputs["Surface"])
+            target_obj.data.materials.clear()
+            target_obj.data.materials.append(mat)
+
+        colour_material(high)
+
+        # Destination material with the bake target image.
+        image = bpy.data.images.new("albedo", size, size, alpha=False)
+        mat = bpy.data.materials.new(obj.name + "_mat")
         mat.use_nodes = True
         nodes = mat.node_tree.nodes
-        nodes.clear()
-        out = nodes.new("ShaderNodeOutputMaterial")
-        emit = nodes.new("ShaderNodeEmission")
-        attr = nodes.new("ShaderNodeVertexColor")
-        cols = target_obj.data.color_attributes
-        if len(cols) > 0:
-            attr.layer_name = cols[0].name
-        mat.node_tree.links.new(attr.outputs["Color"], emit.inputs["Color"])
-        mat.node_tree.links.new(emit.outputs["Emission"], out.inputs["Surface"])
-        target_obj.data.materials.clear()
-        target_obj.data.materials.append(mat)
+        bsdf = nodes.get("Principled BSDF")
+        tex = nodes.new("ShaderNodeTexImage")
+        tex.image = image
+        obj.data.materials.clear()
+        obj.data.materials.append(mat)
+        nodes.active = tex
 
-    colour_material(high)
+        scene.render.engine = "CYCLES"
+        scene.cycles.samples = 1
+        scene.cycles.device = "CPU"
+        scene.render.bake.use_selected_to_active = True
+        scene.render.bake.cage_extrusion = 0.02
+        scene.render.bake.max_ray_distance = 0.05
+        scene.render.bake.margin = 8
+        bpy.ops.object.select_all(action="DESELECT")
+        high.select_set(True)
+        obj.select_set(True)
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.bake(type="EMIT")
+        image.pack()
 
-    # Destination material with the bake target image.
-    size = int(opts["tex"])
-    image = bpy.data.images.new("albedo", size, size, alpha=False)
-    mat = bpy.data.materials.new(obj.name + "_mat")
-    mat.use_nodes = True
-    nodes = mat.node_tree.nodes
-    bsdf = nodes.get("Principled BSDF")
-    tex = nodes.new("ShaderNodeTexImage")
-    tex.image = image
-    obj.data.materials.clear()
-    obj.data.materials.append(mat)
-    nodes.active = tex
+        mat.node_tree.links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
+        bsdf.inputs["Roughness"].default_value = 1.0
+        bsdf.inputs["Metallic"].default_value = 0.0
 
-    scene = bpy.context.scene
-    scene.render.engine = "CYCLES"
-    scene.cycles.samples = 1
-    scene.cycles.device = "CPU"
-    scene.render.bake.use_selected_to_active = True
-    scene.render.bake.cage_extrusion = 0.02
-    scene.render.bake.max_ray_distance = 0.05
-    scene.render.bake.margin = 8
-    bpy.ops.object.select_all(action="DESELECT")
-    high.select_set(True)
-    obj.select_set(True)
-    bpy.context.view_layer.objects.active = obj
-    bpy.ops.object.bake(type="EMIT")
-    image.pack()
-
-    mat.node_tree.links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
-    bsdf.inputs["Roughness"].default_value = 1.0
-    bsdf.inputs["Metallic"].default_value = 0.0
-
-    bpy.data.objects.remove(high, do_unlink=True)
+        bpy.data.objects.remove(high, do_unlink=True)
 
     # Scale so the longest side is --size metres; origin at the centre of the base.
     bpy.ops.object.select_all(action="DESELECT")

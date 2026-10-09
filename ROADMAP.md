@@ -1,16 +1,21 @@
 # Roadmap
 
-Last made true: 2026-10-09 (session 1). If this file and reality disagree, fix this file first.
+Last made true: 2026-10-10 (session 1). If this file and reality disagree, fix this file first.
 
 Order of work: melee physics, then multiplayer, then role-playing systems, then magic and advanced traversal. Later systems must never block earlier ones.
 
 ## Waiting on the owner
 
-| # | Item | Note |
+| # | Item | Lead's recommendation |
 |---|---|---|
-| 1 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence (decision 0009). Not urgent |
-
-Nothing else is waiting.
+| 1 | **Test the sandbox in your headset** (steps under milestone 2) | Everything about feel is unverified until you do |
+| 2 | **Accept Meta's DINOv3 licence so TRELLIS.2 can be approved?** It is the one condition left (decisions 0006, licence file section 7). TRELLIS.2 makes far better 3D than TripoSR; compare `docs/review/session-1/models-trellis2-40k-*.jpg` with `models-triposr-*.jpg` | Read the DINOv3 licence yourself, then approve. Until then TRELLIS.2 output stays out of the repository |
+| 3 | **A non-commercial background remover was used by mistake** and fixed ([decision 0011](decisions/0011-background-removal-incident.md)). The superseded files remain in git history. Purge history? | Leave it; they were placeholders, public for a few hours |
+| 4 | **Listen to the audio** in `unity/Assets/Godtree/Audio/` (10 music sketches, 78 sound effects). Nobody has heard any of it | Mark keepers; the rest get regenerated |
+| 5 | **Style distance.** Look at `docs/review/session-1/concepts-*.jpg`. The characters sit close to a famous hand-drawn film look. How far should version 1 of the style move away? | Move: bolder ink lines, harder shadow edges, our own face shapes |
+| 6 | **Later zones.** `docs/review/session-1/concepts-zones-*.jpg` are mood sketches for zones 2 to 5, to react to. Nothing in them is canon | Say which directions you like |
+| 7 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence. Not urgent |
+| 8 | GPU power limit: image batches draw the full 600 W. Lowering it needs administrator rights | Set a limit of about 450 W in your GPU tool for unattended runs |
 
 ## Milestones
 
@@ -43,8 +48,8 @@ Nothing here has been seen in a headset. Passing tests prove the physics behaves
 - [x] Style kit v0: prompt fragments, one proven workflow, 50 golden concept images covering Zone 1 (town, wilderness, dungeon, enemies, characters, props, weapons)
 - [x] 3D pipeline proven end to end: concept image, TripoSR, `tools/pipeline/blender_finish_model.py` (decimate, unwrap, bake, scale), `.glb`, recipe, budget check. Driven by `tools/pipeline/Invoke-ModelQueue.ps1` and `Publish-Models.ps1`
 - [x] 21 placeholder-grade models with recipes in `unity/Assets/Godtree/Art/` (6 weapons, 13 props, 2 environment pieces)
-- [ ] **Golden-quality 3D.** TripoSR gives usable shapes for simple props and weapons but soft, washed-out colour, and fails on creatures, trees and anything thin. Next: trace TRELLIS.2's code for its non-commercial parts and prove a clean workflow (decision 0006), or sharpen textures by projecting the concept image onto the mesh
-- [ ] Unity cannot import `.glb` yet: choose and verify a glTF importer (UniVRM's UniGLTF arrives with the avatar work; Unity's glTFast needs a licence read)
+- [ ] **Golden-quality 3D.** TripoSR is placeholder grade. TRELLIS.2 through ComfyUI's built-in nodes was proven clean (no Nvidia rasteriser, BiRefNet for backgrounds) and evaluated: excellent on hard-surface objects and characters at game budgets, still breaking on spiky, furry, thatched and leafy shapes during mesh reduction. Waiting on the owner (item 2), then tune and regenerate everything. Workflow: `stylekit/workflows/trellis2_image_to_glb.api.json`; how to run: `docs/pipeline.md`
+- [x] Unity imports `.glb` through glTFast 6.20.0 (Apache-2.0)
 - [ ] Environment toon shader that matches MToon characters
 - [ ] Avatar route (VRoid placeholders approved; CC0 route untested)
 - [ ] Animation: no approved generator; CC0 libraries and physics only
