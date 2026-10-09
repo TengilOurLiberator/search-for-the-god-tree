@@ -20,6 +20,7 @@
     "CONTRIBUTING.md",
     "canon/vision.md",
     "canon/world-bible.md",
+    "docs/name-check.md",
     "decisions/**",
     "tools/checks/tests/**"
   ]
