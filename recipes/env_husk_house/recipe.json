@@ -15,8 +15,17 @@
                       "workflow":  "workflow.json"
                   },
                   {
+                      "generator":  "birefnet",
+                      "tool":  "comfyui",
+                      "version":  "birefnet.safetensors (Comfy-Org/BiRefNet), ComfyUI 0.39.0",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  1,
+                      "workflow":  "cutout.json"
+                  },
+                  {
                       "generator":  "triposr",
-                      "version":  "TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image",
+                      "version":  "TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image, run by tools/pipeline/triposr_run.py (bundled background remover blocked)",
                       "prompt":  "n/a",
                       "seed":  0,
                       "vram_gb":  6
@@ -41,5 +50,5 @@
                         "path":  "unity/Assets/Godtree/Art/Environment/env_husk_house.glb"
                     }
                 ],
-    "notes":  "Input image: stylekit/golden/concepts/con_envkit_husk_house.png. TripoSR ran at marching-cubes resolution 256 with its default background removal; it and Blender take no seed (seed 0 is a placeholder). Measured: source_tris=198270 final_tris=7000 dims=3.737x4.500x3.758 tex=2048. Placeholder grade: shape is usable, colours are washed out and soft. To be replaced when a higher-quality 3D generator is approved."
+    "notes":  "Input image: stylekit/golden/concepts/con_envkit_husk_house.png. The background was removed with BiRefNet before TripoSR, which ran at marching-cubes resolution 256. BiRefNet, TripoSR and Blender take no seed (seed 0 is a placeholder). Measured: source_tris=193759 final_tris=6999 dims=3.733x4.500x3.785 tex=2048. Placeholder grade: shape is usable, colours are washed out and soft. To be replaced when a higher-quality 3D generator is approved."
 }

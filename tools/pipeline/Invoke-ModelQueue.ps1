@@ -15,6 +15,8 @@ param(
     [string]$Python = 'D:\godtree-tools\triposr-venv\Scripts\python.exe',
     [string]$Blender = 'C:\Program Files\Blender Foundation\Blender 5.2\blender.exe',
     [string]$HfHome = 'D:\godtree-tools\hf-cache',
+    # Folder of cut-out images (transparent background), named like the job images.
+    [Parameter(Mandatory = $true)][string]$CutoutDir,
     [int]$MaxGpuTempC = 83
 )
 Set-StrictMode -Version 2.0
@@ -22,7 +24,8 @@ $ErrorActionPreference = 'Stop'
 
 $jobsFile = (Resolve-Path $JobsPath).Path
 $spec = [System.IO.File]::ReadAllText($jobsFile, [System.Text.Encoding]::UTF8) | ConvertFrom-Json
-$imageDir = (Resolve-Path (Join-Path (Split-Path $jobsFile -Parent) $spec.image_dir)).Path
+$imageDir = (Resolve-Path $CutoutDir).Path
+$runner = (Resolve-Path (Join-Path $PSScriptRoot 'triposr_run.py')).Path
 $finish = (Resolve-Path (Join-Path $PSScriptRoot 'blender_finish_model.py')).Path
 [void](New-Item -ItemType Directory -Force -Path $OutDir)
 $rawDir = Join-Path $OutDir 'raw'
@@ -48,7 +51,7 @@ $triLog = Join-Path $OutDir 'triposr.log'
 $started = Get-Date
 Push-Location $TripoRoot
 try {
-    cmd /c "`"$Python`" run.py $images --output-dir `"$rawDir`" --model-save-format glb --mc-resolution $($spec.mc_resolution) > `"$triLog`" 2>&1"
+    cmd /c "`"$Python`" `"$runner`" --triposr-root `"$TripoRoot`" --out `"$rawDir`" --mc-resolution $($spec.mc_resolution) $images > `"$triLog`" 2>&1"
     if ($LASTEXITCODE -ne 0) { throw "TripoSR failed; see $triLog" }
 } finally { Pop-Location }
 Write-Output ("TripoSR: {0} meshes in {1:N0} s" -f $todo.Count, ((Get-Date) - $started).TotalSeconds)

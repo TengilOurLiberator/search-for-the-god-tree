@@ -110,6 +110,14 @@ foreach ($job in @($spec.jobs)) {
     $values = @{ WIDTH = 1024; HEIGHT = 1024 }
     foreach ($prop in $job.PSObject.Properties) { $values[$prop.Name.ToUpperInvariant()] = $prop.Value }
     $values['ID'] = 'godtree_' + $id
+    if ($values.ContainsKey('IMAGE_PATH')) {
+        # Input images are copied into ComfyUI's input folder under a prefixed name.
+        $srcImage = [string]$values['IMAGE_PATH']
+        if (-not [System.IO.Path]::IsPathRooted($srcImage)) { $srcImage = Join-Path (Split-Path $jobsFile -Parent) $srcImage }
+        $leaf = 'godtree_in_' + [System.IO.Path]::GetFileName($srcImage)
+        Copy-Item -LiteralPath $srcImage -Destination (Join-Path $ComfyRoot ("ComfyUI\input\" + $leaf)) -Force
+        $values['IMAGE'] = $leaf
+    }
     $width = [int]$values['WIDTH']; $height = [int]$values['HEIGHT']
     $wf = $template
     foreach ($key in @($values.Keys)) {
@@ -139,7 +147,7 @@ foreach ($job in @($spec.jobs)) {
                 $status = $entry.Value.status
                 if ($null -ne $status -and [string]$status.status_str -eq 'error') { throw 'ComfyUI reported an error for this job' }
                 foreach ($node in $entry.Value.outputs.PSObject.Properties) {
-                    foreach ($kind in 'images', 'audio') {
+                    foreach ($kind in 'images', 'audio', '3d') {
                         $items = $node.Value.PSObject.Properties[$kind]
                         if ($null -ne $items) { foreach ($item in @($items.Value)) { $file = Join-Path (Join-Path $comfyOut ([string]$item.subfolder)) ([string]$item.filename) } }
                     }

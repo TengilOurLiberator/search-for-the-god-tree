@@ -55,6 +55,7 @@ foreach ($id in $Ids) {
     $recipeDir = Join-Path $repo "recipes/$id"
     [void](New-Item -ItemType Directory -Force -Path $recipeDir)
     Copy-Item -LiteralPath $workflowSrc -Destination (Join-Path $recipeDir 'workflow.json') -Force
+    Copy-Item -LiteralPath (Join-Path (Split-Path $workflowSrc -Parent) 'birefnet_cutout.api.json') -Destination (Join-Path $recipeDir 'cutout.json') -Force
     Copy-Item -LiteralPath (Join-Path $WorkDir ($id + '_preview.png')) -Destination (Join-Path $recipeDir 'preview.png') -Force
 
     $stats = $log[$id]
@@ -68,7 +69,8 @@ foreach ($id in $Ids) {
         budget_class = [string]$job.budget_class
         steps        = @(
             [ordered]@{ generator = 'z-image-turbo'; tool = 'comfyui'; version = 'z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0'; prompt = [string]$concept.prompt; seed = $seed; vram_gb = 23; workflow = 'workflow.json' },
-            [ordered]@{ generator = 'triposr'; version = 'TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image'; prompt = 'n/a'; seed = 0; vram_gb = 6 },
+            [ordered]@{ generator = 'birefnet'; tool = 'comfyui'; version = 'birefnet.safetensors (Comfy-Org/BiRefNet), ComfyUI 0.39.0'; prompt = 'n/a'; seed = 0; vram_gb = 1; workflow = 'cutout.json' },
+            [ordered]@{ generator = 'triposr'; version = 'TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image, run by tools/pipeline/triposr_run.py (bundled background remover blocked)'; prompt = 'n/a'; seed = 0; vram_gb = 6 },
             [ordered]@{ generator = 'blender'; version = 'Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py'; prompt = 'n/a'; seed = 0; vram_gb = 0 }
         )
         cleanup      = @(
@@ -77,7 +79,7 @@ foreach ($id in $Ids) {
         )
         sources      = @()
         outputs      = @( [ordered]@{ path = $assetRel } )
-        notes        = ("Input image: stylekit/golden/concepts/$($job.image). TripoSR ran at marching-cubes resolution $($models.mc_resolution) with its default background removal; it and Blender take no seed (seed 0 is a placeholder). Measured: $stats. $Note").Trim()
+        notes        = ("Input image: stylekit/golden/concepts/$($job.image). The background was removed with BiRefNet before TripoSR, which ran at marching-cubes resolution $($models.mc_resolution). BiRefNet, TripoSR and Blender take no seed (seed 0 is a placeholder). Measured: $stats. $Note").Trim()
     }
     [System.IO.File]::WriteAllText((Join-Path $recipeDir 'recipe.json'), ((($recipe | ConvertTo-Json -Depth 6) -replace "`r`n", "`n") + "`n"), $enc)
     Write-Output "published $id -> $assetRel"

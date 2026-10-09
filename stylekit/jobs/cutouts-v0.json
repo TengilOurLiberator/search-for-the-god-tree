@@ -1,0 +1,136 @@
+{
+    "_about":  "Background removal for the concept images that feed image-to-3D. BiRefNet (MIT) through ComfyUI. Output: the same image with a transparent background. No prompt, no seed.",
+    "workflow":  "../workflows/birefnet_cutout.api.json",
+    "jobs":  [
+                 {
+                     "id":  "con_axe_woodcutter",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_axe_woodcutter.png"
+                 },
+                 {
+                     "id":  "con_bow_willow",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_bow_willow.png"
+                 },
+                 {
+                     "id":  "con_burrling",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_burrling.png"
+                 },
+                 {
+                     "id":  "con_cradle_shrine",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_cradle_shrine.png"
+                 },
+                 {
+                     "id":  "con_dagger_thorn",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_dagger_thorn.png"
+                 },
+                 {
+                     "id":  "con_dummy_training",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_dummy_training.png"
+                 },
+                 {
+                     "id":  "con_envkit_husk_house",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_envkit_husk_house.png"
+                 },
+                 {
+                     "id":  "con_envkit_stone_wall",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_envkit_stone_wall.png"
+                 },
+                 {
+                     "id":  "con_flora_husk_fragment",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_flora_husk_fragment.png"
+                 },
+                 {
+                     "id":  "con_flora_wind_tree",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_flora_wind_tree.png"
+                 },
+                 {
+                     "id":  "con_lantern_husk",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_lantern_husk.png"
+                 },
+                 {
+                     "id":  "con_prop_barrel",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_barrel.png"
+                 },
+                 {
+                     "id":  "con_prop_bench",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_bench.png"
+                 },
+                 {
+                     "id":  "con_prop_cart",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_cart.png"
+                 },
+                 {
+                     "id":  "con_prop_chest",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_chest.png"
+                 },
+                 {
+                     "id":  "con_prop_crate",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_crate.png"
+                 },
+                 {
+                     "id":  "con_prop_fence",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_fence.png"
+                 },
+                 {
+                     "id":  "con_prop_market_stall",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_market_stall.png"
+                 },
+                 {
+                     "id":  "con_prop_mote_vial",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_mote_vial.png"
+                 },
+                 {
+                     "id":  "con_prop_signpost",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_signpost.png"
+                 },
+                 {
+                     "id":  "con_prop_well",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_prop_well.png"
+                 },
+                 {
+                     "id":  "con_rootwarden",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_rootwarden.png"
+                 },
+                 {
+                     "id":  "con_shield_husk",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_shield_husk.png"
+                 },
+                 {
+                     "id":  "con_spear_meadow",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_spear_meadow.png"
+                 },
+                 {
+                     "id":  "con_sword_training",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_sword_training.png"
+                 },
+                 {
+                     "id":  "con_thornback",
+                     "seed":  0,
+                     "image_path":  "../golden/concepts/con_thornback.png"
+                 }
+             ]
+}

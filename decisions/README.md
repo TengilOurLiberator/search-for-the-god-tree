@@ -15,3 +15,5 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0007](0007-cc0-only-asset-inputs.md) | 2026-10-09 | Only CC0 third-party material may be folded into assets | Lead |
 | [0008](0008-canon-approved.md) | 2026-10-09 | Canon approved as drafted; first push and toolchain installs authorised | Owner |
 | [0009](0009-overnight-authorisations.md) | 2026-10-09 | VRoid placeholders, Stable Audio Open and Chatterbox accepted; ragdolls in-house; lead may push own work; pacing | Owner |
+| [0010](0010-pipeline-and-sandbox-choices.md) | 2026-10-10 | Tools outside the repository, queue-driven generation, TripoSR and Blender finishing, glTFast, sandbox built by script | Lead |
+| [0011](0011-background-removal-incident.md) | 2026-10-10 | A non-commercial background remover was used by mistake; models rebuilt with BiRefNet; rule added | Lead; history purge is the owner's |

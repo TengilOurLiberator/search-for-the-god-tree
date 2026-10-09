@@ -1,0 +1,342 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  0,
+    "jobs":  [
+                 {
+                     "id":  "con_zone2_saltglass_flats_s1101",
+                     "prompt":  "Endless shallow tidal flats like a mirror reflecting the sky, ankle-deep clear water over pale sand, scattered salt crystal spires, a colossal pale tree root running across the flats and dipping into the distant sea, wooden stilt walkways. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_saltglass_flats_s2202",
+                     "prompt":  "Endless shallow tidal flats like a mirror reflecting the sky, ankle-deep clear water over pale sand, scattered salt crystal spires, a colossal pale tree root running across the flats and dipping into the distant sea, wooden stilt walkways. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_saltglass_flats_s3303",
+                     "prompt":  "Endless shallow tidal flats like a mirror reflecting the sky, ankle-deep clear water over pale sand, scattered salt crystal spires, a colossal pale tree root running across the flats and dipping into the distant sea, wooden stilt walkways. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_saltglass_flats_s4404",
+                     "prompt":  "Endless shallow tidal flats like a mirror reflecting the sky, ankle-deep clear water over pale sand, scattered salt crystal spires, a colossal pale tree root running across the flats and dipping into the distant sea, wooden stilt walkways. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_saltglass_town_s1101",
+                     "prompt":  "A cheerful fishing town on wooden stilts above mirror-bright tidal shallows, houses roofed with pale shells, nets and paper fish kites, small flat boats, a lighthouse built from a tall salt crystal. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_saltglass_town_s2202",
+                     "prompt":  "A cheerful fishing town on wooden stilts above mirror-bright tidal shallows, houses roofed with pale shells, nets and paper fish kites, small flat boats, a lighthouse built from a tall salt crystal. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_saltglass_town_s3303",
+                     "prompt":  "A cheerful fishing town on wooden stilts above mirror-bright tidal shallows, houses roofed with pale shells, nets and paper fish kites, small flat boats, a lighthouse built from a tall salt crystal. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_saltglass_town_s4404",
+                     "prompt":  "A cheerful fishing town on wooden stilts above mirror-bright tidal shallows, houses roofed with pale shells, nets and paper fish kites, small flat boats, a lighthouse built from a tall salt crystal. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_tide_crab_s1101",
+                     "prompt":  "A crab the size of a pony with a shell of clear blue-white salt glass crystals, pale sandy legs, two large pincers, small friendly-looking eyes on stalks. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone2_tide_crab_s2202",
+                     "prompt":  "A crab the size of a pony with a shell of clear blue-white salt glass crystals, pale sandy legs, two large pincers, small friendly-looking eyes on stalks. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone2_tide_crab_s3303",
+                     "prompt":  "A crab the size of a pony with a shell of clear blue-white salt glass crystals, pale sandy legs, two large pincers, small friendly-looking eyes on stalks. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone2_tide_crab_s4404",
+                     "prompt":  "A crab the size of a pony with a shell of clear blue-white salt glass crystals, pale sandy legs, two large pincers, small friendly-looking eyes on stalks. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone2_drowned_dungeon_s1101",
+                     "prompt":  "A flooded cavern under the sea floor where a giant pale tree root drinks from a glowing blue pool, walls of salt crystal, shafts of light through water above, stone walkways just under the surface. Small drifting points of warm gold light float in the air. Wide interior shot, readable depth, a few strong light sources, clear walkable floor. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_drowned_dungeon_s2202",
+                     "prompt":  "A flooded cavern under the sea floor where a giant pale tree root drinks from a glowing blue pool, walls of salt crystal, shafts of light through water above, stone walkways just under the surface. Small drifting points of warm gold light float in the air. Wide interior shot, readable depth, a few strong light sources, clear walkable floor. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_drowned_dungeon_s3303",
+                     "prompt":  "A flooded cavern under the sea floor where a giant pale tree root drinks from a glowing blue pool, walls of salt crystal, shafts of light through water above, stone walkways just under the surface. Small drifting points of warm gold light float in the air. Wide interior shot, readable depth, a few strong light sources, clear walkable floor. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone2_drowned_dungeon_s4404",
+                     "prompt":  "A flooded cavern under the sea floor where a giant pale tree root drinks from a glowing blue pool, walls of salt crystal, shafts of light through water above, stone walkways just under the surface. Small drifting points of warm gold light float in the air. Wide interior shot, readable depth, a few strong light sources, clear walkable floor. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_ridge_s1101",
+                     "prompt":  "A warm volcanic mountain ridge with dark rock, glowing orange cracks, rising heat haze and floating embers, a colossal pale tree root climbing over the ridge, rope bridges and cliff paths, hang gliders in the sky. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_ridge_s2202",
+                     "prompt":  "A warm volcanic mountain ridge with dark rock, glowing orange cracks, rising heat haze and floating embers, a colossal pale tree root climbing over the ridge, rope bridges and cliff paths, hang gliders in the sky. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_ridge_s3303",
+                     "prompt":  "A warm volcanic mountain ridge with dark rock, glowing orange cracks, rising heat haze and floating embers, a colossal pale tree root climbing over the ridge, rope bridges and cliff paths, hang gliders in the sky. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_ridge_s4404",
+                     "prompt":  "A warm volcanic mountain ridge with dark rock, glowing orange cracks, rising heat haze and floating embers, a colossal pale tree root climbing over the ridge, rope bridges and cliff paths, hang gliders in the sky. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_town_s1101",
+                     "prompt":  "A cliffside town of forges and chimneys carved into warm dark rock, glowing furnace doors, big bellows, water wheels, banners, cable lifts between ledges, sparks drifting in the air, friendly and busy. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_town_s2202",
+                     "prompt":  "A cliffside town of forges and chimneys carved into warm dark rock, glowing furnace doors, big bellows, water wheels, banners, cable lifts between ledges, sparks drifting in the air, friendly and busy. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_town_s3303",
+                     "prompt":  "A cliffside town of forges and chimneys carved into warm dark rock, glowing furnace doors, big bellows, water wheels, banners, cable lifts between ledges, sparks drifting in the air, friendly and busy. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_emberloft_town_s4404",
+                     "prompt":  "A cliffside town of forges and chimneys carved into warm dark rock, glowing furnace doors, big bellows, water wheels, banners, cable lifts between ledges, sparks drifting in the air, friendly and busy. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone3_cinder_goat_s1101",
+                     "prompt":  "A sturdy mountain goat with dark charcoal fur, curled horns glowing orange like hot iron at the tips, small embers drifting from its hooves, proud stance, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone3_cinder_goat_s2202",
+                     "prompt":  "A sturdy mountain goat with dark charcoal fur, curled horns glowing orange like hot iron at the tips, small embers drifting from its hooves, proud stance, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone3_cinder_goat_s3303",
+                     "prompt":  "A sturdy mountain goat with dark charcoal fur, curled horns glowing orange like hot iron at the tips, small embers drifting from its hooves, proud stance, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone3_cinder_goat_s4404",
+                     "prompt":  "A sturdy mountain goat with dark charcoal fur, curled horns glowing orange like hot iron at the tips, small embers drifting from its hooves, proud stance, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone3_glider_s1101",
+                     "prompt":  "A simple hand-held glider made of a light wooden frame and two large pale leaf-shaped cloth wings with green veins, a leather hand bar underneath. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone3_glider_s2202",
+                     "prompt":  "A simple hand-held glider made of a light wooden frame and two large pale leaf-shaped cloth wings with green veins, a leather hand bar underneath. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone3_glider_s3303",
+                     "prompt":  "A simple hand-held glider made of a light wooden frame and two large pale leaf-shaped cloth wings with green veins, a leather hand bar underneath. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone3_glider_s4404",
+                     "prompt":  "A simple hand-held glider made of a light wooden frame and two large pale leaf-shaped cloth wings with green veins, a leather hand bar underneath. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_s1101",
+                     "prompt":  "A silent forest of pale grey petrified stone trees in permanent blue twilight under the shadow of an immense canopy far above, soft gold light points drifting between the trunks, a narrow path, mist on the ground. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_s2202",
+                     "prompt":  "A silent forest of pale grey petrified stone trees in permanent blue twilight under the shadow of an immense canopy far above, soft gold light points drifting between the trunks, a narrow path, mist on the ground. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_s3303",
+                     "prompt":  "A silent forest of pale grey petrified stone trees in permanent blue twilight under the shadow of an immense canopy far above, soft gold light points drifting between the trunks, a narrow path, mist on the ground. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_s4404",
+                     "prompt":  "A silent forest of pale grey petrified stone trees in permanent blue twilight under the shadow of an immense canopy far above, soft gold light points drifting between the trunks, a narrow path, mist on the ground. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_town_s1101",
+                     "prompt":  "A hushed village built among giant petrified stone tree trunks in blue twilight, round doors in the trunks, hundreds of small warm lanterns, villagers in soft grey cloaks walking quietly, bells wrapped in cloth. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_town_s2202",
+                     "prompt":  "A hushed village built among giant petrified stone tree trunks in blue twilight, round doors in the trunks, hundreds of small warm lanterns, villagers in soft grey cloaks walking quietly, bells wrapped in cloth. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_town_s3303",
+                     "prompt":  "A hushed village built among giant petrified stone tree trunks in blue twilight, round doors in the trunks, hundreds of small warm lanterns, villagers in soft grey cloaks walking quietly, bells wrapped in cloth. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stillwood_town_s4404",
+                     "prompt":  "A hushed village built among giant petrified stone tree trunks in blue twilight, round doors in the trunks, hundreds of small warm lanterns, villagers in soft grey cloaks walking quietly, bells wrapped in cloth. Small drifting points of warm gold light float in the air. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone4_stone_stag_s1101",
+                     "prompt":  "A tall graceful stag made of pale grey petrified wood and stone, antlers like bare stone branches hung with tiny gold light points, calm closed eyes, moss on its back. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_zone4_stone_stag_s2202",
+                     "prompt":  "A tall graceful stag made of pale grey petrified wood and stone, antlers like bare stone branches hung with tiny gold light points, calm closed eyes, moss on its back. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_zone4_stone_stag_s3303",
+                     "prompt":  "A tall graceful stag made of pale grey petrified wood and stone, antlers like bare stone branches hung with tiny gold light points, calm closed eyes, moss on its back. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_zone4_stone_stag_s4404",
+                     "prompt":  "A tall graceful stag made of pale grey petrified wood and stone, antlers like bare stone branches hung with tiny gold light points, calm closed eyes, moss on its back. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_zone5_bole_approach_s1101",
+                     "prompt":  "Standing at the foot of a tree trunk so vast it fills the whole horizon like a pale cream cliff wall rising into the clouds, bark ridges the size of mountains, gigantic roots forming arches, a tiny road and tiny travellers for scale, gold light points drifting everywhere. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone5_bole_approach_s2202",
+                     "prompt":  "Standing at the foot of a tree trunk so vast it fills the whole horizon like a pale cream cliff wall rising into the clouds, bark ridges the size of mountains, gigantic roots forming arches, a tiny road and tiny travellers for scale, gold light points drifting everywhere. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone5_bole_approach_s3303",
+                     "prompt":  "Standing at the foot of a tree trunk so vast it fills the whole horizon like a pale cream cliff wall rising into the clouds, bark ridges the size of mountains, gigantic roots forming arches, a tiny road and tiny travellers for scale, gold light points drifting everywhere. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "con_zone5_bole_approach_s4404",
+                     "prompt":  "Standing at the foot of a tree trunk so vast it fills the whole horizon like a pale cream cliff wall rising into the clouds, bark ridges the size of mountains, gigantic roots forming arches, a tiny road and tiny travellers for scale, gold light points drifting everywhere. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1344,
+                     "height":  768
+                 }
+             ]
+}

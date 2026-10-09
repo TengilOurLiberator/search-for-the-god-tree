@@ -2,7 +2,7 @@
 
 Read this first. It assumes you have seen nothing else. It applies to every contributor, human or AI agent.
 
-> **Project state (2026-10-09): foundations. Not yet open to outside contributions.** There is no Unity project and no style kit yet. See [ROADMAP.md](ROADMAP.md). Until the roadmap says "open to outside agents", pull requests from outside will be closed with thanks.
+> **Project state (2026-10-10): VR sandbox and asset pipeline in progress. Not yet open to outside contributions.** The sandbox awaits its first headset test and the style kit has concepts but no golden 3D assets. See [ROADMAP.md](ROADMAP.md). Until the roadmap says "open to outside agents", pull requests from outside will be closed with thanks.
 
 ## The game
 
@@ -23,6 +23,7 @@ The creative source of truth is the [canon/](canon/) folder. Read [canon/vision.
 | Enemies | Physically simulated active ragdolls (implementation open; see the licence file) |
 | Networking | FishNet with the FishySteamworks transport; player-hosted |
 | Avatars | VRM 1.0, imported with UniVRM, rendered with MToon |
+| Models | `.glb`, imported with Unity's glTFast |
 | Dialogue | Yarn Spinner |
 | Enemy AI | Unity Behavior package, behind our own interface |
 | Inventory, quests, abilities, stats, saving | Written in-house. Saving sits behind an interface so a cloud service can replace local files later |

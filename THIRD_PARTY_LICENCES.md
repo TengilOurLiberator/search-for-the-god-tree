@@ -133,3 +133,16 @@ These override the "owner decision" and "conditional" marks above for the items 
 - **VRoid Studio: approved for placeholder avatars only**, kept in a separate folder under pixiv's terms and excluded from CC0.
 - **Stable Fast 3D: not ruled on**; stays conditional.
 - **BIMOS-Active-Ragdolls: not used.** Active ragdolls are written in-house.
+
+## 7. Added on 2026-10-10
+
+| Item | Licence | Finding | Source |
+|---|---|---|---|
+| glTFast (`com.unity.cloud.gltfast` 6.20.0) | Apache-2.0 | Unity's glTF importer; package states Unity 6000.0 or newer. Referenced in the manifest, not vendored. Imports the project's `.glb` files on 6000.3.26f1 (tested). | [repo](https://github.com/Unity-Technologies/com.unity.cloud.gltfast) |
+| ACE-Step 1.5, ComfyUI repack | Tagged Apache-2.0 on the repack; upstream is MIT | Used file: `ace_step_1.5_turbo_aio.safetensors` | [model](https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files) |
+| Stable Audio Open 1.0, ComfyUI repack | Tagged "other" (Stability AI Community License upstream) | Not gated. Used with the `t5-base` text encoder (Apache-2.0 per its model page tag; **licence text not read**). | [model](https://huggingface.co/Comfy-Org/stable-audio-open-1.0_repackaged) |
+| Z-Image Turbo, ComfyUI repack | Apache-2.0 | Used files: `z_image_turbo_bf16`, `qwen_3_4b`, `ae` | [model](https://huggingface.co/Comfy-Org/z_image_turbo) |
+| rembg (bundled with TripoSR for background removal) | **Rejected as used by default.** rembg 2.0.85 defaults to the BRIA RMBG model, which is non-commercial | Found in use on 2026-10-10; see [decisions/0011](decisions/0011-background-removal-incident.md). TripoSR now runs through `tools/pipeline/triposr_run.py`, which blocks rembg. | [repo](https://github.com/danielgatis/rembg) |
+| BiRefNet (ComfyUI repack `birefnet.safetensors`) | MIT (model page tag on Comfy-Org/BiRefNet; upstream ZhengPeng7/BiRefNet reported MIT) | The approved background remover. **Licence text itself not opened by the lead; tag and a research report only.** | [model](https://huggingface.co/Comfy-Org/BiRefNet) |
+| TRELLIS.2 in ComfyUI 0.39.0 (native nodes) | MIT weights (Comfy-Org/TRELLIS.2 tag); DINOv3 encoder under Meta's DINOv3 licence | No Nvidia rasteriser anywhere in the ComfyUI source or its Python packages (searched 2026-10-10), and background removal is BiRefNet. This removes two of the three conditions in decision 0006. **Remaining: the owner accepts the DINOv3 licence.** Still `conditional`. | [model](https://huggingface.co/Comfy-Org/TRELLIS.2) |
+| uv | **Not verified** (tool only, nothing of it is redistributed) | Used to create the Python environment | [repo](https://github.com/astral-sh/uv) |

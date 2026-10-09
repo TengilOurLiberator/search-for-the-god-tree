@@ -15,8 +15,17 @@
                       "workflow":  "workflow.json"
                   },
                   {
+                      "generator":  "birefnet",
+                      "tool":  "comfyui",
+                      "version":  "birefnet.safetensors (Comfy-Org/BiRefNet), ComfyUI 0.39.0",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  1,
+                      "workflow":  "cutout.json"
+                  },
+                  {
                       "generator":  "triposr",
-                      "version":  "TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image",
+                      "version":  "TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image, run by tools/pipeline/triposr_run.py (bundled background remover blocked)",
                       "prompt":  "n/a",
                       "seed":  0,
                       "vram_gb":  6
@@ -41,5 +50,5 @@
                         "path":  "unity/Assets/Godtree/Art/Props/prp_cradle_shrine.glb"
                     }
                 ],
-    "notes":  "Input image: stylekit/golden/concepts/con_cradle_shrine.png. TripoSR ran at marching-cubes resolution 256 with its default background removal; it and Blender take no seed (seed 0 is a placeholder). Measured: source_tris=132528 final_tris=8000 dims=0.650x1.200x1.135 tex=2048. Placeholder grade: shape is usable, colours are washed out and soft. To be replaced when a higher-quality 3D generator is approved."
+    "notes":  "Input image: stylekit/golden/concepts/con_cradle_shrine.png. The background was removed with BiRefNet before TripoSR, which ran at marching-cubes resolution 256. BiRefNet, TripoSR and Blender take no seed (seed 0 is a placeholder). Measured: source_tris=132232 final_tris=8000 dims=0.636x1.200x1.135 tex=2048. Placeholder grade: shape is usable, colours are washed out and soft. To be replaced when a higher-quality 3D generator is approved."
 }

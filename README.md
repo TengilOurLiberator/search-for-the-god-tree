@@ -4,7 +4,11 @@ A co-operative PC VR action role-playing game, built in the open by many contrib
 
 You wake in a bright, cel-shaded world with a colossal tree on the horizon. A god is said to live in it. The game is the journey there: zone by zone, with friends, fighting with full physics melee where every hit, block and parry comes from what your hands actually did.
 
-**State: foundations (2026-10-09).** There is nothing to play yet and the project is not yet open to outside contributions. [ROADMAP.md](ROADMAP.md) says where things stand.
+**State (2026-10-10): a VR sandbox scene exists (physics rig, sword, training dummy) but has not yet been tested in a headset, and the asset pipeline has produced its first concepts, placeholder models and audio.** The project is not yet open to outside contributions.
+
+[ROADMAP.md](ROADMAP.md) says where things stand.
+
+![The sandbox scene](docs/images/sandbox_sword_closeup.png)
 
 ## Start here
 
