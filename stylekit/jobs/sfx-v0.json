@@ -1,0 +1,475 @@
+{
+    "_about":  "First sound-effect pass for the VR sandbox and Zone 1, following the impact matrix idea in canon/audio-bible.md. Stable Audio Open 1.0, three seeds per sound.",
+    "workflow":  "../workflows/stable_audio_open_sfx.api.json",
+    "output_ext":  "flac",
+    "jobs":  [
+                 {
+                     "id":  "sfx_sword_hit_wood_light_s1101",
+                     "seed":  1101,
+                     "seconds":  1.5,
+                     "prompt":  "a light wooden knock, a steel sword blade tapping a wooden post, single short dry impact, close microphone, clean, no reverb"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_wood_light_s2202",
+                     "seed":  2202,
+                     "seconds":  1.5,
+                     "prompt":  "a light wooden knock, a steel sword blade tapping a wooden post, single short dry impact, close microphone, clean, no reverb"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_wood_light_s3303",
+                     "seed":  3303,
+                     "seconds":  1.5,
+                     "prompt":  "a light wooden knock, a steel sword blade tapping a wooden post, single short dry impact, close microphone, clean, no reverb"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_wood_heavy_s1101",
+                     "seed":  1101,
+                     "seconds":  2,
+                     "prompt":  "a heavy thunk, a steel sword chopping hard into a thick wooden log, single deep woody impact with a short crack, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_wood_heavy_s2202",
+                     "seed":  2202,
+                     "seconds":  2,
+                     "prompt":  "a heavy thunk, a steel sword chopping hard into a thick wooden log, single deep woody impact with a short crack, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_wood_heavy_s3303",
+                     "seed":  3303,
+                     "seconds":  2,
+                     "prompt":  "a heavy thunk, a steel sword chopping hard into a thick wooden log, single deep woody impact with a short crack, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_straw_s1101",
+                     "seed":  1101,
+                     "seconds":  1.5,
+                     "prompt":  "a soft dull thump with a dry rustle, a blade striking a straw-stuffed burlap training dummy, single impact, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_straw_s2202",
+                     "seed":  2202,
+                     "seconds":  1.5,
+                     "prompt":  "a soft dull thump with a dry rustle, a blade striking a straw-stuffed burlap training dummy, single impact, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_straw_s3303",
+                     "seed":  3303,
+                     "seconds":  1.5,
+                     "prompt":  "a soft dull thump with a dry rustle, a blade striking a straw-stuffed burlap training dummy, single impact, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_stone_s1101",
+                     "seed":  1101,
+                     "seconds":  1.5,
+                     "prompt":  "a sharp bright clink with a gritty scrape, a steel sword blade striking a stone block, single impact, small sparks, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_stone_s2202",
+                     "seed":  2202,
+                     "seconds":  1.5,
+                     "prompt":  "a sharp bright clink with a gritty scrape, a steel sword blade striking a stone block, single impact, small sparks, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_stone_s3303",
+                     "seed":  3303,
+                     "seconds":  1.5,
+                     "prompt":  "a sharp bright clink with a gritty scrape, a steel sword blade striking a stone block, single impact, small sparks, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_metal_s1101",
+                     "seed":  1101,
+                     "seconds":  2,
+                     "prompt":  "a loud ringing clang, a steel sword striking a steel helmet, single impact with a short metallic ring, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_metal_s2202",
+                     "seed":  2202,
+                     "seconds":  2,
+                     "prompt":  "a loud ringing clang, a steel sword striking a steel helmet, single impact with a short metallic ring, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_hit_metal_s3303",
+                     "seed":  3303,
+                     "seconds":  2,
+                     "prompt":  "a loud ringing clang, a steel sword striking a steel helmet, single impact with a short metallic ring, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_parry_s1101",
+                     "seed":  1101,
+                     "seconds":  2,
+                     "prompt":  "two steel sword blades clashing edge to edge, a sharp bright clang followed by a short scraping slide, single clash, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_parry_s2202",
+                     "seed":  2202,
+                     "seconds":  2,
+                     "prompt":  "two steel sword blades clashing edge to edge, a sharp bright clang followed by a short scraping slide, single clash, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_parry_s3303",
+                     "seed":  3303,
+                     "seconds":  2,
+                     "prompt":  "two steel sword blades clashing edge to edge, a sharp bright clang followed by a short scraping slide, single clash, close microphone"
+                 },
+                 {
+                     "id":  "sfx_sword_swing_s1101",
+                     "seed":  1101,
+                     "seconds":  1,
+                     "prompt":  "a fast airy whoosh of a sword blade swung through the air, single swing, no impact, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_swing_s2202",
+                     "seed":  2202,
+                     "seconds":  1,
+                     "prompt":  "a fast airy whoosh of a sword blade swung through the air, single swing, no impact, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_sword_swing_s3303",
+                     "seed":  3303,
+                     "seconds":  1,
+                     "prompt":  "a fast airy whoosh of a sword blade swung through the air, single swing, no impact, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_shield_block_s1101",
+                     "seed":  1101,
+                     "seconds":  1.5,
+                     "prompt":  "a heavy blunt thud of a weapon blocked by a round wooden shield with an iron rim, single impact, wood and metal, close microphone"
+                 },
+                 {
+                     "id":  "sfx_shield_block_s2202",
+                     "seed":  2202,
+                     "seconds":  1.5,
+                     "prompt":  "a heavy blunt thud of a weapon blocked by a round wooden shield with an iron rim, single impact, wood and metal, close microphone"
+                 },
+                 {
+                     "id":  "sfx_shield_block_s3303",
+                     "seed":  3303,
+                     "seconds":  1.5,
+                     "prompt":  "a heavy blunt thud of a weapon blocked by a round wooden shield with an iron rim, single impact, wood and metal, close microphone"
+                 },
+                 {
+                     "id":  "sfx_bow_release_s1101",
+                     "seed":  1101,
+                     "seconds":  1.5,
+                     "prompt":  "a wooden bow string released with a sharp twang and the quick hiss of an arrow flying away, single shot, close microphone"
+                 },
+                 {
+                     "id":  "sfx_bow_release_s2202",
+                     "seed":  2202,
+                     "seconds":  1.5,
+                     "prompt":  "a wooden bow string released with a sharp twang and the quick hiss of an arrow flying away, single shot, close microphone"
+                 },
+                 {
+                     "id":  "sfx_bow_release_s3303",
+                     "seed":  3303,
+                     "seconds":  1.5,
+                     "prompt":  "a wooden bow string released with a sharp twang and the quick hiss of an arrow flying away, single shot, close microphone"
+                 },
+                 {
+                     "id":  "sfx_arrow_hit_wood_s1101",
+                     "seed":  1101,
+                     "seconds":  1.5,
+                     "prompt":  "an arrow thudding into a wooden target and quivering, single short impact with a brief wobble, close microphone"
+                 },
+                 {
+                     "id":  "sfx_arrow_hit_wood_s2202",
+                     "seed":  2202,
+                     "seconds":  1.5,
+                     "prompt":  "an arrow thudding into a wooden target and quivering, single short impact with a brief wobble, close microphone"
+                 },
+                 {
+                     "id":  "sfx_arrow_hit_wood_s3303",
+                     "seed":  3303,
+                     "seconds":  1.5,
+                     "prompt":  "an arrow thudding into a wooden target and quivering, single short impact with a brief wobble, close microphone"
+                 },
+                 {
+                     "id":  "sfx_footstep_grass_s1101",
+                     "seed":  1101,
+                     "seconds":  1,
+                     "prompt":  "a single soft footstep of a leather boot on short grass, close microphone, clean, quiet"
+                 },
+                 {
+                     "id":  "sfx_footstep_grass_s2202",
+                     "seed":  2202,
+                     "seconds":  1,
+                     "prompt":  "a single soft footstep of a leather boot on short grass, close microphone, clean, quiet"
+                 },
+                 {
+                     "id":  "sfx_footstep_grass_s3303",
+                     "seed":  3303,
+                     "seconds":  1,
+                     "prompt":  "a single soft footstep of a leather boot on short grass, close microphone, clean, quiet"
+                 },
+                 {
+                     "id":  "sfx_footstep_stone_s1101",
+                     "seed":  1101,
+                     "seconds":  1,
+                     "prompt":  "a single footstep of a leather boot on a stone floor inside a cave, slight short echo, clean"
+                 },
+                 {
+                     "id":  "sfx_footstep_stone_s2202",
+                     "seed":  2202,
+                     "seconds":  1,
+                     "prompt":  "a single footstep of a leather boot on a stone floor inside a cave, slight short echo, clean"
+                 },
+                 {
+                     "id":  "sfx_footstep_stone_s3303",
+                     "seed":  3303,
+                     "seconds":  1,
+                     "prompt":  "a single footstep of a leather boot on a stone floor inside a cave, slight short echo, clean"
+                 },
+                 {
+                     "id":  "sfx_burrling_squeak_s1101",
+                     "seed":  1101,
+                     "seconds":  1.5,
+                     "prompt":  "a small cute angry creature squeak, high pitched chittering growl, short, cartoon animal, close microphone"
+                 },
+                 {
+                     "id":  "sfx_burrling_squeak_s2202",
+                     "seed":  2202,
+                     "seconds":  1.5,
+                     "prompt":  "a small cute angry creature squeak, high pitched chittering growl, short, cartoon animal, close microphone"
+                 },
+                 {
+                     "id":  "sfx_burrling_squeak_s3303",
+                     "seed":  3303,
+                     "seconds":  1.5,
+                     "prompt":  "a small cute angry creature squeak, high pitched chittering growl, short, cartoon animal, close microphone"
+                 },
+                 {
+                     "id":  "sfx_thornback_snort_s1101",
+                     "seed":  1101,
+                     "seconds":  2,
+                     "prompt":  "a big wild boar snorting and grunting angrily before charging, deep, short, close microphone"
+                 },
+                 {
+                     "id":  "sfx_thornback_snort_s2202",
+                     "seed":  2202,
+                     "seconds":  2,
+                     "prompt":  "a big wild boar snorting and grunting angrily before charging, deep, short, close microphone"
+                 },
+                 {
+                     "id":  "sfx_thornback_snort_s3303",
+                     "seed":  3303,
+                     "seconds":  2,
+                     "prompt":  "a big wild boar snorting and grunting angrily before charging, deep, short, close microphone"
+                 },
+                 {
+                     "id":  "sfx_rootwarden_step_s1101",
+                     "seed":  1101,
+                     "seconds":  2.5,
+                     "prompt":  "one enormous slow footstep of a giant stone and wood golem, deep ground-shaking thud with creaking timber and falling pebbles"
+                 },
+                 {
+                     "id":  "sfx_rootwarden_step_s2202",
+                     "seed":  2202,
+                     "seconds":  2.5,
+                     "prompt":  "one enormous slow footstep of a giant stone and wood golem, deep ground-shaking thud with creaking timber and falling pebbles"
+                 },
+                 {
+                     "id":  "sfx_rootwarden_step_s3303",
+                     "seed":  3303,
+                     "seconds":  2.5,
+                     "prompt":  "one enormous slow footstep of a giant stone and wood golem, deep ground-shaking thud with creaking timber and falling pebbles"
+                 },
+                 {
+                     "id":  "sfx_wood_creak_s1101",
+                     "seed":  1101,
+                     "seconds":  2,
+                     "prompt":  "old thick timber creaking and groaning slowly under strain, a single long creak, close microphone"
+                 },
+                 {
+                     "id":  "sfx_wood_creak_s2202",
+                     "seed":  2202,
+                     "seconds":  2,
+                     "prompt":  "old thick timber creaking and groaning slowly under strain, a single long creak, close microphone"
+                 },
+                 {
+                     "id":  "sfx_wood_creak_s3303",
+                     "seed":  3303,
+                     "seconds":  2,
+                     "prompt":  "old thick timber creaking and groaning slowly under strain, a single long creak, close microphone"
+                 },
+                 {
+                     "id":  "sfx_mote_chime_s1101",
+                     "seed":  1101,
+                     "seconds":  2.5,
+                     "prompt":  "a gentle magical sparkle, bright glassy bell chimes rising softly, warm and shimmering, short, clean"
+                 },
+                 {
+                     "id":  "sfx_mote_chime_s2202",
+                     "seed":  2202,
+                     "seconds":  2.5,
+                     "prompt":  "a gentle magical sparkle, bright glassy bell chimes rising softly, warm and shimmering, short, clean"
+                 },
+                 {
+                     "id":  "sfx_mote_chime_s3303",
+                     "seed":  3303,
+                     "seconds":  2.5,
+                     "prompt":  "a gentle magical sparkle, bright glassy bell chimes rising softly, warm and shimmering, short, clean"
+                 },
+                 {
+                     "id":  "sfx_knot_cast_s1101",
+                     "seed":  1101,
+                     "seconds":  2,
+                     "prompt":  "a magic spell being cast, a bright glassy shimmer swelling quickly into a soft airy burst, tonal, clean, short"
+                 },
+                 {
+                     "id":  "sfx_knot_cast_s2202",
+                     "seed":  2202,
+                     "seconds":  2,
+                     "prompt":  "a magic spell being cast, a bright glassy shimmer swelling quickly into a soft airy burst, tonal, clean, short"
+                 },
+                 {
+                     "id":  "sfx_knot_cast_s3303",
+                     "seed":  3303,
+                     "seconds":  2,
+                     "prompt":  "a magic spell being cast, a bright glassy shimmer swelling quickly into a soft airy burst, tonal, clean, short"
+                 },
+                 {
+                     "id":  "sfx_heal_s1101",
+                     "seed":  1101,
+                     "seconds":  3,
+                     "prompt":  "a soothing healing magic sound, soft warm glassy tones rising gently like a slow breath, calm, shimmering, clean"
+                 },
+                 {
+                     "id":  "sfx_heal_s2202",
+                     "seed":  2202,
+                     "seconds":  3,
+                     "prompt":  "a soothing healing magic sound, soft warm glassy tones rising gently like a slow breath, calm, shimmering, clean"
+                 },
+                 {
+                     "id":  "sfx_heal_s3303",
+                     "seed":  3303,
+                     "seconds":  3,
+                     "prompt":  "a soothing healing magic sound, soft warm glassy tones rising gently like a slow breath, calm, shimmering, clean"
+                 },
+                 {
+                     "id":  "sfx_cradle_hum_s1101",
+                     "seed":  1101,
+                     "seconds":  4,
+                     "prompt":  "a soft warm steady magical hum with slow gentle glassy shimmer, peaceful, a glowing shrine, seamless ambience"
+                 },
+                 {
+                     "id":  "sfx_cradle_hum_s2202",
+                     "seed":  2202,
+                     "seconds":  4,
+                     "prompt":  "a soft warm steady magical hum with slow gentle glassy shimmer, peaceful, a glowing shrine, seamless ambience"
+                 },
+                 {
+                     "id":  "sfx_cradle_hum_s3303",
+                     "seed":  3303,
+                     "seconds":  4,
+                     "prompt":  "a soft warm steady magical hum with slow gentle glassy shimmer, peaceful, a glowing shrine, seamless ambience"
+                 },
+                 {
+                     "id":  "sfx_lantern_flame_s1101",
+                     "seed":  1101,
+                     "seconds":  4,
+                     "prompt":  "a small candle flame flickering softly inside a lantern, quiet gentle crackle, close microphone, steady ambience"
+                 },
+                 {
+                     "id":  "sfx_lantern_flame_s2202",
+                     "seed":  2202,
+                     "seconds":  4,
+                     "prompt":  "a small candle flame flickering softly inside a lantern, quiet gentle crackle, close microphone, steady ambience"
+                 },
+                 {
+                     "id":  "sfx_lantern_flame_s3303",
+                     "seed":  3303,
+                     "seconds":  4,
+                     "prompt":  "a small candle flame flickering softly inside a lantern, quiet gentle crackle, close microphone, steady ambience"
+                 },
+                 {
+                     "id":  "sfx_chest_open_s1101",
+                     "seed":  1101,
+                     "seconds":  2,
+                     "prompt":  "a small wooden treasure chest opening, a brass latch click then a short wooden lid creak, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_chest_open_s2202",
+                     "seed":  2202,
+                     "seconds":  2,
+                     "prompt":  "a small wooden treasure chest opening, a brass latch click then a short wooden lid creak, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_chest_open_s3303",
+                     "seed":  3303,
+                     "seconds":  2,
+                     "prompt":  "a small wooden treasure chest opening, a brass latch click then a short wooden lid creak, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_item_pickup_s1101",
+                     "seed":  1101,
+                     "seconds":  1,
+                     "prompt":  "a short soft leather and cloth rustle as a small item is picked up and pocketed, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_item_pickup_s2202",
+                     "seed":  2202,
+                     "seconds":  1,
+                     "prompt":  "a short soft leather and cloth rustle as a small item is picked up and pocketed, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_item_pickup_s3303",
+                     "seed":  3303,
+                     "seconds":  1,
+                     "prompt":  "a short soft leather and cloth rustle as a small item is picked up and pocketed, close microphone, clean"
+                 },
+                 {
+                     "id":  "sfx_ui_confirm_s1101",
+                     "seed":  1101,
+                     "seconds":  1,
+                     "prompt":  "a short soft pleasant wooden click with a tiny warm chime, user interface confirm sound, clean"
+                 },
+                 {
+                     "id":  "sfx_ui_confirm_s2202",
+                     "seed":  2202,
+                     "seconds":  1,
+                     "prompt":  "a short soft pleasant wooden click with a tiny warm chime, user interface confirm sound, clean"
+                 },
+                 {
+                     "id":  "sfx_ui_confirm_s3303",
+                     "seed":  3303,
+                     "seconds":  1,
+                     "prompt":  "a short soft pleasant wooden click with a tiny warm chime, user interface confirm sound, clean"
+                 },
+                 {
+                     "id":  "sfx_wind_meadow_s1101",
+                     "seed":  1101,
+                     "seconds":  6,
+                     "prompt":  "gentle wind blowing across an open grassy meadow, soft rustling grass, distant birds, calm daytime ambience, seamless"
+                 },
+                 {
+                     "id":  "sfx_wind_meadow_s2202",
+                     "seed":  2202,
+                     "seconds":  6,
+                     "prompt":  "gentle wind blowing across an open grassy meadow, soft rustling grass, distant birds, calm daytime ambience, seamless"
+                 },
+                 {
+                     "id":  "sfx_wind_meadow_s3303",
+                     "seed":  3303,
+                     "seconds":  6,
+                     "prompt":  "gentle wind blowing across an open grassy meadow, soft rustling grass, distant birds, calm daytime ambience, seamless"
+                 },
+                 {
+                     "id":  "sfx_cave_drips_s1101",
+                     "seed":  1101,
+                     "seconds":  6,
+                     "prompt":  "quiet underground cave ambience, slow water drips echoing, faint low air movement, dark and spacious, seamless"
+                 },
+                 {
+                     "id":  "sfx_cave_drips_s2202",
+                     "seed":  2202,
+                     "seconds":  6,
+                     "prompt":  "quiet underground cave ambience, slow water drips echoing, faint low air movement, dark and spacious, seamless"
+                 },
+                 {
+                     "id":  "sfx_cave_drips_s3303",
+                     "seed":  3303,
+                     "seconds":  6,
+                     "prompt":  "quiet underground cave ambience, slow water drips echoing, faint low air movement, dark and spacious, seamless"
+                 }
+             ]
+}

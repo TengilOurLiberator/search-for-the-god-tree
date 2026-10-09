@@ -1,0 +1,54 @@
+{
+    "id":  "sfx_ui_confirm",
+    "title":  "Ui Confirm",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "steps":  [
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a short soft pleasant wooden click with a tiny warm chime, user interface confirm sound, clean",
+                      "seed":  1101,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a short soft pleasant wooden click with a tiny warm chime, user interface confirm sound, clean",
+                      "seed":  2202,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a short soft pleasant wooden click with a tiny warm chime, user interface confirm sound, clean",
+                      "seed":  3303,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/finish_audio.py: resampled to 48 kHz, level set by peak, short fades, encoded as Ogg Vorbis; sound effects also mixed to mono and trimmed of silence.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_ui_confirm_01.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_ui_confirm_02.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_ui_confirm_03.ogg"
+                    }
+                ],
+    "notes":  "Each step is one seed and produced one output file, in order. Measured: sfx_ui_confirm_01.ogg: 0.85 s, 1 ch, 10 KB; sfx_ui_confirm_02.ogg: 1.0 s, 1 ch, 11 KB; sfx_ui_confirm_03.ogg: 0.37 s, 1 ch, 7 KB. Not yet listened to by a person: checked by measurement only (length, level, not silent, not clipped)."
+}

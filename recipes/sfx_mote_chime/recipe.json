@@ -1,0 +1,54 @@
+{
+    "id":  "sfx_mote_chime",
+    "title":  "Mote Chime",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "steps":  [
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a gentle magical sparkle, bright glassy bell chimes rising softly, warm and shimmering, short, clean",
+                      "seed":  1101,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a gentle magical sparkle, bright glassy bell chimes rising softly, warm and shimmering, short, clean",
+                      "seed":  2202,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a gentle magical sparkle, bright glassy bell chimes rising softly, warm and shimmering, short, clean",
+                      "seed":  3303,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/finish_audio.py: resampled to 48 kHz, level set by peak, short fades, encoded as Ogg Vorbis; sound effects also mixed to mono and trimmed of silence.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_mote_chime_01.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_mote_chime_02.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_mote_chime_03.ogg"
+                    }
+                ],
+    "notes":  "Each step is one seed and produced one output file, in order. Measured: sfx_mote_chime_01.ogg: 0.11 s, 1 ch, 5 KB; sfx_mote_chime_02.ogg: 0.89 s, 1 ch, 13 KB; sfx_mote_chime_03.ogg: 0.22 s, 1 ch, 6 KB. Not yet listened to by a person: checked by measurement only (length, level, not silent, not clipped)."
+}

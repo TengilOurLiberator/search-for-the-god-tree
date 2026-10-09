@@ -1,0 +1,54 @@
+{
+    "id":  "sfx_sword_hit_wood_light",
+    "title":  "Sword Hit Wood Light",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "steps":  [
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a light wooden knock, a steel sword blade tapping a wooden post, single short dry impact, close microphone, clean, no reverb",
+                      "seed":  1101,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a light wooden knock, a steel sword blade tapping a wooden post, single short dry impact, close microphone, clean, no reverb",
+                      "seed":  2202,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "a light wooden knock, a steel sword blade tapping a wooden post, single short dry impact, close microphone, clean, no reverb",
+                      "seed":  3303,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/finish_audio.py: resampled to 48 kHz, level set by peak, short fades, encoded as Ogg Vorbis; sound effects also mixed to mono and trimmed of silence.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_sword_hit_wood_light_01.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_sword_hit_wood_light_02.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_sword_hit_wood_light_03.ogg"
+                    }
+                ],
+    "notes":  "Each step is one seed and produced one output file, in order. Measured: sfx_sword_hit_wood_light_01.ogg: 0.36 s, 1 ch, 6 KB; sfx_sword_hit_wood_light_02.ogg: 0.4 s, 1 ch, 7 KB; sfx_sword_hit_wood_light_03.ogg: 1.49 s, 1 ch, 14 KB. Not yet listened to by a person: checked by measurement only (length, level, not silent, not clipped)."
+}

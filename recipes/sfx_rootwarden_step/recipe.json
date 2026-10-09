@@ -1,0 +1,54 @@
+{
+    "id":  "sfx_rootwarden_step",
+    "title":  "Rootwarden Step",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "steps":  [
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "one enormous slow footstep of a giant stone and wood golem, deep ground-shaking thud with creaking timber and falling pebbles",
+                      "seed":  1101,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "one enormous slow footstep of a giant stone and wood golem, deep ground-shaking thud with creaking timber and falling pebbles",
+                      "seed":  2202,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "one enormous slow footstep of a giant stone and wood golem, deep ground-shaking thud with creaking timber and falling pebbles",
+                      "seed":  3303,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/finish_audio.py: resampled to 48 kHz, level set by peak, short fades, encoded as Ogg Vorbis; sound effects also mixed to mono and trimmed of silence.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_rootwarden_step_01.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_rootwarden_step_02.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_rootwarden_step_03.ogg"
+                    }
+                ],
+    "notes":  "Each step is one seed and produced one output file, in order. Measured: sfx_rootwarden_step_01.ogg: 2.1 s, 1 ch, 21 KB; sfx_rootwarden_step_02.ogg: 2.36 s, 1 ch, 35 KB; sfx_rootwarden_step_03.ogg: 2.42 s, 1 ch, 25 KB. Not yet listened to by a person: checked by measurement only (length, level, not silent, not clipped)."
+}

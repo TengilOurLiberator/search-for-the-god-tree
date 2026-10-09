@@ -1,0 +1,54 @@
+{
+    "id":  "sfx_cave_drips",
+    "title":  "Cave Drips",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "steps":  [
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "quiet underground cave ambience, slow water drips echoing, faint low air movement, dark and spacious, seamless",
+                      "seed":  1101,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "quiet underground cave ambience, slow water drips echoing, faint low air movement, dark and spacious, seamless",
+                      "seed":  2202,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "stable-audio-open",
+                      "tool":  "comfyui",
+                      "version":  "Stable Audio Open 1.0 (Comfy-Org repack), t5-base text encoder, ComfyUI 0.39.0",
+                      "prompt":  "quiet underground cave ambience, slow water drips echoing, faint low air movement, dark and spacious, seamless",
+                      "seed":  3303,
+                      "vram_gb":  6,
+                      "workflow":  "workflow.json"
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/finish_audio.py: resampled to 48 kHz, level set by peak, short fades, encoded as Ogg Vorbis; sound effects also mixed to mono and trimmed of silence.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_cave_drips_01.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_cave_drips_02.ogg"
+                    },
+                    {
+                        "path":  "unity/Assets/Godtree/Audio/Sfx/sfx_cave_drips_03.ogg"
+                    }
+                ],
+    "notes":  "Each step is one seed and produced one output file, in order. Measured: sfx_cave_drips_01.ogg: 6.04 s, 2 ch, 91 KB; sfx_cave_drips_02.ogg: 6.04 s, 2 ch, 93 KB; sfx_cave_drips_03.ogg: 6.04 s, 2 ch, 87 KB. Not yet listened to by a person: checked by measurement only (length, level, not silent, not clipped)."
+}

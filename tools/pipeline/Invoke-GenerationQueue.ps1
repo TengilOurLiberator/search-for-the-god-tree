@@ -72,6 +72,8 @@ $template = [System.IO.File]::ReadAllText((Resolve-Path $templatePath).Path, [Sy
 [void](New-Item -ItemType Directory -Force -Path $OutDir)
 $logPath = Join-Path $OutDir 'generation-log.jsonl'
 $comfyOut = Join-Path $ComfyRoot 'ComfyUI\output'
+$outExt = 'png'
+if ($null -ne $spec.PSObject.Properties['output_ext']) { $outExt = [string]$spec.output_ext }
 
 $serverProc = $null
 if (-not (Test-Server)) {
@@ -92,7 +94,7 @@ Write-Output 'ComfyUI is up.'
 $done = 0; $skipped = 0; $failed = 0
 foreach ($job in @($spec.jobs)) {
     $id = [string]$job.id
-    $target = Join-Path $OutDir ($id + '.png')
+    $target = Join-Path $OutDir ($id + '.' + $outExt)
     if (Test-Path -LiteralPath $target) { $skipped++; continue }
     if ($MaxJobs -gt 0 -and $done -ge $MaxJobs) { break }
 
@@ -103,12 +105,19 @@ foreach ($job in @($spec.jobs)) {
         $gpu = Get-GpuState
     }
 
-    $width = 1024; $height = 1024
-    if ($null -ne $job.PSObject.Properties['width']) { $width = [int]$job.width }
-    if ($null -ne $job.PSObject.Properties['height']) { $height = [int]$job.height }
-    $wf = $template.Replace('"%PROMPT%"', (ConvertTo-JsonString ([string]$job.prompt)))
-    $wf = $wf.Replace('"%SEED%"', [string][long]$job.seed).Replace('"%WIDTH%"', [string]$width).Replace('"%HEIGHT%"', [string]$height)
-    $wf = $wf.Replace('"%ID%"', (ConvertTo-JsonString ("godtree_" + $id)))
+    # Fill the template: every "%NAME%" token is replaced by the job property of that
+    # name (numbers raw, text as a JSON string). WIDTH and HEIGHT default to 1024.
+    $values = @{ WIDTH = 1024; HEIGHT = 1024 }
+    foreach ($prop in $job.PSObject.Properties) { $values[$prop.Name.ToUpperInvariant()] = $prop.Value }
+    $values['ID'] = 'godtree_' + $id
+    $width = [int]$values['WIDTH']; $height = [int]$values['HEIGHT']
+    $wf = $template
+    foreach ($key in @($values.Keys)) {
+        $v = $values[$key]
+        if ($v -is [ValueType] -and -not ($v -is [bool])) { $text = [string]::Format([System.Globalization.CultureInfo]::InvariantCulture, '{0}', $v) }
+        else { $text = ConvertTo-JsonString ([string]$v) }
+        $wf = $wf.Replace('"%' + $key + '%"', $text)
+    }
     $body = '{"prompt":' + $wf + '}'
 
     $started = Get-Date
@@ -130,10 +139,12 @@ foreach ($job in @($spec.jobs)) {
                 $status = $entry.Value.status
                 if ($null -ne $status -and [string]$status.status_str -eq 'error') { throw 'ComfyUI reported an error for this job' }
                 foreach ($node in $entry.Value.outputs.PSObject.Properties) {
-                    $imgs = $node.Value.PSObject.Properties['images']
-                    if ($null -ne $imgs) { foreach ($img in @($imgs.Value)) { $file = Join-Path (Join-Path $comfyOut ([string]$img.subfolder)) ([string]$img.filename) } }
+                    foreach ($kind in 'images', 'audio') {
+                        $items = $node.Value.PSObject.Properties[$kind]
+                        if ($null -ne $items) { foreach ($item in @($items.Value)) { $file = Join-Path (Join-Path $comfyOut ([string]$item.subfolder)) ([string]$item.filename) } }
+                    }
                 }
-                if ($null -eq $file) { throw 'job finished without an image' }
+                if ($null -eq $file) { throw 'job finished without an output file' }
             }
         }
         Move-Item -LiteralPath $file -Destination $target -Force

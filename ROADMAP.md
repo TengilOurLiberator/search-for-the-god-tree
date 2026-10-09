@@ -48,7 +48,8 @@ Nothing here has been seen in a headset. Passing tests prove the physics behaves
 - [ ] Environment toon shader that matches MToon characters
 - [ ] Avatar route (VRoid placeholders approved; CC0 route untested)
 - [ ] Animation: no approved generator; CC0 libraries and physics only
-- [ ] Audio: ACE-Step, Stable Audio Open and Kokoro approved but not installed
+- [x] Audio pipeline proven: ACE-Step 1.5 (music) and Stable Audio Open 1.0 (sound effects) in ComfyUI, finished by `tools/pipeline/finish_audio.py`. 10 music sketches and 78 sound effects (26 sounds, 3 variations each) with recipes in `unity/Assets/Godtree/Audio/`
+- [ ] **Nobody has listened to the audio.** It was checked by measurement only. Owner or a contributor to listen and mark keepers; Kokoro (voice) not installed yet
 - [ ] Rendered previews posted automatically on pull requests
 - [ ] Style distance: character concepts sit close to a well-known hand-drawn film look; version 1 of the fragments should push toward our own. Owner to look at `stylekit/golden/concepts/` and say how far
 ### 4. Open to outside agents: not started
