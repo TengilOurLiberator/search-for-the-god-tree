@@ -1,6 +1,6 @@
 # World bible
 
-Status: Approved by the owner, 2026-10-09 (decisions/0008). Names were checked against the forbidden list only; a wider search for clashes with existing works is still to do, and a name found to clash will be replaced.
+Status: Approved by the owner, 2026-10-09 (decisions/0008). A wider name-clash check was done on 2026-10-10 ([docs/name-check.md](../docs/name-check.md)): "the Underroot" clashes with existing games and is awaiting the owner's decision on a new name; everything else is clear or generic.
 
 ## The premise
 

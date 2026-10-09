@@ -14,7 +14,8 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 | 4 | **Listen to the audio** in `unity/Assets/Godtree/Audio/` (10 music sketches, 78 sound effects). Nobody has heard any of it | Mark keepers; the rest get regenerated |
 | 5 | **Style distance.** Look at `docs/review/session-1/concepts-*.jpg`. The characters sit close to a famous hand-drawn film look. How far should version 1 of the style move away? | Move: bolder ink lines, harder shadow edges, our own face shapes |
 | 6 | **Later zones.** `docs/review/session-1/concepts-zones-*.jpg` are mood sketches for zones 2 to 5, to react to. Nothing in them is canon | Say which directions you like |
-| 7 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence. Not urgent |
+| 7 | **Rename "the Underroot"?** The name-clash check ([docs/name-check.md](docs/name-check.md)) found it in two major games and as an upcoming Steam title. All other names are clear or generic | Rename; pick from the candidates in that file or give your own |
+| 9 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence. Not urgent |
 | 8 | GPU power limit: image batches draw the full 600 W. Lowering it needs administrator rights | Set a limit of about 450 W in your GPU tool for unattended runs |
 
 ## Milestones
