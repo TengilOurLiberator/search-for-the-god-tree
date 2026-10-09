@@ -34,6 +34,8 @@ namespace Godtree.EditorTools
         private const string BimosScene = "Packages/com.kadenzombie8.bimos/Assets/Scenes/BIMOSStandard.unity";
         private const string BimosDefaultPose = "Packages/com.kadenzombie8.bimos/Assets/HandPoses/Default.asset";
         private const string RigLayer = "BIMOSRig";
+        private const string ArtDir = Root + "/Art";
+        private const string AudioDir = Root + "/Audio";
 
         [MenuItem("Godtree/Build Sandbox")]
         public static void Build()
@@ -51,6 +53,46 @@ namespace Godtree.EditorTools
 
             AssetDatabase.SaveAssets();
             Debug.Log("[Godtree] Sandbox built: " + ScenePath);
+        }
+
+        /// <summary>
+        /// Renders the sandbox scene from two fixed viewpoints to docs/images, so the scene can
+        /// be reviewed without opening the editor.
+        /// Batch: Unity -batchmode -quit -projectPath unity -executeMethod Godtree.EditorTools.SandboxBuilder.Screenshots
+        /// </summary>
+        [MenuItem("Godtree/Render Sandbox Screenshots")]
+        public static void Screenshots()
+        {
+            EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+            string outDir = Path.GetFullPath(Path.Combine(Application.dataPath, "../../docs/images"));
+            Directory.CreateDirectory(outDir);
+            Shot(new Vector3(1.6f, 1.7f, -1.4f), new Vector3(0f, 1.0f, 1.8f), Path.Combine(outDir, "sandbox_player_view.png"));
+            Shot(new Vector3(0f, 7f, -4f), new Vector3(0f, 0.5f, 7f), Path.Combine(outDir, "sandbox_gallery_view.png"));
+            Shot(new Vector3(0.9f, 1.25f, 0.45f), new Vector3(0.45f, 0.98f, 0.95f), Path.Combine(outDir, "sandbox_sword_closeup.png"));
+        }
+
+        private static void Shot(Vector3 from, Vector3 lookAt, string path)
+        {
+            var go = new GameObject("ScreenshotCamera");
+            var cam = go.AddComponent<Camera>();
+            cam.transform.position = from;
+            cam.transform.LookAt(lookAt);
+            cam.fieldOfView = 60f;
+            cam.clearFlags = CameraClearFlags.Skybox;
+            var rt = new RenderTexture(1280, 720, 24, RenderTextureFormat.ARGB32);
+            cam.targetTexture = rt;
+            cam.Render();
+            RenderTexture.active = rt;
+            var tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+            tex.Apply();
+            File.WriteAllBytes(path, tex.EncodeToPNG());
+            RenderTexture.active = null;
+            cam.targetTexture = null;
+            Object.DestroyImmediate(go);
+            Object.DestroyImmediate(rt);
+            Object.DestroyImmediate(tex);
+            Debug.Log("[Godtree] Screenshot: " + path);
         }
 
         // ------------------------------------------------------------ settings
@@ -197,6 +239,9 @@ namespace Godtree.EditorTools
 
             BuildSword(root.transform, new Vector3(0.45f, 0.96f, 0.9f), steel, leather);
             BuildDummy(root.transform, new Vector3(-0.3f, 0f, 1.9f), wood, straw, steel);
+            AddImpactSound(plinth, "sfx_sword_hit_stone");
+            BuildGallery(root.transform);
+            BuildAmbience(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
@@ -226,6 +271,19 @@ namespace Godtree.EditorTools
             Primitive(PrimitiveType.Cube, "Guard", sword.transform, new Vector3(0f, 0.10f, 0f), new Vector3(0.20f, 0.025f, 0.03f), steel);
             Primitive(PrimitiveType.Cylinder, "Grip", sword.transform, new Vector3(0f, 0f, 0f), new Vector3(0.032f, 0.09f, 0.032f), leather);
             Primitive(PrimitiveType.Sphere, "Pommel", sword.transform, new Vector3(0f, -0.105f, 0f), new Vector3(0.05f, 0.05f, 0.05f), steel);
+
+            // Show the generated model if it has been imported; the primitives stay as colliders.
+            var generated = AssetDatabase.LoadAssetAtPath<GameObject>(ArtDir + "/Weapons/wpn_sword_training.glb");
+            if (generated != null)
+            {
+                var visual = (GameObject)PrefabUtility.InstantiatePrefab(generated, sword.transform);
+                visual.name = "Visual (generated)";
+                visual.transform.localPosition = new Vector3(0f, -0.13f, 0f);
+                visual.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+                foreach (MeshRenderer primitive in sword.GetComponentsInChildren<MeshRenderer>())
+                    if (!primitive.transform.IsChildOf(visual.transform))
+                        primitive.enabled = false;
+            }
 
             var grabObject = new GameObject("Grab");
             grabObject.transform.SetParent(sword.transform, false);
@@ -263,16 +321,19 @@ namespace Godtree.EditorTools
             GameObject post = Primitive(PrimitiveType.Cylinder, "Post", dummy.transform, new Vector3(0f, 0.45f, 0f), new Vector3(0.1f, 0.45f, 0.1f), wood);
             Rigidbody postBody = post.AddComponent<Rigidbody>();
             postBody.isKinematic = true;
+            AddImpactSound(post, "sfx_sword_hit_wood_heavy");
 
             GameObject torso = Primitive(PrimitiveType.Cylinder, "Torso", dummy.transform, new Vector3(0f, 1.15f, 0f), new Vector3(0.36f, 0.28f, 0.30f), straw);
             Rigidbody torsoBody = Body(torso, 14f);
             Spring(torsoBody, postBody, new Vector3(0f, -1f, 0f), 900f, 35f);
             torso.AddComponent<ImpactFlash>();
+            AddImpactSound(torso, "sfx_sword_hit_straw");
 
             GameObject head = Primitive(PrimitiveType.Sphere, "Head", dummy.transform, new Vector3(0f, 1.60f, 0f), new Vector3(0.26f, 0.28f, 0.26f), straw);
             Rigidbody headBody = Body(head, 4f);
             Spring(headBody, torsoBody, new Vector3(0f, -0.5f, 0f), 220f, 10f);
             head.AddComponent<ImpactFlash>();
+            AddImpactSound(head, "sfx_sword_hit_metal");
 
             GameObject helmet = Primitive(PrimitiveType.Sphere, "Helmet", head.transform, new Vector3(0f, 0.28f, 0f), new Vector3(1.15f, 0.7f, 1.15f), steel);
             Object.DestroyImmediate(helmet.GetComponent<Collider>());
@@ -286,7 +347,74 @@ namespace Godtree.EditorTools
                 // Anchor at the shoulder end of the arm (cylinder local Y runs along its length).
                 Spring(armBody, torsoBody, new Vector3(0f, side * 1f, 0f), 120f, 6f);
                 arm.AddComponent<ImpactFlash>();
+                AddImpactSound(arm, "sfx_sword_hit_wood_light");
             }
+        }
+
+        /// <summary>
+        /// Every generated model in the project, set out in rows behind the dummy so the
+        /// whole kit can be judged at true scale in the headset. Visual only.
+        /// </summary>
+        private static void BuildGallery(Transform parent)
+        {
+            var gallery = new GameObject("Gallery (generated models)");
+            gallery.transform.SetParent(parent, false);
+
+            string[] rows = { "Weapons", "Props", "Environment" };
+            float z = 4.5f;
+            foreach (string row in rows)
+            {
+                string dir = ArtDir + "/" + row;
+                if (!AssetDatabase.IsValidFolder(dir))
+                    continue;
+
+                string[] guids = AssetDatabase.FindAssets("t:GameObject", new[] { dir });
+                System.Array.Sort(guids, (a, b) => string.CompareOrdinal(AssetDatabase.GUIDToAssetPath(a), AssetDatabase.GUIDToAssetPath(b)));
+                float spacing = row == "Environment" ? 6f : (row == "Props" ? 3f : 1.2f);
+                float x = -(guids.Length - 1) * spacing / 2f;
+                foreach (string guid in guids)
+                {
+                    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guid));
+                    if (prefab == null)
+                        continue;
+                    var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
+                    instance.transform.localPosition = new Vector3(x, row == "Weapons" ? 0.9f : 0f, z);
+                    instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                    x += spacing;
+                }
+                z += row == "Weapons" ? 3f : 6f;
+            }
+        }
+
+        /// <summary>Quiet meadow wind so the space is not dead silent.</summary>
+        private static void BuildAmbience(Transform parent)
+        {
+            var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(AudioDir + "/Sfx/sfx_wind_meadow_01.ogg");
+            if (clip == null)
+                return;
+            var ambience = new GameObject("Ambience (meadow wind)");
+            ambience.transform.SetParent(parent, false);
+            var source = ambience.AddComponent<AudioSource>();
+            source.clip = clip;
+            source.loop = true;
+            source.playOnAwake = true;
+            source.volume = 0.25f;
+            source.spatialBlend = 0f;
+        }
+
+        /// <summary>Gives an object the numbered variations of one generated impact sound.</summary>
+        private static void AddImpactSound(GameObject target, string soundId)
+        {
+            var clips = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 9; i++)
+            {
+                var clip = AssetDatabase.LoadAssetAtPath<AudioClip>($"{AudioDir}/Sfx/{soundId}_{i:00}.ogg");
+                if (clip != null)
+                    clips.Add(clip);
+            }
+            if (clips.Count == 0)
+                return;
+            target.AddComponent<ImpactSound>().Clips = clips.ToArray();
         }
 
         // ------------------------------------------------------------ helpers
