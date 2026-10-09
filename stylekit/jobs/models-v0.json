@@ -1,0 +1,20 @@
+{
+  "_about": "First image-to-3D pass: TripoSR on golden concepts, then tools/pipeline/blender_finish_model.py. 'tris' is the decimation target (kept under the budget class ceiling), 'size' is the longest side in metres.",
+  "image_dir": "../golden/concepts",
+  "mc_resolution": 256,
+  "jobs": [
+    { "id": "wpn_sword_training",   "image": "con_sword_training.png",    "budget_class": "weapon",       "tris": 4000,  "tex": 1024, "size": 0.95 },
+    { "id": "wpn_axe_woodcutter",   "image": "con_axe_woodcutter.png",    "budget_class": "weapon",       "tris": 4000,  "tex": 1024, "size": 0.60 },
+    { "id": "wpn_spear_meadow",     "image": "con_spear_meadow.png",      "budget_class": "weapon",       "tris": 3000,  "tex": 1024, "size": 2.00 },
+    { "id": "wpn_bow_willow",       "image": "con_bow_willow.png",        "budget_class": "weapon",       "tris": 4000,  "tex": 1024, "size": 1.30 },
+    { "id": "wpn_shield_husk",      "image": "con_shield_husk.png",       "budget_class": "weapon",       "tris": 4000,  "tex": 1024, "size": 0.60 },
+    { "id": "prp_dummy_training",   "image": "con_dummy_training.png",    "budget_class": "prop_hero",    "tris": 8000,  "tex": 2048, "size": 1.80 },
+    { "id": "prp_lantern_husk",     "image": "con_lantern_husk.png",      "budget_class": "prop_small",   "tris": 1800,  "tex": 1024, "size": 0.45 },
+    { "id": "prp_cradle_shrine",    "image": "con_cradle_shrine.png",     "budget_class": "prop_hero",    "tris": 8000,  "tex": 2048, "size": 1.20 },
+    { "id": "env_husk_house",       "image": "con_envkit_husk_house.png", "budget_class": "env_modular",  "tris": 7000,  "tex": 2048, "size": 4.50 },
+    { "id": "env_stone_wall",       "image": "con_envkit_stone_wall.png", "budget_class": "env_modular",  "tris": 7000,  "tex": 2048, "size": 4.00 },
+    { "id": "enm_burrling",         "image": "con_burrling.png",          "budget_class": "enemy_common", "tris": 12000, "tex": 2048, "size": 0.50 },
+    { "id": "enm_thornback",        "image": "con_thornback.png",         "budget_class": "enemy_common", "tris": 15000, "tex": 2048, "size": 1.60 },
+    { "id": "enm_rootwarden",       "image": "con_rootwarden.png",        "budget_class": "enemy_boss",   "tris": 40000, "tex": 2048, "size": 4.00 }
+  ]
+}

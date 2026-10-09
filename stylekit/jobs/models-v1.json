@@ -1,0 +1,20 @@
+{
+  "_about": "Second image-to-3D pass: props and flora from the v1 concepts. Same process as models-v0.",
+  "image_dir": "../golden/concepts",
+  "mc_resolution": 256,
+  "jobs": [
+    { "id": "wpn_dagger_thorn",    "image": "con_dagger_thorn.png",        "budget_class": "weapon",      "tris": 3000, "tex": 1024, "size": 0.38 },
+    { "id": "prp_barrel",          "image": "con_prop_barrel.png",         "budget_class": "prop_small",  "tris": 1800, "tex": 1024, "size": 1.00 },
+    { "id": "prp_bench",           "image": "con_prop_bench.png",          "budget_class": "prop_small",  "tris": 1800, "tex": 1024, "size": 1.60 },
+    { "id": "prp_cart",            "image": "con_prop_cart.png",           "budget_class": "prop_hero",   "tris": 8000, "tex": 2048, "size": 2.20 },
+    { "id": "prp_chest",           "image": "con_prop_chest.png",          "budget_class": "prop_small",  "tris": 1800, "tex": 1024, "size": 0.80 },
+    { "id": "prp_crate",           "image": "con_prop_crate.png",          "budget_class": "prop_small",  "tris": 1800, "tex": 1024, "size": 0.80 },
+    { "id": "prp_fence",           "image": "con_prop_fence.png",          "budget_class": "prop_small",  "tris": 1800, "tex": 1024, "size": 3.00 },
+    { "id": "prp_market_stall",    "image": "con_prop_market_stall.png",   "budget_class": "prop_hero",   "tris": 9000, "tex": 2048, "size": 2.60 },
+    { "id": "prp_mote_vial",       "image": "con_prop_mote_vial.png",      "budget_class": "prop_small",  "tris": 1500, "tex": 1024, "size": 0.14 },
+    { "id": "prp_signpost",        "image": "con_prop_signpost.png",       "budget_class": "prop_small",  "tris": 1800, "tex": 1024, "size": 2.40 },
+    { "id": "prp_well",            "image": "con_prop_well.png",           "budget_class": "prop_hero",   "tris": 8000, "tex": 2048, "size": 2.80 },
+    { "id": "env_husk_fragment",   "image": "con_flora_husk_fragment.png", "budget_class": "env_modular", "tris": 5000, "tex": 2048, "size": 2.00 },
+    { "id": "env_wind_tree",       "image": "con_flora_wind_tree.png",     "budget_class": "env_modular", "tris": 7000, "tex": 2048, "size": 4.00 }
+  ]
+}

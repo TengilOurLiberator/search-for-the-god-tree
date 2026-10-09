@@ -59,7 +59,7 @@ recipes/<asset-id>/
 | `steps[].tool` | Optional; the host tool (for example `comfyui`), also from the approved list |
 | `steps[].version` | Tool and model versions as exactly as you can state them |
 | `steps[].prompt` | The full prompt. Write `n/a` for tools that take none |
-| `steps[].seed` | The seed; `null` only if the tool has none, explained in `notes` |
+| `steps[].seed` | The seed. For tools that take none (mesh tools, Blender), write `0` and say so in `notes` |
 | `steps[].vram_gb` | Video memory the step needed; `0` for CPU-only tools |
 | `steps[].workflow` | A file in the recipe folder; required whenever the tool can export one |
 | `cleanup` | Every manual step, in order. An empty list means there were none |

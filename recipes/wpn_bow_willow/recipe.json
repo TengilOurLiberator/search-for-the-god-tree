@@ -1,0 +1,45 @@
+{
+    "id":  "wpn_bow_willow",
+    "title":  "Bow Willow",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "budget_class":  "weapon",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "A simple wooden recurve bow of pale willow with green cord wrapping at the grip, strung, standing upright. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                      "seed":  2202,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "triposr",
+                      "version":  "TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  6
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 4000 triangles, smart UV unwrap, vertex colours baked to a 1024 px texture, scaled so the longest side is 1.30 m, origin at the centre of the base.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Weapons/wpn_bow_willow.glb"
+                    }
+                ],
+    "notes":  "Input image: stylekit/golden/concepts/con_bow_willow.png. TripoSR ran at marching-cubes resolution 256 with its default background removal; it and Blender take no seed (seed 0 is a placeholder). Measured: source_tris=7264 final_tris=4000 dims=0.339x0.405x1.300 tex=1024. Placeholder grade: shape is usable, colours are washed out and soft. To be replaced when a higher-quality 3D generator is approved."
+}

@@ -1,0 +1,45 @@
+{
+    "id":  "prp_well",
+    "title":  "Well",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "budget_class":  "prop_hero",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "A round stone village well with a small thatched roof on two wooden posts, a rope, a wooden bucket. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                      "seed":  2202,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "triposr",
+                      "version":  "TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  6
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 8000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 2.80 m, origin at the centre of the base.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Props/prp_well.glb"
+                    }
+                ],
+    "notes":  "Input image: stylekit/golden/concepts/con_prop_well.png. TripoSR ran at marching-cubes resolution 256 with its default background removal; it and Blender take no seed (seed 0 is a placeholder). Measured: source_tris=132918 final_tris=8000 dims=2.462x2.133x2.800 tex=2048. Placeholder grade: shape is usable, colours are washed out and soft. To be replaced when a higher-quality 3D generator is approved."
+}

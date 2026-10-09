@@ -37,12 +37,20 @@ Nothing else is waiting.
 - [ ] Replace placeholders with generated models
 
 Nothing here has been seen in a headset. Passing tests prove the physics behaves, not that it feels right.
-### 3. Asset pipeline proof and style kit: not started
+### 3. Asset pipeline proof and style kit: in progress
 
-One character, weapon, enemy and environment kit generated locally end to end, with recipes and golden reference assets. Also settles: a clean TRELLIS.2 workflow, the environment toon shader, the model interchange format, rendered previews on pull requests, and the avatar route. Blocked by toolchain and canon approval.
-
-Known gaps going in: no approved animation generator, no approved sound-effect generator, one unconditionally approved 3D generator (TripoSR).
-
+- [x] Image pipeline proven: Z-Image Turbo in ComfyUI, driven unattended by `tools/pipeline/Invoke-GenerationQueue.ps1` (about 3 s per image, 23 GB video memory)
+- [x] Style kit v0: prompt fragments, one proven workflow, 50 golden concept images covering Zone 1 (town, wilderness, dungeon, enemies, characters, props, weapons)
+- [x] 3D pipeline proven end to end: concept image, TripoSR, `tools/pipeline/blender_finish_model.py` (decimate, unwrap, bake, scale), `.glb`, recipe, budget check. Driven by `tools/pipeline/Invoke-ModelQueue.ps1` and `Publish-Models.ps1`
+- [x] 21 placeholder-grade models with recipes in `unity/Assets/Godtree/Art/` (6 weapons, 13 props, 2 environment pieces)
+- [ ] **Golden-quality 3D.** TripoSR gives usable shapes for simple props and weapons but soft, washed-out colour, and fails on creatures, trees and anything thin. Next: trace TRELLIS.2's code for its non-commercial parts and prove a clean workflow (decision 0006), or sharpen textures by projecting the concept image onto the mesh
+- [ ] Unity cannot import `.glb` yet: choose and verify a glTF importer (UniVRM's UniGLTF arrives with the avatar work; Unity's glTFast needs a licence read)
+- [ ] Environment toon shader that matches MToon characters
+- [ ] Avatar route (VRoid placeholders approved; CC0 route untested)
+- [ ] Animation: no approved generator; CC0 libraries and physics only
+- [ ] Audio: ACE-Step, Stable Audio Open and Kokoro approved but not installed
+- [ ] Rendered previews posted automatically on pull requests
+- [ ] Style distance: character concepts sit close to a well-known hand-drawn film look; version 1 of the fragments should push toward our own. Owner to look at `stylekit/golden/concepts/` and say how far
 ### 4. Open to outside agents: not started
 
 Briefs published, trust ladder in effect. Requires something runnable (2) and a style kit (3).
