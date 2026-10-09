@@ -1,0 +1,78 @@
+{
+  "_about": "Which paths each task type may touch, and which trust tier may open each task type. Read by tools/checks from the BASE branch, never from the pull request. Globs: ** matches any depth, * matches within one path segment.",
+  "version": 1,
+
+  "task_types": {
+    "asset": {
+      "min_tier": 0,
+      "allowed": [
+        "recipes/**",
+        "unity/Assets/Godtree/Art/**",
+        "unity/Assets/Godtree/Audio/**"
+      ]
+    },
+    "docs": {
+      "min_tier": 0,
+      "allowed": [ "docs/**" ]
+    },
+    "proposal": {
+      "min_tier": 0,
+      "allowed": [ "proposals/**" ]
+    },
+    "code": {
+      "min_tier": 1,
+      "allowed": [
+        "unity/Assets/Godtree/Scripts/**",
+        "unity/Assets/Godtree/Tests/**",
+        "unity/Assets/Godtree/Prefabs/**",
+        "unity/Assets/Godtree/Scenes/**"
+      ]
+    },
+    "restricted": {
+      "min_tier": 2,
+      "allowed": [ "**" ]
+    }
+  },
+
+  "restricted": {
+    "_about": "Paths only the lead and owner-approved agents (tier 2) may change, whatever the task type says. A pull request that touches any of these needs the owner's approval before merge.",
+    "paths": [
+      ".github/**",
+      "tools/**",
+      "data/**",
+      "canon/**",
+      "decisions/**",
+      "stylekit/**",
+      "AGENTS.md",
+      "CONTRIBUTING.md",
+      "README.md",
+      "ROADMAP.md",
+      "LICENSE*",
+      "THIRD_PARTY_LICENCES.md",
+      ".gitattributes",
+      ".gitignore",
+      ".editorconfig",
+      "unity/ProjectSettings/**",
+      "unity/Packages/**",
+      "unity/Assets/Godtree/Scripts/Net/**",
+      "**/Editor/**",
+      "**/*.asmdef",
+      "**/*.asmref",
+      "**/*.dll",
+      "**/*.exe",
+      "**/*.so",
+      "**/*.dylib",
+      "**/*.unitypackage",
+      "**/*.ps1",
+      "**/*.sh",
+      "**/*.bat",
+      "**/*.cmd",
+      "**/*.py"
+    ]
+  },
+
+  "asset_roots": [
+    "unity/Assets/Godtree/Art/",
+    "unity/Assets/Godtree/Audio/"
+  ]
+}

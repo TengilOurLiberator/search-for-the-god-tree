@@ -1,0 +1,24 @@
+name: Licence or compatibility report
+description: A claim in the guides or THIRD_PARTY_LICENCES.md is wrong or out of date.
+title: "[licence] "
+labels: ["licence"]
+body:
+  - type: input
+    id: item
+    attributes:
+      label: Tool, model, package or source
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: What our files say
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: What the primary source says
+      description: Link to the official repository, model page or terms, and the date you read it.
+    validations:
+      required: true

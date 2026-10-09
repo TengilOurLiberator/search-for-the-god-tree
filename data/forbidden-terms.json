@@ -1,0 +1,26 @@
+{
+  "_about": "Names from existing works that must never appear in the game, its assets, prompts or file names. Matching is case-insensitive on whole words or phrases. This list catches the obvious cases only; review catches the rest. Add terms freely; never remove one to get a contribution through.",
+  "version": 1,
+  "terms": [
+    "Sword Art Online", "SAO", "Aincrad", "Kirito", "Asuna", "Kayaba", "Alfheim", "Gun Gale Online",
+    "Alicization", "Sinon", "Leafa", "Elucidator", "Dark Repulser", "Lambent Light", "NerveGear",
+    "AmuSphere", "Knights of the Blood", "Laughing Coffin", "Starburst Stream",
+    "Log Horizon", "Elder Tale", "Shiroe",
+    "dot hack", ".hack",
+    "Ainz Ooal Gown", "Nazarick",
+    "Shangri-La Frontier", "Bofuri", "NewWorld Online",
+    "Infinite Dendrogram", "Accel World", "Brain Burst",
+    "Genshin", "Zelda", "Hyrule", "Elden Ring", "Erdtree", "Yggdrasil",
+    "Final Fantasy", "Monster Hunter", "Pokemon", "Naruto", "Ghibli"
+  ],
+  "exempt_paths": [
+    "data/forbidden-terms.json",
+    "AGENTS.md",
+    "README.md",
+    "CONTRIBUTING.md",
+    "canon/vision.md",
+    "canon/world-bible.md",
+    "decisions/**",
+    "tools/checks/tests/**"
+  ]
+}

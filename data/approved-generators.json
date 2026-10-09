@@ -1,0 +1,55 @@
+{
+  "_about": "Generators, tools and ready-made sources, with the status the checks enforce. Only status 'approved' may appear in a recipe. Evidence, links and dates for every entry are in THIRD_PARTY_LICENCES.md. Changing a status is a licence ruling: the lead recommends, the owner decides.",
+  "version": 1,
+  "verified_on": "2026-10-09",
+  "statuses": {
+    "approved": "May be used in recipes.",
+    "conditional": "Usable only once the listed conditions are met and recorded in a decision. Not accepted by the checks until promoted to approved.",
+    "rejected": "Licence forbids what this project needs. Do not use.",
+    "unverified": "Nobody has read the primary source yet. Do not use."
+  },
+  "generators": [
+    { "id": "z-image-turbo",      "name": "Z-Image Turbo",            "kind": "image",     "status": "approved",    "licence": "Apache-2.0",                  "vram_gb": 16,  "note": "Fits 16 GB cards per the model card." },
+    { "id": "flux2-klein-4b",     "name": "FLUX.2 klein 4B",          "kind": "image",     "status": "approved",    "licence": "Apache-2.0",                  "vram_gb": 13,  "note": "Official sources disagree: 13 GB (model card) or 8 GB (repository)." },
+    { "id": "animagine-xl-4",     "name": "Animagine XL 4.0",         "kind": "image",     "status": "approved",    "licence": "CreativeML Open RAIL++-M",    "vram_gb": null, "note": "Use restrictions in the licence's Attachment A bind whoever runs the model." },
+    { "id": "comfyui",            "name": "ComfyUI",                  "kind": "tool",      "status": "approved",    "licence": "GPL-3.0",                     "vram_gb": 0,   "note": "Tool only. Never copy ComfyUI code into this repository. Each custom node has its own licence." },
+    { "id": "blender",            "name": "Blender",                  "kind": "tool",      "status": "approved",    "licence": "GPL-2.0-or-later",            "vram_gb": 0,   "note": "Output files are yours. Do not commit .blend files (they can carry scripts)." },
+    { "id": "triposr",            "name": "TripoSR",                  "kind": "3d",        "status": "approved",    "licence": "MIT",                         "vram_gb": 6,   "note": "" },
+    { "id": "unirig",             "name": "UniRig",                   "kind": "rigging",   "status": "approved",    "licence": "MIT",                         "vram_gb": 8,   "note": "Weights licence rests on the model page's MIT tag only." },
+    { "id": "mesh2motion",        "name": "Mesh2Motion",              "kind": "rigging",   "status": "approved",    "licence": "MIT (code), CC0-1.0 (bundled rigs and animations)", "vram_gb": 0, "note": "" },
+    { "id": "pbrify-remix",       "name": "PBRify Remix",             "kind": "material",  "status": "approved",    "licence": "CC0-1.0",                     "vram_gb": null, "note": "Runs in chaiNNer; no standalone ComfyUI node confirmed." },
+    { "id": "marigold-iid",       "name": "Marigold IID Appearance v1-1", "kind": "material", "status": "approved", "licence": "CreativeML Open RAIL++-M",    "vram_gb": null, "note": "" },
+    { "id": "lotus-normal",       "name": "Lotus Normal g v1-1",      "kind": "material",  "status": "approved",    "licence": "Apache-2.0",                  "vram_gb": null, "note": "" },
+    { "id": "ace-step-1.5",       "name": "ACE-Step 1.5",             "kind": "music",     "status": "approved",    "licence": "MIT",                         "vram_gb": 6,   "note": "6 GB or less needs the turbo model with the language model off; XL models need 12 to 20 GB." },
+    { "id": "kokoro",             "name": "Kokoro-82M",               "kind": "voice",     "status": "approved",    "licence": "Apache-2.0",                  "vram_gb": null, "note": "espeak-ng (GPL) is a separate tool; never bundle it into this repository." },
+
+    { "id": "trellis2",           "name": "TRELLIS.2",                "kind": "3d",        "status": "conditional", "licence": "MIT, with non-commercial parts in the default pipeline", "vram_gb": 24, "note": "Conditions: no RMBG-2.0 background remover (CC BY-NC); no nvdiffrast or nvdiffrec code paths (non-commercial); DINOv3 licence accepted. A clean workflow must be proven in the pipeline milestone before promotion." },
+    { "id": "stablegen",          "name": "StableGen (Blender add-on)", "kind": "tool",    "status": "conditional", "licence": "GPL-3.0",                     "vram_gb": 8,   "note": "Conditions: approved checkpoints only; never its native TRELLIS.2 texture mode. IPAdapter and ControlNet model licences not yet read." },
+    { "id": "stable-projectorz",  "name": "Stable Projectorz",        "kind": "tool",      "status": "conditional", "licence": "AGPL-3.0",                    "vram_gb": null, "note": "Conditions: approved back-end models only. Bundled ControlNet licences not yet read." },
+    { "id": "stable-fast-3d",     "name": "Stable Fast 3D",           "kind": "3d",        "status": "conditional", "licence": "Stability AI Community License", "vram_gb": 6, "note": "Owner decision: requires registering with Stability AI; free only under US $1M annual revenue." },
+    { "id": "stable-audio-open",  "name": "Stable Audio Open 1.0 / Small", "kind": "sfx",  "status": "conditional", "licence": "Stability AI Community License", "vram_gb": null, "note": "Owner decision: same registration and revenue terms as Stable Fast 3D. It is the only sound-effect generator on the candidate list." },
+    { "id": "chatterbox",         "name": "Chatterbox",               "kind": "voice",     "status": "conditional", "licence": "MIT",                         "vram_gb": null, "note": "Every output carries an inaudible watermark with no documented off switch. Owner to accept or decline." },
+    { "id": "deepbump",           "name": "DeepBump",                 "kind": "material",  "status": "conditional", "licence": "GPL-3.0 (code); bundled models not separately licensed", "vram_gb": null, "note": "Training data undisclosed." },
+
+    { "id": "hunyuan3d-2.1",      "name": "Hunyuan3D 2.1",            "kind": "3d",        "status": "rejected",    "licence": "Tencent Hunyuan 3D 2.1 Community License", "vram_gb": 29, "note": "Licence excludes the EU, UK and South Korea, so not every contributor could reproduce an asset." },
+    { "id": "hy-motion-1.0",      "name": "HY-Motion 1.0",            "kind": "animation", "status": "rejected",    "licence": "Tencent HY-Motion 1.0 Community License", "vram_gb": 26, "note": "Same territorial exclusion; output terms conflict with CC0; FBX export depends on an unverified Autodesk SDK wheel." },
+    { "id": "noobai-xl",          "name": "NoobAI-XL and merges",     "kind": "image",     "status": "rejected",    "licence": "Fair AI Public License 1.0-SD plus added terms", "vram_gb": null, "note": "Added terms prohibit commercial use of generated products." },
+    { "id": "qwen-image-2.1",     "name": "Qwen-Image 2.1",           "kind": "image",     "status": "rejected",    "licence": "Qwen Research License",       "vram_gb": null, "note": "Research and evaluation only." },
+    { "id": "flux2-dev",          "name": "FLUX.2 dev",               "kind": "image",     "status": "rejected",    "licence": "FLUX [dev] Non-Commercial License v2.0", "vram_gb": null, "note": "Model may only be run for non-commercial purposes." },
+    { "id": "flux2-klein-9b",     "name": "FLUX.2 klein 9B",          "kind": "image",     "status": "rejected",    "licence": "FLUX Non-Commercial License v2.1", "vram_gb": 29, "note": "Same as FLUX.2 dev." },
+    { "id": "chord",              "name": "CHORD (Ubisoft)",          "kind": "material",  "status": "rejected",    "licence": "Ubisoft Machine Learning License (Research-Only - Copyleft)", "vram_gb": null, "note": "Research only. Includes the ComfyUI-Chord node." },
+    { "id": "gvhmr",              "name": "GVHMR",                    "kind": "animation", "status": "rejected",    "licence": "Custom non-commercial; SMPL/SMPL-X non-commercial", "vram_gb": null, "note": "" },
+    { "id": "xtts-v2",            "name": "XTTS v2",                  "kind": "voice",     "status": "rejected",    "licence": "Coqui Public Model License 1.0.0", "vram_gb": null, "note": "Non-commercial limit attaches to outputs." },
+
+    { "id": "stablematerials",    "name": "StableMaterials",          "kind": "material",  "status": "unverified",  "licence": "unclear ('openrail' tag, no text)", "vram_gb": null, "note": "" },
+    { "id": "pbrfusion",          "name": "PBRFusion",                "kind": "material",  "status": "unverified",  "licence": "model page gated",            "vram_gb": null, "note": "" }
+  ],
+  "sources": [
+    { "id": "polyhaven",   "name": "Poly Haven",   "status": "approved", "licence": "CC0-1.0", "note": "Assets only; site logos and renders are not CC0. No scraping." },
+    { "id": "ambientcg",   "name": "ambientCG",    "status": "approved", "licence": "CC0-1.0", "note": "" },
+    { "id": "quaternius",  "name": "Quaternius",   "status": "approved", "licence": "CC0-1.0", "note": "Free-tier packs. Check the licence file inside any paid-tier download before using it." },
+    { "id": "kenney",      "name": "Kenney",       "status": "approved", "licence": "CC0-1.0", "note": "Do not include the Kenney logo." },
+    { "id": "kaykit",      "name": "KayKit",       "status": "approved", "licence": "CC0-1.0", "note": "Free-tier packs verified on one pack only." },
+    { "id": "mixamo",      "name": "Mixamo",       "status": "rejected", "licence": "Adobe General Terms of Use", "note": "Files may be embedded in a shipped product but not distributed stand-alone, and the licence cannot be sublicensed, so they cannot live in a public CC0 repository, raw or retargeted." }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "_about": "The trust ladder as data. Keys are GitHub logins (lower case). Anyone not listed is tier 0. Only the owner changes this file. Tier 0: assets, docs, proposals. Tier 1: gameplay code. Tier 2: restricted areas (netcode, editor scripts, build configuration, checks).",
+  "version": 1,
+  "tiers": {}
+}

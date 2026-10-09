@@ -1,0 +1,50 @@
+name: Task brief
+description: A stand-alone task. Written by the lead for a capable reader who has seen nothing else.
+title: "[task] "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: "Briefs are written by the lead. To claim one, comment on it. If a brief is unclear, say so: that is a defect in the brief."
+  - type: dropdown
+    id: type
+    attributes:
+      label: Task type
+      options: [asset, docs, proposal, code, restricted]
+    validations:
+      required: true
+  - type: textarea
+    id: intent
+    attributes:
+      label: Intent
+      description: What this is for and why it matters to the game. Which pillar it serves.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Canon sections, golden assets, style kit fragments, related code. Links, not summaries.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Budget class, naming, approved generators, video memory, paths you may touch, what is out of scope.
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: The exact files expected, with paths.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: How anyone can tell the task is complete.
+    validations:
+      required: true

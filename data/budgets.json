@@ -1,0 +1,79 @@
+{
+  "_about": "Machine-readable art and audio budgets. The art bible (canon/art-bible.md) explains the intent; this file is what tools/checks enforces. Status: DRAFT until the owner approves the canon.",
+  "version": 1,
+
+  "performance": {
+    "target_fps": 90,
+    "max_visible_triangles": 1500000,
+    "max_draw_calls": 1500
+  },
+
+  "naming": {
+    "_about": "Asset file names: <category>_<name>[_<part>...].<ext>, lowercase letters, digits and underscores only.",
+    "pattern": "^(chr|wpn|enm|env|prp|ui|vfx|anm|sfx|mus|vox|con)_[a-z0-9]+(_[a-z0-9]+)*\\.[a-z0-9]+$",
+    "categories": {
+      "chr": "player and non-player characters",
+      "wpn": "weapons and shields",
+      "enm": "enemies and bosses",
+      "env": "modular environment pieces and terrain",
+      "prp": "props",
+      "ui": "interface art",
+      "vfx": "effect textures and meshes",
+      "anm": "animation clips",
+      "sfx": "sound effects",
+      "mus": "music",
+      "vox": "voice",
+      "con": "concept art"
+    }
+  },
+
+  "files": {
+    "max_bytes_any_file": 52428800,
+    "asset_extensions": [ "glb", "fbx", "vrm", "png", "jpg", "tga", "ogg", "wav", "anim", "mat", "prefab", "asset", "meta" ],
+    "measured_model_extensions": [ "glb", "vrm" ],
+    "declared_model_extensions": [ "fbx" ]
+  },
+
+  "models": {
+    "_about": "Triangle ceilings per budget class. A recipe names its budget class; .glb and .vrm files are measured, .fbx files must declare their count.",
+    "classes": {
+      "character_player": { "max_triangles": 40000, "max_texture_px": 2048 },
+      "character_npc":    { "max_triangles": 25000, "max_texture_px": 2048 },
+      "weapon":           { "max_triangles": 5000,  "max_texture_px": 1024 },
+      "enemy_common":     { "max_triangles": 20000, "max_texture_px": 2048 },
+      "enemy_boss":       { "max_triangles": 60000, "max_texture_px": 2048 },
+      "env_modular":      { "max_triangles": 8000,  "max_texture_px": 2048 },
+      "prop_small":       { "max_triangles": 2000,  "max_texture_px": 1024 },
+      "prop_hero":        { "max_triangles": 10000, "max_texture_px": 2048 }
+    }
+  },
+
+  "textures": {
+    "require_power_of_two": true,
+    "max_px_default": 2048,
+    "max_px_by_category": { "ui": 2048, "vfx": 1024, "con": 4096 },
+    "power_of_two_exempt_categories": [ "ui", "con" ]
+  },
+
+  "audio": {
+    "sample_rate_hz": 48000,
+    "shipping_format": "ogg",
+    "max_bytes": { "sfx": 1048576, "vox": 1048576, "mus": 10485760 }
+  },
+
+  "palette": {
+    "_about": "Anchor colours. Assets do not have to use only these, but key art, UI and golden assets are built from them, and recipes quote them in prompts.",
+    "sky_day":      "#6EC6FF",
+    "godtree_leaf": "#7BE0A4",
+    "godtree_bark": "#E9DCC3",
+    "mote_gold":    "#FFD86B",
+    "meadow":       "#8FD14F",
+    "deep_shadow":  "#3B3A6E",
+    "warm_shadow":  "#7A5C8E",
+    "stone":        "#B9C2CF",
+    "danger":       "#FF4D5E",
+    "heal":         "#5CF2C8",
+    "ui_ink":       "#22223B",
+    "ui_paper":     "#FFF8EA"
+  }
+}

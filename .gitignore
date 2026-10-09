@@ -1,0 +1,41 @@
+# Unity (project lives in unity/)
+unity/[Ll]ibrary/
+unity/[Tt]emp/
+unity/[Oo]bj/
+unity/[Bb]uild/
+unity/[Bb]uilds/
+unity/[Ll]ogs/
+unity/[Uu]ser[Ss]ettings/
+unity/[Mm]emoryCaptures/
+unity/[Rr]ecordings/
+unity/*.csproj
+unity/*.sln
+unity/*.suo
+unity/*.user
+unity/*.pidb
+unity/*.booproj
+unity/.vs/
+unity/.idea/
+unity/.vscode/
+unity/Assets/Plugins/steam_appid.txt
+steam_appid.txt
+crashlytics-build.properties
+
+# Never commit: Blender files can carry scripts; generators and weights stay local
+*.blend
+*.blend1
+*.safetensors
+*.ckpt
+*.gguf
+*.pth
+*.onnx
+
+# Local check inputs
+/changed.txt
+/body.md
+
+# OS and editors
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp

@@ -1,0 +1,66 @@
+# Contribution checks.
+#
+# Security notes (do not weaken without the owner's approval):
+# - Runs on `pull_request`, never `pull_request_target`: no secrets, read-only token.
+# - The check script and its rules come from the BASE commit; the pull request is
+#   only data. Nothing from the pull request is executed.
+# - The pull request description reaches the script through an environment
+#   variable and a file, never through shell interpolation.
+# - A pull request can still edit this workflow file for its own run. Such a
+#   pull request touches .github/, which is restricted: its check result is
+#   void and the lead reviews the diff by hand (docs/review.md).
+#
+# STATUS: written 2026-10-09 and not yet run on GitHub. Treat as untested.
+
+name: checks
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  self-test:
+    name: Check script tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.sha }}
+          persist-credentials: false
+      - name: Run tests
+        shell: pwsh
+        run: ./tools/checks/tests/Run-Tests.ps1
+
+  contribution:
+    name: Contribution checks
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out rules (base)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+          persist-credentials: false
+      - name: Check out contribution (merge result)
+        uses: actions/checkout@v4
+        with:
+          path: pr
+          fetch-depth: 2
+          lfs: true
+          persist-credentials: false
+      - name: Run checks
+        shell: pwsh
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+        run: |
+          git -C pr -c core.quotepath=off diff --name-status HEAD^1 HEAD | Out-File -FilePath changed.txt -Encoding utf8
+          [System.IO.File]::WriteAllText((Join-Path $PWD 'body.md'), [string]$env:PR_BODY)
+          ./base/tools/checks/Run-Checks.ps1 -RepoRoot pr -RulesRoot base -ChangedFilesPath changed.txt -PrBodyPath body.md -Author $env:PR_AUTHOR -AuthorAssociation $env:PR_ASSOCIATION
