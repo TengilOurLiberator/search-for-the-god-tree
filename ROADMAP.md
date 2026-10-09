@@ -26,10 +26,17 @@ Nothing else is waiting.
 - [x] Continuous integration: check-script tests pass on GitHub (Linux, PowerShell 7). The pull-request job has not run yet (no pull request so far)
 - [x] Toolchain: Git LFS 3.8.0, Unity 6000.3.26f1, ComfyUI 0.39.0 with Z-Image Turbo (in D:\godtree-tools, outside the repository)
 
-### 2. VR sandbox: not started
+### 2. VR sandbox: built, awaiting the owner's headset test
 
-Physics player rig (BIMOS), one sword, one training dummy, in `unity/`. First task: confirm BIMOS 1.0.0 works on Unity 6000.3. Blocked by toolchain (item 6).
+- [x] Unity 6000.3.26f1 project in `unity/`, URP, OpenXR loader with eight controller profiles, 144 Hz physics
+- [x] BIMOS 1.0.0 referenced by commit; it compiles on 6000.3
+- [x] Scene `Assets/Godtree/Scenes/Sandbox.unity`: BIMOS rig, a placeholder sword on a plinth, a spring-jointed training dummy that flashes when struck. Rebuilt any time by `Godtree > Build Sandbox`
+- [x] Four headless PlayMode tests pass (scene loads, rig spawns, sword rests, dummy rocks when hit and recovers)
+- [ ] **Owner: test in the headset.** Open `unity/` with Unity 6000.3.26f1, open the Sandbox scene, start your headset's OpenXR runtime, press Play. Report: does the rig track, can you pick up the sword by the grip, is the hand orientation on the grip right, does the dummy react believably
+- [ ] Tune from that report (grab alignment and joint springs are untested guesses)
+- [ ] Replace placeholders with generated models
 
+Nothing here has been seen in a headset. Passing tests prove the physics behaves, not that it feels right.
 ### 3. Asset pipeline proof and style kit: not started
 
 One character, weapon, enemy and environment kit generated locally end to end, with recipes and golden reference assets. Also settles: a clean TRELLIS.2 workflow, the environment toon shader, the model interchange format, rendered previews on pull requests, and the avatar route. Blocked by toolchain and canon approval.

@@ -2,6 +2,7 @@
   "dependencies": {
     "com.kadenzombie8.bimos": "https://github.com/KadenZombie8/BIMOS.git#81fe20f5bbc99748b0ad238bc1bd6ab30994425b",
     "com.unity.multiplayer.center": "1.0.1",
+    "com.unity.test-framework": "1.6.0",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.adaptiveperformance": "1.0.0",
     "com.unity.modules.ai": "1.0.0",

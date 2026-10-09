@@ -4,6 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Godtree/Scenes/Sandbox.unity
+    guid: 7196af130a4ca554d96ed46d6f1cf6cd
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f5169dab01cbb2c4ea739e566529da2c, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 419e0adb254404d499febbb435916471, type: 2}
   m_UseUCBPForAssetBundles: 0
