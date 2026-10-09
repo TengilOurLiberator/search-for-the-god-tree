@@ -1,0 +1,18 @@
+{
+  "_about": "Shared prompt fragments. Every image recipe is built as: subject sentence + one 'framing' fragment + the 'style' fragment. Change these only with a decision entry; bump 'version' when you do. Status: v0, first pass, tuned against Z-Image Turbo only.",
+  "version": 0,
+  "style": "Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+  "framing": {
+    "object_for_3d": "A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects.",
+    "creature_for_3d": "A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery.",
+    "character_sheet": "Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands.",
+    "landscape": "Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky.",
+    "interior": "Wide interior shot, readable depth, a few strong light sources, clear walkable floor."
+  },
+  "world": {
+    "godtree": "Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground.",
+    "motes": "Small drifting points of warm gold light float in the air.",
+    "husk": "A giant fallen seed husk, pale cream and tan, ribbed like a split walnut shell the size of a house."
+  },
+  "palette_words": "sky blue #6EC6FF, leaf green #7BE0A4, pale bark cream #E9DCC3, mote gold #FFD86B, meadow green #8FD14F, deep violet shadow #3B3A6E"
+}

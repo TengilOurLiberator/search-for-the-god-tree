@@ -14,3 +14,4 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0006](0006-generator-rulings.md) | 2026-10-09 | First approved, conditional and rejected generator lists | Lead, pending owner on marked items |
 | [0007](0007-cc0-only-asset-inputs.md) | 2026-10-09 | Only CC0 third-party material may be folded into assets | Lead |
 | [0008](0008-canon-approved.md) | 2026-10-09 | Canon approved as drafted; first push and toolchain installs authorised | Owner |
+| [0009](0009-overnight-authorisations.md) | 2026-10-09 | VRoid placeholders, Stable Audio Open and Chatterbox accepted; ragdolls in-house; lead may push own work; pacing | Owner |

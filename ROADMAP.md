@@ -6,13 +6,11 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 
 ## Waiting on the owner
 
-| # | Decision | Lead's recommendation |
+| # | Item | Note |
 |---|---|---|
-| 1 | VRoid avatars cannot be CC0 (pixiv keeps rights in the base body and presets). How are avatars licensed or made? | Use VRoid for placeholder avatars in a separate folder under pixiv's terms, excluded from CC0; test a fully CC0 route (generated mesh, UniRig, VRM export) in milestone 3 and decide then |
-| 2 | Stability AI Community License (Stable Audio Open, Stable Fast 3D): register with Stability AI and accept the US $1M revenue ceiling? | Accept for Stable Audio Open only: it is the sole sound-effect generator candidate. Skip Stable Fast 3D |
-| 3 | Chatterbox voices carry a permanent inaudible watermark. Accept? | Decline; Kokoro covers our needs |
-| 4 | Is `Corbino50211/BIMOS-Active-Ragdolls` your repository? It has no licence, so nobody may use it | If yours, add an MIT licence. If not, write active ragdolls in-house |
-| 5 | Add the full CC0 1.0 legal text | Covered by the install authorisation in decision 0008; lead to add |
+| 1 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence (decision 0009). Not urgent |
+
+Nothing else is waiting.
 
 ## Milestones
 
@@ -25,9 +23,8 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 - [x] Licences verified from primary sources ([THIRD_PARTY_LICENCES.md](THIRD_PARTY_LICENCES.md)); approved generator list as data
 - [x] Licence choice: MIT for code, CC0 1.0 for assets (owner, 2026-10-09)
 - [x] First commit pushed to GitHub
-- [ ] The continuous-integration workflow: confirm its first run on GitHub passes
-- [ ] Toolchain: Git LFS not installed; Unity 6000.3 LTS not installed
-- [ ] Open licence decisions above
+- [x] Continuous integration: check-script tests pass on GitHub (Linux, PowerShell 7). The pull-request job has not run yet (no pull request so far)
+- [x] Toolchain: Git LFS 3.8.0, Unity 6000.3.26f1, ComfyUI 0.39.0 with Z-Image Turbo (in D:\godtree-tools, outside the repository)
 
 ### 2. VR sandbox: not started
 

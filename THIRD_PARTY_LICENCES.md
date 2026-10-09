@@ -123,3 +123,13 @@ Only CC0 material may be folded into assets ([decisions/0007](decisions/0007-cc0
 - Explicit Unity 6 support for UniVRM and Yarn Spinner (both say "2022.3 or later").
 - BIMOS on Unity 6000.3.
 - Video memory for Animagine XL 4.0, Kokoro, Chatterbox, Stable Audio Open and the material models.
+
+## 6. Owner rulings after verification (2026-10-09, decision 0009)
+
+These override the "owner decision" and "conditional" marks above for the items named.
+
+- **Stable Audio Open: approved.** The owner must register with Stability AI before any commercial release, and the US $1M revenue ceiling applies.
+- **Chatterbox: approved**, accepting the watermark. Kokoro remains the default.
+- **VRoid Studio: approved for placeholder avatars only**, kept in a separate folder under pixiv's terms and excluded from CC0.
+- **Stable Fast 3D: not ruled on**; stays conditional.
+- **BIMOS-Active-Ragdolls: not used.** Active ragdolls are written in-house.
