@@ -3,6 +3,7 @@
   "rootNamespace": "Godtree.Tests",
   "references": [
     "UnityEngine.TestRunner",
+    "kadenzombie8.bimos",
     "UnityEditor.TestRunner"
   ],
   "includePlatforms": [],

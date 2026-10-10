@@ -60,6 +60,17 @@ namespace Godtree.EditorTools
         /// be reviewed without opening the editor.
         /// Batch: Unity -batchmode -quit -projectPath unity -executeMethod Godtree.EditorTools.SandboxBuilder.Screenshots
         /// </summary>
+        /// <summary>
+        /// Opens the sandbox scene and presses Play. Menu: Godtree > Play Sandbox.
+        /// Launch: Unity -projectPath unity -executeMethod Godtree.EditorTools.SandboxBuilder.OpenAndPlay
+        /// </summary>
+        [MenuItem("Godtree/Play Sandbox")]
+        public static void OpenAndPlay()
+        {
+            EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+            EditorApplication.delayCall += () => EditorApplication.EnterPlaymode();
+        }
+
         [MenuItem("Godtree/Render Sandbox Screenshots")]
         public static void Screenshots()
         {
@@ -226,12 +237,10 @@ namespace Godtree.EditorTools
 
             var root = new GameObject("---GODTREE SANDBOX---");
 
-            // Ground, unless the base scene already has visible geometry at the origin.
-            if (!Physics.Raycast(new Vector3(0f, 5f, 0f), Vector3.down, 10f) && Object.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None).Length == 0)
-            {
-                GameObject floor = Primitive(PrimitiveType.Cube, "Ground", root.transform, new Vector3(0f, -0.5f, 0f), new Vector3(40f, 1f, 40f), ground);
-                floor.isStatic = true;
-            }
+            // A wide meadow-green ground just under the base scene's small floor, so nothing can
+            // roll or be thrown off the edge of the world.
+            GameObject floor = Primitive(PrimitiveType.Cube, "Ground", root.transform, new Vector3(0f, -0.52f, 0f), new Vector3(80f, 1f, 80f), ground);
+            floor.isStatic = true;
 
             // A stone plinth holding the sword at hand height, one step in front of the spawn.
             GameObject plinth = Primitive(PrimitiveType.Cube, "Plinth", root.transform, new Vector3(0.45f, 0.45f, 0.9f), new Vector3(0.5f, 0.9f, 0.5f), stone);
@@ -241,6 +250,7 @@ namespace Godtree.EditorTools
             BuildDummy(root.transform, new Vector3(-0.3f, 0f, 1.9f), wood, straw, steel);
             AddImpactSound(plinth, "sfx_sword_hit_stone");
             BuildGallery(root.transform);
+            BuildInstructions(root.transform);
             BuildAmbience(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -300,6 +310,12 @@ namespace Godtree.EditorTools
             grab.HandPose = AssetDatabase.LoadAssetAtPath<HandPose>(BimosDefaultPose);
             grab.EnableGrabs = new Grab[0];
             grab.DisableGrabs = new Grab[0];
+
+            // The grab line runs through the middle of the grip collider. BIMOS refuses grab
+            // points that are inside something solid unless hand clipping is allowed.
+            var serializedGrab = new SerializedObject(grab);
+            serializedGrab.FindProperty("_allowHandClipping").boolValue = true;
+            serializedGrab.ApplyModifiedPropertiesWithoutUndo();
         }
 
         /// <summary>
@@ -352,38 +368,228 @@ namespace Godtree.EditorTools
         }
 
         /// <summary>
-        /// Every generated model in the project, set out in rows behind the dummy so the
-        /// whole kit can be judged at true scale in the headset. Visual only.
+        /// Lays the scene out around the player:
+        ///  - a weapon table on the left with every generated weapon, all of them grabbable;
+        ///  - loose small props on the right to pick up and throw;
+        ///  - large props, buildings and enemies as solid scenery further back.
         /// </summary>
         private static void BuildGallery(Transform parent)
         {
-            var gallery = new GameObject("Gallery (generated models)");
+            var gallery = new GameObject("Generated models");
             gallery.transform.SetParent(parent, false);
 
-            string[] rows = { "Weapons", "Props", "Environment", "Enemies" };
-            float z = 4.5f;
-            foreach (string row in rows)
-            {
-                string dir = ArtDir + "/" + row;
-                if (!AssetDatabase.IsValidFolder(dir))
-                    continue;
+            Material wood = MakeMaterial("Sandbox_Wood", new Color(0.62f, 0.45f, 0.28f));
 
-                string[] guids = AssetDatabase.FindAssets("t:GameObject", new[] { dir });
-                System.Array.Sort(guids, (a, b) => string.CompareOrdinal(AssetDatabase.GUIDToAssetPath(a), AssetDatabase.GUIDToAssetPath(b)));
-                float spacing = (row == "Environment" || row == "Enemies") ? 6f : (row == "Props" ? 3f : 1.2f);
-                float x = -(guids.Length - 1) * spacing / 2f;
-                foreach (string guid in guids)
-                {
-                    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guid));
-                    if (prefab == null)
-                        continue;
-                    var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
-                    instance.transform.localPosition = new Vector3(x, row == "Weapons" ? 0.9f : 0f, z);
-                    instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-                    x += spacing;
-                }
-                z += row == "Weapons" ? 3f : 6f;
+            // Weapon table.
+            const float tableTop = 0.85f;
+            GameObject table = Primitive(PrimitiveType.Cube, "Weapon table", gallery.transform, new Vector3(-1.5f, tableTop / 2f, 1.1f), new Vector3(2.2f, tableTop, 0.9f), wood);
+            table.isStatic = true;
+            AddImpactSound(table, "sfx_sword_hit_wood_heavy");
+
+            float slotX = -2.35f;
+            foreach (GameObject prefab in LoadModels("Weapons"))
+            {
+                if (prefab.name == "wpn_sword_training")
+                    continue; // the sword on the plinth is this model
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
+                bool isSpear = prefab.name.Contains("spear");
+                LayFlat(instance, alongX: isSpear);
+                Vector3 slot = isSpear ? new Vector3(-1.5f, tableTop, 1.42f) : new Vector3(slotX, tableTop, 1.0f);
+                RestOn(instance, slot);
+                MakeGrabbable(instance, prefab.name.Contains("shield") ? 2.5f : 1.0f);
+                if (!isSpear)
+                    slotX += 0.42f;
             }
+
+            // Loose props to pick up, and scenery.
+            string[] loose = { "prp_crate", "prp_chest", "prp_barrel", "prp_mote_vial", "prp_lantern_husk", "prp_bench" };
+            int looseIndex = 0;
+            float sceneryX = -9f;
+            foreach (GameObject prefab in LoadModels("Props"))
+            {
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
+                if (System.Array.IndexOf(loose, prefab.name) >= 0)
+                {
+                    RestOn(instance, new Vector3(1.5f + (looseIndex % 3) * 0.85f, 0f, 0.4f + (looseIndex / 3) * 0.9f));
+                    looseIndex++;
+                    MakeGrabbable(instance, prefab.name.Contains("vial") ? 0.2f : (prefab.name.Contains("lantern") ? 0.6f : 6f));
+                }
+                else
+                {
+                    instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                    RestOn(instance, new Vector3(sceneryX, 0f, 6.5f));
+                    MakeSolid(instance);
+                    sceneryX += 3.6f;
+                }
+            }
+
+            float envX = -6f;
+            foreach (GameObject prefab in LoadModels("Environment"))
+            {
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
+                instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                RestOn(instance, new Vector3(envX, 0f, 12f));
+                MakeSolid(instance);
+                envX += 8f;
+            }
+
+            float enemyX = 4f;
+            foreach (GameObject prefab in LoadModels("Enemies"))
+            {
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
+                instance.transform.localRotation = Quaternion.Euler(0f, 200f, 0f);
+                RestOn(instance, new Vector3(enemyX, 0f, 9f));
+                MakeSolid(instance);
+                enemyX += 3.5f;
+            }
+        }
+
+        private static System.Collections.Generic.List<GameObject> LoadModels(string folder)
+        {
+            var result = new System.Collections.Generic.List<GameObject>();
+            string dir = ArtDir + "/" + folder;
+            if (!AssetDatabase.IsValidFolder(dir))
+                return result;
+            string[] guids = AssetDatabase.FindAssets("t:GameObject", new[] { dir });
+            System.Array.Sort(guids, (a, b) => string.CompareOrdinal(AssetDatabase.GUIDToAssetPath(a), AssetDatabase.GUIDToAssetPath(b)));
+            foreach (string guid in guids)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guid));
+                if (prefab != null)
+                    result.Add(prefab);
+            }
+            return result;
+        }
+
+        private static Bounds WorldBounds(GameObject go)
+        {
+            Renderer[] renderers = go.GetComponentsInChildren<Renderer>();
+            if (renderers.Length == 0)
+                return new Bounds(go.transform.position, Vector3.zero);
+            Bounds bounds = renderers[0].bounds;
+            foreach (Renderer r in renderers)
+                bounds.Encapsulate(r.bounds);
+            return bounds;
+        }
+
+        /// <summary>Rotates a model so its longest side lies horizontally (along Z, or X if asked).</summary>
+        private static void LayFlat(GameObject go, bool alongX)
+        {
+            go.transform.rotation = Quaternion.identity;
+            Vector3 size = WorldBounds(go).size;
+            Quaternion rotation = Quaternion.identity;
+            if (size.y >= size.x && size.y >= size.z)
+                rotation = Quaternion.Euler(90f, 0f, 0f);          // upright: tip it forward
+            else if (size.x >= size.z)
+                rotation = Quaternion.Euler(0f, 90f, 0f);          // lying along X: turn it along Z
+            if (alongX)
+                rotation = Quaternion.Euler(0f, 90f, 0f) * rotation;
+            go.transform.rotation = rotation;
+        }
+
+        /// <summary>Moves a model so the centre of its base sits on the given point.</summary>
+        private static void RestOn(GameObject go, Vector3 point)
+        {
+            Bounds bounds = WorldBounds(go);
+            Vector3 baseCentre = new Vector3(bounds.center.x, bounds.min.y, bounds.center.z);
+            go.transform.position += point - baseCentre + Vector3.up * 0.01f;
+        }
+
+        /// <summary>
+        /// Makes a generated model a physical object the BIMOS hands can pick up anywhere on
+        /// its surface: a rigidbody, a convex collider per mesh, and an auto grab on each.
+        /// </summary>
+        private static void MakeGrabbable(GameObject go, float mass)
+        {
+            Rigidbody body = go.AddComponent<Rigidbody>();
+            body.mass = mass;
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            body.interpolation = RigidbodyInterpolation.Interpolate;
+            body.maxAngularVelocity = 50f;
+
+            foreach (MeshFilter filter in go.GetComponentsInChildren<MeshFilter>())
+            {
+                if (filter.sharedMesh == null)
+                    continue;
+                MeshCollider collider = filter.gameObject.AddComponent<MeshCollider>();
+                collider.sharedMesh = filter.sharedMesh;
+                collider.convex = true;
+
+                AutoGrab grab = filter.gameObject.AddComponent<AutoGrab>();
+                grab.EnableGrabs = new Grab[0];
+                grab.DisableGrabs = new Grab[0];
+            }
+        }
+
+        /// <summary>Scenery you cannot walk or swing through.</summary>
+        private static void MakeSolid(GameObject go)
+        {
+            foreach (MeshFilter filter in go.GetComponentsInChildren<MeshFilter>())
+            {
+                if (filter.sharedMesh == null)
+                    continue;
+                MeshCollider collider = filter.gameObject.AddComponent<MeshCollider>();
+                collider.sharedMesh = filter.sharedMesh;
+            }
+            go.isStatic = true;
+        }
+
+        /// <summary>A board beside the player that says how to play. World-space UI, legacy font, no extra packages.</summary>
+        private static void BuildInstructions(Transform parent)
+        {
+            var board = new GameObject("How to play (board)");
+            board.transform.SetParent(parent, false);
+            Vector3 position = new Vector3(1.55f, 1.55f, 2.2f);
+            board.transform.position = position;
+            board.transform.rotation = Quaternion.LookRotation(position - new Vector3(0f, 1.45f, 0f));
+            board.transform.localScale = Vector3.one * 0.001f;
+
+            var canvas = board.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.WorldSpace;
+            var rect = board.GetComponent<RectTransform>();
+            rect.sizeDelta = new Vector2(1300f, 1350f);
+
+            var panel = new GameObject("Panel");
+            panel.transform.SetParent(board.transform, false);
+            var image = panel.AddComponent<UnityEngine.UI.Image>();
+            image.color = new Color(0.13f, 0.13f, 0.23f, 0.94f);
+            var panelRect = panel.GetComponent<RectTransform>();
+            panelRect.anchorMin = Vector2.zero;
+            panelRect.anchorMax = Vector2.one;
+            panelRect.offsetMin = panelRect.offsetMax = Vector2.zero;
+
+            var textObject = new GameObject("Text");
+            textObject.transform.SetParent(board.transform, false);
+            var text = textObject.AddComponent<UnityEngine.UI.Text>();
+            text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            text.fontSize = 42;
+            text.lineSpacing = 1.1f;
+            text.color = new Color(1f, 0.97f, 0.92f);
+            text.alignment = TextAnchor.UpperLeft;
+            text.horizontalOverflow = HorizontalWrapMode.Wrap;
+            text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.supportRichText = true;
+            text.text =
+                "<size=70><b>HOW TO PLAY</b></size>\n\n" +
+                "<b><color=#FFD86B>PICK UP</color></b>   Put your hand on a thing and HOLD the\n" +
+                "<b>GRIP</b> button (side of the controller, under your\nmiddle finger). Let go to drop it. Not the trigger.\n\n" +
+                "<b><color=#FFD86B>SWORD</color></b>   On the stone block. Grab the dark handle.\n" +
+                "<b><color=#FFD86B>OTHER WEAPONS</color></b>   On the wooden table to your left.\nGrab them anywhere.\n\n" +
+                "<b><color=#FFD86B>FIGHT</color></b>   Swing at the straw dummy. Harder swings\nflash brighter and sound louder. Nothing is scripted:\nit reacts to the real hit.\n\n" +
+                "<b><color=#FFD86B>MOVE</color></b>   Left stick. Click it to run.\n" +
+                "<b><color=#FFD86B>TURN</color></b>   Right stick left or right.\n" +
+                "<b><color=#FFD86B>CROUCH / JUMP</color></b>   Right stick down / click it.\n" +
+                "<b><color=#FFD86B>MENU</color></b>   Y button: comfort, teleport, turning.";
+            var textRect = textObject.GetComponent<RectTransform>();
+            textRect.anchorMin = Vector2.zero;
+            textRect.anchorMax = Vector2.one;
+            textRect.offsetMin = new Vector2(60f, 50f);
+            textRect.offsetMax = new Vector2(-60f, -50f);
+
+            // A post so the board is not floating.
+            Material wood = MakeMaterial("Sandbox_Wood", new Color(0.62f, 0.45f, 0.28f));
+            GameObject post = Primitive(PrimitiveType.Cube, "Board post", parent, new Vector3(position.x, 0.44f, position.z) + board.transform.forward * 0.03f, new Vector3(0.08f, 0.88f, 0.08f), wood);
+            post.isStatic = true;
         }
 
         /// <summary>Quiet meadow wind so the space is not dead silent.</summary>

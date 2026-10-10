@@ -66,6 +66,43 @@ namespace Godtree.Tests
         }
 
         [UnityTest]
+        public IEnumerator SwordGripCanBeChosenByAHand()
+        {
+            // Regression: the grab line sat inside the grip collider and BIMOS ranked it zero,
+            // so the sword could never be picked up. A hand next to the grip must rank above zero.
+            GameObject sword = GameObject.Find("wpn_sword_training (placeholder)");
+            BIMOS.LineGrab grab = sword.GetComponentInChildren<BIMOS.LineGrab>();
+            Assert.IsNotNull(grab, "sword has no line grab");
+            var palm = new GameObject("TestPalm").transform;
+            palm.position = grab.transform.position + Vector3.up * 0.06f;
+            Assert.Greater(grab.CalculateRank(palm), 0f, "a hand beside the grip must be able to choose the sword");
+            Object.Destroy(palm.gameObject);
+            yield break;
+        }
+
+        [UnityTest]
+        public IEnumerator TableWeaponsAndLoosePropsAreGrabbableAndStayPut()
+        {
+            BIMOS.AutoGrab[] grabs = Object.FindObjectsByType<BIMOS.AutoGrab>(FindObjectsSortMode.None);
+            Assert.GreaterOrEqual(grabs.Length, 8, "weapons on the table and loose props should all be grabbable");
+            foreach (BIMOS.AutoGrab grab in grabs)
+            {
+                Rigidbody body = grab.GetComponentInParent<Rigidbody>();
+                Assert.IsNotNull(body, grab.name + " has a grab but no rigidbody");
+                Assert.IsNotNull(grab.GetComponent<Collider>(), grab.name + " has a grab but no collider");
+                Assert.Greater(body.position.y, -0.5f, body.name + " fell through the floor");
+            }
+            yield break;
+        }
+
+        [UnityTest]
+        public IEnumerator InstructionBoardExists()
+        {
+            Assert.IsNotNull(GameObject.Find("How to play (board)"), "the instruction board is missing");
+            yield break;
+        }
+
+        [UnityTest]
         public IEnumerator PlayerRigSpawns()
         {
             Assert.Greater(Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Length, 0, "the BIMOS rig should have spawned a camera");
