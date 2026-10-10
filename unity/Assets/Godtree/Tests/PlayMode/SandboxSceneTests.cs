@@ -33,7 +33,7 @@ namespace Godtree.Tests
         [UnityTest]
         public IEnumerator SwordRestsOnThePlinth()
         {
-            GameObject sword = GameObject.Find("wpn_sword_training (placeholder)");
+            GameObject sword = GameObject.Find("wpn_sword_training");
             Assert.IsNotNull(sword, "sword not found in scene");
             float height = sword.transform.position.y;
             Assert.That(height, Is.InRange(0.85f, 1.05f), "sword should be lying on the plinth at about hand height");
@@ -66,20 +66,20 @@ namespace Godtree.Tests
         }
 
         [UnityTest]
-        public IEnumerator SwordGripCanBeChosenByAHand()
+        public IEnumerator SwordCanBeChosenByAHand()
         {
-            // Regression: the grab line sat inside the grip collider and BIMOS ranked it zero,
-            // so the sword could never be picked up. A hand next to the grip must rank above zero.
-            GameObject sword = GameObject.Find("wpn_sword_training (placeholder)");
-            BIMOS.LineGrab grab = sword.GetComponentInChildren<BIMOS.LineGrab>();
-            Assert.IsNotNull(grab, "sword has no line grab");
+            // Regression: the first sword had a grab point inside its own collider, which the
+            // rig ranks as ungrabbable, so it could never be picked up.
+            GameObject sword = GameObject.Find("wpn_sword_training");
+            BIMOS.Grab grab = sword.GetComponentInChildren<BIMOS.Grab>();
+            Assert.IsNotNull(grab, "sword has no grab");
+            Assert.IsNotNull(grab.GetComponent<Collider>(), "sword grab has no collider for a hand to find");
             var palm = new GameObject("TestPalm").transform;
-            palm.position = grab.transform.position + Vector3.up * 0.06f;
-            Assert.Greater(grab.CalculateRank(palm), 0f, "a hand beside the grip must be able to choose the sword");
+            palm.position = grab.GetComponent<Collider>().bounds.center + Vector3.up * 0.1f;
+            Assert.Greater(grab.CalculateRank(palm), 0f, "a hand beside the sword must be able to choose it");
             Object.Destroy(palm.gameObject);
             yield break;
         }
-
         [UnityTest]
         public IEnumerator TableWeaponsAndLoosePropsAreGrabbableAndStayPut()
         {

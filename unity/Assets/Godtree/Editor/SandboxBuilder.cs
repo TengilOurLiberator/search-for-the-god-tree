@@ -243,15 +243,16 @@ namespace Godtree.EditorTools
             floor.isStatic = true;
 
             // A stone plinth holding the sword at hand height, one step in front of the spawn.
-            GameObject plinth = Primitive(PrimitiveType.Cube, "Plinth", root.transform, new Vector3(0.45f, 0.45f, 0.9f), new Vector3(0.5f, 0.9f, 0.5f), stone);
+            GameObject plinth = Primitive(PrimitiveType.Cube, "Plinth", root.transform, new Vector3(0.45f, 0.45f, 0.9f), new Vector3(0.45f, 0.9f, 1.15f), stone);
             plinth.isStatic = true;
 
-            BuildSword(root.transform, new Vector3(0.45f, 0.96f, 0.9f), steel, leather);
+            BuildSword(root.transform, new Vector3(0.45f, 0.9f, 0.9f));
             BuildDummy(root.transform, new Vector3(-0.3f, 0f, 1.9f), wood, straw, steel);
             AddImpactSound(plinth, "sfx_sword_hit_stone");
             BuildGallery(root.transform);
             BuildInstructions(root.transform);
             new GameObject("Session recorder", typeof(Godtree.Diagnostics.SessionRecorder)).transform.SetParent(root.transform, false);
+            new GameObject("Held object collision filter", typeof(HeldObjectCollisionFilter)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -261,62 +262,23 @@ namespace Godtree.EditorTools
         }
 
         /// <summary>
-        /// Placeholder training sword: about 0.95 m long, 1.1 kg, blade along local +Y,
-        /// held by a BIMOS line grab on the grip. Mass sits low so it swings like a sword.
+        /// The training sword: the generated model, lying on the plinth, grabbable anywhere on
+        /// its surface. It keeps whatever angle your hand had when you took it, which is what
+        /// tracked well in the first recorded session (the earlier fixed-pose grip did not).
         /// </summary>
-        private static void BuildSword(Transform parent, Vector3 position, Material steel, Material leather)
+        private static void BuildSword(Transform parent, Vector3 plinthTop)
         {
-            var sword = new GameObject("wpn_sword_training (placeholder)");
-            sword.transform.SetParent(parent, false);
-            // Lying flat on the plinth, blade pointing away from the player.
-            sword.transform.SetPositionAndRotation(position, Quaternion.Euler(90f, 0f, 0f));
-
-            var body = sword.AddComponent<Rigidbody>();
-            body.mass = 1.1f;
-            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-            body.interpolation = RigidbodyInterpolation.Interpolate;
-            body.maxAngularVelocity = 50f;
-            body.centerOfMass = new Vector3(0f, 0.12f, 0f);
-
-            Primitive(PrimitiveType.Cube, "Blade", sword.transform, new Vector3(0f, 0.47f, 0f), new Vector3(0.05f, 0.72f, 0.012f), steel);
-            Primitive(PrimitiveType.Cube, "Guard", sword.transform, new Vector3(0f, 0.10f, 0f), new Vector3(0.20f, 0.025f, 0.03f), steel);
-            Primitive(PrimitiveType.Cylinder, "Grip", sword.transform, new Vector3(0f, 0f, 0f), new Vector3(0.032f, 0.09f, 0.032f), leather);
-            Primitive(PrimitiveType.Sphere, "Pommel", sword.transform, new Vector3(0f, -0.105f, 0f), new Vector3(0.05f, 0.05f, 0.05f), steel);
-
-            // Show the generated model if it has been imported; the primitives stay as colliders.
-            var generated = AssetDatabase.LoadAssetAtPath<GameObject>(ArtDir + "/Weapons/wpn_sword_training.glb");
-            if (generated != null)
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(ArtDir + "/Weapons/wpn_sword_training.glb");
+            if (prefab == null)
             {
-                var visual = (GameObject)PrefabUtility.InstantiatePrefab(generated, sword.transform);
-                visual.name = "Visual (generated)";
-                visual.transform.localPosition = new Vector3(0f, -0.13f, 0f);
-                visual.transform.localRotation = Quaternion.identity;
-                foreach (MeshRenderer primitive in sword.GetComponentsInChildren<MeshRenderer>())
-                    if (!primitive.transform.IsChildOf(visual.transform))
-                        primitive.enabled = false;
+                Debug.LogError("[Godtree] wpn_sword_training.glb is missing; the sandbox has no sword");
+                return;
             }
-
-            var grabObject = new GameObject("Grab");
-            grabObject.transform.SetParent(sword.transform, false);
-            var start = new GameObject("Start");
-            var end = new GameObject("End");
-            start.transform.SetParent(grabObject.transform, false);
-            end.transform.SetParent(grabObject.transform, false);
-            start.transform.localPosition = new Vector3(0f, -0.07f, 0f);
-            end.transform.localPosition = new Vector3(0f, 0.07f, 0f);
-
-            var grab = grabObject.AddComponent<LineGrab>();
-            grab.Start = start.transform;
-            grab.End = end.transform;
-            grab.HandPose = AssetDatabase.LoadAssetAtPath<HandPose>(BimosDefaultPose);
-            grab.EnableGrabs = new Grab[0];
-            grab.DisableGrabs = new Grab[0];
-
-            // The grab line runs through the middle of the grip collider. BIMOS refuses grab
-            // points that are inside something solid unless hand clipping is allowed.
-            var serializedGrab = new SerializedObject(grab);
-            serializedGrab.FindProperty("_allowHandClipping").boolValue = true;
-            serializedGrab.ApplyModifiedPropertiesWithoutUndo();
+            var sword = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
+            sword.name = "wpn_sword_training";
+            LayFlat(sword, alongX: false);
+            RestOn(sword, plinthTop);
+            MakeGrabbable(sword, 0.7f);
         }
 
         /// <summary>
@@ -397,7 +359,7 @@ namespace Godtree.EditorTools
                 LayFlat(instance, alongX: isSpear);
                 Vector3 slot = isSpear ? new Vector3(-1.5f, tableTop, 1.42f) : new Vector3(slotX, tableTop, 1.0f);
                 RestOn(instance, slot);
-                MakeGrabbable(instance, prefab.name.Contains("shield") ? 2.5f : 1.0f);
+                MakeGrabbable(instance, prefab.name.Contains("shield") ? 1.2f : (isSpear ? 0.8f : 0.6f));
                 if (!isSpear)
                     slotX += 0.42f;
             }
@@ -574,7 +536,7 @@ namespace Godtree.EditorTools
                 "<size=70><b>HOW TO PLAY</b></size>\n\n" +
                 "<b><color=#FFD86B>PICK UP</color></b>   Put your hand on a thing and HOLD the\n" +
                 "<b>GRIP</b> button (side of the controller, under your\nmiddle finger). Let go to drop it. Not the trigger.\n\n" +
-                "<b><color=#FFD86B>SWORD</color></b>   On the stone block. Grab the dark handle.\n" +
+                "<b><color=#FFD86B>SWORD</color></b>   On the stone block. Take it by the handle;\nit keeps the angle your hand had when you gripped.\n" +
                 "<b><color=#FFD86B>OTHER WEAPONS</color></b>   On the wooden table to your left.\nGrab them anywhere.\n\n" +
                 "<b><color=#FFD86B>FIGHT</color></b>   Swing at the straw dummy. Harder swings\nflash brighter and sound louder. Nothing is scripted:\nit reacts to the real hit.\n\n" +
                 "<b><color=#FFD86B>MOVE</color></b>   Left stick. Click it to run.\n" +
