@@ -83,3 +83,4 @@ The last five rows come from [../../jobs/concepts-f1-furniture.json](../../jobs/
 - With the full style line, plain objects picked up gear and faces (boulders, a signpost). Objects and creatures now use `style_object` in the fragments file.
 - The training sword came out diagonal three times; redrawn with "standing perfectly upright, seen flat from the front".
 - The campfire is drawn lit although the prompt said unlit; flames do not survive the 3D step, so expect that model to fail review.
+| `con_body_woken_starter.png` | 4404 |

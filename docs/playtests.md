@@ -63,3 +63,5 @@ None of these has been seen or felt in a headset yet.
 - **Ground.** The repeating pattern in the grass is gone, a dirt road runs from the spawn through the arch, and hills ring the meadow.
 - **Flickering grey patches on the floor** around the plinth were the base scene's own floor showing through the meadow. It is hidden now.
 - **Layout.** Scenery is arranged as a road, an arch with walls and banners, a camp on the right and a house, well and cart on the left.
+- **Player body.** The grey mannequin is replaced by a generated character bound to the rig's skeleton; the character menu's mirror shows it, head included (`docs/images/menu_preview.png`). To judge in the headset: do the hands sit where your hands are, do elbows and shoulders look acceptable when you swing, is anything of your own body in the way when you look down.
+- **Smaller things.** Sparks where hits land; mote bolts glow and leave a trail; clouds; trees, bushes and banners move in the wind; a lit campfire with sound; the mirror is no longer blocked by whatever stands in front of you.

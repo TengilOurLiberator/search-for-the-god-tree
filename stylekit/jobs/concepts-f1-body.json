@@ -1,0 +1,48 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_body_woken_starter_s1101",
+                     "prompt":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_body_woken_starter_s2202",
+                     "prompt":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_body_woken_starter_s3303",
+                     "prompt":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_body_woken_starter_s4404",
+                     "prompt":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1280,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_body_woken_starter_s5505",
+                     "prompt":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  5505,
+                     "width":  1280,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_body_woken_starter_s6606",
+                     "prompt":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  6606,
+                     "width":  1280,
+                     "height":  1280
+                 }
+             ]
+}

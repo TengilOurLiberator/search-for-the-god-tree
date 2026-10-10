@@ -1,0 +1,55 @@
+{
+    "id":  "chr_body_woken_starter",
+    "title":  "Player Body, Woken Starter",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "budget_class":  "character_npc",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                      "seed":  4404,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "trellis2",
+                      "tool":  "comfyui",
+                      "version":  "trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes",
+                      "prompt":  "n/a",
+                      "seed":  1101,
+                      "vram_gb":  24,
+                      "workflow":  "trellis2.json"
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_rig_body.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 25000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 1.8 m, origin at the centre of the base.",
+                    "Automatic only, by tools/pipeline/blender_rig_body.py: seams welded; arms raised level and legs brought together to a T-pose by binding to a posed copy of a humanoid skeleton and straightening it (measured: arms 63 degrees below level, legs 9.5 degrees out); arms scaled 0.987 along their length; body moved 3.9 cm front to back to sit on the spine line; automatic weights to 22 humanoid bones, fingers excluded.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Characters/chr_body_woken_starter.glb"
+                    }
+                ],
+    "notes":  "Input image: stylekit/golden/f1/con_body_woken_starter.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=24938 final_tris=24938 dims=1.147x0.350x1.800 tex=2048. This file is the player\u0027s body: the mesh alone in a T-pose, positions relative to the hip joint, with no skeleton inside. Its binding is carried in four extra texture-coordinate sets (u = (bone number + 0.5) / 64, v = weight; bone numbers index the list in tools/pipeline/blender_rig_body.py, which are the ordinary humanoid bone names). The game rebuilds the skinned mesh from this at run time against the rig\u0027s own skeleton (Scripts/Sandbox/PlayerBody.cs). The player rig\u0027s skeleton (BIMOS, MIT) was used as a measuring tool for the weights and is not contained in the file. Fingers do not bend. Judged from rendered test poses only; not yet seen in the headset."
+}

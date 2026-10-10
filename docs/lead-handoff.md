@@ -11,7 +11,9 @@ Nothing is running. State at the end of 2026-10-10:
 - **Ground:** `Godtree/Ground` paints by world position (grass at two sizes, dry patches, the road). The ring of hills uses the same material. To move the road, change the shader's road properties; it always runs along world Z.
 - **Training dummy:** one generated model drawn three times, each material showing one slice (`_ClipAxis/_ClipMin/_ClipMax` on `Godtree/Toon`). Cut heights come from the model's outline. Replace the model and the cuts follow.
 - **Screenshots** (`Godtree > Render Sandbox Screenshots`) now include road, camp and gate views.
-- Ten PlayMode tests pass. **The owner has seen none of the evening's work in the headset.**
+- **Player body:** a generated character on the rig's skeleton (decision 0015). To make another: a concept with the `character_tpose` framing, TRELLIS.2, `Finish-TrellisModels.ps1`, then `blender_rig_body.py` (look at its three check pictures), publish, and point `SandboxBuilder.BuildPlayerBody` at it. The rig hides the head by shrinking the neck bone to zero; anything attached to the head must be placed from the neck and chest, as `PlayerBody.LateUpdate` does.
+- **Sky, wind, fire, sparks:** `Godtree/Sky` (clouds from noise), `_Sway` on `Godtree/Toon` (set per model in `ApplyToonToGeneratedModels`), `Godtree/Glow` for flames, sparks and trails.
+- Twelve PlayMode tests pass. **The owner has seen none of the evening's work in the headset.**
 ## 3D: what works now
 
 Spiky, furry and thatched shapes shattered at the standard remesh setting (384). The **coarse workflow** (`stylekit/workflows/trellis2_image_to_glb_coarse.api.json`, remesh 192) fixed twelve of thirteen: Burrling, both Thornbacks, root crawler, husk house, well, cart, stump, cradle shrine, fence, merchant, shield-bearer. Use it for creatures and buildings; keep the standard one for weapons and simple props. Still failing: the Rootwarden (noisy surface), amber orbs (staff, wand), flames (campfire), arch, boulder. The Rootwarden and husk shield in the sandbox are the last old-look models.
@@ -40,7 +42,7 @@ Spiky, furry and thatched shapes shattered at the standard remesh setting (384).
 
 ## Next ideas, not started
 
-- Rig one character in Blender to a fixed humanoid skeleton and swap it into the rig, so the mirror shows a real character and equipment can appear on it. Plan and risks: `docs/research/hand-tracking-and-player-body.md`. Do not upgrade BIMOS to 2.0.0 for this.
+- Show equipped items on the player's body; bend the fingers (the generated hand is one solid shape).
 - Enemies that move and attack, so vigor and armour mean something.
 - Clouds, and a painted far landscape behind the hills.
 - The elder model has small holes in its face; regenerate it.

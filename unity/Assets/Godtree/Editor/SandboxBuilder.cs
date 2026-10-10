@@ -295,6 +295,7 @@ namespace Godtree.EditorTools
             feedback.sparkMaterial = AssetDatabase.LoadAssetAtPath<Material>(SandboxDir + "/Materials/Sandbox_Flame.mat");
             new GameObject("Character menu", typeof(Godtree.Sandbox.CharacterMenu)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
+            BuildPlayerBody(root.transform);
 
             ApplyToonToGeneratedModels(root);
             SliceDummy();
@@ -645,6 +646,8 @@ namespace Godtree.EditorTools
             float spareSpot = 0f;
             foreach (GameObject person in people)
             {
+                if (person.name.StartsWith("chr_body_"))
+                    continue; // a body for the player, not a townsperson
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(person, gallery.transform);
                 if (!spots.TryGetValue(person.name, out (float x, float z, float lookX, float lookZ) spot))
                     spot = (12f + (spareSpot += 1.2f), 1f, 0f, 0f);
@@ -1445,6 +1448,57 @@ namespace Godtree.EditorTools
             var renderer = hills.GetComponent<MeshRenderer>();
             renderer.sharedMaterial = material;
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
+
+        /// <summary>
+        /// The player's own body: copies the generated body mesh into a plain mesh the game can
+        /// read, gives it the toon look, and adds the component that puts it on the rig at start.
+        /// </summary>
+        private static void BuildPlayerBody(Transform parent)
+        {
+            const string modelPath = ArtDir + "/Characters/chr_body_woken_starter.glb";
+            Mesh imported = null;
+            Texture texture = null;
+            foreach (Object asset in AssetDatabase.LoadAllAssetsAtPath(modelPath))
+            {
+                if (asset is Mesh mesh && imported == null)
+                    imported = mesh;
+                if (asset is Texture found && texture == null)
+                    texture = found;
+            }
+            if (imported == null)
+            {
+                Debug.LogWarning("[Godtree] chr_body_woken_starter.glb is missing; the player keeps the rig's mannequin");
+                return;
+            }
+
+            var copy = new Mesh { name = "PlayerBodySource" };
+            copy.indexFormat = imported.indexFormat;
+            copy.vertices = imported.vertices;
+            copy.normals = imported.normals;
+            copy.uv = imported.uv;
+            var set = new System.Collections.Generic.List<Vector2>();
+            for (int channel = 1; channel <= 4; channel++)
+            {
+                imported.GetUVs(channel, set);
+                copy.SetUVs(channel, set);
+            }
+            copy.triangles = imported.triangles;
+            copy.RecalculateBounds();
+            string meshPath = SandboxDir + "/PlayerBodySource.asset";
+            AssetDatabase.DeleteAsset(meshPath);
+            AssetDatabase.CreateAsset(copy, meshPath);
+
+            Material material = MakeMaterial("Sandbox_PlayerBody", Color.white);
+            material.SetTexture("_BaseMap", texture);
+            material.SetFloat("_Cull", 0f);
+            EditorUtility.SetDirty(material);
+
+            var body = new GameObject("Player body").AddComponent<Godtree.Sandbox.PlayerBody>();
+            body.transform.SetParent(parent, false);
+            body.source = copy;
+            body.material = material;
+            Debug.Log($"[Godtree] player body source: {copy.vertexCount} vertices, bounds {copy.bounds.center} {copy.bounds.size}, texture {(texture != null ? texture.name : "none")}");
         }
 
         // ------------------------------------------------------------ helpers

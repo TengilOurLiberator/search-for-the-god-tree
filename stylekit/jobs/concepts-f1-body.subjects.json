@@ -1,0 +1,24 @@
+{
+    "_about":  "A body for the player: a character drawn in a strict T-pose with realistic proportions and close-fitting clothes, so the generated model lines up with the player rig\u0027s skeleton and its arms are free of the body. The earlier characters are stocky, stand with arms at their sides and wear cloaks, which cannot be rigged to a VR body.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303,
+                  4404,
+                  5505,
+                  6606
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_body_woken_starter",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A young adventurer in simple close-fitting starter clothes: a short-sleeved cream linen tunic with a brown leather belt, fitted brown trousers, sturdy brown boots, plain fingerless gloves, short brown hair, friendly determined face. No cloak, no cape, no bag, no weapon, no loose cloth, nothing hanging from the arms, bare forearms."
+                     }
+                 ]
+}

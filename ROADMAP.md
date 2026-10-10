@@ -16,6 +16,7 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 | 6 | **Later zones.** `docs/review/session-1/concepts-zones-*.jpg` are mood sketches for zones 2 to 5, to react to. Nothing in them is canon | Say which directions you like |
 | 7 | **Rename "the Underroot"?** The name-clash check ([docs/name-check.md](docs/name-check.md)) found it in two major games and as an upcoming Steam title. All other names are clear or generic | Rename; pick from the candidates in that file or give your own |
 | 9 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence. Not urgent |
+| 10 | **Player body and licences** ([decision 0015](decisions/0015-player-body.md)): the rig's MIT skeleton was used to measure the body's weights; none of it is in the CC0 file | Accept as CC0; say if you want the stricter route |
 | 8 | GPU power limit: image batches draw the full 600 W. Lowering it needs administrator rights | Set a limit of about 450 W in your GPU tool for unattended runs |
 
 ## Current priority (decision 0013, 2026-10-10)
@@ -33,7 +34,8 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [x] The sandbox is laid out as a place: a road through a stone arch toward the Godtree, a camp with a lit fire, a corner of town, creatures beyond the wall, hills all round; the training dummy uses its generated model (2026-10-10, evening; not yet seen in the headset)
 - [ ] Flames and glow are made in Unity (particles), not in 3D generation, which cannot do them
 - [ ] Hand tracking (wanted; researched in docs/research/hand-tracking-and-player-body.md: over Link it is a developer-only feature, so the first step is the owner switching it on in the Link app, then an editor prototype)
-- [ ] Equipped items are not shown on the character yet; the character is the rig's grey mannequin. Plan for a rigged body is in the same research note
+- [x] The player has a generated character's body in place of the rig's grey mannequin, and the menu's mirror shows it with its head ([decision 0015](decisions/0015-player-body.md)); fingers do not bend; not yet seen in the headset
+- [ ] Equipped items are not shown on the character yet
 
 ## Milestones
 

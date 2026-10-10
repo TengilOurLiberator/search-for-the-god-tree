@@ -197,6 +197,17 @@ namespace Godtree.Tests
         }
 
         [UnityTest]
+        public IEnumerator PlayerWearsTheGeneratedBody()
+        {
+            Component body = GameObject.Find("Player body").GetComponent("PlayerBody");
+            Assert.IsNotNull(body, "no player body in the scene");
+            yield return null;
+            yield return null;
+            System.Type type = body.GetType();
+            Assert.IsTrue((bool)type.GetProperty("Applied").GetValue(body), "the generated body was not put on the rig: " + type.GetProperty("Problem").GetValue(body));
+        }
+
+        [UnityTest]
         public IEnumerator PlayerRigSpawns()
         {
             Assert.Greater(Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Length, 0, "the BIMOS rig should have spawned a camera");

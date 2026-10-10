@@ -1,0 +1,17 @@
+{
+    "_about":  "A body for the player in the new look: T-pose-like stance, realistic proportions, arms free of the body, so it can be bound to the player rig\u0027s skeleton. Concept seed 4404.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "chr_body_woken_starter",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_body_woken_starter.png",
+                     "image":  "con_body_woken_starter.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.8
+                 }
+             ]
+}
