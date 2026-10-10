@@ -136,7 +136,9 @@ Shader "Godtree/Ground"
                 half3 shade = lerp(_ShadowColor.rgb, mainLight.color.rgb, lit);
                 half3 color = albedo * shade * _Brightness;
 
-                color = MixFog(color, input.fogFactor);
+                // Distance haze of its own, so far slopes pale toward the sky whatever the scene fog does.
+                half haze = saturate((distance(input.positionWS, _WorldSpaceCameraPos) - 60.0) / 380.0) * 0.6;
+                color = lerp(color, unity_FogColor.rgb, haze);
                 return half4(color, 1.0);
             }
             ENDHLSL

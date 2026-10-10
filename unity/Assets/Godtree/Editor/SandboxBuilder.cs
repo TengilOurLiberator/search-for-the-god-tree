@@ -1001,6 +1001,7 @@ namespace Godtree.EditorTools
                 EditorUtility.SetDirty(profile);
             }
             BuildGodtreeBackdrop(parent);
+            BuildHills(parent);
 
             var volumeObject = new GameObject("Post-processing (global)");
             volumeObject.transform.SetParent(parent, false);
@@ -1052,6 +1053,63 @@ namespace Godtree.EditorTools
             renderer.sharedMaterial = material;
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             renderer.receiveShadows = false;
+        }
+
+        /// <summary>
+        /// Rolling hills all the way round, so the meadow does not end in a straight line. One
+        /// ring-shaped mesh, lower straight ahead so the road and the Godtree stay in view. Too far
+        /// to reach, so it has no collider.
+        /// </summary>
+        private static void BuildHills(Transform parent)
+        {
+            const int around = 160, rings = 16;
+            const float inner = 58f, outer = 460f;
+            var vertices = new Vector3[(rings + 1) * (around + 1)];
+            var triangles = new int[rings * around * 6];
+            for (int i = 0; i <= rings; i++)
+            {
+                float t = i / (float)rings;
+                float radius = Mathf.Lerp(inner, outer, t);
+                for (int j = 0; j <= around; j++)
+                {
+                    float angle = (j % around) / (float)around * Mathf.PI * 2f;
+                    float x = Mathf.Sin(angle) * radius, z = Mathf.Cos(angle) * radius;
+                    float ahead = Mathf.InverseLerp(0.55f, 0.97f, Mathf.Cos(angle));
+                    float rise = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0f, 0.4f, t));
+                    float height = rise * (10f + 58f * Mathf.PerlinNoise(x * 0.008f + 50f, z * 0.008f + 50f) + 16f * Mathf.PerlinNoise(x * 0.03f + 9f, z * 0.03f + 9f));
+                    height *= Mathf.Lerp(1f, 0.28f, ahead);
+                    height -= Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.8f, 1f, t)) * 90f;
+                    vertices[i * (around + 1) + j] = new Vector3(x, height - 0.3f, z);
+                }
+            }
+            int n = 0;
+            for (int i = 0; i < rings; i++)
+            {
+                for (int j = 0; j < around; j++)
+                {
+                    int a = i * (around + 1) + j, b = a + around + 1;
+                    triangles[n++] = a; triangles[n++] = b; triangles[n++] = a + 1;
+                    triangles[n++] = a + 1; triangles[n++] = b; triangles[n++] = b + 1;
+                }
+            }
+            var mesh = new Mesh { name = "Hills", vertices = vertices, triangles = triangles };
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
+            string meshPath = SandboxDir + "/Hills.asset";
+            AssetDatabase.DeleteAsset(meshPath);
+            AssetDatabase.CreateAsset(mesh, meshPath);
+
+            // The same material as the meadow floor, which paints by world position, so the grass
+            // and the road carry on up the slopes without a seam.
+            var material = AssetDatabase.LoadAssetAtPath<Material>(SandboxDir + "/Materials/Sandbox_Ground.mat");
+
+            var hills = new GameObject("Hills (distant)", typeof(MeshFilter), typeof(MeshRenderer));
+            hills.transform.SetParent(parent, false);
+            hills.isStatic = true;
+            hills.GetComponent<MeshFilter>().sharedMesh = mesh;
+            var renderer = hills.GetComponent<MeshRenderer>();
+            renderer.sharedMaterial = material;
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
 
         // ------------------------------------------------------------ helpers
