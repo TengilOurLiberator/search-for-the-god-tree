@@ -1,0 +1,147 @@
+{
+    "_about":  "Huskhaven\u0027s buildings and street furniture (decision 0016), at the coarse setting, which holds roofs and stonework together.",
+    "workflow":  "../workflows/trellis2_image_to_glb_coarse.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "env_inn_huskhaven",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_inn_huskhaven.png",
+                     "image":  "con_env_inn_huskhaven.png",
+                     "budget_class":  "env_modular",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  9
+                 },
+                 {
+                     "id":  "env_smithy",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_smithy.png",
+                     "image":  "con_env_smithy.png",
+                     "budget_class":  "env_modular",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  7
+                 },
+                 {
+                     "id":  "env_house_cottage_a",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_house_cottage_a.png",
+                     "image":  "con_env_house_cottage_a.png",
+                     "budget_class":  "env_modular",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  6
+                 },
+                 {
+                     "id":  "env_house_cottage_b",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_house_cottage_b.png",
+                     "image":  "con_env_house_cottage_b.png",
+                     "budget_class":  "env_modular",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  7.5
+                 },
+                 {
+                     "id":  "env_house_husk",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_house_husk.png",
+                     "image":  "con_env_house_husk.png",
+                     "budget_class":  "env_modular",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  6.5
+                 },
+                 {
+                     "id":  "env_storehouse",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_storehouse.png",
+                     "image":  "con_env_storehouse.png",
+                     "budget_class":  "env_modular",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  6
+                 },
+                 {
+                     "id":  "env_watchtower",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_watchtower.png",
+                     "image":  "con_env_watchtower.png",
+                     "budget_class":  "env_modular",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  9
+                 },
+                 {
+                     "id":  "env_town_wall",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_palisade_wall.png",
+                     "image":  "con_env_palisade_wall.png",
+                     "budget_class":  "env_modular",
+                     "tris":  6000,
+                     "tex":  2048,
+                     "size":  8
+                 },
+                 {
+                     "id":  "env_town_gate",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_town_gate.png",
+                     "image":  "con_env_town_gate.png",
+                     "budget_class":  "env_modular",
+                     "tris":  6000,
+                     "tex":  2048,
+                     "size":  7
+                 },
+                 {
+                     "id":  "env_lantern_post",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_lantern_post.png",
+                     "image":  "con_env_lantern_post.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  2.6
+                 },
+                 {
+                     "id":  "env_cradle_shrine",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_cradle_shrine_b.png",
+                     "image":  "con_env_cradle_shrine_b.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  1.4
+                 },
+                 {
+                     "id":  "env_fountain",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_fountain.png",
+                     "image":  "con_env_fountain.png",
+                     "budget_class":  "env_modular",
+                     "tris":  6000,
+                     "tex":  2048,
+                     "size":  3.2
+                 },
+                 {
+                     "id":  "prp_notice_board",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_notice_board.png",
+                     "image":  "con_prp_notice_board.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  2.2
+                 },
+                 {
+                     "id":  "prp_hay_bale",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_hay_bale.png",
+                     "image":  "con_prp_hay_bale.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  1.1
+                 }
+             ]
+}

@@ -579,7 +579,9 @@ namespace Godtree.EditorTools
                     shortIndex++;
                 RestOn(instance, slot);
                 bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("shield") || prefab.name.Contains("buckler");
-                MakeWeapon(instance, heavy ? 0.9f : 0.5f);
+                // The kite shield is large and held at its centre; at the heavy weight it sagged 28 degrees
+                // in the hand (robot weapons report), so it is light.
+                MakeWeapon(instance, prefab.name.Contains("shield_kite") ? 0.4f : heavy ? 0.9f : 0.5f);
             }
 
             BuildSpellTable(gallery.transform, wood, tableTop);

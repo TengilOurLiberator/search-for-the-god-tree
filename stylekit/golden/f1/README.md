@@ -93,3 +93,17 @@ The last five rows come from [../../jobs/concepts-f1-furniture.json](../../jobs/
 | `con_rig_woken_shieldbearer.png` | 4404 |
 | `con_rig_enm_barkbound.png` | 4404 |
 | `con_rig_enm_rootwarden.png` | 3303 |
+| `con_env_inn_huskhaven.png` | 3303 |
+| `con_env_smithy.png` | 1101 |
+| `con_env_house_cottage_a.png` | 3303 |
+| `con_env_house_cottage_b.png` | 1101 |
+| `con_env_house_husk.png` | 2202 |
+| `con_env_storehouse.png` | 3303 |
+| `con_env_watchtower.png` | 1101 |
+| `con_env_palisade_wall.png` | 1101 |
+| `con_env_town_gate.png` | 1101 |
+| `con_env_lantern_post.png` | 2202 |
+| `con_env_cradle_shrine_b.png` | 2202 |
+| `con_env_fountain.png` | 3303 |
+| `con_prp_notice_board.png` | 2202 |
+| `con_prp_hay_bale.png` | 1101 |

@@ -84,19 +84,30 @@ namespace Godtree.Sandbox
         {
             Transform controller = _controllers[i];
             RaycastHit[] hits = Physics.SphereCastAll(controller.position + controller.forward * 0.25f, aimRadius, controller.forward, range, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+            // Of everything the wide beam touches, take the thing nearest the line the hand points
+            // along, not the first thing touched: on a crowded table the first is often the
+            // neighbour (the robot player pulled the wrong weapon three times in twenty-five).
             Rigidbody best = null;
             float bestDistance = float.MaxValue;
+            Vector3 origin = controller.position, along = controller.forward;
             foreach (RaycastHit hit in hits)
             {
                 Rigidbody body = hit.rigidbody;
-                if (body == null || body.isKinematic || hit.distance >= bestDistance)
+                if (body == null || body.isKinematic)
+                    continue;
+                Vector3 nearest = hit.collider.ClosestPoint(origin + along * Vector3.Dot(hit.point - origin, along));
+                // Long things lying side by side have shapes that overlap each other's middles, so
+                // the beam is inside several at once; then the one whose middle is nearest the line wins.
+                float offLine = Vector3.Cross(along, nearest - origin).magnitude
+                                + 0.5f * Vector3.Cross(along, body.worldCenterOfMass - origin).magnitude + hit.distance * 0.002f;
+                if (offLine >= bestDistance)
                     continue;
                 if (body.GetComponentInParent<Player>() != null || body.GetComponentInChildren<Grab>() == null)
                     continue;
                 if (body == _flying[0] || body == _flying[1] || IsHeld(body))
                     continue;
                 best = body;
-                bestDistance = hit.distance;
+                bestDistance = offLine;
             }
             return best;
         }

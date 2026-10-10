@@ -1,0 +1,171 @@
+{
+    "_about":  "More weapons for the sandbox (decision 0016): a staff and a wand for each of the three elements, so they are told apart by shape and not only by a coloured stone; and ten more arms. Described as solid shapes with no glow, which 3D generation handles.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_wpn_staff_ember",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A fire wizard\u0027s staff: a thick straight dark red-brown wooden pole, at the top a solid opaque orange-red stone shaped like a fat flame held in a blackened iron claw, bands of dark iron along the pole. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_staff_frost",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "An ice wizard\u0027s staff: a thick straight pale grey wooden pole, at the top a solid opaque pale blue crystal shaped like a blunt faceted icicle held in a silver ring, white fur-free wrapped leather grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_staff_storm",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A storm wizard\u0027s staff: a thick straight dark wooden pole wound with a broad copper band, at the top a solid opaque violet stone ball caught between two thick curved bronze horns. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_wand_ember",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short fire wand the length of a forearm: a stout charred wooden rod with an iron collar holding a solid opaque orange-red faceted stone at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_wand_frost",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short ice wand the length of a forearm: a stout pale wooden rod with a silver collar holding a solid opaque pale blue faceted crystal at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_wand_storm",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short storm wand the length of a forearm: a stout dark wooden rod wound with copper, holding a solid opaque violet stone ball at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_sword_knight",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A knight\u0027s longsword: a broad straight steel blade with a central groove, a wide gold crossguard with leaf-shaped ends, a green leather grip and a round gold pommel set with a green stone. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_sabre_curved",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A long curved single-edged sabre with a slim polished blade, a small round bronze guard, a long grip wrapped in dark blue cloth and a bronze end cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_greataxe",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A huge two-handed battle axe: a long thick wooden haft bound with leather, one enormous crescent steel axe head with an engraved leaf pattern and a short back spike. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_glaive",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A glaive: a long thick wooden pole with a broad curved single-edged steel blade at the top, a bronze collar below the blade, a bronze butt cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_greatclub_root",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A giant two-handed club made from one twisted pale tree root, thick and knobbly at the top with three iron bands hammered round it, a leather-wrapped grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_twin_dagger",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A broad leaf-shaped fighting dagger with a bright steel blade, a short curved bronze guard, a red leather grip and a ring pommel. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_morningstar",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A morning star: a stout wooden handle with a leather grip and a large solid iron ball head covered in short thick blunt spikes fixed directly on top of the handle. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_scythe_war",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A war scythe: a long thick wooden pole with a broad heavy curved steel blade mounted straight upward from the top like a spear, iron bands at the join. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_shield_tower",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A tall rectangular tower shield seen from the front, slightly curved, pale wood faced with a steel rim, a big painted green leaf emblem on a cream field, solid thick shape."
+                     },
+                     {
+                         "id":  "con_wpn_shield_round_iron",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A round iron-bound wooden shield seen from the front, dark planks, a big domed steel boss in the middle, eight fat rivets round the rim, solid thick shape."
+                     }
+                 ]
+}

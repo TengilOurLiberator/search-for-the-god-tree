@@ -1,0 +1,342 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_wpn_staff_ember_s1101",
+                     "prompt":  "A fire wizard\u0027s staff: a thick straight dark red-brown wooden pole, at the top a solid opaque orange-red stone shaped like a fat flame held in a blackened iron claw, bands of dark iron along the pole. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_ember_s2202",
+                     "prompt":  "A fire wizard\u0027s staff: a thick straight dark red-brown wooden pole, at the top a solid opaque orange-red stone shaped like a fat flame held in a blackened iron claw, bands of dark iron along the pole. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_ember_s3303",
+                     "prompt":  "A fire wizard\u0027s staff: a thick straight dark red-brown wooden pole, at the top a solid opaque orange-red stone shaped like a fat flame held in a blackened iron claw, bands of dark iron along the pole. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_frost_s1101",
+                     "prompt":  "An ice wizard\u0027s staff: a thick straight pale grey wooden pole, at the top a solid opaque pale blue crystal shaped like a blunt faceted icicle held in a silver ring, white fur-free wrapped leather grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_frost_s2202",
+                     "prompt":  "An ice wizard\u0027s staff: a thick straight pale grey wooden pole, at the top a solid opaque pale blue crystal shaped like a blunt faceted icicle held in a silver ring, white fur-free wrapped leather grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_frost_s3303",
+                     "prompt":  "An ice wizard\u0027s staff: a thick straight pale grey wooden pole, at the top a solid opaque pale blue crystal shaped like a blunt faceted icicle held in a silver ring, white fur-free wrapped leather grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_storm_s1101",
+                     "prompt":  "A storm wizard\u0027s staff: a thick straight dark wooden pole wound with a broad copper band, at the top a solid opaque violet stone ball caught between two thick curved bronze horns. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_storm_s2202",
+                     "prompt":  "A storm wizard\u0027s staff: a thick straight dark wooden pole wound with a broad copper band, at the top a solid opaque violet stone ball caught between two thick curved bronze horns. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_storm_s3303",
+                     "prompt":  "A storm wizard\u0027s staff: a thick straight dark wooden pole wound with a broad copper band, at the top a solid opaque violet stone ball caught between two thick curved bronze horns. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_ember_s1101",
+                     "prompt":  "A short fire wand the length of a forearm: a stout charred wooden rod with an iron collar holding a solid opaque orange-red faceted stone at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_ember_s2202",
+                     "prompt":  "A short fire wand the length of a forearm: a stout charred wooden rod with an iron collar holding a solid opaque orange-red faceted stone at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_ember_s3303",
+                     "prompt":  "A short fire wand the length of a forearm: a stout charred wooden rod with an iron collar holding a solid opaque orange-red faceted stone at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_frost_s1101",
+                     "prompt":  "A short ice wand the length of a forearm: a stout pale wooden rod with a silver collar holding a solid opaque pale blue faceted crystal at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_frost_s2202",
+                     "prompt":  "A short ice wand the length of a forearm: a stout pale wooden rod with a silver collar holding a solid opaque pale blue faceted crystal at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_frost_s3303",
+                     "prompt":  "A short ice wand the length of a forearm: a stout pale wooden rod with a silver collar holding a solid opaque pale blue faceted crystal at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_storm_s1101",
+                     "prompt":  "A short storm wand the length of a forearm: a stout dark wooden rod wound with copper, holding a solid opaque violet stone ball at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_storm_s2202",
+                     "prompt":  "A short storm wand the length of a forearm: a stout dark wooden rod wound with copper, holding a solid opaque violet stone ball at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_storm_s3303",
+                     "prompt":  "A short storm wand the length of a forearm: a stout dark wooden rod wound with copper, holding a solid opaque violet stone ball at the tip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_sword_knight_s1101",
+                     "prompt":  "A knight\u0027s longsword: a broad straight steel blade with a central groove, a wide gold crossguard with leaf-shaped ends, a green leather grip and a round gold pommel set with a green stone. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_sword_knight_s2202",
+                     "prompt":  "A knight\u0027s longsword: a broad straight steel blade with a central groove, a wide gold crossguard with leaf-shaped ends, a green leather grip and a round gold pommel set with a green stone. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_sword_knight_s3303",
+                     "prompt":  "A knight\u0027s longsword: a broad straight steel blade with a central groove, a wide gold crossguard with leaf-shaped ends, a green leather grip and a round gold pommel set with a green stone. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_sabre_curved_s1101",
+                     "prompt":  "A long curved single-edged sabre with a slim polished blade, a small round bronze guard, a long grip wrapped in dark blue cloth and a bronze end cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_sabre_curved_s2202",
+                     "prompt":  "A long curved single-edged sabre with a slim polished blade, a small round bronze guard, a long grip wrapped in dark blue cloth and a bronze end cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_sabre_curved_s3303",
+                     "prompt":  "A long curved single-edged sabre with a slim polished blade, a small round bronze guard, a long grip wrapped in dark blue cloth and a bronze end cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greataxe_s1101",
+                     "prompt":  "A huge two-handed battle axe: a long thick wooden haft bound with leather, one enormous crescent steel axe head with an engraved leaf pattern and a short back spike. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greataxe_s2202",
+                     "prompt":  "A huge two-handed battle axe: a long thick wooden haft bound with leather, one enormous crescent steel axe head with an engraved leaf pattern and a short back spike. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greataxe_s3303",
+                     "prompt":  "A huge two-handed battle axe: a long thick wooden haft bound with leather, one enormous crescent steel axe head with an engraved leaf pattern and a short back spike. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_glaive_s1101",
+                     "prompt":  "A glaive: a long thick wooden pole with a broad curved single-edged steel blade at the top, a bronze collar below the blade, a bronze butt cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_glaive_s2202",
+                     "prompt":  "A glaive: a long thick wooden pole with a broad curved single-edged steel blade at the top, a bronze collar below the blade, a bronze butt cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_glaive_s3303",
+                     "prompt":  "A glaive: a long thick wooden pole with a broad curved single-edged steel blade at the top, a bronze collar below the blade, a bronze butt cap. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatclub_root_s1101",
+                     "prompt":  "A giant two-handed club made from one twisted pale tree root, thick and knobbly at the top with three iron bands hammered round it, a leather-wrapped grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatclub_root_s2202",
+                     "prompt":  "A giant two-handed club made from one twisted pale tree root, thick and knobbly at the top with three iron bands hammered round it, a leather-wrapped grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatclub_root_s3303",
+                     "prompt":  "A giant two-handed club made from one twisted pale tree root, thick and knobbly at the top with three iron bands hammered round it, a leather-wrapped grip. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_twin_dagger_s1101",
+                     "prompt":  "A broad leaf-shaped fighting dagger with a bright steel blade, a short curved bronze guard, a red leather grip and a ring pommel. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_twin_dagger_s2202",
+                     "prompt":  "A broad leaf-shaped fighting dagger with a bright steel blade, a short curved bronze guard, a red leather grip and a ring pommel. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_twin_dagger_s3303",
+                     "prompt":  "A broad leaf-shaped fighting dagger with a bright steel blade, a short curved bronze guard, a red leather grip and a ring pommel. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_morningstar_s1101",
+                     "prompt":  "A morning star: a stout wooden handle with a leather grip and a large solid iron ball head covered in short thick blunt spikes fixed directly on top of the handle. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_morningstar_s2202",
+                     "prompt":  "A morning star: a stout wooden handle with a leather grip and a large solid iron ball head covered in short thick blunt spikes fixed directly on top of the handle. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_morningstar_s3303",
+                     "prompt":  "A morning star: a stout wooden handle with a leather grip and a large solid iron ball head covered in short thick blunt spikes fixed directly on top of the handle. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scythe_war_s1101",
+                     "prompt":  "A war scythe: a long thick wooden pole with a broad heavy curved steel blade mounted straight upward from the top like a spear, iron bands at the join. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scythe_war_s2202",
+                     "prompt":  "A war scythe: a long thick wooden pole with a broad heavy curved steel blade mounted straight upward from the top like a spear, iron bands at the join. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scythe_war_s3303",
+                     "prompt":  "A war scythe: a long thick wooden pole with a broad heavy curved steel blade mounted straight upward from the top like a spear, iron bands at the join. The weapon stands perfectly upright, shown whole from pommel to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shield_tower_s1101",
+                     "prompt":  "A tall rectangular tower shield seen from the front, slightly curved, pale wood faced with a steel rim, a big painted green leaf emblem on a cream field, solid thick shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shield_tower_s2202",
+                     "prompt":  "A tall rectangular tower shield seen from the front, slightly curved, pale wood faced with a steel rim, a big painted green leaf emblem on a cream field, solid thick shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shield_tower_s3303",
+                     "prompt":  "A tall rectangular tower shield seen from the front, slightly curved, pale wood faced with a steel rim, a big painted green leaf emblem on a cream field, solid thick shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shield_round_iron_s1101",
+                     "prompt":  "A round iron-bound wooden shield seen from the front, dark planks, a big domed steel boss in the middle, eight fat rivets round the rim, solid thick shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shield_round_iron_s2202",
+                     "prompt":  "A round iron-bound wooden shield seen from the front, dark planks, a big domed steel boss in the middle, eight fat rivets round the rim, solid thick shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shield_round_iron_s3303",
+                     "prompt":  "A round iron-bound wooden shield seen from the front, dark planks, a big domed steel boss in the middle, eight fat rivets round the rim, solid thick shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 }
+             ]
+}
