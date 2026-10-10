@@ -15,7 +15,9 @@ param(
     [Parameter(Mandatory = $true)][string]$ConceptSeeds,
     [Parameter(Mandatory = $true)][string]$WorkDir,
     [Parameter(Mandatory = $true)][string[]]$Ids,
-    [string]$Note = ''
+    [string]$Note = '',
+    # The models came from TRELLIS.2 (job file in the trellis2 format) instead of TripoSR.
+    [switch]$Trellis
 )
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = 'Stop'
@@ -55,9 +57,32 @@ foreach ($id in $Ids) {
     $recipeDir = Join-Path $repo "recipes/$id"
     [void](New-Item -ItemType Directory -Force -Path $recipeDir)
     Copy-Item -LiteralPath $workflowSrc -Destination (Join-Path $recipeDir 'workflow.json') -Force
-    Copy-Item -LiteralPath (Join-Path (Split-Path $workflowSrc -Parent) 'birefnet_cutout.api.json') -Destination (Join-Path $recipeDir 'cutout.json') -Force
     Copy-Item -LiteralPath (Join-Path $WorkDir ($id + '_preview.png')) -Destination (Join-Path $recipeDir 'preview.png') -Force
 
+    $imageStep = [ordered]@{ generator = 'z-image-turbo'; tool = 'comfyui'; version = 'z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0'; prompt = [string]$concept.prompt; seed = $seed; vram_gb = 23; workflow = 'workflow.json' }
+    $blenderStep = [ordered]@{ generator = 'blender'; version = 'Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py'; prompt = 'n/a'; seed = 0; vram_gb = 0 }
+    if ($Trellis) {
+        Copy-Item -LiteralPath (Join-Path (Split-Path $workflowSrc -Parent) 'trellis2_image_to_glb.api.json') -Destination (Join-Path $recipeDir 'trellis2.json') -Force
+        $steps = @(
+            $imageStep,
+            [ordered]@{ generator = 'trellis2'; tool = 'comfyui'; version = 'trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes'; prompt = 'n/a'; seed = [long]$job.seed; vram_gb = 24; workflow = 'trellis2.json' },
+            $blenderStep
+        )
+        $how = "The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture."
+    } else {
+            $steps = @(
+            $imageStep,
+            [ordered]@{ generator = 'birefnet'; tool = 'comfyui'; version = 'birefnet.safetensors (Comfy-Org/BiRefNet), ComfyUI 0.39.0'; prompt = 'n/a'; seed = 0; vram_gb = 1; workflow = 'cutout.json' },
+            [ordered]@{ generator = 'triposr'; version = 'TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image, run by tools/pipeline/triposr_run.py (bundled background remover blocked)'; prompt = 'n/a'; seed = 0; vram_gb = 6 },
+            $blenderStep
+        )
+        $how = "The background was removed with BiRefNet before TripoSR, which ran at marching-cubes resolution $($models.mc_resolution). BiRefNet, TripoSR and Blender take no seed (seed 0 is a placeholder)."
+    }
+    foreach ($stale in 'cutout.json', 'trellis2.json') {
+        $stalePath = Join-Path $recipeDir $stale
+        $wanted = ($Trellis -and $stale -eq 'trellis2.json') -or (-not $Trellis -and $stale -eq 'cutout.json')
+        if (-not $wanted -and (Test-Path -LiteralPath $stalePath)) { [System.IO.File]::Delete($stalePath) }
+    }
     $stats = $log[$id]
     $plainName = (($id -split '_', 2)[1]) -replace '_', ' '
     $title = $titles.ToTitleCase($plainName)
@@ -67,19 +92,14 @@ foreach ($id in $Ids) {
         origin       = 'generated'
         licence      = 'CC0-1.0'
         budget_class = [string]$job.budget_class
-        steps        = @(
-            [ordered]@{ generator = 'z-image-turbo'; tool = 'comfyui'; version = 'z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0'; prompt = [string]$concept.prompt; seed = $seed; vram_gb = 23; workflow = 'workflow.json' },
-            [ordered]@{ generator = 'birefnet'; tool = 'comfyui'; version = 'birefnet.safetensors (Comfy-Org/BiRefNet), ComfyUI 0.39.0'; prompt = 'n/a'; seed = 0; vram_gb = 1; workflow = 'cutout.json' },
-            [ordered]@{ generator = 'triposr'; version = 'TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image, run by tools/pipeline/triposr_run.py (bundled background remover blocked)'; prompt = 'n/a'; seed = 0; vram_gb = 6 },
-            [ordered]@{ generator = 'blender'; version = 'Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py'; prompt = 'n/a'; seed = 0; vram_gb = 0 }
-        )
+        steps        = $steps
         cleanup      = @(
             "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to $($job.tris) triangles, smart UV unwrap, vertex colours baked to a $($job.tex) px texture, scaled so the longest side is $($job.size) m, origin at the centre of the base.",
             'No hand editing.'
         )
         sources      = @()
         outputs      = @( [ordered]@{ path = $assetRel } )
-        notes        = ("Input image: stylekit/golden/concepts/$($job.image). The background was removed with BiRefNet before TripoSR, which ran at marching-cubes resolution $($models.mc_resolution). BiRefNet, TripoSR and Blender take no seed (seed 0 is a placeholder). Measured: $stats. $Note").Trim()
+        notes        = ("Input image: stylekit/golden/concepts/$($job.image). $how Measured: $stats. $Note").Trim()
     }
     [System.IO.File]::WriteAllText((Join-Path $recipeDir 'recipe.json'), ((($recipe | ConvertTo-Json -Depth 6) -replace "`r`n", "`n") + "`n"), $enc)
     Write-Output "published $id -> $assetRel"

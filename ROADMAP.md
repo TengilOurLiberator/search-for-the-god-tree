@@ -9,7 +9,7 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 | # | Item | Lead's recommendation |
 |---|---|---|
 | 1 | **Test the sandbox in your headset** (steps under milestone 2) | Everything about feel is unverified until you do |
-| 2 | **Accept Meta's DINOv3 licence so TRELLIS.2 can be approved?** It is the one condition left (decisions 0006, licence file section 7). TRELLIS.2 makes far better 3D than TripoSR; compare `docs/review/session-1/models-trellis2-40k-*.jpg` with `models-triposr-*.jpg` | Read the DINOv3 licence yourself, then approve. Until then TRELLIS.2 output stays out of the repository |
+| 2 | Done: DINOv3 licence accepted, TRELLIS.2 approved ([decision 0012](decisions/0012-trellis2-approved.md)) | Zone 1 kit is being regenerated |
 | 3 | **A non-commercial background remover was used by mistake** and fixed ([decision 0011](decisions/0011-background-removal-incident.md)). The superseded files remain in git history. Purge history? | Leave it; they were placeholders, public for a few hours |
 | 4 | **Listen to the audio** in `unity/Assets/Godtree/Audio/` (10 music sketches, 78 sound effects). Nobody has heard any of it | Mark keepers; the rest get regenerated |
 | 5 | **Style distance.** Look at `docs/review/session-1/concepts-*.jpg`. The characters sit close to a famous hand-drawn film look. How far should version 1 of the style move away? | Move: bolder ink lines, harder shadow edges, our own face shapes |
@@ -49,7 +49,7 @@ Nothing here has been seen in a headset. Passing tests prove the physics behaves
 - [x] Style kit v0: prompt fragments, one proven workflow, 50 golden concept images covering Zone 1 (town, wilderness, dungeon, enemies, characters, props, weapons)
 - [x] 3D pipeline proven end to end: concept image, TripoSR, `tools/pipeline/blender_finish_model.py` (decimate, unwrap, bake, scale), `.glb`, recipe, budget check. Driven by `tools/pipeline/Invoke-ModelQueue.ps1` and `Publish-Models.ps1`
 - [x] 21 placeholder-grade models with recipes in `unity/Assets/Godtree/Art/` (6 weapons, 13 props, 2 environment pieces)
-- [ ] **Golden-quality 3D.** TripoSR is placeholder grade. TRELLIS.2 through ComfyUI's built-in nodes was proven clean (no Nvidia rasteriser, BiRefNet for backgrounds) and evaluated: excellent on hard-surface objects and characters at game budgets, still breaking on spiky, furry, thatched and leafy shapes during mesh reduction. Waiting on the owner (item 2), then tune and regenerate everything. Workflow: `stylekit/workflows/trellis2_image_to_glb.api.json`; how to run: `docs/pipeline.md`
+- [ ] **Golden-quality 3D.** TripoSR is placeholder grade. TRELLIS.2 through ComfyUI's built-in nodes was proven clean (no Nvidia rasteriser, BiRefNet for backgrounds) and evaluated: excellent on hard-surface objects and characters at game budgets, still breaking on spiky, furry, thatched and leafy shapes during mesh reduction. Approved on 2026-10-10 (decision 0012); regeneration of the Zone 1 kit is under way and the detailed shapes still need tuning. Workflow: `stylekit/workflows/trellis2_image_to_glb.api.json`; how to run: `docs/pipeline.md`
 - [x] Unity imports `.glb` through glTFast 6.20.0 (Apache-2.0)
 - [ ] Environment toon shader that matches MToon characters
 - [ ] Avatar route (VRoid placeholders approved; CC0 route untested)

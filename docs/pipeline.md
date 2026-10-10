@@ -23,6 +23,7 @@ How assets are generated on the owner's PC. Everything here runs locally and una
 | `triposr_run.py` | The only permitted way to run TripoSR (blocks its non-commercial background remover) |
 | `blender_finish_model.py` | Decimate to budget, unwrap, bake, scale, export `.glb`, render a preview |
 | `finish_audio.py` | Raw audio to 48 kHz Ogg Vorbis, with measurements |
+| `Finish-TrellisModels.ps1` | Blender finishing for TRELLIS.2 output; refuses anything over its triangle budget |
 | `Publish-Models.ps1`, `Publish-Audio.ps1` | Copy chosen results into `unity/Assets/Godtree/` and write their recipes |
 
 ## Typical runs
@@ -64,6 +65,6 @@ Music and sound effects use `Invoke-GenerationQueue.ps1` with `music-v0.json` or
 | Concepts | Z-Image Turbo | Good and consistent. 3 s per image, 23 GB |
 | Cut-outs | BiRefNet | Clean, also removes drawn shadows. Under 1 s |
 | 3D | TripoSR | Placeholder grade: soft colour, fails on creatures and thin parts. About 10 s per model |
-| 3D | TRELLIS.2 (ComfyUI native) | **Evaluation only, not approved.** Sharp colour and clean shape on hard-surface objects and characters at game budgets; 30 s to 6 minutes per model, up to 30 GB. Spiky, furry, thatched and leafy shapes still break in mesh reduction and need tuning |
+| 3D | TRELLIS.2 (ComfyUI built-in nodes) | **Approved (decision 0012).** Sharp colour and clean shape on hard-surface objects and characters at game budgets; 30 s to 6 minutes per model, up to 30 GB. Spiky, furry, thatched and leafy shapes still break in mesh reduction and need tuning |
 | Music | ACE-Step 1.5 | Runs (90 s of music in 8 s). Unheard |
 | Sound effects | Stable Audio Open 1.0 | Runs (3 s each). Unheard. Needs the gain cut that is in the workflow |

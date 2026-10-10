@@ -1,0 +1,267 @@
+{
+    "_about":  "Zone 1 kit through TRELLIS.2 (approved in decision 0012). Fields tris, tex, size and budget_class are for the Blender finishing step.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "wpn_sword_training",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_sword_training.png",
+                     "image":  "con_sword_training.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.95
+                 },
+                 {
+                     "id":  "wpn_axe_woodcutter",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_axe_woodcutter.png",
+                     "image":  "con_axe_woodcutter.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.60
+                 },
+                 {
+                     "id":  "wpn_spear_meadow",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_spear_meadow.png",
+                     "image":  "con_spear_meadow.png",
+                     "budget_class":  "weapon",
+                     "tris":  3000,
+                     "tex":  1024,
+                     "size":  2.00
+                 },
+                 {
+                     "id":  "wpn_bow_willow",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_bow_willow.png",
+                     "image":  "con_bow_willow.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  1.30
+                 },
+                 {
+                     "id":  "wpn_shield_husk",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_shield_husk.png",
+                     "image":  "con_shield_husk.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.60
+                 },
+                 {
+                     "id":  "prp_dummy_training",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_dummy_training.png",
+                     "image":  "con_dummy_training.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  1.80
+                 },
+                 {
+                     "id":  "prp_lantern_husk",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_lantern_husk.png",
+                     "image":  "con_lantern_husk.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  0.45
+                 },
+                 {
+                     "id":  "prp_cradle_shrine",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_cradle_shrine.png",
+                     "image":  "con_cradle_shrine.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  1.20
+                 },
+                 {
+                     "id":  "env_husk_house",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_envkit_husk_house.png",
+                     "image":  "con_envkit_husk_house.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  4.50
+                 },
+                 {
+                     "id":  "env_stone_wall",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_envkit_stone_wall.png",
+                     "image":  "con_envkit_stone_wall.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  4.00
+                 },
+                 {
+                     "id":  "enm_burrling",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_burrling.png",
+                     "image":  "con_burrling.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  12000,
+                     "tex":  2048,
+                     "size":  0.50
+                 },
+                 {
+                     "id":  "enm_thornback",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_thornback.png",
+                     "image":  "con_thornback.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  15000,
+                     "tex":  2048,
+                     "size":  1.60
+                 },
+                 {
+                     "id":  "enm_rootwarden",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_rootwarden.png",
+                     "image":  "con_rootwarden.png",
+                     "budget_class":  "enemy_boss",
+                     "tris":  40000,
+                     "tex":  2048,
+                     "size":  4.00
+                 },
+                 {
+                     "id":  "wpn_dagger_thorn",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_dagger_thorn.png",
+                     "image":  "con_dagger_thorn.png",
+                     "budget_class":  "weapon",
+                     "tris":  3000,
+                     "tex":  1024,
+                     "size":  0.38
+                 },
+                 {
+                     "id":  "prp_barrel",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_barrel.png",
+                     "image":  "con_prop_barrel.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  1.00
+                 },
+                 {
+                     "id":  "prp_bench",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_bench.png",
+                     "image":  "con_prop_bench.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  1.60
+                 },
+                 {
+                     "id":  "prp_cart",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_cart.png",
+                     "image":  "con_prop_cart.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  2.20
+                 },
+                 {
+                     "id":  "prp_chest",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_chest.png",
+                     "image":  "con_prop_chest.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  0.80
+                 },
+                 {
+                     "id":  "prp_crate",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_crate.png",
+                     "image":  "con_prop_crate.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  0.80
+                 },
+                 {
+                     "id":  "prp_fence",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_fence.png",
+                     "image":  "con_prop_fence.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  3.00
+                 },
+                 {
+                     "id":  "prp_market_stall",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_market_stall.png",
+                     "image":  "con_prop_market_stall.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  9000,
+                     "tex":  2048,
+                     "size":  2.60
+                 },
+                 {
+                     "id":  "prp_mote_vial",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_mote_vial.png",
+                     "image":  "con_prop_mote_vial.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1500,
+                     "tex":  1024,
+                     "size":  0.14
+                 },
+                 {
+                     "id":  "prp_signpost",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_signpost.png",
+                     "image":  "con_prop_signpost.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  2.40
+                 },
+                 {
+                     "id":  "prp_well",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_well.png",
+                     "image":  "con_prop_well.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  2.80
+                 },
+                 {
+                     "id":  "env_husk_fragment",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_flora_husk_fragment.png",
+                     "image":  "con_flora_husk_fragment.png",
+                     "budget_class":  "env_modular",
+                     "tris":  5000,
+                     "tex":  2048,
+                     "size":  2.00
+                 },
+                 {
+                     "id":  "env_wind_tree",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_flora_wind_tree.png",
+                     "image":  "con_flora_wind_tree.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  4.00
+                 }
+             ]
+}
