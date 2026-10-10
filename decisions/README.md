@@ -18,3 +18,4 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0010](0010-pipeline-and-sandbox-choices.md) | 2026-10-10 | Tools outside the repository, queue-driven generation, TripoSR and Blender finishing, glTFast, sandbox built by script | Lead |
 | [0011](0011-background-removal-incident.md) | 2026-10-10 | A non-commercial background remover was used by mistake; models rebuilt with BiRefNet; rule added | Lead; history purge is the owner's |
 | [0012](0012-trellis2-approved.md) | 2026-10-10 | TRELLIS.2 approved, through ComfyUI's built-in nodes only; owner accepted the DINOv3 licence | Owner |
+| [0013](0013-sandbox-first.md) | 2026-10-10 | Sandbox first; prototypes ahead of the roadmap; point-and-pull grabbing; generate many models, keep few | Owner |

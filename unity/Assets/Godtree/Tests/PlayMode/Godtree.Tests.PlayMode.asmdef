@@ -4,6 +4,7 @@
   "references": [
     "UnityEngine.TestRunner",
     "kadenzombie8.bimos",
+    "UnityEngine.UI",
     "UnityEditor.TestRunner"
   ],
   "includePlatforms": [],

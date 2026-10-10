@@ -103,6 +103,47 @@ namespace Godtree.Tests
         }
 
         [UnityTest]
+        public IEnumerator EquipmentChangesStatsAndMoveSpeed()
+        {
+            // The sandbox scripts live in the default assembly, which a test assembly cannot
+            // reference, so they are reached by name.
+            Component stats = GameObject.Find("Player stats").GetComponent("PlayerStats");
+            Assert.IsNotNull(stats, "PlayerStats missing");
+            System.Type type = stats.GetType();
+            System.Type slotType = type.Assembly.GetType("Godtree.Sandbox.EquipSlot");
+            float Read(string property) => (float)type.GetProperty(property).GetValue(stats);
+
+            BIMOS.Player player = Object.FindFirstObjectByType<BIMOS.Player>();
+            float walkBefore = player.WalkSpeed;
+            Assert.AreEqual(1f, Read("Agility"), 1e-4f);
+            Assert.AreEqual(1f, Read("Strength"), 1e-4f);
+
+            // Hands slot: first choice is Iron Bracers (+25 % strength), second Runner's Wraps (+15 % agility).
+            object hands = System.Enum.Parse(slotType, "Hands");
+            type.GetMethod("Cycle").Invoke(stats, new[] { hands, (object)1 });
+            Assert.AreEqual(1.25f, Read("Strength"), 1e-4f, "Iron Bracers should add 25 % strength");
+            type.GetMethod("Cycle").Invoke(stats, new[] { hands, (object)1 });
+            Assert.AreEqual(1f, Read("Strength"), 1e-4f, "taking the bracers off should remove their bonus");
+            Assert.AreEqual(1.15f, Read("Agility"), 1e-4f, "Runner's Wraps should add 15 % agility");
+            Assert.AreEqual(walkBefore * 1.15f, player.WalkSpeed, 1e-3f, "agility should change real walking speed");
+            yield break;
+        }
+
+        [UnityTest]
+        public IEnumerator CharacterMenuOpensWithButtonsAndMirror()
+        {
+            GameObject.Find("Character menu").SendMessage("Toggle");
+            yield return null;
+            GameObject board = GameObject.Find("Character menu board");
+            Assert.IsNotNull(board, "the menu board did not appear");
+            Assert.AreEqual(8, board.GetComponentsInChildren<BoxCollider>().Length, "four slots with two arrow buttons each");
+            Assert.IsNotNull(board.GetComponentInChildren<UnityEngine.UI.RawImage>().texture, "the mirror has no picture");
+            GameObject.Find("Character menu").SendMessage("Toggle");
+            yield return null;
+            Assert.IsFalse(board.activeSelf, "the menu should close on the second press");
+        }
+
+        [UnityTest]
         public IEnumerator PlayerRigSpawns()
         {
             Assert.Greater(Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Length, 0, "the BIMOS rig should have spawned a camera");

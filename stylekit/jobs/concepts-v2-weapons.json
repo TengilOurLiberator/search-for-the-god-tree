@@ -1,0 +1,454 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  0,
+    "jobs":  [
+                 {
+                     "id":  "con_wpn_greatsword_s1101",
+                     "prompt":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatsword_s2202",
+                     "prompt":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatsword_s3303",
+                     "prompt":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatsword_s4404",
+                     "prompt":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_mace_s1101",
+                     "prompt":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_mace_s2202",
+                     "prompt":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_mace_s3303",
+                     "prompt":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_mace_s4404",
+                     "prompt":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_warhammer_s1101",
+                     "prompt":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_warhammer_s2202",
+                     "prompt":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_warhammer_s3303",
+                     "prompt":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_warhammer_s4404",
+                     "prompt":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_club_root_s1101",
+                     "prompt":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_club_root_s2202",
+                     "prompt":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_club_root_s3303",
+                     "prompt":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_club_root_s4404",
+                     "prompt":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scimitar_s1101",
+                     "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scimitar_s2202",
+                     "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scimitar_s3303",
+                     "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scimitar_s4404",
+                     "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_rapier_s1101",
+                     "prompt":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_rapier_s2202",
+                     "prompt":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_rapier_s3303",
+                     "prompt":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_rapier_s4404",
+                     "prompt":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_halberd_s1101",
+                     "prompt":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_halberd_s2202",
+                     "prompt":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_halberd_s3303",
+                     "prompt":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_halberd_s4404",
+                     "prompt":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_s1101",
+                     "prompt":  "A wizard\u0027s walking staff standing upright made of pale smooth twisted wood, the top curls into an open loop holding a round warm gold glowing crystal, green cord wrapping in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_s2202",
+                     "prompt":  "A wizard\u0027s walking staff standing upright made of pale smooth twisted wood, the top curls into an open loop holding a round warm gold glowing crystal, green cord wrapping in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_s3303",
+                     "prompt":  "A wizard\u0027s walking staff standing upright made of pale smooth twisted wood, the top curls into an open loop holding a round warm gold glowing crystal, green cord wrapping in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_s4404",
+                     "prompt":  "A wizard\u0027s walking staff standing upright made of pale smooth twisted wood, the top curls into an open loop holding a round warm gold glowing crystal, green cord wrapping in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_thorn_s1101",
+                     "prompt":  "A short magic wand standing upright, a straight tapered stick of pale polished wood with a spiral groove, a small gold crystal tip, a brown leather grip at the thick end. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_wand_thorn_s2202",
+                     "prompt":  "A short magic wand standing upright, a straight tapered stick of pale polished wood with a spiral groove, a small gold crystal tip, a brown leather grip at the thick end. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_wand_thorn_s3303",
+                     "prompt":  "A short magic wand standing upright, a straight tapered stick of pale polished wood with a spiral groove, a small gold crystal tip, a brown leather grip at the thick end. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_wand_thorn_s4404",
+                     "prompt":  "A short magic wand standing upright, a straight tapered stick of pale polished wood with a spiral groove, a small gold crystal tip, a brown leather grip at the thick end. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_s1101",
+                     "prompt":  "A small throwing hand axe standing upright, head up: short curved wooden handle, one compact steel blade with a simple leaf engraving, leather cord around the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_s2202",
+                     "prompt":  "A small throwing hand axe standing upright, head up: short curved wooden handle, one compact steel blade with a simple leaf engraving, leather cord around the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_s3303",
+                     "prompt":  "A small throwing hand axe standing upright, head up: short curved wooden handle, one compact steel blade with a simple leaf engraving, leather cord around the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_s4404",
+                     "prompt":  "A small throwing hand axe standing upright, head up: short curved wooden handle, one compact steel blade with a simple leaf engraving, leather cord around the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shortsword_s1101",
+                     "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shortsword_s2202",
+                     "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shortsword_s3303",
+                     "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shortsword_s4404",
+                     "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_kite_shield_s1101",
+                     "prompt":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_kite_shield_s2202",
+                     "prompt":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_kite_shield_s3303",
+                     "prompt":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_kite_shield_s4404",
+                     "prompt":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_buckler_s1101",
+                     "prompt":  "A small round steel buckler shield seen from the front and slightly to one side, a raised round boss in the centre, a ring of rivets, polished grey steel with a bronze rim. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_s2202",
+                     "prompt":  "A small round steel buckler shield seen from the front and slightly to one side, a raised round boss in the centre, a ring of rivets, polished grey steel with a bronze rim. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_s3303",
+                     "prompt":  "A small round steel buckler shield seen from the front and slightly to one side, a raised round boss in the centre, a ring of rivets, polished grey steel with a bronze rim. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_s4404",
+                     "prompt":  "A small round steel buckler shield seen from the front and slightly to one side, a raised round boss in the centre, a ring of rivets, polished grey steel with a bronze rim. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_torch_s1101",
+                     "prompt":  "A wooden hand torch standing upright, a thick stick with a head wrapped in cloth and bound with iron bands, a compact stylised orange flame on top with simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_s2202",
+                     "prompt":  "A wooden hand torch standing upright, a thick stick with a head wrapped in cloth and bound with iron bands, a compact stylised orange flame on top with simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_s3303",
+                     "prompt":  "A wooden hand torch standing upright, a thick stick with a head wrapped in cloth and bound with iron bands, a compact stylised orange flame on top with simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_s4404",
+                     "prompt":  "A wooden hand torch standing upright, a thick stick with a head wrapped in cloth and bound with iron bands, a compact stylised orange flame on top with simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_pickaxe_s1101",
+                     "prompt":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_pickaxe_s2202",
+                     "prompt":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_pickaxe_s3303",
+                     "prompt":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_pickaxe_s4404",
+                     "prompt":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_quarterstaff_s1101",
+                     "prompt":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_quarterstaff_s2202",
+                     "prompt":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_quarterstaff_s3303",
+                     "prompt":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_quarterstaff_s4404",
+                     "prompt":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 }
+             ]
+}

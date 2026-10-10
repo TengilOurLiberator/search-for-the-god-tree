@@ -30,6 +30,9 @@ namespace Godtree.Combat
         /// <summary>Raised for every hit that passes the threshold: struck object, striking object, impulse.</summary>
         public static event System.Action<string, string, float> Hit;
 
+        /// <summary>The same hit with the objects and the contact point: struck, striker, point, impulse.</summary>
+        public static event System.Action<GameObject, GameObject, Vector3, float> HitAt;
+
         /// <summary>Impulse of the most recent hit that passed the threshold.</summary>
         public float LastImpulse { get; private set; }
 
@@ -57,6 +60,8 @@ namespace Godtree.Combat
             _strength = Mathf.Max(_strength, Mathf.InverseLerp(minImpulse, fullImpulse, impulse));
 
             Hit?.Invoke(name, collision.rigidbody != null ? collision.rigidbody.name : collision.collider.name, impulse);
+            HitAt?.Invoke(gameObject, collision.rigidbody != null ? collision.rigidbody.gameObject : collision.gameObject,
+                collision.contactCount > 0 ? collision.GetContact(0).point : transform.position, impulse);
 
             if (logHits)
                 Debug.Log($"[Godtree] {name} hit by {collision.collider.name}: impulse {impulse:F1} N s");

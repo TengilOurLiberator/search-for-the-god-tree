@@ -16,6 +16,10 @@ namespace Godtree.Sandbox
     ///                flies where the controller points.
     ///   PUSH KNOT    Both hands empty: hold both TRIGGERS with your hands together, then
     ///                let go. Everything in front of you is shoved away.
+    ///   LIFT KNOT    Both hands empty: hold both TRIGGERS with your hands apart. Loose things
+    ///                in front of you rise and hang in the air until you let go.
+    ///   WARD KNOT    Empty hand: hold A (right) or X (left). A disc of light sits in front of
+    ///                that hand and blocks whatever hits it.
     ///
     /// All three act through physics: the arrow and the bolt are rigid bodies that hit
     /// things, and the push is a force. Nothing decides an outcome by rule.
@@ -35,6 +39,8 @@ namespace Godtree.Sandbox
         private readonly GameObject[] _orbs = new GameObject[2];
         private readonly Vector3[] _lastPalm = new Vector3[2], _palmVelocity = new Vector3[2];
         private GameObject _nockedArrow;
+        private readonly GameObject[] _wards = new GameObject[2];
+        private bool _lifting, _liftUsed;
         private Material _moteMaterial, _woodMaterial, _steelMaterial, _waveMaterial;
 
         private bool FindRig()
@@ -85,6 +91,8 @@ namespace Godtree.Sandbox
                 bool free = _hands[i].CurrentGrab == null;
                 bool otherHoldsBow = HoldsBow(_hands[other]);
 
+                UpdateWard(i, free && _hands[i].HandInputReader.PrimaryButton && !_pressed[i]);
+
                 if (!wasPressed && _pressed[i] && free)
                 {
                     if (otherHoldsBow && Vector3.Distance(_hands[i].PalmTransform.position, _hands[other].PalmTransform.position) < 0.45f)
@@ -114,6 +122,70 @@ namespace Godtree.Sandbox
                     else ReleaseCharge(i);
                 }
             }
+
+            bool apart = _charging[0] && _charging[1] && Charge(0) > 0.3f && Charge(1) > 0.3f &&
+                         Vector3.Distance(_hands[0].PalmTransform.position, _hands[1].PalmTransform.position) > 0.5f;
+            if (apart && !_lifting)
+            {
+                Play(pushClips, (_hands[0].PalmTransform.position + _hands[1].PalmTransform.position) * 0.5f, 0.6f);
+                SessionRecorder.Note("lift_knot", "begin");
+            }
+            _lifting = apart;
+            if (_lifting)
+                _liftUsed = true;
+            if (!_charging[0] && !_charging[1])
+                _liftUsed = false;
+        }
+
+        private void FixedUpdate()
+        {
+            if (!_lifting || _player == null)
+                return;
+            Vector3 origin = (_hands[0].PalmTransform.position + _hands[1].PalmTransform.position) * 0.5f;
+            Vector3 direction = (_controllers[0].forward + _controllers[1].forward).normalized;
+            float hover = origin.y + 0.2f;
+            foreach (Collider hit in Physics.OverlapSphere(origin + direction * 2.5f, 2.8f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+            {
+                Rigidbody body = hit.attachedRigidbody;
+                if (body == null || body.isKinematic || body.mass > 25f * PlayerStats.FocusNow || body.GetComponentInParent<Player>() != null)
+                    continue;
+                if (body.GetComponent<Joint>() != null)
+                    continue; // leave jointed things (the dummy) standing
+                // Rise toward hand height and hang there: cancel gravity, steer vertical speed.
+                float wantedUp = Mathf.Clamp((hover - body.worldCenterOfMass.y) * 2.5f, -1f, 1.6f);
+                Vector3 v = body.linearVelocity;
+                body.AddForce(-Physics.gravity + new Vector3(-v.x * 1.5f, (wantedUp - v.y) * 6f, -v.z * 1.5f), ForceMode.Acceleration);
+            }
+        }
+
+        private void UpdateWard(int i, bool wanted)
+        {
+            if (!wanted)
+            {
+                if (_wards[i] != null) { Destroy(_wards[i]); _wards[i] = null; }
+                return;
+            }
+            if (_wards[i] == null)
+            {
+                GameObject ward = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                ward.name = "Ward knot";
+                Destroy(ward.GetComponent<Collider>());
+                ward.GetComponent<MeshRenderer>().sharedMaterial = _waveMaterial;
+                var box = ward.AddComponent<BoxCollider>();
+                box.size = new Vector3(1f, 1f, 1f);
+                var body = ward.AddComponent<Rigidbody>();
+                body.isKinematic = true;
+                IgnoreRig(ward);
+                _wards[i] = ward;
+                Play(castClips, _hands[i].PalmTransform.position, 0.7f);
+                SessionRecorder.Note("ward_knot", i == 0 ? "left" : "right");
+            }
+            float size = 0.75f * Mathf.Sqrt(PlayerStats.FocusNow);
+            Transform t = _wards[i].transform;
+            t.localScale = new Vector3(size, 0.02f, size);
+            Rigidbody wardBody = _wards[i].GetComponent<Rigidbody>();
+            wardBody.MovePosition(_hands[i].PalmTransform.position + _controllers[i].forward * 0.3f);
+            wardBody.MoveRotation(Quaternion.LookRotation(_controllers[i].up, _controllers[i].forward));
         }
 
         private static bool HoldsBow(Hand hand)
@@ -237,6 +309,13 @@ namespace Godtree.Sandbox
         {
             float charge = Charge(i);
             bool together = HandsTogether();
+            if (_liftUsed)
+            {
+                // The charge was spent holding things in the air; letting go just drops them.
+                _charging[i] = false;
+                DestroyOrb(i);
+                return;
+            }
             Vector3 origin = _orbs[i] != null ? _orbs[i].transform.position : _hands[i].PalmTransform.position;
             _charging[i] = false;
             DestroyOrb(i);
@@ -270,7 +349,7 @@ namespace Godtree.Sandbox
             glow.range = 3f;
             glow.intensity = 2f;
             var body = bolt.AddComponent<Rigidbody>();
-            body.mass = Mathf.Lerp(0.15f, 0.4f, charge);
+            body.mass = Mathf.Lerp(0.15f, 0.4f, charge) * PlayerStats.FocusNow;
             body.useGravity = false;
             body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             var projectile = bolt.AddComponent<SandboxProjectile>();
@@ -296,8 +375,10 @@ namespace Godtree.Sandbox
                 if (angle > 55f)
                     continue;
                 float falloff = Mathf.Clamp01(1f - to.magnitude / 5.5f) * Mathf.Clamp01(1f - angle / 80f);
-                Vector3 impulse = (direction + Vector3.up * 0.15f).normalized * (4f + 8f * charge) * Mathf.Min(body.mass, 8f) * falloff;
+                Vector3 impulse = (direction + Vector3.up * 0.15f).normalized * (4f + 8f * charge) * Mathf.Min(body.mass, 8f) * falloff * PlayerStats.FocusNow;
                 body.AddForce(impulse, ForceMode.Impulse);
+                if (DamageFeedback.Instance != null)
+                    DamageFeedback.Instance.Report(body.gameObject, body.worldCenterOfMass, impulse.magnitude * 0.6f, true);
                 ImpactFlash flash = body.GetComponent<ImpactFlash>();
                 if (flash != null)
                     flash.Pulse(falloff);

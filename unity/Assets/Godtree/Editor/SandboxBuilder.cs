@@ -255,6 +255,9 @@ namespace Godtree.EditorTools
             new GameObject("Held object collision filter", typeof(HeldObjectCollisionFilter)).transform.SetParent(root.transform, false);
             BuildAbilities(root.transform);
             new GameObject("Distance grab", typeof(Godtree.Sandbox.DistanceGrab)).transform.SetParent(root.transform, false);
+            new GameObject("Player stats", typeof(Godtree.Sandbox.PlayerStats)).transform.SetParent(root.transform, false);
+            new GameObject("Damage feedback", typeof(Godtree.Sandbox.DamageFeedback)).transform.SetParent(root.transform, false);
+            new GameObject("Character menu", typeof(Godtree.Sandbox.CharacterMenu)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -607,7 +610,7 @@ namespace Godtree.EditorTools
             var canvas = board.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.WorldSpace;
             var rect = board.GetComponent<RectTransform>();
-            rect.sizeDelta = new Vector2(1300f, 1750f);
+            rect.sizeDelta = new Vector2(1300f, 2050f);
 
             var panel = new GameObject("Panel");
             panel.transform.SetParent(board.transform, false);
@@ -622,7 +625,7 @@ namespace Godtree.EditorTools
             textObject.transform.SetParent(board.transform, false);
             var text = textObject.AddComponent<UnityEngine.UI.Text>();
             text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            text.fontSize = 40;
+            text.fontSize = 38;
             text.lineSpacing = 1.1f;
             text.color = new Color(1f, 0.97f, 0.92f);
             text.alignment = TextAnchor.UpperLeft;
@@ -636,7 +639,10 @@ namespace Godtree.EditorTools
                 "<b><color=#FFD86B>FIGHT</color></b>   Swing at the straw dummy. Harder swings\nflash brighter and sound louder.\n\n" +
                 "<b><color=#FFD86B>BOW</color></b>   Hold the bow in one hand. Bring your other\nhand to it, hold that hand's TRIGGER, pull back,\nlet go. Pull further to shoot faster.\n\n" +
                 "<b><color=#FFD86B>MOTE BOLT</color></b>   Empty hand: hold TRIGGER to gather\nlight, let go to loose it. Throw it or point it.\n" +
-                "<b><color=#FFD86B>PUSH KNOT</color></b>   Both hands empty and together:\nhold both TRIGGERS, then let go.\n\n" +
+                "<b><color=#FFD86B>PUSH KNOT</color></b>   Both hands empty and together:\nhold both TRIGGERS, then let go.\n" +
+                "<b><color=#FFD86B>LIFT KNOT</color></b>   Both TRIGGERS, hands apart: loose\nthings in front of you float until you let go.\n" +
+                "<b><color=#FFD86B>WARD KNOT</color></b>   Empty hand: hold A or X for a shield of light.\n\n" +
+                "<b><color=#FFD86B>CHARACTER</color></b>   Press B (right hand) for your stats,\nequipment and a mirror. Push the arrows with a hand.\n\n" +
                 "<b><color=#FFD86B>MOVE</color></b>   Left stick. Click it to run.\n" +
                 "<b><color=#FFD86B>TURN</color></b>   Right stick left or right.\n" +
                 "<b><color=#FFD86B>CROUCH / JUMP</color></b>   Right stick down / click it.\n" +

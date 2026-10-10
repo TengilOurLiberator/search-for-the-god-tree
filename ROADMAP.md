@@ -18,6 +18,18 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 | 9 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence. Not urgent |
 | 8 | GPU power limit: image batches draw the full 600 W. Lowering it needs administrator rights | Set a limit of about 450 W in your GPU tool for unattended runs |
 
+## Current priority (decision 0013, 2026-10-10)
+
+The sandbox comes first: make it good enough for the owner to judge how the game plays, and make it look good. Prototypes of later systems (bow, spells, character menu, equipment and stats) are being built in the sandbox ahead of the milestone order below. Findings from recorded play sessions are in [docs/playtests.md](docs/playtests.md).
+
+- [x] Point-and-pull grabbing with snapped holds; held weapons no longer fight the body or a second hand
+- [x] Bow that draws and shoots; four spell prototypes (mote bolt, push, lift, ward)
+- [x] Character menu (B button): mirror view, stats, four equipment slots that change stats; damage numbers and dummy health
+- [ ] Owner to try all of the above in the headset; none of it has been felt yet
+- [ ] More weapons (16 concepts in generation), judged by the lead before they enter the game
+- [ ] Hand tracking (wanted; movement without thumbsticks is the open question)
+- [ ] Equipped items are not shown on the character yet; the character is the rig's grey mannequin
+
 ## Milestones
 
 ### 1. Foundations: in progress
