@@ -1,0 +1,102 @@
+{
+    "_about":  "Townsfolk, two adventurers and two man-shaped monsters redrawn so they can be rigged and animated (decision 0016): arms clear of the body, close-fitting clothes, nothing held. Same route as the player\u0027s body (decision 0015).",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303,
+                  4404
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_rig_rooted_innkeeper",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A warm middle-aged village innkeeper, a stout man with rolled sleeves, a short patched apron tied tight at the waist over trousers, kind smile, short hair, earthy clothes in cream, tan and leaf green. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_rooted_smith",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A sturdy cheerful village blacksmith woman with strong bare arms, a thick short leather apron tied tight over a sleeveless tunic and trousers, short tied-back hair, soot on one cheek, earthy cream and tan clothes with a leaf-green neck scarf tucked in. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_rooted_elder",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small wise old village elder, a thin old man with a short pale beard and a round straw hat, a knee-length cream tunic with a soft green sash tied tight, trousers and sandals. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_rooted_merchant",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A travelling merchant, a lean woman with a friendly sly smile, a headscarf, a fitted patched waistcoat in tan and leaf green over a shirt with tight sleeves, trousers tucked into boots, a belt with small pouches. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_rooted_child",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A curious village child about eight years old with messy hair and a big smile, a short cream tunic with a rope belt, bare knees, simple shoes. Child body proportions. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_woken_weaver",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A young adventurer who casts magic with bare hands, a slim woman with a calm focused face and hair tied back, a fitted hip-length cream coat tied with a gold cord, fingerless wraps on both hands, trousers and soft boots. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_woken_shieldbearer",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A sturdy young adventurer in simple padded armour of quilted cream cloth and brown leather fitted to the body, one steel shoulder plate, trousers and boots, short hair, steady confident face. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_enm_barkbound",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A monster shaped like a man: an empty suit of rusty old knight armour completely overgrown and held together by thick brown tree bark and twisting roots, bark bursting through every gap between the plates, roots wrapped around the arms and legs like muscles, a hollow dark helmet with a few green leaves and one small gold glow inside, mossy shoulders, empty hands with root fingers, human sized, clearly more tree than metal. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     },
+                     {
+                         "id":  "con_rig_enm_rootwarden",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A guardian golem shaped like a broad heavy man, made of twisted pale tree roots and grey stone slabs, broad shoulders, thick long arms and thick legs, a small head with one soft gold glowing knot for a face, moss on its shoulders, calm not evil, solid chunky shapes. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body."
+                     }
+                 ]
+}

@@ -1,0 +1,34 @@
+{
+    "id":  "anm_human_basic",
+    "title":  "Human Animation Set, Basic",
+    "origin":  "sourced",
+    "licence":  "CC0-1.0",
+    "budget_class":  "prop_small",
+    "steps":  [
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_export_animations.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_export_animations.py: 44 clips chosen from the two source files, gathered on one skeleton, exported as one file with no mesh. No clip was edited."
+                ],
+    "sources":  [
+                    {
+                        "name":  "Mesh2Motion human animations (human-base-animations.glb, human-addon-animations.glb)",
+                        "url":  "https://github.com/Mesh2Motion/mesh2motion-app",
+                        "author":  "Mesh2Motion contributors; many clips from the Quaternius Universal Animation Library",
+                        "licence":  "CC0-1.0",
+                        "note":  "Commit 653a9698f5f315523072f1c3ff3496100401317b, fetched 2026-10-10. The repository\u0027s README states that its art assets (3d models, rigs, animations) are CC0; the Quaternius pack inside it carries its own CC0 notice. The file human-mocap-animations.glb was not used because its origin is not stated."
+                    }
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Animations/anm_human_basic.glb"
+                    }
+                ],
+    "notes":  "Forty-four clips for people and man-shaped creatures on the Mesh2Motion human skeleton: idles, talking, walking, greeting, nodding, working, being hit, dying, sword strokes, the shambling walk and scratch used by creatures. Characters rigged with blender_rig_body.py --style m2m --mode skinned share this skeleton, so every clip drives every one of them. The sandbox copies the clips so that the repeating ones loop. Judged from robot-player pictures only; not yet seen in the headset."
+}

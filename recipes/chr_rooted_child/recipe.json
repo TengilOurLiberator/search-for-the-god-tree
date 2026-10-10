@@ -1,7 +1,7 @@
 {
     "id":  "chr_rooted_child",
     "title":  "Rooted Child",
-    "origin":  "generated",
+    "origin":  "mixed",
     "licence":  "CC0-1.0",
     "budget_class":  "character_npc",
     "steps":  [
@@ -9,8 +9,8 @@
                       "generator":  "z-image-turbo",
                       "tool":  "comfyui",
                       "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
-                      "prompt":  "A curious village child about eight years old with messy hair, a too-big cream tunic, a wooden toy sword tucked in a rope belt, bare knees, big smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
-                      "seed":  1101,
+                      "prompt":  "A curious village child about eight years old with messy hair and a big smile, a short cream tunic with a rope belt, bare knees, simple shoes. Child body proportions. Close-fitting clothes. No cloak, no cape, no backpack, no bag, nothing held in the hands, no loose hanging cloth, arms bare or in tight sleeves and well clear of the body. Full-body character design for a game model, one person standing perfectly straight and facing the viewer in a strict T-pose, both arms held straight out horizontally to the sides at shoulder height with palms down and fingers together, legs straight and slightly apart, exactly front view, symmetrical, whole body in frame from head to feet and from fingertip to fingertip with margin, plain flat white background, even shadowless lighting, realistic adult body proportions about seven and a half heads tall, normal sized head and hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                      "seed":  4404,
                       "vram_gb":  23,
                       "workflow":  "workflow.json"
                   },
@@ -29,19 +29,33 @@
                       "prompt":  "n/a",
                       "seed":  0,
                       "vram_gb":  0
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_rig_body.py --style m2m --mode skinned",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
                   }
               ],
     "cleanup":  [
-                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 25000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 1.2 m, origin at the centre of the base.",
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 25000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 1.25 m, origin at the centre of the base.",
+                    "Automatic only, by tools/pipeline/blender_rig_body.py: seams welded; scaled to the skeleton\u0027s height; arms raised level and legs brought together to a T-pose (measured: arms 34.3 degrees below level, legs 7.0 degrees out); arms scaled 1.074 along their length; automatic weights to the skeleton\u0027s body bones, fingers excluded.",
                     "No hand editing."
                 ],
     "sources":  [
-
+                    {
+                        "name":  "Mesh2Motion human rig (skeleton only)",
+                        "url":  "https://github.com/Mesh2Motion/mesh2motion-app",
+                        "author":  "Mesh2Motion contributors",
+                        "licence":  "CC0-1.0",
+                        "note":  "The skeleton inside this file. Its animations are in anm_human_basic."
+                    }
                 ],
     "outputs":  [
                     {
                         "path":  "unity/Assets/Godtree/Art/Characters/chr_rooted_child.glb"
                     }
                 ],
-    "notes":  "Input image: stylekit/golden/f1/con_rooted_child.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=24604 final_tris=24604 dims=0.557x0.331x1.200 tex=2048. Made with TRELLIS.2 from a concept in the painterly anime action-RPG look (decision 0014). Judged from a rendered preview only; not yet seen in the headset."
+    "notes":  "Input image: stylekit/golden/f1/con_rig_rooted_child.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=24576 final_tris=24576 dims=1.085x0.329x1.250 tex=2048. Rigged: the file holds the mesh bound to the CC0 Mesh2Motion human skeleton, so the clips in anm_human_basic drive it. Fingers do not bend. Judged from rendered test poses only; not yet seen in the headset."
 }

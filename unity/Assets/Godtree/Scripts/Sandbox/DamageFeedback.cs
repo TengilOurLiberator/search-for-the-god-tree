@@ -34,6 +34,23 @@ namespace Godtree.Sandbox
             ImpactFlash.HitAt += OnHit;
         }
 
+        private void Start()
+        {
+            if (PlayerStats.Instance != null)
+                PlayerStats.Instance.Hurt += OnPlayerHurt;
+        }
+
+        // The player was struck: a red number in front of their eyes, toward where it came from.
+        private void OnPlayerHurt(float damage, Vector3 from)
+        {
+            Camera cam = Camera.main;
+            if (cam == null)
+                return;
+            Vector3 toward = (from - cam.transform.position).normalized;
+            Vector3 at = cam.transform.position + Vector3.Slerp(cam.transform.forward, toward, 0.5f) * 0.7f - Vector3.up * 0.1f;
+            Popup(at, "-" + Mathf.RoundToInt(damage) + "  (" + Mathf.CeilToInt(PlayerStats.Instance.Health) + ")", new Color(1f, 0.25f, 0.3f), 0.07f);
+        }
+
         private void OnDestroy()
         {
             ImpactFlash.HitAt -= OnHit;
@@ -145,7 +162,8 @@ namespace Godtree.Sandbox
             FaceCamera(_healthText.transform);
         }
 
-        private void Popup(Vector3 at, string text, Color color, float size)
+        /// <summary>A number or word that floats up from a point and fades.</summary>
+        public void Popup(Vector3 at, string text, Color color, float size)
         {
             TextMesh mesh = MakeText("Damage number", size, color);
             mesh.text = text;

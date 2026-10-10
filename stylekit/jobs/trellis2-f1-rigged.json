@@ -1,0 +1,67 @@
+{
+    "_about":  "Townsfolk, adventurers and two man-shaped monsters for rigging to the CC0 Mesh2Motion human skeleton (decision 0016). They replace the unrigged models of the same names.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "chr_rooted_innkeeper",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_rooted_innkeeper.png",
+                     "image":  "con_rig_rooted_innkeeper.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.72
+                 },
+                 {
+                     "id":  "chr_rooted_merchant",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_rooted_merchant.png",
+                     "image":  "con_rig_rooted_merchant.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.72
+                 },
+                 {
+                     "id":  "chr_rooted_child",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_rooted_child.png",
+                     "image":  "con_rig_rooted_child.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.25
+                 },
+                 {
+                     "id":  "chr_woken_shieldbearer",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_woken_shieldbearer.png",
+                     "image":  "con_rig_woken_shieldbearer.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.72
+                 },
+                 {
+                     "id":  "enm_barkbound",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_enm_barkbound.png",
+                     "image":  "con_rig_enm_barkbound.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  12000,
+                     "tex":  2048,
+                     "size":  1.85
+                 },
+                 {
+                     "id":  "enm_rootwarden",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_enm_rootwarden.png",
+                     "image":  "con_rig_enm_rootwarden.png",
+                     "budget_class":  "enemy_boss",
+                     "tris":  24000,
+                     "tex":  2048,
+                     "size":  3.2
+                 }
+             ]
+}

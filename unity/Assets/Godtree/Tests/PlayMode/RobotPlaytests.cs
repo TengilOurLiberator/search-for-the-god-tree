@@ -325,5 +325,123 @@ namespace Godtree.Tests
                 yield return Wait(0.8f);
             }
             _robot.SnapshotEyes(dir + "/99_eyes.jpg");
+        }
+        [UnityTest]
+        public IEnumerator TownsfolkMoveTurnAndGreet()
+        {
+            const string dir = OutDir + "/townsfolk";
+            NpcActor[] actors = Object.FindObjectsByType<NpcActor>(FindObjectsSortMode.None);
+            Assert.Greater(actors.Length, 0, "nobody in the scene is animated");
+            foreach (NpcActor actor in actors)
+            {
+                // Alive: a hand moves while idling.
+                Transform hand = null;
+                foreach (Transform bone in actor.GetComponentsInChildren<Transform>())
+                    if (bone.name == "hand_r")
+                        hand = bone;
+                Assert.IsNotNull(hand, actor.name + " has no hand bone; is it on the shared skeleton?");
+                Vector3 before = actor.transform.InverseTransformPoint(hand.position);
+                float moved = 0f;
+                for (float t = 0f; t < 1.5f; t += Time.deltaTime)
+                {
+                    yield return null;
+                    moved = Mathf.Max(moved, Vector3.Distance(before, actor.transform.InverseTransformPoint(hand.position)));
+                }
+                Assert.Greater(moved, 0.002f, actor.name + " stands frozen: its idle animation is not playing");
+            }
+
+            // Walk up to the nearest one: they turn to face the player and greet.
+            NpcActor nearest = actors[0];
+            foreach (NpcActor actor in actors)
+                if (_robot.GroundDistanceTo(actor.transform.position) < _robot.GroundDistanceTo(nearest.transform.position))
+                    nearest = actor;
+            _robot.Snapshot(dir + "/01_before.jpg", new Vector3(0f, 1.6f, -0.5f), 1.2f, nearest.transform.position + Vector3.up * 1.2f);
+            yield return _robot.WalkTo(nearest.transform.position, 2.2f, 14f);
+            _robot.LookAt(nearest.transform.position + Vector3.up * 1.5f);
+            yield return Wait(0.5f);
+            Assert.IsTrue(nearest.PlayerNear, $"{nearest.name} did not notice the player at {_robot.GroundDistanceTo(nearest.transform.position):F1} m");
+            Assert.AreEqual("Greeting", nearest.Current, nearest.name + " should greet when the player first comes close");
+            yield return Wait(0.9f);
+            _robot.SnapshotEyes(dir + "/02_greeting_eyes.jpg");
+            _robot.Snapshot(dir + "/03_greeting_side.jpg", new Vector3(2.2f, 1.5f, 1.2f), 1.2f, nearest.transform.position + Vector3.up * 1.1f);
+            float off = Vector3.Angle(nearest.transform.forward, Vector3.ProjectOnPlane(_robot.Head.position - nearest.transform.position, Vector3.up));
+            Debug.Log($"[Robot] {nearest.name}: greeting, facing the player within {off:F0} degrees");
+            Assert.Less(off, 25f, nearest.name + " did not turn to face the player");
+            yield return Wait(2.5f);
+            Assert.AreEqual("Idle Listening", nearest.Current, nearest.name + " should settle into listening after the greeting");
+            _robot.SnapshotEyes(dir + "/04_listening_eyes.jpg");
+        }
+        /// <summary>One sword stroke across a point: wind up to the right, cut through to the left.</summary>
+        private IEnumerator SwingAt(Vector3 target, float strokeSeconds = 0.14f)
+        {
+            Vector3 toward = Vector3.ProjectOnPlane(target - _robot.Head.position, Vector3.up).normalized;
+            Vector3 side = Vector3.Cross(Vector3.up, toward);
+            Vector3 home = _robot.Feet + toward * 0.35f + Vector3.up * Mathf.Clamp(target.y, 0.8f, 1.5f);
+            Quaternion aim = Quaternion.LookRotation(toward);
+            yield return _robot.MoveHandWorld(false, home + side * 0.45f + Vector3.up * 0.2f, aim * Quaternion.Euler(-40f, 60f, 0f), 0.35f);
+            yield return Wait(0.1f);
+            yield return _robot.MoveHandWorld(false, home - side * 0.4f + toward * 0.3f, aim * Quaternion.Euler(15f, -65f, 0f), strokeSeconds);
+            yield return Wait(0.25f);
+        }
+
+        [UnityTest]
+        public IEnumerator FightsACreatureUntilItDiesAndLosesALimb()
+        {
+            const string dir = OutDir + "/fight";
+            EnemyActor enemy = null;
+            foreach (EnemyActor candidate in Object.FindObjectsByType<EnemyActor>(FindObjectsSortMode.None))
+                if (candidate.GetComponent<Dismemberable>() != null && (enemy == null || _robot.GroundDistanceTo(candidate.transform.position) < _robot.GroundDistanceTo(enemy.transform.position)))
+                    enemy = candidate;
+            Assert.IsNotNull(enemy, "no creature in the scene can lose limbs");
+            Dismemberable limbs = enemy.GetComponent<Dismemberable>();
+            Assert.IsTrue(limbs.Ready, enemy.name + " is not cut into parts");
+            int severedEvents = 0;
+            System.Action<Dismemberable, string, GameObject> onSever = (who, joint, piece) => { severedEvents++; Debug.Log($"[Robot] severed: {joint}"); };
+            Dismemberable.Severed += onSever;
+
+            GameObject sword = GameObject.Find("wpn_sword_training");
+            yield return PullToHand(false, sword);
+            yield return _robot.MoveHandBody(false, new Vector3(0.28f, 1.0f, 0.3f), Quaternion.Euler(-40f, 0f, 0f), 0.4f);
+            float startHealth = PlayerStats.Instance.Health;
+
+            // Walk out through the gate until it notices; then let it come and meet it with the sword.
+            yield return _robot.WalkTo(enemy.transform.position, 3.2f, 60f, 0.9f);
+            Debug.Log($"[Robot] {_robot.GroundDistanceTo(enemy.transform.position):F1} m from {enemy.name}; robot at {_robot.Feet}, creature at {enemy.transform.position}");
+            Assert.Less(_robot.GroundDistanceTo(enemy.transform.position), 9f, "the robot could not get within sight of the creature");
+            _robot.LookAt(enemy.transform.position + Vector3.up * 1.3f);
+            float waited = 0f;
+            while (_robot.GroundDistanceTo(enemy.transform.position) > 2.0f && waited < 14f)
+            {
+                waited += Time.deltaTime;
+                _robot.LookAt(enemy.transform.position + Vector3.up * 1.3f);
+                yield return null;
+            }
+            Assert.Less(_robot.GroundDistanceTo(enemy.transform.position), 2.6f, enemy.name + " noticed nothing and did not come for the player");
+            _robot.Snapshot(dir + "/01_it_comes.jpg", new Vector3(2.4f, 1.6f, 0.2f), 1.1f, enemy.transform.position + Vector3.up);
+            _robot.SnapshotEyes(dir + "/02_eyes.jpg");
+
+            int swings = 0;
+            while (!enemy.Dead && swings < 30)
+            {
+                // It stops at its own arm's length; a short sword needs a step closer than that.
+                if (_robot.GroundDistanceTo(enemy.transform.position) > 1.2f)
+                    yield return _robot.WalkTo(enemy.transform.position, 1.1f, 3f);
+                _robot.LookAt(enemy.transform.position + Vector3.up * 1.3f);
+                // Alternate between the chest and the near arm.
+                Vector3 target = enemy.transform.position + Vector3.up * (swings % 2 == 0 ? 1.25f : 1.05f);
+                yield return SwingAt(target);
+                swings++;
+                if (swings == 2)
+                    _robot.Snapshot(dir + "/03_fighting.jpg", new Vector3(-2.2f, 1.6f, 0.6f), 1.1f, enemy.transform.position + Vector3.up);
+            }
+            yield return Wait(0.3f);
+            _robot.Snapshot(dir + "/04_killed.jpg", new Vector3(2.4f, 1.6f, 0.2f), 0.8f, enemy.transform.position + Vector3.up * 0.6f);
+            yield return Wait(1.5f);
+            _robot.Snapshot(dir + "/05_after.jpg", new Vector3(-2.0f, 1.8f, 1.0f), 0.6f, enemy.transform.position + Vector3.up * 0.4f);
+            Dismemberable.Severed -= onSever;
+            Debug.Log($"[Robot] fight: {swings} swings, creature dead {enemy.Dead}, health {enemy.Health:F0}, pieces lost {limbs.PiecesLost}, it struck {enemy.Strikes} times, player health {startHealth:F0} -> {PlayerStats.Instance.Health:F0}");
+            Assert.IsTrue(enemy.Dead, $"thirty sword swings did not kill {enemy.name} (health left {enemy.Health:F0})");
+            Assert.Greater(limbs.PiecesLost, 0, "the killing blow from a blade should take a limb off");
+            Assert.Greater(severedEvents, 0, "no severed piece was reported");
         }    }
 }

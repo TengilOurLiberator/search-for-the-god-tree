@@ -272,16 +272,40 @@ namespace Godtree.Diagnostics
 
         /// <summary>
         /// Walk with the stick until the feet are within <paramref name="stopAt"/> metres of a
-        /// point on the ground, or the time runs out. Returns by leaving the stick centred.
+        /// point on the ground, or the time runs out. Finds a way round whatever stands between:
+        /// the ground is tried in quarter-metre squares, a square counting as blocked if a
+        /// person-sized ball at waist height would touch something there.
         /// </summary>
-        public IEnumerator WalkTo(Vector3 worldPoint, float stopAt, float timeout = 8f, float stick = 0.6f)
+        public IEnumerator WalkTo(Vector3 worldPoint, float stopAt, float timeout = 20f, float stick = 0.6f)
         {
+            System.Collections.Generic.List<Vector3> path = PlanPath(Head.position, worldPoint, stopAt);
+            int next = 0;
+            Vector3 lastSpot = Head.position;
+            float lastCheck = 0f;
             for (float t = 0f; t < timeout; t += Time.deltaTime)
             {
-                Vector3 away = Vector3.ProjectOnPlane(worldPoint - Head.position, Vector3.up);
-                if (away.magnitude <= stopAt)
+                // Stuck on something the plan did not see, or the world has changed: plan again from here.
+                if (t - lastCheck > 1.5f)
+                {
+                    if (Vector3.ProjectOnPlane(Head.position - lastSpot, Vector3.up).magnitude < 0.25f)
+                    {
+                        path = PlanPath(Head.position, worldPoint, stopAt);
+                        next = 0;
+                    }
+                    lastSpot = Head.position;
+                    lastCheck = t;
+                }
+
+                Vector3 toGoal = Vector3.ProjectOnPlane(worldPoint - Head.position, Vector3.up);
+                if (toGoal.magnitude <= stopAt)
                     break;
-                Vector3 local = Quaternion.Inverse(Facing) * away.normalized;
+                while (next < path.Count - 1 && Vector3.ProjectOnPlane(path[next] - Head.position, Vector3.up).magnitude < 0.3f)
+                    next++;
+                Vector3 target = path.Count > 0 ? path[next] : worldPoint;
+                Vector3 heading = Vector3.ProjectOnPlane(target - Head.position, Vector3.up);
+                if (path.Count > 0 && next == path.Count - 1 && heading.magnitude < 0.15f)
+                    break; // as close as the way allows
+                Vector3 local = Quaternion.Inverse(Facing) * heading.normalized;
                 SetMove(new Vector2(local.x, local.z) * stick);
                 yield return null;
             }
@@ -289,6 +313,128 @@ namespace Godtree.Diagnostics
             yield return new WaitForSeconds(0.4f);
         }
 
+        /// <summary>Write each route plan to D:/godtree-work/robot/plan_NN.txt as a text map.</summary>
+        public static bool DumpPlans;
+        private int _plans;
+
+        private System.Collections.Generic.List<Vector3> PlanPath(Vector3 from, Vector3 to, float stopAt)
+        {
+            // Look in a band round the straight line first; if that has no way through, look wider.
+            System.Collections.Generic.List<Vector3> path = null;
+            foreach (float margin in new[] { 4f, 12f, 30f })
+            {
+                path = PlanPath(from, to, stopAt, margin, out bool reached);
+                if (reached)
+                    break;
+            }
+            return path;
+        }
+
+        private System.Collections.Generic.List<Vector3> PlanPath(Vector3 from, Vector3 to, float stopAt, float margin, out bool reached)
+        {
+            const float cell = 0.25f, body = 0.33f;
+            float floor = Player.transform.position.y;
+            float minX = Mathf.Min(from.x, to.x) - margin, minZ = Mathf.Min(from.z, to.z) - margin;
+            int width = Mathf.CeilToInt((Mathf.Abs(from.x - to.x) + 2f * margin) / cell) + 1;
+            int depth = Mathf.CeilToInt((Mathf.Abs(from.z - to.z) + 2f * margin) / cell) + 1;
+            int rigLayer = LayerMask.NameToLayer("BIMOSRig");
+            int mask = rigLayer >= 0 ? ~(1 << rigLayer) : ~0;
+            Vector3 Centre(int x, int z) => new Vector3(minX + x * cell, floor, minZ + z * cell);
+
+            var blocked = new bool[width, depth];
+            for (int x = 0; x < width; x++)
+                for (int z = 0; z < depth; z++)
+                    blocked[x, z] = Physics.CheckCapsule(Centre(x, z) + Vector3.up * 0.42f, Centre(x, z) + Vector3.up * 1.3f, body, mask, QueryTriggerInteraction.Ignore);
+
+            int startX = Mathf.Clamp(Mathf.RoundToInt((from.x - minX) / cell), 0, width - 1), startZ = Mathf.Clamp(Mathf.RoundToInt((from.z - minZ) / cell), 0, depth - 1);
+            blocked[startX, startZ] = false;
+
+            // Shortest way over the squares, eight directions (a plain Dijkstra search; the area is small).
+            var cost = new float[width, depth];
+            var cameFrom = new int[width, depth];
+            var done = new bool[width, depth];
+            for (int x = 0; x < width; x++)
+                for (int z = 0; z < depth; z++)
+                {
+                    cost[x, z] = float.MaxValue;
+                    cameFrom[x, z] = -1;
+                }
+            cost[startX, startZ] = 0f;
+            var open = new System.Collections.Generic.List<int> { startX * depth + startZ };
+            int goal = -1, closest = -1;
+            float closestDistance = float.MaxValue;
+            while (open.Count > 0)
+            {
+                int bestIndex = 0;
+                for (int i = 1; i < open.Count; i++)
+                    if (cost[open[i] / depth, open[i] % depth] < cost[open[bestIndex] / depth, open[bestIndex] % depth])
+                        bestIndex = i;
+                int current = open[bestIndex];
+                open.RemoveAt(bestIndex);
+                int cx = current / depth, cz = current % depth;
+                if (done[cx, cz])
+                    continue;
+                done[cx, cz] = true;
+                float remaining = Vector3.ProjectOnPlane(Centre(cx, cz) - to, Vector3.up).magnitude;
+                if (remaining < closestDistance)
+                {
+                    closestDistance = remaining;
+                    closest = current;
+                }
+                if (remaining <= Mathf.Max(stopAt * 0.9f, cell))
+                {
+                    goal = current;
+                    break;
+                }
+                for (int dx = -1; dx <= 1; dx++)
+                    for (int dz = -1; dz <= 1; dz++)
+                    {
+                        int nx = cx + dx, nz = cz + dz;
+                        if ((dx == 0 && dz == 0) || nx < 0 || nz < 0 || nx >= width || nz >= depth || blocked[nx, nz] || done[nx, nz])
+                            continue;
+                        if (dx != 0 && dz != 0 && (blocked[cx + dx, cz] || blocked[cx, cz + dz]))
+                            continue; // no cutting corners
+                        float step = cost[cx, cz] + (dx != 0 && dz != 0 ? 1.414f : 1f);
+                        if (step < cost[nx, nz])
+                        {
+                            cost[nx, nz] = step;
+                            cameFrom[nx, nz] = current;
+                            open.Add(nx * depth + nz);
+                        }
+                    }
+            }
+
+            // Nowhere close enough can be stood on (the thing is on a table, say): go as near as possible.
+            reached = goal >= 0 || closestDistance <= stopAt + 1.5f;
+            if (goal < 0)
+                goal = closest;
+            var path = new System.Collections.Generic.List<Vector3>();
+            for (int at = goal; at >= 0; at = cameFrom[at / depth, at % depth])
+                path.Add(Centre(at / depth, at % depth));
+            path.Reverse();
+            // A picture of the plan in text, for whoever is working out why the robot went where it did:
+            // '#' blocked, '.' free, 'o' the way chosen, 'S' start, 'T' target. North (+Z) is at the top.
+            if (DumpPlans)
+            {
+                var chosen = new System.Collections.Generic.HashSet<int>();
+                for (int at = goal; at >= 0; at = cameFrom[at / depth, at % depth])
+                    chosen.Add(at);
+                var text = new System.Text.StringBuilder();
+                text.AppendLine($"from {from} to {to} stopAt {stopAt}; x {minX:F1}..{minX + width * cell:F1}, z {minZ:F1}..{minZ + depth * cell:F1}; goal {(goal >= 0 ? Centre(goal / depth, goal % depth).ToString() : "none")}");
+                int targetX = Mathf.RoundToInt((to.x - minX) / cell), targetZ = Mathf.RoundToInt((to.z - minZ) / cell);
+                for (int z = depth - 1; z >= 0; z--)
+                {
+                    for (int x = 0; x < width; x++)
+                        text.Append(x == startX && z == startZ ? 'S' : x == targetX && z == targetZ ? 'T' : chosen.Contains(x * depth + z) ? 'o' : blocked[x, z] ? '#' : '.');
+                    text.AppendLine();
+                }
+                Directory.CreateDirectory("D:/godtree-work/robot");
+                File.WriteAllText($"D:/godtree-work/robot/plan_{_plans++:00}.txt", text.ToString());
+            }
+            if (path.Count == 0)
+                Debug.LogWarning($"[Robot] no way found from {from} to {to}; walking straight");
+            return path;
+        }
         /// <summary>How far the feet are from a point, measured along the ground.</summary>
         public float GroundDistanceTo(Vector3 worldPoint) => Vector3.ProjectOnPlane(worldPoint - Head.position, Vector3.up).magnitude;
 

@@ -1,0 +1,37 @@
+{
+    "_about":  "Three people whose thin, loose clothes shattered at the standard setting (the weaver\u0027s coat, the elder\u0027s tunic and hat brim, the smith\u0027s apron), retried with the coarse workflow that fixed such shapes before.",
+    "workflow":  "../workflows/trellis2_image_to_glb_coarse.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "chr_rooted_smith",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_rooted_smith.png",
+                     "image":  "con_rig_rooted_smith.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.72
+                 },
+                 {
+                     "id":  "chr_rooted_elder",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_rooted_elder.png",
+                     "image":  "con_rig_rooted_elder.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.72
+                 },
+                 {
+                     "id":  "chr_woken_weaver",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_woken_weaver.png",
+                     "image":  "con_rig_woken_weaver.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.72
+                 }
+             ]
+}

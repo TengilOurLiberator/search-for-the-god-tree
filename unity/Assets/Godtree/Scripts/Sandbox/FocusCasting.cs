@@ -229,6 +229,8 @@ namespace Godtree.Sandbox
             foreach (Collider hit in Physics.OverlapSphere(centre, radius, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
                 Rigidbody body = hit.attachedRigidbody;
+                if (Told(hit, centre, impulse, slow, radius))
+                    continue;
                 if (body == null || body == except || !seen.Add(body) || body.isKinematic || IsPlayer(body))
                     continue;
                 Vector3 away = body.worldCenterOfMass - centre;
@@ -246,6 +248,8 @@ namespace Godtree.Sandbox
             foreach (Collider hit in Physics.OverlapSphere(tip + aim * reach * 0.5f, reach * 0.6f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
                 Rigidbody body = hit.attachedRigidbody;
+                if (Vector3.Angle(aim, hit.bounds.center - tip) <= halfAngle && Told(hit, tip, impulse, slow, reach))
+                    continue;
                 if (body == null || !seen.Add(body) || body.isKinematic || IsPlayer(body))
                     continue;
                 Vector3 to = body.worldCenterOfMass - tip;
@@ -264,6 +268,7 @@ namespace Godtree.Sandbox
         {
             Vector3 from = tip;
             Rigidbody target = null;
+            IDamageable creature = null;
             Vector3 point = tip + aim * 18f;
             foreach (RaycastHit hit in Physics.SphereCastAll(tip + aim * 0.2f, 0.25f, aim, 18f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
@@ -274,6 +279,7 @@ namespace Godtree.Sandbox
                 {
                     point = hit.point;
                     target = body != null && !body.isKinematic ? body : null;
+                    creature = hit.collider.GetComponentInParent<IDamageable>();
                 }
             }
             var struck = new HashSet<Rigidbody>();
@@ -281,6 +287,11 @@ namespace Godtree.Sandbox
             {
                 Bolt(from, point, colour);
                 Flash(point, colour, 0.5f);
+                if (jump == 0 && creature != null)
+                {
+                    creature.TakeHit(point, aim * impulse, impulse * 4.5f, false);
+                    BodiesAffected++;
+                }
                 if (target == null)
                     break;
                 struck.Add(target);
@@ -342,6 +353,33 @@ namespace Godtree.Sandbox
         }
 
         private static bool IsPlayer(Rigidbody body) => body.GetComponentInParent<Player>() != null;
+
+        private readonly HashSet<IDamageable> _toldThisFrame = new HashSet<IDamageable>();
+        private int _toldFrame = -1;
+
+        /// <summary>
+        /// Creatures that move by animation cannot be pushed, so they are told they were hit.
+        /// True if this collider belongs to one (it is then dealt with; once per burst).
+        /// </summary>
+        private bool Told(Collider hit, Vector3 centre, float impulse, float slow, float radius)
+        {
+            IDamageable creature = hit.GetComponentInParent<IDamageable>();
+            if (creature == null)
+                return false;
+            if (_toldFrame != Time.frameCount)
+            {
+                _toldFrame = Time.frameCount;
+                _toldThisFrame.Clear();
+            }
+            if (_toldThisFrame.Add(creature))
+            {
+                Vector3 point = hit.ClosestPoint(centre);
+                float falloff = Mathf.Clamp01(1.15f - Vector3.Distance(point, centre) / Mathf.Max(radius, 0.1f));
+                creature.TakeHit(point, (point - centre).normalized * impulse * falloff, (impulse * 3f + slow * 2f) * falloff, false);
+                BodiesAffected++;
+            }
+            return true;
+        }
 
         // ---------------------------------------------------------------- pictures and sound
 

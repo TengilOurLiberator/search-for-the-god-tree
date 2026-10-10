@@ -56,6 +56,38 @@ namespace Godtree.Sandbox
         public static float StrengthNow => Instance != null ? Instance.Strength : 1f;
         public static float FocusNow => Instance != null ? Instance.Focus : 1f;
 
+        /// <summary>Health now; Vigor is the most it can be. Comes back slowly when nothing has hit for a while.</summary>
+        public float Health { get; private set; } = 100f;
+
+        /// <summary>Raised when the player is hurt: damage taken after armour, and where it came from.</summary>
+        public event Action<float, Vector3> Hurt;
+
+        public int TimesDefeated { get; private set; }
+
+        private float _lastHurt = -100f;
+
+        /// <summary>A blow against the player. Armour takes a point off per point, never below a fifth of the blow.</summary>
+        public void TakeDamage(float amount, Vector3 from)
+        {
+            float taken = Mathf.Max(amount * 0.2f, amount - Armour);
+            Health = Mathf.Max(0f, Health - taken);
+            _lastHurt = Time.time;
+            Hurt?.Invoke(taken, from);
+            if (Health <= 0f)
+            {
+                // Sandbox: no death yet. Count it and stand the player back up at full health.
+                TimesDefeated++;
+                Health = Vigor;
+            }
+        }
+
+        private void LateUpdate()
+        {
+            Health = Mathf.Min(Health, Vigor);
+            if (Time.time - _lastHurt > 6f && Health < Vigor)
+                Health = Mathf.Min(Vigor, Health + Vigor * 0.08f * Time.deltaTime);
+        }
+
         private readonly Dictionary<EquipSlot, List<EquipmentItem>> _choices = new Dictionary<EquipSlot, List<EquipmentItem>>();
         private readonly Dictionary<EquipSlot, int> _equipped = new Dictionary<EquipSlot, int>();
         private Player _player;

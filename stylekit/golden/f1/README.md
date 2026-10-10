@@ -84,3 +84,12 @@ The last five rows come from [../../jobs/concepts-f1-furniture.json](../../jobs/
 - The training sword came out diagonal three times; redrawn with "standing perfectly upright, seen flat from the front".
 - The campfire is drawn lit although the prompt said unlit; flames do not survive the 3D step, so expect that model to fail review.
 | `con_body_woken_starter.png` | 4404 |
+| `con_rig_rooted_innkeeper.png` | 4404 |
+| `con_rig_rooted_smith.png` | 4404 |
+| `con_rig_rooted_elder.png` | 4404 |
+| `con_rig_rooted_merchant.png` | 4404 |
+| `con_rig_rooted_child.png` | 4404 |
+| `con_rig_woken_weaver.png` | 4404 |
+| `con_rig_woken_shieldbearer.png` | 4404 |
+| `con_rig_enm_barkbound.png` | 4404 |
+| `con_rig_enm_rootwarden.png` | 3303 |

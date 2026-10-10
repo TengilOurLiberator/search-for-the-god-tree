@@ -612,6 +612,10 @@ namespace Godtree.EditorTools
                     continue;
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
                 instance.transform.localRotation = Quaternion.Euler(0f, yaw, 0f);
+                // The gate must be wide enough to walk through with room to spare. At its made size
+                // the robot player could not find a way through it and walked round the wall.
+                if (name == "env_arch")
+                    instance.transform.localScale *= 1.8f;
                 RestOn(instance, new Vector3(x, 0f, z));
                 MakeSolid(instance);
                 placed.Add(name);
@@ -648,11 +652,20 @@ namespace Godtree.EditorTools
             };
             var people = LoadModels("Characters");
             float spareSpot = 0f;
+            RuntimeAnimatorController humanAnimator = BuildHumanAnimator();
             foreach (GameObject person in people)
             {
                 if (person.name.StartsWith("chr_body_"))
                     continue; // a body for the player, not a townsperson
-                var instance = (GameObject)PrefabUtility.InstantiatePrefab(person, gallery.transform);
+                if (person.GetComponentInChildren<SkinnedMeshRenderer>() != null && humanAnimator != null)
+                {
+                    // Rigged people stand where their unrigged version stood (same name without "rig_").
+                    string role = person.name.Replace("chr_rig_", "chr_");
+                    if (!spots.TryGetValue(role, out (float x, float z, float lookX, float lookZ) place))
+                        place = (1.6f + (spareSpot += 1.3f), 6.2f, 0f, 0f);
+                    PlaceActor(gallery.transform, person, humanAnimator, new Vector3(place.x, 0f, place.z), new Vector3(place.lookX, 0f, place.lookZ), "Idle_A", person.name.Contains("child") ? 1.25f : 1.72f);
+                    continue;
+                }                var instance = (GameObject)PrefabUtility.InstantiatePrefab(person, gallery.transform);
                 if (!spots.TryGetValue(person.name, out (float x, float z, float lookX, float lookZ) spot))
                     spot = (12f + (spareSpot += 1.2f), 1f, 0f, 0f);
                 instance.transform.localRotation = Quaternion.LookRotation(new Vector3(spot.lookX - spot.x, 0f, spot.lookZ - spot.z));
@@ -667,7 +680,15 @@ namespace Godtree.EditorTools
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(creatures[i], gallery.transform);
                 int side = i % 2 == 0 ? -1 : 1;
                 Vector3 spot = new Vector3(side * (3.2f + 3.1f * (i / 2)), 0f, 26.5f + 1.2f * (i / 2));
-                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 20f - spot.z));
+                if (creatures[i].GetComponentInChildren<SkinnedMeshRenderer>() != null && humanAnimator != null)
+                {
+                    // Man-shaped and rigged: it lives, fights and can lose limbs.
+                    Object.DestroyImmediate(instance);
+                    float tall = creatures[i].name.Contains("rootwarden") ? 2.9f : 1.85f;
+                    GameObject enemy = PlaceActor(gallery.transform, creatures[i], humanAnimator, spot, new Vector3(0f, 0f, 20f), "Zombie_Idle", tall);
+                    MakeEnemy(enemy, tall, creatures[i].name.Contains("rootwarden") ? 260f : 90f);
+                    continue;
+                }                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 20f - spot.z));
                 RestOn(instance, spot);
                 MakeSolid(instance);
             }
@@ -863,6 +884,146 @@ namespace Godtree.EditorTools
                 EditorUtility.SetDirty(stoneMaterial);
                 stone.GetComponent<MeshRenderer>().sharedMaterial = stoneMaterial;
                 stone.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
+        }
+
+        /// <summary>
+        /// One animator controller for everyone on the shared human skeleton: a state per clip in
+        /// the animation file, named after the clip. Clips are copied so that the ones meant to
+        /// repeat can be marked as looping (the imported ones cannot be changed).
+        /// </summary>
+        private static UnityEditor.Animations.AnimatorController BuildHumanAnimator()
+        {
+            const string source = ArtDir + "/Animations/anm_human_basic.glb";
+            string clipDir = SandboxDir + "/Animations";
+            Directory.CreateDirectory(clipDir);
+            AssetDatabase.Refresh();
+            string controllerPath = SandboxDir + "/HumanActor.controller";
+            AssetDatabase.DeleteAsset(controllerPath);
+            var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath(controllerPath);
+            UnityEditor.Animations.AnimatorStateMachine machine = controller.layers[0].stateMachine;
+            string[] once = { "Greeting", "Yes", "Head Nod", "Reject", "Angry", "Confused", "Hit_", "Death_", "Sword_Regular", "Sword_Attack", "Punch_", "Zombie_Scratch", "Zombie Yell", "Victory", "Interact", "Spell_" };
+            int count = 0;
+            foreach (Object asset in AssetDatabase.LoadAllAssetsAtPath(source))
+            {
+                if (!(asset is AnimationClip imported) || imported.name.StartsWith("__preview"))
+                    continue;
+                string clipPath = $"{clipDir}/{imported.name.Replace(' ', '_')}.anim";
+                AssetDatabase.DeleteAsset(clipPath);
+                AnimationClip clip = Object.Instantiate(imported);
+                clip.name = imported.name;
+                AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(clip);
+                settings.loopTime = !System.Array.Exists(once, prefix => imported.name.StartsWith(prefix));
+                AnimationUtility.SetAnimationClipSettings(clip, settings);
+                AssetDatabase.CreateAsset(clip, clipPath);
+                UnityEditor.Animations.AnimatorState state = machine.AddState(imported.name);
+                state.motion = clip;
+                if (imported.name == "Idle_A")
+                    machine.defaultState = state;
+                count++;
+            }
+            Debug.Log($"[Godtree] human animator: {count} clips");
+            return count > 0 ? controller : null;
+        }
+
+        /// <summary>A person on the shared human skeleton, standing at a spot, alive.</summary>
+        private static GameObject PlaceActor(Transform parent, GameObject prefab, RuntimeAnimatorController controller, Vector3 spot, Vector3 lookAt, string idleClip, float heightMetres)
+        {
+            var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
+            instance.transform.position = spot;
+            Vector3 facing = Vector3.ProjectOnPlane(lookAt - spot, Vector3.up);
+            if (facing.sqrMagnitude > 0.01f)
+                instance.transform.rotation = Quaternion.LookRotation(facing.normalized);
+            float modelHeight = WorldBounds(instance).size.y;
+            if (heightMetres > 0f && modelHeight > 0.01f)
+                instance.transform.localScale *= heightMetres / modelHeight;
+
+            // The clips address bones as "Armature/root/...". The character file has its bones
+            // directly under its top, so give them the same parent the clip file has.
+            if (instance.transform.Find("Armature") == null && instance.transform.Find("root") != null)
+            {
+                PrefabUtility.UnpackPrefabInstance(instance, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+                var armature = new GameObject("Armature");
+                armature.transform.SetParent(instance.transform, false);
+                instance.transform.Find("root").SetParent(armature.transform, false);
+            }
+            Animator animator = instance.GetComponent<Animator>();
+            if (animator == null)
+                animator = instance.AddComponent<Animator>();
+            animator.runtimeAnimatorController = controller;
+            var actor = instance.AddComponent<Godtree.Sandbox.NpcActor>();
+            actor.idleClip = idleClip;
+
+            foreach (SkinnedMeshRenderer skinned in instance.GetComponentsInChildren<SkinnedMeshRenderer>())
+                skinned.updateWhenOffscreen = true;
+            // Something to bump into and to point at.
+            var capsule = instance.AddComponent<CapsuleCollider>();
+            float scale = instance.transform.lossyScale.y;
+            capsule.height = heightMetres / scale;
+            capsule.radius = 0.22f / scale;
+            capsule.center = new Vector3(0f, heightMetres * 0.5f / scale, 0f);
+            return instance;
+        }
+
+        /// <summary>
+        /// Turns a placed, animated figure into a creature that fights: shapes on its limbs for
+        /// weapons to strike, the limb-losing component if its model was cut into parts, and the
+        /// mind that walks it up to the player.
+        /// </summary>
+        private static void MakeEnemy(GameObject enemy, float heightMetres, float health)
+        {
+            Object.DestroyImmediate(enemy.GetComponent<Godtree.Sandbox.NpcActor>());
+            Object.DestroyImmediate(enemy.GetComponent<CapsuleCollider>());
+            Rigidbody body = enemy.AddComponent<Rigidbody>();
+            body.isKinematic = true;
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+
+            var bones = new System.Collections.Generic.Dictionary<string, Transform>();
+            foreach (Transform bone in enemy.GetComponentsInChildren<Transform>())
+                if (!bones.ContainsKey(bone.name))
+                    bones[bone.name] = bone;
+            float size = heightMetres / 1.72f;
+            // from bone, to bone, radius in metres on a person 1.72 m tall
+            var limbs = new (string from, string to, float radius)[]
+            {
+                ("upperarm_l", "lowerarm_l", 0.06f), ("lowerarm_l", "hand_l", 0.055f),
+                ("upperarm_r", "lowerarm_r", 0.06f), ("lowerarm_r", "hand_r", 0.055f),
+                ("thigh_l", "calf_l", 0.085f), ("calf_l", "foot_l", 0.07f),
+                ("thigh_r", "calf_r", 0.085f), ("calf_r", "foot_r", 0.07f),
+                ("pelvis", "neck_01", 0.17f), ("neck_01", "head_leaf", 0.12f),
+            };
+            foreach ((string from, string to, float radius) in limbs)
+            {
+                if (!bones.TryGetValue(from, out Transform a) || !bones.TryGetValue(to, out Transform b))
+                    continue;
+                var shape = new GameObject("Hit shape " + from);
+                shape.transform.SetParent(a, false);
+                Vector3 along = b.position - a.position;
+                shape.transform.SetPositionAndRotation(a.position, Quaternion.LookRotation(along.normalized));
+                float scale = shape.transform.lossyScale.x;
+                var capsule = shape.AddComponent<CapsuleCollider>();
+                capsule.direction = 2;
+                capsule.radius = radius * size / scale;
+                capsule.height = (along.magnitude + radius * size) / scale;
+                capsule.center = new Vector3(0f, 0f, along.magnitude * 0.5f / scale);
+            }
+
+            bool inParts = false;
+            foreach (SkinnedMeshRenderer renderer in enemy.GetComponentsInChildren<SkinnedMeshRenderer>())
+                inParts |= renderer.name.StartsWith("part_");
+            if (inParts)
+                enemy.AddComponent<Dismemberable>();
+            var mind = enemy.AddComponent<Godtree.Sandbox.EnemyActor>();
+            mind.maxHealth = health;
+            mind.strikeDistance = 1.5f * Mathf.Sqrt(size);
+            mind.strikeDamage = 12f * size;
+            mind.walkSpeed = 1.0f * Mathf.Sqrt(size);
+            // An armoured thing stands and strikes like a fighter; the big one lumbers.
+            if (enemy.name.Contains("barkbound"))
+            {
+                mind.idleClip = "Fighting Idle";
+                mind.walkClip = "Walk";
+                mind.strikeClip = "Punch_Cross";
             }
         }
 
@@ -1318,7 +1479,7 @@ namespace Godtree.EditorTools
                             if (texture == null && source.HasProperty(property))
                                 texture = source.GetTexture(property);
                         string modelName = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(source));
-                        string path = $"{dir}/{modelName}.mat";
+                        string path = texture != null ? $"{dir}/{modelName}.mat" : $"{dir}/{modelName}_{source.name.Replace(' ', '_')}.mat";
                         for (int n = 2; !used.Add(path); n++)
                             path = $"{dir}/{modelName}_{n}.mat";
                         replacement = AssetDatabase.LoadAssetAtPath<Material>(path);
@@ -1329,7 +1490,16 @@ namespace Godtree.EditorTools
                         }
                         replacement.shader = toon;
                         replacement.SetTexture("_BaseMap", texture);
-                        replacement.SetColor("_BaseColor", Color.white);
+                        // A painted model's colour is in its texture. One with no texture (the caps on
+                        // cut limbs) keeps the plain colour it came with.
+                        Color plain = Color.white;
+                        foreach (string property in new[] { "baseColorFactor", "_BaseColor", "_Color" })
+                            if (texture == null && source.HasProperty(property))
+                            {
+                                plain = source.GetColor(property);
+                                break;
+                            }
+                        replacement.SetColor("_BaseColor", plain);
                         // Things the wind moves: metres of sway at three metres up, and the height it starts at.
                         float sway = modelName == "env_tree_blob" ? 0.10f : modelName == "env_bush" ? 0.05f : modelName == "env_banner" ? 0.07f : modelName == "env_tent" ? 0.015f : 0f;
                         replacement.SetFloat("_Sway", sway);

@@ -1,0 +1,17 @@
+{
+    "_about":  "The starter adventurer as a townsperson, from the player-body concept (concepts-f1-body). Kept apart from trellis2-f1-rigged because its concept is in a different concept file.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "chr_woken_starter",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_body_woken_starter.png",
+                     "image":  "con_body_woken_starter.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.72
+                 }
+             ]
+}
