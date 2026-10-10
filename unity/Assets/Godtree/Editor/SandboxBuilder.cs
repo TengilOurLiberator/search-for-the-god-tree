@@ -80,6 +80,7 @@ namespace Godtree.EditorTools
             Shot(new Vector3(1.6f, 1.7f, -1.4f), new Vector3(0f, 1.0f, 1.8f), Path.Combine(outDir, "sandbox_player_view.png"));
             Shot(new Vector3(0f, 7f, -4f), new Vector3(0f, 0.5f, 7f), Path.Combine(outDir, "sandbox_gallery_view.png"));
             Shot(new Vector3(0.9f, 1.25f, 0.45f), new Vector3(0.45f, 0.98f, 0.95f), Path.Combine(outDir, "sandbox_sword_closeup.png"));
+            Shot(new Vector3(0f, 1.65f, -3f), new Vector3(0f, 6f, 40f), Path.Combine(outDir, "sandbox_horizon_view.png"));
         }
 
         private static void Shot(Vector3 from, Vector3 lookAt, string path)
@@ -89,6 +90,7 @@ namespace Godtree.EditorTools
             cam.transform.position = from;
             cam.transform.LookAt(lookAt);
             cam.fieldOfView = 60f;
+            cam.farClipPlane = 2000f;
             cam.clearFlags = CameraClearFlags.Skybox;
             cam.GetUniversalAdditionalCameraData().renderPostProcessing = true;
             var rt = new RenderTexture(1280, 720, 24, RenderTextureFormat.ARGB32);
@@ -884,8 +886,8 @@ namespace Godtree.EditorTools
                 AssetDatabase.CreateAsset(sky, skyPath);
             }
             sky.SetColor("_SkyTint", new Color(0.36f, 0.62f, 0.95f));
-            sky.SetColor("_GroundColor", new Color(0.62f, 0.76f, 0.70f));
-            sky.SetFloat("_AtmosphereThickness", 0.85f);
+            sky.SetColor("_GroundColor", new Color(0.80f, 0.89f, 0.98f));
+            sky.SetFloat("_AtmosphereThickness", 0.7f);
             sky.SetFloat("_Exposure", 1.25f);
             sky.SetFloat("_SunSize", 0.035f);
             EditorUtility.SetDirty(sky);
@@ -921,6 +923,8 @@ namespace Godtree.EditorTools
                     AssetDatabase.AddObjectToAsset(component, profile);
                 EditorUtility.SetDirty(profile);
             }
+            BuildGodtreeBackdrop(parent);
+
             var volumeObject = new GameObject("Post-processing (global)");
             volumeObject.transform.SetParent(parent, false);
             var volume = volumeObject.AddComponent<Volume>();
@@ -931,6 +935,46 @@ namespace Godtree.EditorTools
             polishObject.transform.SetParent(parent, false);
             var polish = polishObject.AddComponent<Godtree.Sandbox.ScenePolish>();
             polish.music = AssetDatabase.LoadAssetAtPath<AudioClip>(AudioDir + "/Music/mus_huskhaven_town_a.ogg");
+        }
+
+        /// <summary>
+        /// Pillar 2: the Godtree is always ahead. A painted card of the tree stands far beyond the
+        /// meadow, straight ahead of where the player starts, hazed by distance.
+        /// </summary>
+        private static void BuildGodtreeBackdrop(Transform parent)
+        {
+            var image = AssetDatabase.LoadAssetAtPath<Texture2D>(ArtDir + "/Environment/env_godtree_backdrop.png");
+            Shader shader = Shader.Find("Godtree/Backdrop");
+            if (image == null || shader == null)
+            {
+                Debug.LogWarning("[Godtree] Godtree backdrop image or shader missing; the horizon stays empty");
+                return;
+            }
+            string path = SandboxDir + "/Materials/Sandbox_GodtreeBackdrop.mat";
+            var material = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (material == null)
+            {
+                material = new Material(shader);
+                AssetDatabase.CreateAsset(material, path);
+            }
+            material.shader = shader;
+            material.SetTexture("_BaseMap", image);
+            material.SetColor("_HazeColor", new Color(0.70f, 0.83f, 0.96f));
+            material.SetFloat("_Haze", 0.42f);
+            material.SetFloat("_Opacity", 0.94f);
+            EditorUtility.SetDirty(material);
+
+            GameObject card = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            card.name = "The Godtree (distant backdrop)";
+            Object.DestroyImmediate(card.GetComponent<Collider>());
+            card.transform.SetParent(parent, false);
+            const float size = 560f;
+            card.transform.position = new Vector3(0f, size * 0.5f - 60f, 820f);
+            card.transform.localScale = new Vector3(size, size, 1f);
+            var renderer = card.GetComponent<MeshRenderer>();
+            renderer.sharedMaterial = material;
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            renderer.receiveShadows = false;
         }
 
         // ------------------------------------------------------------ helpers

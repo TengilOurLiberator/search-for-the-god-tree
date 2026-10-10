@@ -1,0 +1,38 @@
+{
+    "id":  "env_godtree_backdrop",
+    "title":  "Godtree Backdrop",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "One impossibly colossal ancient tree seen from very far away, alone and centred, the whole tree in frame from its spreading roots to the top of its crown, a pale cream bark trunk as wide as a mountain, a vast layered soft green crown rising above a ring of small white clouds, the whole tree softened and tinted pale blue by distance haze, against a plain flat empty light blue sky, no ground, no horizon, no other trees, no people. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                      "seed":  2202,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "birefnet",
+                      "tool":  "comfyui",
+                      "version":  "birefnet.safetensors (Comfy-Org/BiRefNet), ComfyUI 0.39.0",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  1,
+                      "workflow":  "cutout.json"
+                  }
+              ],
+    "cleanup":  [
+
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Environment/env_godtree_backdrop.png"
+                    }
+                ],
+    "notes":  "A painted image of the Godtree, cut out of its sky, shown on a distant card in the sandbox with the Godtree/Backdrop shader. BiRefNet takes no seed (seed 0 is a placeholder). A flat card is a stand-in: it does not change with the viewing angle."
+}

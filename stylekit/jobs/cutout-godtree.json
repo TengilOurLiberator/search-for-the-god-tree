@@ -1,0 +1,11 @@
+{
+    "_about":  "Cut-out of the Godtree backdrop image (BiRefNet), for the distant card in the sandbox sky.",
+    "workflow":  "../workflows/birefnet_cutout.api.json",
+    "jobs":  [
+                 {
+                     "id":  "env_godtree_backdrop",
+                     "seed":  0,
+                     "image_path":  "../golden/f1/con_godtree_backdrop.png"
+                 }
+             ]
+}
