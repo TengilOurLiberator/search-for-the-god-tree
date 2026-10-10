@@ -26,6 +26,7 @@ namespace Godtree.Combat
         private Collider[] _rigColliders = new Collider[0];
         private readonly Dictionary<Hand, Rigidbody> _heldBy = new Dictionary<Hand, Rigidbody>();
         private readonly Dictionary<Rigidbody, int> _holdCount = new Dictionary<Rigidbody, int>();
+        private readonly Dictionary<Hand, ConfigurableJoint> _looseJoints = new Dictionary<Hand, ConfigurableJoint>();
 
         private bool FindRig()
         {
@@ -52,9 +53,19 @@ namespace Godtree.Combat
                     continue;
 
                 if (before != null)
+                {
+                    if (_looseJoints.TryGetValue(hand, out ConfigurableJoint loose) && loose != null)
+                        Destroy(loose);
+                    _looseJoints.Remove(hand);
                     Release(before);
+                }
                 if (now != null)
+                {
+                    bool second = _holdCount.ContainsKey(now);
                     Hold(now);
+                    if (second)
+                        LoosenSecondHand(hand, now);
+                }
                 _heldBy[hand] = now;
             }
         }
@@ -66,6 +77,7 @@ namespace Godtree.Combat
             if (count > 0)
                 return;
             body.solverIterations = Mathf.Max(body.solverIterations, heldSolverIterations);
+            body.maxDepenetrationVelocity = 3f; // never let an overlap turn into a launch
             SetIgnored(body, true);
         }
 
@@ -83,12 +95,62 @@ namespace Godtree.Combat
             StartCoroutine(RestoreLater(body));
         }
 
+        /// <summary>
+        /// Two rigid grips on one object fight each other whenever the two controllers turn
+        /// differently (measured: the spear sat 105 degrees off the hands when held in both).
+        /// The first hand keeps its rigid grip and decides the angle; the second hand's grip
+        /// is replaced by one that holds position but lets the object turn in the palm.
+        /// </summary>
+        private void LoosenSecondHand(Hand hand, Rigidbody body)
+        {
+            FixedJoint rigid = hand.PhysicsHandTransform.GetComponent<FixedJoint>();
+            if (rigid == null || rigid.connectedBody != body)
+                return;
+            Vector3 anchorWorld = hand.PalmTransform.position;
+            Destroy(rigid);
+
+            ConfigurableJoint loose = hand.PhysicsHandTransform.gameObject.AddComponent<ConfigurableJoint>();
+            loose.connectedBody = body;
+            loose.autoConfigureConnectedAnchor = false;
+            loose.anchor = hand.PhysicsHandTransform.InverseTransformPoint(anchorWorld);
+            loose.connectedAnchor = body.transform.InverseTransformPoint(anchorWorld);
+            loose.xMotion = loose.yMotion = loose.zMotion = ConfigurableJointMotion.Locked;
+            loose.angularXMotion = loose.angularYMotion = loose.angularZMotion = ConfigurableJointMotion.Free;
+            loose.enableCollision = false;
+            _looseJoints[hand] = loose;
+        }
+
         private IEnumerator RestoreLater(Rigidbody body)
         {
+            // Collisions come back only once the object is clear of the player. Switching them
+            // on while it still overlaps a hand or arm makes the physics engine shove the two
+            // apart violently (a hand was flung metres away in the second recorded session).
+            float waited = 0f;
             yield return new WaitForSeconds(restoreDelaySeconds);
-            // Picked up again in the meantime: leave it ignored.
+            while (body != null && !_holdCount.ContainsKey(body) && waited < 6f && OverlapsRig(body))
+            {
+                yield return new WaitForSeconds(0.1f);
+                waited += 0.1f;
+            }
             if (body != null && !_holdCount.ContainsKey(body))
                 SetIgnored(body, false);
+        }
+
+        private bool OverlapsRig(Rigidbody body)
+        {
+            foreach (Collider objectCollider in body.GetComponentsInChildren<Collider>())
+            {
+                if (objectCollider.isTrigger)
+                    continue;
+                Bounds bounds = objectCollider.bounds;
+                bounds.Expand(0.06f);
+                foreach (Collider rigCollider in _rigColliders)
+                {
+                    if (rigCollider != null && !rigCollider.isTrigger && rigCollider.enabled && bounds.Intersects(rigCollider.bounds))
+                        return true;
+                }
+            }
+            return false;
         }
 
         private void SetIgnored(Rigidbody body, bool ignored)

@@ -253,6 +253,7 @@ namespace Godtree.EditorTools
             BuildInstructions(root.transform);
             new GameObject("Session recorder", typeof(Godtree.Diagnostics.SessionRecorder)).transform.SetParent(root.transform, false);
             new GameObject("Held object collision filter", typeof(HeldObjectCollisionFilter)).transform.SetParent(root.transform, false);
+            BuildAbilities(root.transform);
             BuildAmbience(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -502,7 +503,7 @@ namespace Godtree.EditorTools
         {
             var board = new GameObject("How to play (board)");
             board.transform.SetParent(parent, false);
-            Vector3 position = new Vector3(1.55f, 1.55f, 2.2f);
+            Vector3 position = new Vector3(1.6f, 1.45f, 2.3f);
             board.transform.position = position;
             board.transform.rotation = Quaternion.LookRotation(position - new Vector3(0f, 1.45f, 0f));
             board.transform.localScale = Vector3.one * 0.001f;
@@ -510,7 +511,7 @@ namespace Godtree.EditorTools
             var canvas = board.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.WorldSpace;
             var rect = board.GetComponent<RectTransform>();
-            rect.sizeDelta = new Vector2(1300f, 1350f);
+            rect.sizeDelta = new Vector2(1300f, 1750f);
 
             var panel = new GameObject("Panel");
             panel.transform.SetParent(board.transform, false);
@@ -525,7 +526,7 @@ namespace Godtree.EditorTools
             textObject.transform.SetParent(board.transform, false);
             var text = textObject.AddComponent<UnityEngine.UI.Text>();
             text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            text.fontSize = 42;
+            text.fontSize = 40;
             text.lineSpacing = 1.1f;
             text.color = new Color(1f, 0.97f, 0.92f);
             text.alignment = TextAnchor.UpperLeft;
@@ -538,7 +539,10 @@ namespace Godtree.EditorTools
                 "<b>GRIP</b> button (side of the controller, under your\nmiddle finger). Let go to drop it. Not the trigger.\n\n" +
                 "<b><color=#FFD86B>SWORD</color></b>   On the stone block. Take it by the handle;\nit keeps the angle your hand had when you gripped.\n" +
                 "<b><color=#FFD86B>OTHER WEAPONS</color></b>   On the wooden table to your left.\nGrab them anywhere.\n\n" +
-                "<b><color=#FFD86B>FIGHT</color></b>   Swing at the straw dummy. Harder swings\nflash brighter and sound louder. Nothing is scripted:\nit reacts to the real hit.\n\n" +
+                "<b><color=#FFD86B>FIGHT</color></b>   Swing at the straw dummy. Harder swings\nflash brighter and sound louder.\n\n" +
+                "<b><color=#FFD86B>BOW</color></b>   Hold the bow in one hand. Bring your other\nhand to it, hold that hand's TRIGGER, pull back,\nlet go. Pull further to shoot faster.\n\n" +
+                "<b><color=#FFD86B>MOTE BOLT</color></b>   Empty hand: hold TRIGGER to gather\nlight, let go to loose it. Throw it or point it.\n" +
+                "<b><color=#FFD86B>PUSH KNOT</color></b>   Both hands empty and together:\nhold both TRIGGERS, then let go.\n\n" +
                 "<b><color=#FFD86B>MOVE</color></b>   Left stick. Click it to run.\n" +
                 "<b><color=#FFD86B>TURN</color></b>   Right stick left or right.\n" +
                 "<b><color=#FFD86B>CROUCH / JUMP</color></b>   Right stick down / click it.\n" +
@@ -553,6 +557,32 @@ namespace Godtree.EditorTools
             Material wood = MakeMaterial("Sandbox_Wood", new Color(0.62f, 0.45f, 0.28f));
             GameObject post = Primitive(PrimitiveType.Cube, "Board post", parent, new Vector3(position.x, 0.44f, position.z) + board.transform.forward * 0.03f, new Vector3(0.08f, 0.88f, 0.08f), wood);
             post.isStatic = true;
+        }
+
+        /// <summary>The bow and spell prototypes, with their sounds.</summary>
+        private static void BuildAbilities(Transform parent)
+        {
+            var go = new GameObject("Sandbox abilities (bow and spell prototypes)");
+            go.transform.SetParent(parent, false);
+            var abilities = go.AddComponent<Godtree.Sandbox.SandboxAbilities>();
+            abilities.castClips = LoadClips("sfx_mote_chime");
+            abilities.boltClips = LoadClips("sfx_knot_cast");
+            abilities.pushClips = LoadClips("sfx_knot_cast");
+            abilities.bowReleaseClips = LoadClips("sfx_bow_release");
+            abilities.arrowHitClips = LoadClips("sfx_arrow_hit_wood");
+            abilities.boltHitClips = LoadClips("sfx_mote_chime");
+        }
+
+        private static AudioClip[] LoadClips(string soundId)
+        {
+            var clips = new System.Collections.Generic.List<AudioClip>();
+            for (int i = 1; i <= 9; i++)
+            {
+                var clip = AssetDatabase.LoadAssetAtPath<AudioClip>($"{AudioDir}/Sfx/{soundId}_{i:00}.ogg");
+                if (clip != null)
+                    clips.Add(clip);
+            }
+            return clips.ToArray();
         }
 
         /// <summary>Quiet meadow wind so the space is not dead silent.</summary>

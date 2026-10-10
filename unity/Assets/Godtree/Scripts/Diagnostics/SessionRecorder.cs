@@ -74,6 +74,7 @@ namespace Godtree.Diagnostics
             _tex = new Texture2D(640, 360, TextureFormat.RGB24, false);
 
             ImpactFlash.Hit += OnHit;
+            _active = this;
             Debug.Log("[Godtree] Recording session to " + _dir);
         }
 
@@ -187,6 +188,15 @@ namespace Godtree.Diagnostics
             previous = current;
         }
 
+        private static SessionRecorder _active;
+
+        /// <summary>Lets other sandbox code add a line to events.csv (a shot, a spell).</summary>
+        public static void Note(string kind, string detail)
+        {
+            if (_active != null)
+                _active.WriteEvent(kind, "", "", detail);
+        }
+
         private void OnHit(string target, string by, float impulse)
         {
             _hits++;
@@ -239,6 +249,7 @@ namespace Godtree.Diagnostics
         private void OnDisable()
         {
             ImpactFlash.Hit -= OnHit;
+            if (_active == this) _active = null;
             if (_samples == null)
                 return;
             _samples.Flush(); _samples.Dispose(); _samples = null;

@@ -62,6 +62,12 @@ namespace Godtree.Combat
                 Debug.Log($"[Godtree] {name} hit by {collision.collider.name}: impulse {impulse:F1} N s");
         }
 
+        /// <summary>Flash without a collision, for effects that push with a force (0 to 1).</summary>
+        public void Pulse(float strength)
+        {
+            _strength = Mathf.Max(_strength, Mathf.Clamp01(strength));
+        }
+
         private void Update()
         {
             if (_strength <= 0f)
