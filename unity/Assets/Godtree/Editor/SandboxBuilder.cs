@@ -68,6 +68,22 @@ namespace Godtree.EditorTools
         public static void OpenAndPlay()
         {
             EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+            // The townsfolk can only talk if their two helper programs are running. Start them
+            // alongside (a separate hidden process; if it fails the game still plays, in silence).
+            try
+            {
+                string script = Path.GetFullPath(Path.Combine(Application.dataPath, "../../tools/voice/Start-NpcServices.ps1"));
+                if (File.Exists(script))
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("powershell.exe", $"-ExecutionPolicy Bypass -File \"{script}\"")
+                    {
+                        UseShellExecute = true,
+                        WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden
+                    });
+            }
+            catch (System.Exception error)
+            {
+                Debug.LogWarning("[Godtree] Could not start the NPC services: " + error.Message);
+            }
             EditorApplication.delayCall += () => EditorApplication.EnterPlaymode();
         }
 

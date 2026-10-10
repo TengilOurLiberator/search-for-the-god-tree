@@ -65,3 +65,22 @@ None of these has been seen or felt in a headset yet.
 - **Layout.** Scenery is arranged as a road, an arch with walls and banners, a camp on the right and a house, well and cart on the left.
 - **Player body.** The grey mannequin is replaced by a generated character bound to the rig's skeleton; the character menu's mirror shows it, head included (`docs/images/menu_preview.png`). To judge in the headset: do the hands sit where your hands are, do elbows and shoulders look acceptable when you swing, is anything of your own body in the way when you look down.
 - **Smaller things.** Sparks where hits land; mote bolts glow and leave a trail; clouds; trees, bushes and banners move in the wind; a lit campfire with sound; the mirror is no longer blocked by whatever stands in front of you.
+
+### Session 4 (2026-10-10, evening, about 12 minutes)
+
+- Owner: "This is okay." Asked for: staffs and wands that cast; arrows "get stuck when shooting"; animated NPCs and monsters; a conversation with every NPC; and a way for the lead to playtest alone.
+- Four arrows were loosed at 26 to 31 m/s. Cause of the sticking: each arrow began inside the bow's own shape, struck it and stuck. Fixed.
+
+## Robot playtests (from 2026-10-10, night)
+
+The robot player stands in for a person: it drives the rig's head, hands and buttons through the real input path, walks with the stick, and saves pictures. It shows whether a thing works. It says nothing about comfort or fun. Routines are in `unity/Assets/Godtree/Tests/PlayMode/RobotPlaytests.cs`; pictures in `D:\godtree-work\robot\`.
+
+| Routine | What it showed |
+|---|---|
+| Buttons reach the rig | Grip and trigger arrive; the physics hand follows the controller within 2 mm |
+| Sword and dummy | Picks the sword up, walks to the dummy, lands hits of about 3 N s (weak; its swing is short) |
+| Bow | Reaching onto the crowded table took the halberd by mistake and knocked the bow off, so it uses point-and-pull. Arrows: 5 of 5 stuck in the bow before the fix, 5 of 5 in the dummy after. The line from palm to palm is 9 degrees off the line between the controllers; a person corrects by eye and so does the robot |
+| Spells | All eight casts gave the right spell and reached the dummy. A fireball moves 13 loose things; a thunderclap 25 |
+| Townsfolk | Idle, turn to face the robot, greet, then listen |
+| Fight | The Barkbound came from 6 m, struck 5 times (player health 100 to 35), and died to the twelfth sword stroke, losing its head. Faults found on the way: it struck through a wall; the gate was too narrow to walk through |
+| Talk | The innkeeper answers in about half a second and is heard in about two. Asked what is in the Godtree: "No one knows what lies within the Godtree... I cannot tell you what the god is like." Asked for an email: "I have never seen a computer or an email, little one." A generated spoken question was understood and answered: "My name is Tobin, and you should try my stew before you go anywhere." |

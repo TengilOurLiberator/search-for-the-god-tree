@@ -1,0 +1,300 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_env_inn_huskhaven_s1101",
+                     "prompt":  "A cosy two-storey village inn, cream plaster walls with dark timber beams, a round green door, a small covered porch, one fat stone chimney, a carved wooden sign board fixed flat above the door. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_inn_huskhaven_s2202",
+                     "prompt":  "A cosy two-storey village inn, cream plaster walls with dark timber beams, a round green door, a small covered porch, one fat stone chimney, a carved wooden sign board fixed flat above the door. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_inn_huskhaven_s3303",
+                     "prompt":  "A cosy two-storey village inn, cream plaster walls with dark timber beams, a round green door, a small covered porch, one fat stone chimney, a carved wooden sign board fixed flat above the door. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_smithy_s1101",
+                     "prompt":  "A village smithy: a squat stone building with one wide open archway at the front, a big square stone forge chimney, a heavy timber roof. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_smithy_s2202",
+                     "prompt":  "A village smithy: a squat stone building with one wide open archway at the front, a big square stone forge chimney, a heavy timber roof. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_smithy_s3303",
+                     "prompt":  "A village smithy: a squat stone building with one wide open archway at the front, a big square stone forge chimney, a heavy timber roof. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_cottage_a_s1101",
+                     "prompt":  "A small one-room village cottage, cream plaster walls with timber beams, one round window, a rounded wooden door, a stubby stone chimney. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_cottage_a_s2202",
+                     "prompt":  "A small one-room village cottage, cream plaster walls with timber beams, one round window, a rounded wooden door, a stubby stone chimney. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_cottage_a_s3303",
+                     "prompt":  "A small one-room village cottage, cream plaster walls with timber beams, one round window, a rounded wooden door, a stubby stone chimney. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_cottage_b_s1101",
+                     "prompt":  "A tall narrow two-storey village house leaning slightly, pale blue-green plaster walls with timber beams, a small balcony box modelled into the wall, a stone base. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_cottage_b_s2202",
+                     "prompt":  "A tall narrow two-storey village house leaning slightly, pale blue-green plaster walls with timber beams, a small balcony box modelled into the wall, a stone base. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_cottage_b_s3303",
+                     "prompt":  "A tall narrow two-storey village house leaning slightly, pale blue-green plaster walls with timber beams, a small balcony box modelled into the wall, a stone base. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_husk_s1101",
+                     "prompt":  "A village home built inside half of a giant fallen seed-husk: a smooth curved cream shell like half an enormous almond lying on its side, with a round wooden door and two round windows set into a flat plaster front wall. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_husk_s2202",
+                     "prompt":  "A village home built inside half of a giant fallen seed-husk: a smooth curved cream shell like half an enormous almond lying on its side, with a round wooden door and two round windows set into a flat plaster front wall. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_house_husk_s3303",
+                     "prompt":  "A village home built inside half of a giant fallen seed-husk: a smooth curved cream shell like half an enormous almond lying on its side, with a round wooden door and two round windows set into a flat plaster front wall. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_storehouse_s1101",
+                     "prompt":  "A sturdy village storehouse on thick stone stilts, plank walls, a wide double door, a ramp modelled as one solid block. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_storehouse_s2202",
+                     "prompt":  "A sturdy village storehouse on thick stone stilts, plank walls, a wide double door, a ramp modelled as one solid block. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_storehouse_s3303",
+                     "prompt":  "A sturdy village storehouse on thick stone stilts, plank walls, a wide double door, a ramp modelled as one solid block. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_watchtower_s1101",
+                     "prompt":  "A short stout stone watchtower with a wooden lookout room on top and a pointed shingle roof, a small arched door at the bottom. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_watchtower_s2202",
+                     "prompt":  "A short stout stone watchtower with a wooden lookout room on top and a pointed shingle roof, a small arched door at the bottom. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_watchtower_s3303",
+                     "prompt":  "A short stout stone watchtower with a wooden lookout room on top and a pointed shingle roof, a small arched door at the bottom. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_palisade_wall_s1101",
+                     "prompt":  "One straight section of a town wall: a low thick wall of pale stone blocks with a walkway of heavy planks on top and a row of chunky pointed wooden stakes along the outer edge, seen from the front, long and low, solid simple shapes, no thin parts, nothing around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_palisade_wall_s2202",
+                     "prompt":  "One straight section of a town wall: a low thick wall of pale stone blocks with a walkway of heavy planks on top and a row of chunky pointed wooden stakes along the outer edge, seen from the front, long and low, solid simple shapes, no thin parts, nothing around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_palisade_wall_s3303",
+                     "prompt":  "One straight section of a town wall: a low thick wall of pale stone blocks with a walkway of heavy planks on top and a row of chunky pointed wooden stakes along the outer edge, seen from the front, long and low, solid simple shapes, no thin parts, nothing around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_town_gate_s1101",
+                     "prompt":  "A town gate: two stout square stone gate towers joined by a thick timber beam roof over an open passage wide enough for a cart, the passage empty and open, solid chunky shapes, no doors, no chains, no thin parts, nothing around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_town_gate_s2202",
+                     "prompt":  "A town gate: two stout square stone gate towers joined by a thick timber beam roof over an open passage wide enough for a cart, the passage empty and open, solid chunky shapes, no doors, no chains, no thin parts, nothing around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_town_gate_s3303",
+                     "prompt":  "A town gate: two stout square stone gate towers joined by a thick timber beam roof over an open passage wide enough for a cart, the passage empty and open, solid chunky shapes, no doors, no chains, no thin parts, nothing around it. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_lantern_post_s1101",
+                     "prompt":  "A village lantern post: a short thick carved wooden post with one big round paper lantern fixed solidly on top, chunky toy-like shapes, no chains, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_lantern_post_s2202",
+                     "prompt":  "A village lantern post: a short thick carved wooden post with one big round paper lantern fixed solidly on top, chunky toy-like shapes, no chains, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_lantern_post_s3303",
+                     "prompt":  "A village lantern post: a short thick carved wooden post with one big round paper lantern fixed solidly on top, chunky toy-like shapes, no chains, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_cradle_shrine_b_s1101",
+                     "prompt":  "A small roadside shrine: a smooth cream seed-husk the size of a barrel standing upright on a ring of flat stones, split open at the front to show a hollow lined with pale moss, solid simple shapes, no glow, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_cradle_shrine_b_s2202",
+                     "prompt":  "A small roadside shrine: a smooth cream seed-husk the size of a barrel standing upright on a ring of flat stones, split open at the front to show a hollow lined with pale moss, solid simple shapes, no glow, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_cradle_shrine_b_s3303",
+                     "prompt":  "A small roadside shrine: a smooth cream seed-husk the size of a barrel standing upright on a ring of flat stones, split open at the front to show a hollow lined with pale moss, solid simple shapes, no glow, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_fountain_s1101",
+                     "prompt":  "A village well-fountain: a wide round low stone basin with a short thick stone pillar in the middle topped by a carved stone seed, the basin filled with flat opaque blue-green water, solid chunky shapes, no spray, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_fountain_s2202",
+                     "prompt":  "A village well-fountain: a wide round low stone basin with a short thick stone pillar in the middle topped by a carved stone seed, the basin filled with flat opaque blue-green water, solid chunky shapes, no spray, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_fountain_s3303",
+                     "prompt":  "A village well-fountain: a wide round low stone basin with a short thick stone pillar in the middle topped by a carved stone seed, the basin filled with flat opaque blue-green water, solid chunky shapes, no spray, no thin parts. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_notice_board_s1101",
+                     "prompt":  "A village notice board: two thick wooden posts holding a broad plank board with a small shingle roof on top, a few square paper notices painted flat on the board, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_notice_board_s2202",
+                     "prompt":  "A village notice board: two thick wooden posts holding a broad plank board with a small shingle roof on top, a few square paper notices painted flat on the board, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_notice_board_s3303",
+                     "prompt":  "A village notice board: two thick wooden posts holding a broad plank board with a small shingle roof on top, a few square paper notices painted flat on the board, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_hay_bale_s1101",
+                     "prompt":  "A round hay bale tied with two thick ropes, simple solid shape, no loose straw. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_hay_bale_s2202",
+                     "prompt":  "A round hay bale tied with two thick ropes, simple solid shape, no loose straw. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_hay_bale_s3303",
+                     "prompt":  "A round hay bale tied with two thick ropes, simple solid shape, no loose straw. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 }
+             ]
+}

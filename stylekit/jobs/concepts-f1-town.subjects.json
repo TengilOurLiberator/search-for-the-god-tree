@@ -1,0 +1,151 @@
+{
+    "_about":  "Buildings and street furniture for Huskhaven as a small town (decision 0016). Described as solid chunky shapes with no thatch and no thin parts, because those shatter in 3D generation; meant for the coarse workflow.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_env_inn_huskhaven",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A cosy two-storey village inn, cream plaster walls with dark timber beams, a round green door, a small covered porch, one fat stone chimney, a carved wooden sign board fixed flat above the door. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it."
+                     },
+                     {
+                         "id":  "con_env_smithy",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A village smithy: a squat stone building with one wide open archway at the front, a big square stone forge chimney, a heavy timber roof. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it."
+                     },
+                     {
+                         "id":  "con_env_house_cottage_a",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small one-room village cottage, cream plaster walls with timber beams, one round window, a rounded wooden door, a stubby stone chimney. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it."
+                     },
+                     {
+                         "id":  "con_env_house_cottage_b",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A tall narrow two-storey village house leaning slightly, pale blue-green plaster walls with timber beams, a small balcony box modelled into the wall, a stone base. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it."
+                     },
+                     {
+                         "id":  "con_env_house_husk",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A village home built inside half of a giant fallen seed-husk: a smooth curved cream shell like half an enormous almond lying on its side, with a round wooden door and two round windows set into a flat plaster front wall. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it."
+                     },
+                     {
+                         "id":  "con_env_storehouse",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A sturdy village storehouse on thick stone stilts, plank walls, a wide double door, a ramp modelled as one solid block. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it."
+                     },
+                     {
+                         "id":  "con_env_watchtower",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short stout stone watchtower with a wooden lookout room on top and a pointed shingle roof, a small arched door at the bottom. One solid building as a single chunky shape with thick smooth walls, a roof of large overlapping wooden shingles, deep-set windows and door modelled as shallow insets, no thatch, no thin poles, no hanging things, no fences, no plants, nothing loose around it."
+                     },
+                     {
+                         "id":  "con_env_palisade_wall",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "One straight section of a town wall: a low thick wall of pale stone blocks with a walkway of heavy planks on top and a row of chunky pointed wooden stakes along the outer edge, seen from the front, long and low, solid simple shapes, no thin parts, nothing around it."
+                     },
+                     {
+                         "id":  "con_env_town_gate",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A town gate: two stout square stone gate towers joined by a thick timber beam roof over an open passage wide enough for a cart, the passage empty and open, solid chunky shapes, no doors, no chains, no thin parts, nothing around it."
+                     },
+                     {
+                         "id":  "con_env_lantern_post",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A village lantern post: a short thick carved wooden post with one big round paper lantern fixed solidly on top, chunky toy-like shapes, no chains, no thin parts."
+                     },
+                     {
+                         "id":  "con_env_cradle_shrine_b",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small roadside shrine: a smooth cream seed-husk the size of a barrel standing upright on a ring of flat stones, split open at the front to show a hollow lined with pale moss, solid simple shapes, no glow, no thin parts."
+                     },
+                     {
+                         "id":  "con_env_fountain",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A village well-fountain: a wide round low stone basin with a short thick stone pillar in the middle topped by a carved stone seed, the basin filled with flat opaque blue-green water, solid chunky shapes, no spray, no thin parts."
+                     },
+                     {
+                         "id":  "con_prp_notice_board",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A village notice board: two thick wooden posts holding a broad plank board with a small shingle roof on top, a few square paper notices painted flat on the board, chunky solid shapes."
+                     },
+                     {
+                         "id":  "con_prp_hay_bale",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A round hay bale tied with two thick ropes, simple solid shape, no loose straw."
+                     }
+                 ]
+}

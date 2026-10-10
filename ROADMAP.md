@@ -17,6 +17,8 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 | 7 | **Rename "the Underroot"?** The name-clash check ([docs/name-check.md](docs/name-check.md)) found it in two major games and as an upcoming Steam title. All other names are clear or generic | Rename; pick from the candidates in that file or give your own |
 | 9 | Register with Stability AI before any commercial release | Condition of the Stable Audio Open licence. Not urgent |
 | 10 | **Player body and licences** ([decision 0015](decisions/0015-player-body.md)): the rig's MIT skeleton was used to measure the body's weights; none of it is in the CC0 file | Accept as CC0; say if you want the stricter route |
+| 11 | **Three sandbox choices that touch canon** ([decision 0016](decisions/0016-owner-direction-session-4.md)): elemental staffs, stylised blood, and eight named townsfolk with natures the lead invented | Try them first; then say which become canon |
+| 12 | **Talking NPCs cannot ship as built**: they need helper programs, a strong PC, and one speech part is GPL | Decide after trying it whether it is worth designing the game around |
 | 8 | GPU power limit: image batches draw the full 600 W. Lowering it needs administrator rights | Set a limit of about 450 W in your GPU tool for unattended runs |
 
 ## Current priority (decision 0013, 2026-10-10)
@@ -35,6 +37,16 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [ ] Flames and glow are made in Unity (particles), not in 3D generation, which cannot do them
 - [ ] Hand tracking (wanted; researched in docs/research/hand-tracking-and-player-body.md: over Link it is a developer-only feature, so the first step is the owner switching it on in the Link app, then an editor prototype)
 - [x] The player has a generated character's body in place of the rig's grey mannequin, and the menu's mirror shows it with its head ([decision 0015](decisions/0015-player-body.md)); fingers do not bend; not yet seen in the headset
+- [x] The lead can playtest alone: a robot player drives the rig without a headset, finds its way round obstacles and saves pictures (decision 0016)
+- [x] Arrows no longer stick in the bow (seen by the owner in session 4, reproduced and fixed by the robot)
+- [x] Staffs and wands cast: three elements, three tiers, nine spells
+- [x] Eight townsfolk and adventurers are animated on a CC0 skeleton with 44 CC0 clips; they turn to the player and greet
+- [x] The Barkbound and the Rootwarden walk up and fight; the player has health
+- [x] Dismemberment with stylised blood: a hard blade blow on a weakened creature takes a limb; the killing blow always does
+- [x] Free conversation with every townsperson by voice, through a language model and speech running on the PC (prototype; cannot ship as built, see THIRD_PARTY_LICENCES.md section 8)
+- [ ] Owner to try all of the above in the headset
+- [ ] Huskhaven as a small town with a monster area outside (in progress)
+- [ ] Burrlings, Thornbacks and the root crawler are still statues
 - [ ] Equipped items are not shown on the character yet
 
 ## Milestones

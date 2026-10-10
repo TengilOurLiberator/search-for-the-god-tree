@@ -1,48 +1,70 @@
 # Lead hand-off: where the work stands
 
-Updated 2026-10-10, evening. Read this after AGENTS.md and ROADMAP.md. It is the working state that is not obvious from the files.
+Updated 2026-10-10, late night. Read this after AGENTS.md and ROADMAP.md. It is the working state that is not obvious from the files.
 
-## What is running or waiting right now
+## The owner's standing direction (decision 0016)
 
-Nothing is running. State at the end of 2026-10-10:
+Sandbox first. Tonight's list, in the owner's order: a way for the lead to playtest alone; arrows fixed; staffs and wands that cast, by element and tier; animated people and creatures; free AI conversation with every NPC; monsters dismembered when killed (stylised blood); then make the sandbox a small town (Huskhaven) with an outside area for monsters; then keep making weapons, equipment and spells. The owner's Claude plan is shared with their job: watch usage, push bulk work onto the PC, watch the graphics card.
 
-- **Every model in the sandbox is in the new look** (decision 0014): 21 weapons, 8 characters, 6 creatures, scenery and props. Review sheets are in `docs/review/session-1/`.
-- **The sandbox is a small place now, not a row of objects.** `SandboxBuilder.BuildGallery` holds a layout table (name, x, z, turn): a road from the spawn through a stone arch toward the Godtree, a camp with a lit fire on the right, a house, well and cart on the left, creatures beyond the wall. People stand at named spots. A model not in the table still appears, in a row at z = 38, so nothing is silently hidden.
-- **Ground:** `Godtree/Ground` paints by world position (grass at two sizes, dry patches, the road). The ring of hills uses the same material. To move the road, change the shader's road properties; it always runs along world Z.
-- **Training dummy:** one generated model drawn three times, each material showing one slice (`_ClipAxis/_ClipMin/_ClipMax` on `Godtree/Toon`). Cut heights come from the model's outline. Replace the model and the cuts follow.
-- **Screenshots** (`Godtree > Render Sandbox Screenshots`) now include road, camp and gate views.
-- **Player body:** a generated character on the rig's skeleton (decision 0015). To make another: a concept with the `character_tpose` framing, TRELLIS.2, `Finish-TrellisModels.ps1`, then `blender_rig_body.py` (look at its three check pictures), publish, and point `SandboxBuilder.BuildPlayerBody` at it. The rig hides the head by shrinking the neck bone to zero; anything attached to the head must be placed from the neck and chest, as `PlayerBody.LateUpdate` does.
-- **Sky, wind, fire, sparks:** `Godtree/Sky` (clouds from noise), `_Sway` on `Godtree/Toon` (set per model in `ApplyToonToGeneratedModels`), `Godtree/Glow` for flames, sparks and trails.
-- Twelve PlayMode tests pass. **The owner has seen none of the evening's work in the headset.**
-## 3D: what works now
+## What exists now, and how each part was checked
 
-Spiky, furry and thatched shapes shattered at the standard remesh setting (384). The **coarse workflow** (`stylekit/workflows/trellis2_image_to_glb_coarse.api.json`, remesh 192) fixed twelve of thirteen: Burrling, both Thornbacks, root crawler, husk house, well, cart, stump, cradle shrine, fence, merchant, shield-bearer. Use it for creatures and buildings; keep the standard one for weapons and simple props. Still failing: the Rootwarden (noisy surface), amber orbs (staff, wand), flames (campfire), arch, boulder. The Rootwarden and husk shield in the sandbox are the last old-look models.
+Everything below was checked by the robot player and by looking at its pictures. **None of it has been seen or felt in the headset.**
+
+| Part | Where | Checked by |
+|---|---|---|
+| Robot player: drives head, hands and buttons through the real input actions; walks with path-finding; saves pictures | `Scripts/Diagnostics/RobotPlayer.cs`, `Tests/PlayMode/RobotPlaytests.cs` (category Robot) | Its own routines |
+| Arrows no longer stick in the bow | `SandboxAbilities.LooseArrow` | Robot puts 5 of 5 arrows in the dummy |
+| Staffs and wands: Ember, Frost, Storm; tiers 1 to 3; hold TRIGGER longer for the bigger spells | `SpellFocus.cs`, `FocusCasting.cs`; spell table built in `SandboxBuilder.BuildSpellTable` | Robot casts 8 spells and checks each |
+| The player's body | `PlayerBody.cs` (decision 0015) | Mirror picture |
+| Animated townsfolk (8), on the CC0 Mesh2Motion human skeleton with 44 clips | `NpcActor.cs`; `recipes/anm_human_basic`; `SandboxBuilder.PlaceActor`, `BuildHumanAnimator` | Robot walks up; they turn and greet |
+| Fighting monsters: Barkbound, Rootwarden | `EnemyActor.cs`; `SandboxBuilder.MakeEnemy` | Robot fights the Barkbound to the death |
+| Dismemberment: models pre-cut into ten capped pieces; a joint is severed, nothing is cut at run time | `Combat/Dismemberable.cs`; `blender_rig_body.py --parts` | Robot's killing blow takes the head off |
+| Talking NPCs by voice | `NpcMind.cs`, `VoiceInput.cs`; `tools/voice/` | Robot asks the innkeeper four things, one of them by generated speech |
+
+Nineteen PlayMode tests pass (`-testCategory Robot` runs the seven robot routines alone). The robot's pictures are in `D:\godtree-work\robot\<routine>\`.
+
+## How to run things
+
+- **Open the sandbox for the owner:** `Unity.exe -projectPath unity -executeMethod Godtree.EditorTools.SandboxBuilder.OpenAndPlay`. Headset on and Link running first, or the VR session stays idle.
+- **Talking NPCs need two helper programs:** `powershell -ExecutionPolicy Bypass -File tools/voice/Start-NpcServices.ps1` before Play (`-Stop` to end them). They take about 5 GB of graphics memory. Do not pipe that script's output into anything: the programs it starts keep the pipe open and the caller hangs.
+- **Stop the helper programs and ComfyUI before the other one runs.** Generation takes up to 24 GB; the two together do not fit comfortably beside VR.
+- **Robot playtests:** `Unity.exe -batchmode -projectPath unity -runTests -testPlatform PlayMode -testCategory Robot -testResults out.xml`. Set `RobotPlayer.DumpPlans = true` in a routine to get its route plans as text maps (`D:\godtree-work\robot\plan_NN.txt`); that is how the "gate too narrow" and "search too narrow" faults were found.
+- **A new rigged person or man-shaped monster:** concept with the `character_tpose` framing, then `tools/pipeline/Invoke-RiggedCharacters.ps1` (image to 3D, finishing, rigging, publishing, recipe). Monsters (`enm_`) are cut into parts automatically. Look at the `_check_pose` and `_check_parts` pictures in the work folder before trusting a model.
+- **A new player body:** decision 0015.
 
 ## Rules learned the hard way
 
-- **Never run generation while the owner is in the headset.** It takes the whole graphics card. Never run two queues into one output folder.
-- **Unity must be closed** before any batch-mode build or test; the editor locks the project.
-- **Open the sandbox for the owner** with `Unity.exe -projectPath unity -executeMethod Godtree.EditorTools.SandboxBuilder.OpenAndPlay`. The headset must be on and Link running or the VR session stays idle and nothing is recorded.
-- **Recordings** are in `D:\godtree-work\recordings\<date-time>\`. `D:\godtree-work\analyse.py` summarises one (edit the path at the top). No events and a constant 24.5 cm hand gap means the headset was not tracking.
-- **Git** on this machine needs `D:\godtree-tools\git-lfs` on PATH and, for pushes, `GCM_INTERACTIVE=always` and `GIT_TERMINAL_PROMPT=1` in the shell.
-- **Concepts that feed 3D must be solid shapes**: no glow, glass, flames, thin loops. Objects use `style_object` from the fragments file.
-- **Before using any new tool**, list what it downloads and read each licence (decision 0011).
-- **Run `tools/checks/Run-Checks.ps1 -All` and `tools/checks/tests/Run-Tests.ps1` before every commit and do not push if either fails.** Twice a failing state was pushed because the result was printed but not acted on.
-- **Look before you trust.** `Godtree > Render Grip Check` (docs/images/grip_check.png) shows every weapon's hold; the PlayMode tests save a picture of the character menu (docs/images/menu_preview.png); `Godtree > Render Sandbox Screenshots` shows the scene. Each of these caught real faults that the tests alone did not.
-- **A material created while its shader is broken keeps zeroed properties.** Delete such materials and rebuild.
+- **Never run generation while the owner is in the headset.** Never run two queues into one output folder.
+- **Unity must be closed** before any batch-mode build or test.
+- **Run `tools/checks/Run-Checks.ps1 -All`, `tools/checks/tests/Run-Tests.ps1` and the PlayMode tests before every commit; do not push if any fails.**
+- **Look before you trust.** Every fault found tonight was found by a picture or a robot run, not by reasoning: arrows in the bow, the mirror blocked by the dummy, the headless mirror, the gate too narrow to walk through, a creature striking through a wall.
+- **Before using any new tool**, list what it downloads and read each licence (decision 0011). Record it in `THIRD_PARTY_LICENCES.md`.
+- **Thin, loose shapes shatter in 3D generation** (coats, tunic hems, hat brims, thatch). Use the coarse workflow, or describe the thing as solid.
+- **A script that edits a file by replacing text must keep the line ending.** Three times tonight a replacement joined two lines of Python; a syntax check (`python -c "import ast; ast.parse(...)"`) after every edit catches it.
+- **Recordings** of the owner's sessions are in `D:\godtree-work\recordings\<date-time>\`.
+- **Git** needs `D:\godtree-tools\git-lfs` on PATH and, for pushes, `GCM_INTERACTIVE=always` and `GIT_TERMINAL_PROMPT=1`.
 
-## Open with the owner
+## Things the owner should know or decide
 
-- Has not yet felt, in the headset: point-and-pull, snapped weapon holds, the character menu, damage numbers, lift and ward knots, the eleven newer weapons. Weapon grip points and angles are computed guesses.
-- Hand tracking: wanted; researched, not started (docs/research/hand-tracking-and-player-body.md). Over Link it is a developer-only feature that may not work in a built game. First step is the owner switching on Developer Runtime Features in the Link app; then a one-to-two-day editor prototype.
-- Rename "the Underroot" (docs/name-check.md).
-- Listen to the audio; none of it has been heard.
-- Purge of superseded files from git history (decision 0011): lead recommends leaving it.
-- GPU power cap for unattended runs.
+- **Nothing since session 4 has been in the headset.** First things to try: talk to Tobin the innkeeper; cast with each staff; fight the Barkbound beyond the gate; look at your own body.
+- **Talking NPCs are a prototype that cannot ship as built.** They need helper programs beside the game, a strong PC, and one speech component is GPL (fine as a local tool, not inside a released game). See `THIRD_PARTY_LICENCES.md` section 8.
+- **Sandbox inventions that are not canon** until the owner says so: the eight people's names and natures (Tobin, Mira, Hale, Senna, Nilo, Aren, Lysa, Doran; `SandboxBuilder.GiveMind`); elemental staffs (the world bible's magic is weaving motes into knots, with no elements); stylised blood (the art bible is bright and gentle).
+- **Licence point on the player's body** (decision 0015).
+- **Multiplayer:** the survey found PurrNet (MIT); the networking library in decision 0005 is not open source. Revisit at that milestone.
+- Still open from before: listen to the audio; rename "the Underroot"; history purge; graphics card power cap.
 
-## Next ideas, not started
+## Known weak spots
 
-- Show equipped items on the player's body; bend the fingers (the generated hand is one solid shape).
-- Enemies that move and attack, so vigor and armour mean something.
-- Clouds, and a painted far landscape behind the hills.
-- The elder model has small holes in its face; regenerate it.
+- The Barkbound is hunched and small in play; its model reads more as armour than as bark.
+- The old husk house is badly shattered up close; town buildings are being regenerated (`stylekit/jobs/concepts-f1-town.subjects.json`).
+- Rigged people have ragged hems (elder, weaver) and fingers that do not bend. Mouths do not move when they speak.
+- The staff is held near its head, not mid-shaft.
+- Creatures walk straight at the player with only a sidestep for obstacles; they have no real path-finding.
+- A model this small can be talked out of character. Whisper mishears place names ("Huskhaven").
+- Burrlings, Thornbacks and the root crawler are still statues.
+
+## Next, in the owner's order
+
+1. Huskhaven as a small town: buildings, a wall and gate, lantern posts; people at their places; a monster area outside.
+2. Then weapons, equipment and spells, generated in batches on the PC and judged from pictures.
+3. Four-legged creatures on the CC0 fox and spider rigs already fetched (`D:\godtree-tools\downloads\mesh2motion`).
