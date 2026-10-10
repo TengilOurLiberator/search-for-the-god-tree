@@ -17,5 +17,6 @@
                   "husk":  "A giant fallen seed husk, pale cream and tan, ribbed like a split walnut shell the size of a house."
               },
     "palette_words":  "sky blue #6EC6FF, leaf green #7BE0A4, pale bark cream #E9DCC3, mote gold #FFD86B, meadow green #8FD14F, deep violet shadow #3B3A6E",
-    "style_object":  "High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo."
+    "style_object":  "High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+    "style_scene":  "High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo."
 }

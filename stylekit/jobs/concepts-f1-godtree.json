@@ -1,0 +1,34 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_godtree_backdrop_s1101",
+                     "prompt":  "One impossibly colossal ancient tree seen from very far away, alone and centred, the whole tree in frame from its spreading roots to the top of its crown, a pale cream bark trunk as wide as a mountain, a vast layered soft green crown rising above a ring of small white clouds, the whole tree softened and tinted pale blue by distance haze, against a plain flat empty light blue sky, no ground, no horizon, no other trees, no people. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_godtree_backdrop_s2202",
+                     "prompt":  "One impossibly colossal ancient tree seen from very far away, alone and centred, the whole tree in frame from its spreading roots to the top of its crown, a pale cream bark trunk as wide as a mountain, a vast layered soft green crown rising above a ring of small white clouds, the whole tree softened and tinted pale blue by distance haze, against a plain flat empty light blue sky, no ground, no horizon, no other trees, no people. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_godtree_backdrop_s3303",
+                     "prompt":  "One impossibly colossal ancient tree seen from very far away, alone and centred, the whole tree in frame from its spreading roots to the top of its crown, a pale cream bark trunk as wide as a mountain, a vast layered soft green crown rising above a ring of small white clouds, the whole tree softened and tinted pale blue by distance haze, against a plain flat empty light blue sky, no ground, no horizon, no other trees, no people. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_godtree_backdrop_s4404",
+                     "prompt":  "One impossibly colossal ancient tree seen from very far away, alone and centred, the whole tree in frame from its spreading roots to the top of its crown, a pale cream bark trunk as wide as a mountain, a vast layered soft green crown rising above a ring of small white clouds, the whole tree softened and tinted pale blue by distance haze, against a plain flat empty light blue sky, no ground, no horizon, no other trees, no people. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 }
+             ]
+}

@@ -1,0 +1,22 @@
+{
+    "_about":  "The Godtree as a far backdrop for the sandbox sky (pillar 2: the Godtree is always ahead). Cut out with BiRefNet and shown on a distant card.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303,
+                  4404
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_godtree_backdrop",
+                         "framing":  "landscape",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "One impossibly colossal ancient tree seen from very far away, alone and centred, the whole tree in frame from its spreading roots to the top of its crown, a pale cream bark trunk as wide as a mountain, a vast layered soft green crown rising above a ring of small white clouds, the whole tree softened and tinted pale blue by distance haze, against a plain flat empty light blue sky, no ground, no horizon, no other trees, no people."
+                     }
+                 ]
+}

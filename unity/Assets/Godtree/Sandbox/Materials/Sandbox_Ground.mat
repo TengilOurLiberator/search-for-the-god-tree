@@ -35,7 +35,7 @@ Material:
     - _RimStrength: 0.3
     - _SkyFill: 0.35
     m_Colors:
-    - _BaseColor: {r: 0.56, g: 0.82, b: 0.31, a: 1}
+    - _BaseColor: {r: 0.4, g: 0.66, b: 0.3, a: 1}
     - _RimColor: {r: 0.8, g: 0.93, b: 1, a: 1}
     - _ShadowColor: {r: 0.6, g: 0.58, b: 0.84, a: 1}
   m_BuildTextureStacks: []

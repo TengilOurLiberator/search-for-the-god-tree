@@ -377,7 +377,7 @@ namespace Godtree.EditorTools
                 if (!isLong)
                     shortIndex++;
                 RestOn(instance, slot);
-                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("shield");
+                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("shield") || prefab.name.Contains("buckler");
                 MakeWeapon(instance, heavy ? 0.9f : 0.5f);
             }
 
@@ -581,7 +581,7 @@ namespace Godtree.EditorTools
             Vector3 Unit(int axis) => axis == 0 ? Vector3.right : (axis == 1 ? Vector3.up : Vector3.forward);
 
             string name = go.name;
-            if (name.Contains("shield"))
+            if (name.Contains("shield") || name.Contains("buckler"))
             {
                 pose.style = HoldStyle.Shield;
                 pose.localMainAxis = Unit(thinAxis);
@@ -598,31 +598,78 @@ namespace Godtree.EditorTools
                 return;
             }
 
-            // Blade-like: find which end is the bulky one (guard and pommel on a sword, the head on an axe or spear).
-            float low = b.min[longAxis], length = size[longAxis];
-            float widestLow = 0f, widestHigh = 0f;
+            // Blade-like. The weapon's own long direction is found from its shape (its principal
+            // axis), not from its bounding box, because some models stand at an angle.
+            Vector3 mean = Vector3.zero;
+            foreach (Vector3 p in points) mean += p;
+            mean /= points.Count;
+            Vector3 axis = PrincipalAxis(points, mean, Vector3.zero);
+            Vector3 side = PrincipalAxis(points, mean, axis);
+
+            float minAlong = float.MaxValue, maxAlong = float.MinValue;
             foreach (Vector3 p in points)
             {
-                Vector3 off = p - b.center;
-                off[longAxis] = 0f;
-                float along = (p[longAxis] - low) / Mathf.Max(length, 1e-5f);
-                if (along < 0.3f) widestLow = Mathf.Max(widestLow, off.magnitude);
-                else if (along > 0.7f) widestHigh = Mathf.Max(widestHigh, off.magnitude);
+                float along = Vector3.Dot(p - mean, axis);
+                minAlong = Mathf.Min(minAlong, along);
+                maxAlong = Mathf.Max(maxAlong, along);
             }
-            bool bulkyEndIsLow = widestLow > widestHigh;
-            bool handleAtBulkyEnd = name.Contains("sword"); // a sword's guard and pommel are its bulk; on a dagger, axe or spear the business end is
-            // Every generated weapon is drawn standing upright with its handle at the bottom, so for an
-            // upright model the handle is simply the low end. The bulk test is only for models that lie down.
-            bool handleIsLow = longAxis == 1 ? true : (handleAtBulkyEnd ? bulkyEndIsLow : !bulkyEndIsLow);
+            float length = Mathf.Max(maxAlong - minAlong, 1e-5f);
+
+            // Where along its length is the weapon widest? On a sword that is the crossguard, at
+            // the handle end; on an axe, hammer, club or spear it is the head, at the far end.
+            // (Concept art is not always drawn handle-down. Checked with Godtree > Render Grip Check.)
+            var radii = new System.Collections.Generic.List<Vector2>(points.Count);
+            foreach (Vector3 p in points)
+            {
+                Vector3 rel = p - mean;
+                float along = Vector3.Dot(rel, axis);
+                radii.Add(new Vector2((rel - axis * along).magnitude, (along - minAlong) / length));
+            }
+            radii.Sort((x, y) => y.x.CompareTo(x.x));
+            int widest = Mathf.Max(1, radii.Count / 50);
+            float widestAlong = 0f;
+            for (int i = 0; i < widest; i++)
+                widestAlong += radii[i].y;
+            widestAlong /= widest;
+
+            bool swordLike = name.Contains("sword") || name.Contains("rapier") || name.Contains("scimitar") || name.Contains("dagger");
+            bool handleIsLow = swordLike ? widestAlong < 0.5f : widestAlong >= 0.5f;
             bool pole = name.Contains("spear") || name.Contains("halberd") || name.Contains("staff");
             float fromHandleEnd = pole ? 0.40f : (name.Contains("dagger") ? 0.18f : (name.Contains("great") ? 0.10f : 0.13f));
 
             pose.style = HoldStyle.Blade;
-            pose.localMainAxis = Unit(longAxis) * (handleIsLow ? 1f : -1f);
-            pose.localSideAxis = Unit(midAxis);
-            Vector3 grip = b.center;
-            grip[longAxis] = handleIsLow ? low + fromHandleEnd * length : low + (1f - fromHandleEnd) * length;
-            pose.localGripPoint = grip;
+            pose.localMainAxis = handleIsLow ? axis : -axis;
+            pose.localSideAxis = side;
+            float gripAlong = handleIsLow ? minAlong + fromHandleEnd * length : maxAlong - fromHandleEnd * length;
+            pose.localGripPoint = mean + axis * gripAlong;
+        }
+
+        /// <summary>
+        /// The direction in which a cloud of points is most spread out, by power iteration on
+        /// its covariance. Pass a direction to exclude to get the next most spread one.
+        /// </summary>
+        private static Vector3 PrincipalAxis(System.Collections.Generic.List<Vector3> points, Vector3 mean, Vector3 exclude)
+        {
+            float xx = 0, xy = 0, xz = 0, yy = 0, yz = 0, zz = 0;
+            foreach (Vector3 p in points)
+            {
+                Vector3 d = p - mean;
+                if (exclude != Vector3.zero)
+                    d -= exclude * Vector3.Dot(d, exclude);
+                xx += d.x * d.x; xy += d.x * d.y; xz += d.x * d.z;
+                yy += d.y * d.y; yz += d.y * d.z; zz += d.z * d.z;
+            }
+            Vector3 v = new Vector3(0.577f, 0.61f, 0.54f);
+            for (int i = 0; i < 60; i++)
+            {
+                v = new Vector3(xx * v.x + xy * v.y + xz * v.z, xy * v.x + yy * v.y + yz * v.z, xz * v.x + yz * v.y + zz * v.z);
+                if (exclude != Vector3.zero)
+                    v -= exclude * Vector3.Dot(v, exclude);
+                if (v.sqrMagnitude < 1e-20f)
+                    return Vector3.up;
+                v.Normalize();
+            }
+            return v;
         }
 
         /// <summary>Scenery you cannot walk or swing through.</summary>

@@ -32,8 +32,10 @@ foreach ($s in @($spec.subjects)) {
     }
     $parts += [string]$frag.framing.PSObject.Properties[[string]$s.framing].Value
     $isObject = @('object_for_3d', 'creature_for_3d') -contains [string]$s.framing
-    if ($isObject -and $null -ne $frag.PSObject.Properties['style_object']) { $parts += [string]$frag.style_object } else { $parts += [string]$frag.style }
-    if ((@('landscape', 'interior') -contains [string]$s.framing) -and $null -ne $frag.PSObject.Properties['style_scene_extra']) { $parts += [string]$frag.style_scene_extra }
+    $isScene = @('landscape', 'interior') -contains [string]$s.framing
+    if ($isObject -and $null -ne $frag.PSObject.Properties['style_object']) { $parts += [string]$frag.style_object }
+    elseif ($isScene -and $null -ne $frag.PSObject.Properties['style_scene']) { $parts += [string]$frag.style_scene }
+    else { $parts += [string]$frag.style }
     $prompt = ($parts -join ' ')
     foreach ($seed in @($spec.seeds)) {
         $jobs += New-Object psobject -Property ([ordered]@{ id = ("{0}_s{1}" -f $s.id, $seed); prompt = $prompt; seed = [long]$seed; width = [int]$s.width; height = [int]$s.height })
