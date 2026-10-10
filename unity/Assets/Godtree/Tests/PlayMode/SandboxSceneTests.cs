@@ -144,6 +144,41 @@ namespace Godtree.Tests
         }
 
         [UnityTest]
+        public IEnumerator CharacterMenuPreviewIsRendered()
+        {
+            // Not a pass/fail check of looks: it saves a picture of the open menu to
+            // docs/images/menu_preview.png so the layout can be reviewed without a headset.
+            GameObject host = GameObject.Find("Character menu");
+            host.SendMessage("Toggle");
+            yield return null;
+            yield return null;
+            GameObject board = GameObject.Find("Character menu board");
+            Assert.IsNotNull(board);
+
+            var cameraObject = new GameObject("Menu preview camera");
+            var cam = cameraObject.AddComponent<Camera>();
+            cam.stereoTargetEye = StereoTargetEyeMask.None;
+            cam.fieldOfView = 60f;
+            cam.transform.position = board.transform.position - board.transform.forward * 0.85f + Vector3.up * 0.05f;
+            cam.transform.rotation = Quaternion.LookRotation(board.transform.position - cam.transform.position);
+            var rt = new RenderTexture(1280, 800, 24);
+            cam.targetTexture = rt;
+            cam.Render();
+            RenderTexture.active = rt;
+            var tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+            tex.Apply();
+            RenderTexture.active = null;
+            string dir = System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.dataPath, "../../docs/images"));
+            System.IO.Directory.CreateDirectory(dir);
+            System.IO.File.WriteAllBytes(System.IO.Path.Combine(dir, "menu_preview.png"), tex.EncodeToPNG());
+            cam.targetTexture = null;
+            Object.Destroy(cameraObject);
+            host.SendMessage("Toggle");
+            yield return null;
+        }
+
+        [UnityTest]
         public IEnumerator PlayerRigSpawns()
         {
             Assert.Greater(Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Length, 0, "the BIMOS rig should have spawned a camera");

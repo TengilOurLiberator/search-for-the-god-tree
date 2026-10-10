@@ -50,8 +50,12 @@ namespace Godtree.Sandbox
                 Transform head = _player.ControllerRig.CameraTransform;
                 Vector3 flat = Vector3.ProjectOnPlane(head.forward, Vector3.up).normalized;
                 if (flat.sqrMagnitude < 0.01f) flat = Vector3.forward;
-                Vector3 from = head.position + flat * 2.1f - Vector3.up * 0.55f;
-                _mirrorCamera.transform.SetPositionAndRotation(from, Quaternion.LookRotation(head.position - Vector3.up * 0.6f - from));
+                // Frame the whole body: aim at the middle of the player from a little above waist height.
+                float floorY = _player.transform.position.y;
+                float middleY = Mathf.Lerp(floorY, head.position.y, 0.52f);
+                Vector3 from = new Vector3(head.position.x, middleY + 0.1f, head.position.z) + flat * 2.7f;
+                Vector3 target = new Vector3(head.position.x, middleY, head.position.z);
+                _mirrorCamera.transform.SetPositionAndRotation(from, Quaternion.LookRotation(target - from));
             }
         }
 
@@ -76,6 +80,9 @@ namespace Godtree.Sandbox
 
         private bool _boardShownOnce;
 
+        /// <summary>A layer of its own for the board, so the mirror camera can leave it out.</summary>
+        private const int BoardLayer = 30;
+
         private void Build()
         {
             _font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -84,7 +91,7 @@ namespace Godtree.Sandbox
             var canvas = _board.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.WorldSpace;
             _board.GetComponent<RectTransform>().sizeDelta = new Vector2(1000f, 620f);
-            Panel(_board.transform, Vector2.zero, new Vector2(1000f, 620f), new Color(0.13f, 0.13f, 0.23f, 0.95f));
+            Panel(_board.transform, Vector2.zero, new Vector2(1000f, 620f), new Color(0.13f, 0.13f, 0.23f, 1f));
 
             Label(_board.transform, "CHARACTER", new Vector2(-470f, 270f), new Vector2(940f, 50f), 40, TextAnchor.MiddleLeft, new Color(1f, 0.85f, 0.42f));
             Label(_board.transform, "press B to close   |   push the arrows with your hand", new Vector2(-470f, -295f), new Vector2(940f, 30f), 22, TextAnchor.MiddleLeft, new Color(0.8f, 0.8f, 0.9f));
@@ -98,7 +105,7 @@ namespace Godtree.Sandbox
             _mirrorCamera.targetTexture = _mirrorTexture;
             _mirrorCamera.fieldOfView = 42f;
             _mirrorCamera.nearClipPlane = 0.1f;
-            _mirrorCamera.cullingMask = ~LayerMask.GetMask("UI", "BIMOSMenu");
+            _mirrorCamera.cullingMask = ~(LayerMask.GetMask("UI", "BIMOSMenu") | (1 << BoardLayer)); // the mirror must not see the menu itself
             var view = new GameObject("Mirror");
             view.transform.SetParent(_board.transform, false);
             var raw = view.AddComponent<RawImage>();
@@ -117,6 +124,9 @@ namespace Godtree.Sandbox
                 Button(_board.transform, ">", new Vector2(405f, y - 58f), () => { PlayerStats.Instance.Cycle(captured, 1); Refresh(); });
                 y -= 64f;
             }
+
+            foreach (Transform child in _board.GetComponentsInChildren<Transform>(true))
+                child.gameObject.layer = BoardLayer;
         }
 
         private void Refresh()

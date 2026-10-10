@@ -24,6 +24,9 @@ Shapes with many thin or spiky parts. Ideas not yet tried: keep the dense mesh a
 - **Git** on this machine needs `D:\godtree-tools\git-lfs` on PATH and, for pushes, `GCM_INTERACTIVE=always` and `GIT_TERMINAL_PROMPT=1` in the shell.
 - **Concepts that feed 3D must be solid shapes**: no glow, glass, flames, thin loops. Objects use `style_object` from the fragments file.
 - **Before using any new tool**, list what it downloads and read each licence (decision 0011).
+- **Run `tools/checks/Run-Checks.ps1 -All` and `tools/checks/tests/Run-Tests.ps1` before every commit and do not push if either fails.** Twice a failing state was pushed because the result was printed but not acted on.
+- **Look before you trust.** `Godtree > Render Grip Check` (docs/images/grip_check.png) shows every weapon's hold; the PlayMode tests save a picture of the character menu (docs/images/menu_preview.png); `Godtree > Render Sandbox Screenshots` shows the scene. Each of these caught real faults that the tests alone did not.
+- **A material created while its shader is broken keeps zeroed properties.** Delete such materials and rebuild.
 
 ## Open with the owner
 
