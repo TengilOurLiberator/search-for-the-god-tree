@@ -267,7 +267,7 @@ namespace Godtree.Tests
             yield return Wait(0.15f);
         }
 
-        [UnityTest]
+        [UnityTest, Timeout(600000)]
         public IEnumerator CastsEverySpellThroughStaffsAndWands()
         {
             const string dir = OutDir + "/spells";
@@ -385,7 +385,7 @@ namespace Godtree.Tests
             yield return Wait(0.25f);
         }
 
-        [UnityTest]
+        [UnityTest, Timeout(600000)]
         public IEnumerator FightsACreatureUntilItDiesAndLosesALimb()
         {
             const string dir = OutDir + "/fight";
@@ -445,7 +445,7 @@ namespace Godtree.Tests
             Assert.Greater(limbs.PiecesLost, 0, "the killing blow from a blade should take a limb off");
             Assert.Greater(severedEvents, 0, "no severed piece was reported");
         }
-        [UnityTest]
+        [UnityTest, Timeout(600000)]
         public IEnumerator TalksWithATownsperson()
         {
             const string dir = OutDir + "/talk";
@@ -526,7 +526,7 @@ namespace Godtree.Tests
             Debug.Log($"[Robot] {innkeeper.npcName}: {innkeeper.LastReply}");
             _robot.SnapshotEyes(dir + "/02_after.jpg");
         }
-        [UnityTest]
+        [UnityTest, Timeout(600000)]
         public IEnumerator EveryWeaponComesToHandAndHoldsStill()
         {
             // Point-and-pull each weapon in turn, hold it, swing it once, and let it go. Reports,
@@ -624,7 +624,7 @@ namespace Godtree.Tests
             Assert.AreEqual(0, failed, "some weapons did not come to hand, or fight the hand when held:\n" + report);
         }
 
-        [UnityTest]
+        [UnityTest, Timeout(600000)]
         public IEnumerator BareHandKnotsAndTheCharacterMenu()
         {
             const string dir = OutDir + "/knots";

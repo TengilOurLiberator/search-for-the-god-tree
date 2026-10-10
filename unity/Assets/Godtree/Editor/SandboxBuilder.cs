@@ -93,6 +93,17 @@ namespace Godtree.EditorTools
             EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
             string outDir = Path.GetFullPath(Path.Combine(Application.dataPath, "../../docs/images"));
             Directory.CreateDirectory(outDir);
+            // People and creatures stand in their idle pose, not the T-pose they are stored in.
+            foreach (Animator animator in Object.FindObjectsByType<Animator>(FindObjectsSortMode.None))
+            {
+                var controller = animator.runtimeAnimatorController as UnityEditor.Animations.AnimatorController;
+                if (controller == null || controller.layers.Length == 0)
+                    continue;
+                string idle = animator.GetComponent<Godtree.Sandbox.EnemyActor>() != null ? animator.GetComponent<Godtree.Sandbox.EnemyActor>().idleClip : "Idle_A";
+                foreach (UnityEditor.Animations.ChildAnimatorState state in controller.layers[0].stateMachine.states)
+                    if (state.state.name == idle && state.state.motion is AnimationClip clip)
+                        clip.SampleAnimation(animator.gameObject, 0.4f + 0.37f * (Mathf.Abs(animator.transform.position.x * 7f + animator.transform.position.z) % 3f));
+            }
             // Run fires forward a little, or a still picture shows them unlit.
             foreach (ParticleSystem system in Object.FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None))
                 if (system.transform.parent == null || system.transform.parent.GetComponent<ParticleSystem>() == null)
@@ -105,6 +116,11 @@ namespace Godtree.EditorTools
             Shot(new Vector3(4.4f, 1.65f, 0.4f), new Vector3(7.8f, 0.8f, 3.8f), Path.Combine(outDir, "sandbox_camp_view.png"));
             Shot(new Vector3(0f, 1.65f, 15f), new Vector3(0f, 2f, 27f), Path.Combine(outDir, "sandbox_gate_view.png"));
             Shot(new Vector3(3.3f, 1.5f, 15.4f), new Vector3(4.6f, 1.25f, 17.4f), Path.Combine(outDir, "sandbox_elder_view.png"));
+            Shot(new Vector3(0f, 46f, 6f), new Vector3(0f, 0f, 9f), Path.Combine(outDir, "sandbox_town_above.png"));
+            Shot(new Vector3(4f, 9f, -6f), new Vector3(-9f, 1.5f, 12f), Path.Combine(outDir, "sandbox_town_west.png"));
+            Shot(new Vector3(-4f, 9f, -6f), new Vector3(10f, 1.5f, 10f), Path.Combine(outDir, "sandbox_town_east.png"));
+            Shot(new Vector3(0f, 1.65f, 2f), new Vector3(0f, 2.2f, 24f), Path.Combine(outDir, "sandbox_town_square.png"));
+            Shot(new Vector3(0f, 7f, 27f), new Vector3(0f, 1f, 45f), Path.Combine(outDir, "sandbox_meadow_view.png"));
         }
 
         private static void Shot(Vector3 from, Vector3 lookAt, string path)
@@ -469,6 +485,10 @@ namespace Godtree.EditorTools
             AddImpactSound(head, "sfx_sword_hit_metal");
         }
 
+        // How the generated town pieces must be turned so that a house front faces +Z, the wall runs
+        // along X and the gate's passage runs along Z. Set by looking at a render from above.
+        private const float HouseYaw = -90f, WallYaw = 0f, GateYaw = 0f;
+
         // Which way the dummy model is turned so its painted target faces the player.
         private const float DummyYaw = 180f;
 
@@ -605,23 +625,42 @@ namespace Godtree.EditorTools
 
             }
 
-            // Scenery, composed: a road ahead through a stone arch toward the Godtree, a small camp
-            // on the right, a corner of Huskhaven on the left, trees and rocks for depth.
+            // Huskhaven, a small walled town round the spawn, and the Windlow meadow beyond its gate
+            // (decision 0016). The road runs north from the square, through the gate, across the
+            // meadow where the creatures are, to the stone arch where the Rootwarden waits.
             // name, x, z, turn in degrees. A model may be placed more than once.
             var layout = new (string name, float x, float z, float yaw)[]
             {
-                ("env_arch", 0f, 22f, 0f),
-                ("env_stone_wall", -5.2f, 22f, 0f), ("env_stone_wall", 5.2f, 22f, 0f),
-                ("env_banner", -2.6f, 19.5f, 0f), ("env_banner", 2.6f, 19.5f, 0f),
-                ("env_tent", 11.2f, 6.6f, -70f), ("env_campfire", 7.4f, 3.4f, 0f), ("env_stump", 8.3f, 1.9f, 30f),
-                ("env_husk_house", -10.5f, 14f, 140f), ("env_tree_blob", -15f, 20f, 0f), ("env_tree_blob", 13f, 21f, 80f),
-                ("env_tree_blob", 21f, 9f, 200f), ("env_tree_blob", -22f, 6f, 130f), ("env_tree_blob", -6f, 30f, 40f), ("env_tree_blob", 8f, 33f, 250f),
-                ("env_bush", -4.2f, 9f, 0f), ("env_bush", 4.6f, 12f, 90f), ("env_bush", 11f, 9f, 200f), ("env_bush", -8f, 8f, 300f), ("env_bush", 1.6f, 17f, 45f),
-                ("env_rock_cluster", 3.4f, 15f, 20f), ("env_rock_cluster", -12f, 8f, 110f), ("env_boulder", -3.2f, 14f, 70f), ("env_boulder", 15f, 13f, 10f),
-                ("prp_well", -6f, 10.5f, 0f), ("prp_market_stall", 5.6f, 9.2f, 200f), ("prp_cart", -12.5f, 10f, 60f),
-                ("prp_signpost", 3.2f, 11f, -20f), ("prp_fence", -7.5f, 5.5f, 20f), ("prp_cradle_shrine", 3f, 19f, 200f),
-                ("prp_dummy_training", -4.2f, 5.6f, 160f), ("prp_dummy_training", -5.8f, 6.3f, 190f)
+                // the wall: a gate in the north side, on the road
+                ("env_town_gate", 0f, 24f, GateYaw),
+                ("env_town_wall", -7.6f, 24f, WallYaw), ("env_town_wall", 7.6f, 24f, WallYaw),
+                ("env_town_wall", -15.6f, 24f, WallYaw), ("env_town_wall", 15.6f, 24f, WallYaw),
+                ("env_town_wall", -19.6f, 20f, WallYaw + 90f), ("env_town_wall", -19.6f, 12f, WallYaw + 90f), ("env_town_wall", -19.6f, 4f, WallYaw + 90f), ("env_town_wall", -19.6f, -4f, WallYaw + 90f),
+                ("env_town_wall", 19.6f, 20f, WallYaw + 90f), ("env_town_wall", 19.6f, 12f, WallYaw + 90f), ("env_town_wall", 19.6f, 4f, WallYaw + 90f), ("env_town_wall", 19.6f, -4f, WallYaw + 90f),
+                ("env_town_wall", -16f, -8f, WallYaw), ("env_town_wall", -8f, -8f, WallYaw), ("env_town_wall", 0f, -8f, WallYaw), ("env_town_wall", 8f, -8f, WallYaw), ("env_town_wall", 16f, -8f, WallYaw),
+                ("env_watchtower", 6.2f, 20.6f, 0f),
+                // the west side of the square: inn, smithy, a husk home
+                ("env_inn_huskhaven", -12f, 12.5f, HouseYaw + 90f), ("env_smithy", -11.5f, 3f, HouseYaw), ("env_house_husk", -12.5f, 19.5f, HouseYaw + 110f),
+                // the east side: cottages and the storehouse
+                ("env_house_cottage_a", 12f, 17.5f, HouseYaw - 90f), ("env_house_cottage_b", 14f, 10.5f, HouseYaw - 90f), ("env_storehouse", 13.5f, -2.5f, HouseYaw - 90f),
+                // the square
+                ("env_fountain", 4.6f, 12.5f, 0f), ("prp_cradle_shrine", -4.2f, 16.6f, 180f),
+                ("env_lantern_post", -2.3f, 7f, 0f), ("env_lantern_post", 2.3f, 7f, 0f), ("env_lantern_post", -2.3f, 14f, 0f), ("env_lantern_post", 2.3f, 14f, 0f), ("env_lantern_post", -2.3f, 20.5f, 0f), ("env_lantern_post", 2.3f, 20.5f, 0f),
+                ("prp_notice_board", 2.9f, 4.4f, 160f), ("prp_market_stall", 6.4f, 8.8f, 200f), ("prp_well", -6.2f, 8.4f, 0f), ("prp_cart", 9.8f, -3.6f, 60f),
+                
+                ("env_campfire", 7.4f, 3.4f, 0f), ("env_stump", 8.3f, 1.9f, 30f), ("env_tent", 11.6f, 4.6f, -70f),
+                ("env_tree_blob", -16.5f, -3f, 0f), ("env_tree_blob", 16.5f, 21f, 80f), ("env_bush", -8.5f, 21.5f, 0f), ("env_bush", 9.5f, 20.5f, 90f), ("env_bush", -15f, 7.5f, 200f),
+                ("prp_fence", -7.5f, -3.5f, 20f), ("prp_dummy_training", -4.2f, 5.6f, 160f), ("prp_dummy_training", -5.8f, 6.3f, 190f),
+                ("env_banner", -3.4f, 22.6f, 0f), ("env_banner", 3.4f, 22.6f, 0f),
+                // the Windlow, outside the gate: low walls, wind-bent trees, rocks, and the road to the arch
+                ("env_stone_wall", -9f, 33f, 20f), ("env_stone_wall", 11f, 39f, -30f), ("env_stone_wall", -13f, 45f, 70f),
+                ("env_tree_blob", -8f, 30f, 40f), ("env_tree_blob", 9f, 31f, 250f), ("env_tree_blob", 17f, 42f, 200f), ("env_tree_blob", -19f, 38f, 130f), ("env_tree_blob", -6f, 50f, 10f), ("env_tree_blob", 12f, 52f, 300f),
+                ("env_bush", -4.2f, 29f, 0f), ("env_bush", 5f, 36f, 90f), ("env_bush", 13f, 33f, 200f), ("env_bush", -11f, 40f, 300f), ("env_bush", 2f, 44f, 45f),
+                ("env_rock_cluster", 4f, 31f, 20f), ("env_rock_cluster", -14f, 30f, 110f), ("env_boulder", -4f, 38f, 70f), ("env_boulder", 15f, 47f, 10f), ("env_rock_cluster", 7f, 48f, 200f),
+                ("prp_signpost", 2.4f, 27.5f, -20f), ("env_arch", 0f, 54f, 0f),
             };
+            // Old models kept in the repository but no longer shown: their replacements are in the town.
+            var retired = new System.Collections.Generic.HashSet<string> { "env_husk_house" };
             var placed = new System.Collections.Generic.HashSet<string>();
             foreach ((string name, float x, float z, float yaw) in layout)
             {
@@ -635,6 +674,9 @@ namespace Godtree.EditorTools
                 // the robot player could not find a way through it and walked round the wall.
                 if (name == "env_arch")
                     instance.transform.localScale *= 1.8f;
+                // The lantern posts came out with lanterns a metre across; at this size they are head height.
+                if (name == "env_lantern_post")
+                    instance.transform.localScale *= 0.72f;
                 RestOn(instance, new Vector3(x, 0f, z));
                 MakeSolid(instance);
                 placed.Add(name);
@@ -646,11 +688,11 @@ namespace Godtree.EditorTools
             {
                 foreach (GameObject prefab in LoadModels(folder))
                 {
-                    if (placed.Contains(prefab.name) || prefab.name == "prp_table_long" || prefab.name == "prp_plinth_stone" || System.Array.IndexOf(loose, prefab.name) >= 0)
+                    if (placed.Contains(prefab.name) || retired.Contains(prefab.name) || prefab.name == "prp_table_long" || prefab.name == "prp_plinth_stone" || System.Array.IndexOf(loose, prefab.name) >= 0)
                         continue;
                     var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
                     instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-                    RestOn(instance, new Vector3(spareX, 0f, 38f));
+                    RestOn(instance, new Vector3(spareX, 0f, -13f));
                     MakeSolid(instance);
                     spareX += 5f;
                 }
@@ -660,11 +702,11 @@ namespace Godtree.EditorTools
             // name, where they stand (x, z), what they face (x, z).
             var spots = new System.Collections.Generic.Dictionary<string, (float x, float z, float lookX, float lookZ)>
             {
-                { "chr_rooted_merchant", (5.2f, 10.6f, 2f, 4f) },
-                { "chr_rooted_smith", (-4.7f, 2.9f, 0f, 1f) },
-                { "chr_rooted_innkeeper", (-8.6f, 11.6f, 0f, 2f) },
-                { "chr_rooted_elder", (4.6f, 17.4f, 0f, 8f) },
-                { "chr_rooted_child", (-4.9f, 9.6f, -6f, 10.5f) },
+                { "chr_rooted_merchant", (5.9f, 10.1f, 2f, 5f) },
+                { "chr_rooted_smith", (-7.6f, 3.2f, 0f, 2f) },
+                { "chr_rooted_innkeeper", (-8.2f, 12.5f, 0f, 10f) },
+                { "chr_rooted_elder", (-3.2f, 15.6f, 0f, 9f) },
+                { "chr_rooted_child", (3.2f, 11.2f, 4.6f, 12.5f) },
                 { "chr_woken_starter", (9.3f, 3.1f, 7.4f, 3.4f) },
                 { "chr_woken_weaver", (8.4f, 5.1f, 7.4f, 3.4f) },
                 { "chr_woken_shieldbearer", (6.4f, 5.2f, 7.4f, 3.4f) }
@@ -699,22 +741,24 @@ namespace Godtree.EditorTools
             {
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(creatures[i], gallery.transform);
                 int side = i % 2 == 0 ? -1 : 1;
-                Vector3 spot = new Vector3(side * (3.2f + 3.1f * (i / 2)), 0f, 26.5f + 1.2f * (i / 2));
+                Vector3 spot = new Vector3(side * (4.5f + 4f * (i / 2)), 0f, 34f + 4f * (i / 2));
+                if (creatures[i].name.Contains("rootwarden"))
+                    spot = new Vector3(0f, 0f, 49f); // it stands in the road before the arch, as the world bible has it
                 if (creatures[i].GetComponentInChildren<SkinnedMeshRenderer>() != null && humanAnimator != null)
                 {
                     // Man-shaped and rigged: it lives, fights and can lose limbs.
                     Object.DestroyImmediate(instance);
                     float tall = creatures[i].name.Contains("rootwarden") ? 2.9f : 1.85f;
-                    GameObject enemy = PlaceActor(gallery.transform, creatures[i], humanAnimator, spot, new Vector3(0f, 0f, 20f), "Zombie_Idle", tall);
+                    GameObject enemy = PlaceActor(gallery.transform, creatures[i], humanAnimator, spot, new Vector3(0f, 0f, 24f), "Zombie_Idle", tall);
                     MakeEnemy(enemy, tall, creatures[i].name.Contains("rootwarden") ? 260f : 90f);
                     continue;
-                }                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 20f - spot.z));
+                }                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 24f - spot.z));
                 RestOn(instance, spot);
                 MakeSolid(instance);
             }
 
             BuildCampfire(gallery.transform, new Vector3(7.4f, 0f, 3.4f));
-            AddLoopingSound(gallery.transform, "Shrine hum", "sfx_cradle_hum_01", new Vector3(3f, 1f, 19f), 0.35f, 9f);
+            AddLoopingSound(gallery.transform, "Shrine hum", "sfx_cradle_hum_01", new Vector3(-4.2f, 1f, 16.6f), 0.35f, 9f);
         }
 
         /// <summary>Flames, sparks, a wavering warm light and a crackle on the campfire model.</summary>
