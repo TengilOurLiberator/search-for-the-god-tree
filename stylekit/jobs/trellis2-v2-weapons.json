@@ -1,0 +1,167 @@
+{
+    "_about":  "Sixteen more weapons for the sandbox through TRELLIS.2 (decision 0013). The lead judges each from its preview before publishing; expect several to be discarded.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "wpn_greatsword",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_greatsword.png",
+                     "image":  "con_wpn_greatsword.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  1.4
+                 },
+                 {
+                     "id":  "wpn_mace",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_mace.png",
+                     "image":  "con_wpn_mace.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.75
+                 },
+                 {
+                     "id":  "wpn_warhammer",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_warhammer.png",
+                     "image":  "con_wpn_warhammer.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.9
+                 },
+                 {
+                     "id":  "wpn_club_root",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_club_root.png",
+                     "image":  "con_wpn_club_root.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.75
+                 },
+                 {
+                     "id":  "wpn_scimitar",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_scimitar.png",
+                     "image":  "con_wpn_scimitar.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.95
+                 },
+                 {
+                     "id":  "wpn_rapier",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_rapier.png",
+                     "image":  "con_wpn_rapier.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  1.05
+                 },
+                 {
+                     "id":  "wpn_halberd",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_halberd.png",
+                     "image":  "con_wpn_halberd.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  2.1
+                 },
+                 {
+                     "id":  "wpn_staff_weaver",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_staff_weaver.png",
+                     "image":  "con_wpn_staff_weaver.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "wpn_wand_thorn",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_wand_thorn.png",
+                     "image":  "con_wpn_wand_thorn.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.38
+                 },
+                 {
+                     "id":  "wpn_handaxe",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_handaxe.png",
+                     "image":  "con_wpn_handaxe.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.45
+                 },
+                 {
+                     "id":  "wpn_shortsword",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_shortsword.png",
+                     "image":  "con_wpn_shortsword.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.7
+                 },
+                 {
+                     "id":  "wpn_shield_kite",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_kite_shield.png",
+                     "image":  "con_wpn_kite_shield.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  1
+                 },
+                 {
+                     "id":  "wpn_buckler",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_buckler.png",
+                     "image":  "con_wpn_buckler.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.4
+                 },
+                 {
+                     "id":  "wpn_torch",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_torch.png",
+                     "image":  "con_wpn_torch.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.55
+                 },
+                 {
+                     "id":  "wpn_pickaxe",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_pickaxe.png",
+                     "image":  "con_wpn_pickaxe.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.85
+                 },
+                 {
+                     "id":  "wpn_quarterstaff",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_wpn_quarterstaff.png",
+                     "image":  "con_wpn_quarterstaff.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  1.8
+                 }
+             ]
+}

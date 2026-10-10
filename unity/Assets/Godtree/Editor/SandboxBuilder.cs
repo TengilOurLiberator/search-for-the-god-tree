@@ -348,25 +348,33 @@ namespace Godtree.EditorTools
 
             Material wood = MakeMaterial("Sandbox_Wood", new Color(0.62f, 0.45f, 0.28f));
 
-            // Weapon table.
+            // Weapon tables on the left: two for one-handed weapons, a long one behind for polearms and the like.
             const float tableTop = 0.85f;
-            GameObject table = Primitive(PrimitiveType.Cube, "Weapon table", gallery.transform, new Vector3(-1.5f, tableTop / 2f, 1.1f), new Vector3(2.2f, tableTop, 0.9f), wood);
-            table.isStatic = true;
-            AddImpactSound(table, "sfx_sword_hit_wood_heavy");
+            float[] tableZ = { 1.1f, 2.5f, 3.9f };
+            for (int i = 0; i < tableZ.Length; i++)
+            {
+                GameObject table = Primitive(PrimitiveType.Cube, "Weapon table " + (i + 1), gallery.transform, new Vector3(-2.3f, tableTop / 2f, tableZ[i]), new Vector3(2.9f, tableTop, i == 2 ? 1.3f : 1.0f), wood);
+                table.isStatic = true;
+                AddImpactSound(table, "sfx_sword_hit_wood_heavy");
+            }
 
-            float slotX = -2.35f;
+            int shortIndex = 0, longIndex = 0;
             foreach (GameObject prefab in LoadModels("Weapons"))
             {
                 if (prefab.name == "wpn_sword_training")
                     continue; // the sword on the plinth is this model
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
-                bool isSpear = prefab.name.Contains("spear");
-                LayFlat(instance, alongX: isSpear);
-                Vector3 slot = isSpear ? new Vector3(-1.5f, tableTop, 1.42f) : new Vector3(slotX, tableTop, 1.0f);
+                Vector3 size = WorldBounds(instance).size;
+                bool isLong = Mathf.Max(size.x, size.y, size.z) > 1.15f;
+                LayFlat(instance, alongX: isLong);
+                Vector3 slot = isLong
+                    ? new Vector3(-2.3f, tableTop, tableZ[2] - 0.5f + 0.24f * longIndex++)
+                    : new Vector3(-3.5f + 0.47f * (shortIndex % 6), tableTop, tableZ[shortIndex / 6 % 2]);
+                if (!isLong)
+                    shortIndex++;
                 RestOn(instance, slot);
-                MakeWeapon(instance, prefab.name.Contains("shield") ? 1.0f : 0.5f);
-                if (!isSpear)
-                    slotX += 0.42f;
+                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("shield");
+                MakeWeapon(instance, heavy ? 0.9f : 0.5f);
             }
 
             // Loose props to pick up, and scenery.
@@ -573,8 +581,11 @@ namespace Godtree.EditorTools
             }
             bool bulkyEndIsLow = widestLow > widestHigh;
             bool handleAtBulkyEnd = name.Contains("sword"); // a sword's guard and pommel are its bulk; on a dagger, axe or spear the business end is
-            bool handleIsLow = handleAtBulkyEnd ? bulkyEndIsLow : !bulkyEndIsLow;
-            float fromHandleEnd = name.Contains("spear") ? 0.42f : (name.Contains("dagger") ? 0.18f : (name.Contains("sword") ? 0.13f : 0.15f));
+            // Every generated weapon is drawn standing upright with its handle at the bottom, so for an
+            // upright model the handle is simply the low end. The bulk test is only for models that lie down.
+            bool handleIsLow = longAxis == 1 ? true : (handleAtBulkyEnd ? bulkyEndIsLow : !bulkyEndIsLow);
+            bool pole = name.Contains("spear") || name.Contains("halberd") || name.Contains("staff");
+            float fromHandleEnd = pole ? 0.40f : (name.Contains("dagger") ? 0.18f : (name.Contains("great") ? 0.10f : 0.13f));
 
             pose.style = HoldStyle.Blade;
             pose.localMainAxis = Unit(longAxis) * (handleIsLow ? 1f : -1f);
@@ -635,7 +646,7 @@ namespace Godtree.EditorTools
             text.text =
                 "<size=70><b>HOW TO PLAY</b></size>\n\n" +
                 "<b><color=#FFD86B>PICK UP</color></b>   POINT at a thing (a gold dot appears over\nit) and squeeze <b>GRIP</b> (side button, middle finger).\nIt flies to your hand. Let go of grip to drop it.\nYou can also just touch it and squeeze grip.\n\n" +
-                "<b><color=#FFD86B>WEAPONS</color></b>   Sword on the stone block, the rest on the\ntable to your left. They snap into a proper hold.\n\n" +
+                "<b><color=#FFD86B>WEAPONS</color></b>   Sword on the stone block, sixteen more\non the tables to your left. They snap into a proper hold.\n\n" +
                 "<b><color=#FFD86B>FIGHT</color></b>   Swing at the straw dummy. Harder swings\nflash brighter and sound louder.\n\n" +
                 "<b><color=#FFD86B>BOW</color></b>   Hold the bow in one hand. Bring your other\nhand to it, hold that hand's TRIGGER, pull back,\nlet go. Pull further to shoot faster.\n\n" +
                 "<b><color=#FFD86B>MOTE BOLT</color></b>   Empty hand: hold TRIGGER to gather\nlight, let go to loose it. Throw it or point it.\n" +

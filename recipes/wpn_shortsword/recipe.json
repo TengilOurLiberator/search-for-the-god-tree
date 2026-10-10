@@ -1,0 +1,47 @@
+{
+    "id":  "wpn_shortsword",
+    "title":  "Shortsword",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "budget_class":  "weapon",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                      "seed":  3303,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "trellis2",
+                      "tool":  "comfyui",
+                      "version":  "trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes",
+                      "prompt":  "n/a",
+                      "seed":  1101,
+                      "vram_gb":  24,
+                      "workflow":  "trellis2.json"
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 4000 triangles, smart UV unwrap, vertex colours baked to a 1024 px texture, scaled so the longest side is 0.7 m, origin at the centre of the base.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Weapons/wpn_shortsword.glb"
+                    }
+                ],
+    "notes":  "Input image: stylekit/golden/concepts/con_wpn_shortsword.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=3992 final_tris=3992 dims=0.132x0.066x0.700 tex=1024. Made with TRELLIS.2. Judged from a rendered preview only; not yet seen in the headset."
+}

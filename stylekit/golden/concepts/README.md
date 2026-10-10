@@ -77,3 +77,28 @@ Same generator, workflow and fragments; subjects in [../../jobs/concepts-v1.subj
 | `con_woken_weaver.png` | 2202 |
 
 Notes: `con_dagger_thorn` now has the wooden thorn blade. `con_barkbound` is closer (rust, moss, roots at the feet) but is still mostly a knight; it needs a different approach. `con_mote_wisp` came out as a small dandelion-headed creature instead of a floating light: not what was asked, kept because it is charming and may suit the world better.
+
+## Third batch (v2, weapons), 2026-10-10
+
+Subjects in [../../jobs/concepts-v2-weapons.subjects.json](../../jobs/concepts-v2-weapons.subjects.json), prompts and seeds in [../../jobs/concepts-v2-weapons.json](../../jobs/concepts-v2-weapons.json). 64 images (16 weapons, 4 seeds each); one per weapon chosen.
+
+| File | Seed |
+|---|---|
+| `con_wpn_buckler.png` | 1101 |
+| `con_wpn_club_root.png` | 3303 |
+| `con_wpn_greatsword.png` | 3303 |
+| `con_wpn_halberd.png` | 4404 |
+| `con_wpn_handaxe.png` | 1101 |
+| `con_wpn_kite_shield.png` | 2202 |
+| `con_wpn_mace.png` | 3303 |
+| `con_wpn_pickaxe.png` | 1101 |
+| `con_wpn_quarterstaff.png` | 3303 |
+| `con_wpn_rapier.png` | 3303 |
+| `con_wpn_scimitar.png` | 1101 |
+| `con_wpn_shortsword.png` | 3303 |
+| `con_wpn_staff_weaver.png` | 1101 |
+| `con_wpn_torch.png` | 3303 |
+| `con_wpn_wand_thorn.png` | 1101 |
+| `con_wpn_warhammer.png` | 3303 |
+
+Note: the mace came out as a blunt maul, not a flanged mace; kept as a maul.
