@@ -56,6 +56,30 @@ namespace Godtree.Tests
             Debug.Log($"[Robot] hit: {struck} by {striker}, {impulse:F1} N s");
         }
 
+        /// <summary>
+        /// Point-and-pull: walk near a thing, hold a hand out above it pointing down at it, close
+        /// the hand, and wait for it to arrive. Fails if something else arrives instead.
+        /// </summary>
+        private IEnumerator PullToHand(bool left, GameObject target)
+        {
+            Bounds bounds = new Bounds(target.transform.position, Vector3.zero);
+            foreach (Renderer renderer in target.GetComponentsInChildren<Renderer>())
+                bounds.Encapsulate(renderer.bounds);
+            yield return _robot.WalkTo(bounds.center, 0.75f);
+            Vector3 back = Vector3.ProjectOnPlane(_robot.Head.position - bounds.center, Vector3.up).normalized;
+            Vector3 hand = bounds.center + Vector3.up * 0.5f + back * 0.3f;
+            yield return _robot.MoveHandWorld(left, hand, Quaternion.LookRotation(bounds.center - hand), 0.6f);
+            yield return Wait(0.3f);
+            _robot.SetGrip(left, true);
+            Hand holding = left ? _robot.LeftHand : _robot.RightHand;
+            for (float t = 0f; t < 2.5f && holding.CurrentGrab == null; t += Time.deltaTime)
+                yield return null;
+            Assert.IsNotNull(holding.CurrentGrab, $"pointing at {target.name} and closing the hand brought nothing");
+            Rigidbody got = holding.CurrentGrab.GetComponentInParent<Rigidbody>();
+            Assert.AreEqual(target.name, got != null ? got.name : "nothing", "point-and-pull brought the wrong thing");
+            yield return Wait(0.3f);
+        }
+
         private static IEnumerator Wait(float seconds)
         {
             yield return new WaitForSeconds(seconds);
@@ -136,5 +160,83 @@ namespace Godtree.Tests
             yield return Wait(0.5f);
             Assert.IsNull(_robot.RightHand.CurrentGrab, "opening the hand did not drop the sword");
         }
-    }
+
+        [UnityTest]
+        public IEnumerator ShootsTheBowAtTheDummy()
+        {
+            const string dir = OutDir + "/bow";
+            GameObject bow = GameObject.Find("wpn_bow_willow");
+            Assert.IsNotNull(bow, "no bow in the scene");
+            Rigidbody torso = GameObject.Find("Torso").GetComponent<Rigidbody>();
+            Collider grip = bow.GetComponentInChildren<Grab>().GetComponent<Collider>();
+
+            // Take the bow the way a player does from a crowded table: point at it and pull.
+            yield return PullToHand(true, bow);
+
+            // Stand a few metres from the dummy and shoot five arrows at its chest.
+            Vector3 stand = torso.position + new Vector3(0.6f, 0f, -3.2f);
+            yield return _robot.MoveHandBody(true, new Vector3(-0.25f, 1.1f, 0.35f), Quaternion.identity, 0.4f);
+            yield return _robot.WalkTo(stand, 0.25f);
+            int flew = 0, stuckInDummy = 0, stuckNearHand = 0;
+            for (int shot = 0; shot < 5; shot++)
+            {
+                Vector3 chest = torso.position + Vector3.up * 0.15f;
+// Draw the way an archer does: the string hand anchors beside the jaw, the bow hand
+                // goes out along the line from that anchor to the target.
+                Vector3 toTarget = Vector3.ProjectOnPlane(chest - _robot.Head.position, Vector3.up).normalized;
+                Vector3 rightOfHead = Vector3.Cross(Vector3.up, toTarget);
+                Vector3 anchor = _robot.Head.position + rightOfHead * 0.16f - Vector3.up * 0.10f + toTarget * 0.05f;
+                Vector3 aim = (chest - anchor).normalized;
+                Vector3 bowHand = anchor + aim * 0.60f;
+                _robot.LookAt(chest);
+                yield return _robot.MoveHandWorld(true, bowHand, Quaternion.LookRotation(aim), 0.4f);
+                yield return _robot.MoveHandWorld(false, bowHand - aim * 0.12f, Quaternion.LookRotation(aim), 0.4f);
+                yield return Wait(0.2f);
+                _robot.SetTrigger(false, 1f);
+                yield return Wait(0.15f);
+                yield return _robot.MoveHandWorld(false, anchor, Quaternion.LookRotation(aim), 0.5f);
+                yield return Wait(0.3f);
+                // The arrow lies from palm to palm, not controller to controller. Correct the bow
+                // hand until the nocked arrow points at the target, as a person does by eye.
+                Vector3 bowTarget = bowHand;
+                for (int correction = 0; correction < 4; correction++)
+                {
+                    Vector3 stringPalm = _robot.RightHand.PalmTransform.position;
+                    Vector3 wanted = stringPalm + (chest - stringPalm).normalized * 0.58f;
+                    bowTarget += wanted - _robot.LeftHand.PalmTransform.position;
+                    yield return _robot.MoveHandWorld(true, bowTarget, Quaternion.LookRotation(aim), 0.2f);
+                    yield return Wait(0.25f);
+                }
+                aim = (chest - _robot.RightHand.PalmTransform.position).normalized;
+                Vector3 actual = (_robot.LeftHand.PalmTransform.position - _robot.RightHand.PalmTransform.position).normalized;                Debug.Log($"[Robot] shot {shot + 1}: the hands point {Vector3.Angle(actual, aim):F1} degrees off the intended line, draw {Vector3.Distance(_robot.LeftHand.PalmTransform.position, _robot.RightHand.PalmTransform.position):F2} m");                yield return Wait(0.2f);
+                if (shot == 0)
+                {
+                    _robot.Snapshot(dir + "/01_drawn.jpg", new Vector3(1.6f, 1.5f, 0.4f));
+                    _robot.SnapshotEyes(dir + "/02_eyes_drawn.jpg");
+                }
+                Vector3 loosedFrom = _robot.LeftHand.PalmTransform.position;
+                _robot.SetTrigger(false, 0f);
+                yield return Wait(1.0f);
+
+                // Where did that arrow end up?
+                GameObject newest = null;
+                foreach (GameObject candidate in Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
+                    if (candidate.name == "Arrow")
+                        newest = candidate;
+                Assert.IsNotNull(newest, "releasing the string made no arrow");
+                float travelled = Vector3.Distance(newest.transform.position, loosedFrom);
+                bool inDummy = newest.transform.parent != null && newest.transform.parent.GetComponentInParent<ImpactFlash>() != null;
+                string where = newest.transform.parent != null ? newest.transform.parent.name : "flying or on the ground";
+                Debug.Log($"[Robot] arrow {shot + 1}: {travelled:F2} m from the bow hand, in: {where}");
+                if (inDummy) stuckInDummy++;
+                else if (travelled < 1.0f) stuckNearHand++;
+                else flew++;
+                newest.name = "Arrow (counted)";
+            }
+            _robot.Snapshot(dir + "/03_after.jpg", new Vector3(1.6f, 1.5f, 0.4f), 1.0f, torso.position);
+            _robot.SnapshotEyes(dir + "/04_eyes_after.jpg");
+            Debug.Log($"[Robot] bow routine: {stuckInDummy} in the dummy, {flew} flew elsewhere, {stuckNearHand} stuck near the hand");
+            Assert.AreEqual(0, stuckNearHand, "arrows stuck where they were loosed instead of flying");
+            Assert.GreaterOrEqual(stuckInDummy, 3, "at least three of five aimed arrows should hit a dummy three metres away");
+        }    }
 }

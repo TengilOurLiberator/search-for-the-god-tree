@@ -248,6 +248,16 @@ namespace Godtree.Sandbox
             projectile.lifeSeconds = 25f;
             projectile.hitClips = arrowHitClips;
             IgnoreRig(arrow);
+            // The arrow starts inside the bow's own shape. Without this it struck the bow at once and
+            // stuck in it (seen in the owner's session and reproduced by the robot: five of five).
+            foreach (Hand hand in _hands)
+            {
+                Rigidbody held = hand.CurrentGrab != null ? hand.CurrentGrab.GetComponentInParent<Rigidbody>() : null;
+                if (held == null)
+                    continue;
+                foreach (Collider heldCollider in held.GetComponentsInChildren<Collider>())
+                    Physics.IgnoreCollision(capsule, heldCollider, true);
+            }
             body.linearVelocity = direction * speed;
 
             Play(bowReleaseClips, bowHand, 0.9f);
