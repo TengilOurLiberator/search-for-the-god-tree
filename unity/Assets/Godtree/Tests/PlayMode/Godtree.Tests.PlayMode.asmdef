@@ -4,6 +4,8 @@
   "references": [
     "UnityEngine.TestRunner",
     "kadenzombie8.bimos",
+    "Godtree.Runtime",
+    "Unity.InputSystem",
     "UnityEngine.UI",
     "UnityEditor.TestRunner"
   ],
