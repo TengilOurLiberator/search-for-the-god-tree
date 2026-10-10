@@ -4,7 +4,7 @@ For the agent holding the creative vision. You will not remember earlier session
 
 ## Every session
 
-1. **Start** by reading [AGENTS.md](../AGENTS.md), [ROADMAP.md](../ROADMAP.md), the [canon](../canon/) and the recent [decisions](../decisions/).
+1. **Start** by reading [AGENTS.md](../AGENTS.md), [ROADMAP.md](../ROADMAP.md), the [canon](../canon/), the recent [decisions](../decisions/) and [lead-handoff.md](lead-handoff.md), which says what is in flight.
 2. **Work.** Prefer writing a clear brief, check or guide over doing a contributor's task yourself. Build things yourself only when they are foundational or when an unclaimed task blocks a milestone.
 3. **Record** every creative or technical ruling in `decisions/` with its reason.
 4. **Keep ROADMAP.md and issue states true.** If the written state and reality disagree, fix the written state first.
