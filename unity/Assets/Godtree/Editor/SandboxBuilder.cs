@@ -264,6 +264,7 @@ namespace Godtree.EditorTools
             BuildSword(root.transform, new Vector3(0.45f, 0.9f, 0.9f));
             BuildDummy(root.transform, new Vector3(-0.3f, 0f, 1.9f), wood, straw, steel);
             AddImpactSound(plinth, "sfx_sword_hit_stone");
+            Dress(plinth, ArtDir + "/Props/prp_plinth_stone.glb", root.transform);
             BuildGallery(root.transform);
             BuildInstructions(root.transform);
             new GameObject("Session recorder", typeof(Godtree.Diagnostics.SessionRecorder)).transform.SetParent(root.transform, false);
@@ -374,6 +375,7 @@ namespace Godtree.EditorTools
                 GameObject table = Primitive(PrimitiveType.Cube, "Weapon table " + (i + 1), gallery.transform, new Vector3(-2.3f, tableTop / 2f, tableZ[i]), new Vector3(2.9f, tableTop, i == 2 ? 1.3f : 1.0f), wood);
                 table.isStatic = true;
                 AddImpactSound(table, "sfx_sword_hit_wood_heavy");
+                Dress(table, ArtDir + "/Props/prp_table_long.glb", gallery.transform);
             }
 
             int shortIndex = 0, longIndex = 0;
@@ -401,6 +403,8 @@ namespace Godtree.EditorTools
             float sceneryX = -9f;
             foreach (GameObject prefab in LoadModels("Props"))
             {
+                if (prefab.name == "prp_table_long" || prefab.name == "prp_plinth_stone")
+                    continue; // used as the tables and the sword's plinth
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
                 if (System.Array.IndexOf(loose, prefab.name) >= 0)
                 {
@@ -785,6 +789,33 @@ namespace Godtree.EditorTools
                     clips.Add(clip);
             }
             return clips.ToArray();
+        }
+
+        /// <summary>
+        /// Shows a generated model in place of a plain box: the model is stretched to the box's
+        /// size and position and the box is hidden but keeps its simple, reliable collider.
+        /// </summary>
+        private static void Dress(GameObject box, string modelPath, Transform parent)
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(modelPath);
+            if (prefab == null)
+                return;
+            var visual = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
+            visual.name = box.name + " (model)";
+            Bounds target = box.GetComponent<Renderer>().bounds;
+            Bounds bounds = WorldBounds(visual);
+            // Turn the model so its long side runs the same way as the box's.
+            if ((bounds.size.x > bounds.size.z) != (target.size.x > target.size.z))
+            {
+                visual.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+                bounds = WorldBounds(visual);
+            }
+            Vector3 stretch = new Vector3(target.size.x / bounds.size.x, target.size.y / bounds.size.y, target.size.z / bounds.size.z);
+            // The stretch is in world axes; after a quarter turn the model's own X and Z are swapped.
+            bool turned = Mathf.Abs(visual.transform.rotation.eulerAngles.y - 90f) < 1f;
+            visual.transform.localScale = Vector3.Scale(visual.transform.localScale, turned ? new Vector3(stretch.z, stretch.y, stretch.x) : stretch);
+            visual.transform.position += target.center - WorldBounds(visual).center;
+            box.GetComponent<MeshRenderer>().enabled = false;
         }
 
         /// <summary>Quiet meadow wind so the space is not dead silent.</summary>

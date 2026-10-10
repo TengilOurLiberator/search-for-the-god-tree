@@ -1,0 +1,27 @@
+{
+    "_about":  "Sandbox furniture, standard workflow.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "prp_table_long",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_table_long.png",
+                     "image":  "con_prp_table_long.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  2.4
+                 },
+                 {
+                     "id":  "prp_plinth_stone",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_plinth_stone.png",
+                     "image":  "con_prp_plinth_stone.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  0.95
+                 }
+             ]
+}

@@ -1,0 +1,51 @@
+{
+    "_about":  "Furniture for the sandbox in the new look: tables to replace the plain boxes, a stone plinth, a cold campfire and a chunkier training dummy.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_prp_table_long",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A long sturdy rustic wooden trestle table, a thick plank top on two solid A-shaped trestle legs with a stretcher beam, iron nails, empty top with nothing on it, chunky solid shapes."
+                     },
+                     {
+                         "id":  "con_prp_plinth_stone",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A waist-high square stone pedestal made of three stacked chunky carved stone blocks with a leaf pattern band and a little moss at the base, flat empty top, solid simple shape."
+                     },
+                     {
+                         "id":  "con_env_campfire_cold",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A cold dead campfire with no fire at all: a ring of chunky grey stones around a small pile of thick charred black logs and grey ash, no flames, no embers, no glow, no smoke, solid simple shapes."
+                     },
+                     {
+                         "id":  "con_prp_dummy_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A combat training dummy: a thick wooden post on a heavy cross base, a fat round straw-stuffed burlap sack body tied with rope, a smaller burlap sack head, a round red and white painted target on the chest, a dented iron pot helmet, two short thick wooden arm stubs, chunky solid shapes, no face."
+                     }
+                 ]
+}

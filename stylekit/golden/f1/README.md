@@ -70,6 +70,14 @@ The current reference images, in the look chosen by the owner on 2026-10-10 ([de
 | `con_rooted_merchant.png` | 2202 |
 | `con_rooted_child.png` | 1101 |
 
+| `con_env_campfire_cold.png` | 3303 |
+| `con_prp_dummy_b.png` | 2202 |
+| `con_prp_plinth_stone.png` | 3303 |
+| `con_prp_table_long.png` | 2202 |
+| `con_godtree_backdrop.png` | 2202 |
+
+The last five rows come from [../../jobs/concepts-f1-furniture.json](../../jobs/concepts-f1-furniture.json) and [../../jobs/concepts-f1-godtree.json](../../jobs/concepts-f1-godtree.json).
+
 ## Lead's notes
 
 - With the full style line, plain objects picked up gear and faces (boulders, a signpost). Objects and creatures now use `style_object` in the fragments file.

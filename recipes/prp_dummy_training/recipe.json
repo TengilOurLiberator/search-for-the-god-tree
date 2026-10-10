@@ -9,7 +9,7 @@
                       "generator":  "z-image-turbo",
                       "tool":  "comfyui",
                       "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
-                      "prompt":  "A combat training dummy: a wooden post with a straw-stuffed burlap torso and head, two short wooden arms, a dented old pot helmet, a painted red target on the chest, on a wooden cross base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                      "prompt":  "A combat training dummy: a thick wooden post on a heavy cross base, a fat round straw-stuffed burlap sack body tied with rope, a smaller burlap sack head, a round red and white painted target on the chest, a dented iron pot helmet, two short thick wooden arm stubs, chunky solid shapes, no face. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
                       "seed":  2202,
                       "vram_gb":  23,
                       "workflow":  "workflow.json"
@@ -32,7 +32,7 @@
                   }
               ],
     "cleanup":  [
-                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 8000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 1.80 m, origin at the centre of the base.",
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 8000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 1.8 m, origin at the centre of the base.",
                     "No hand editing."
                 ],
     "sources":  [
@@ -43,5 +43,5 @@
                         "path":  "unity/Assets/Godtree/Art/Props/prp_dummy_training.glb"
                     }
                 ],
-    "notes":  "Input image: stylekit/golden/concepts/con_dummy_training.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=39625 final_tris=7999 dims=1.022x0.662x1.800 tex=2048. Made with TRELLIS.2. Judged from a rendered preview only; not yet seen in the headset."
+    "notes":  "Input image: stylekit/golden/f1/con_prp_dummy_b.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=7968 final_tris=7968 dims=1.237x0.832x1.800 tex=2048. Made with TRELLIS.2. Judged from a rendered preview only; not yet seen in the headset."
 }

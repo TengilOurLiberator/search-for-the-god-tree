@@ -1,0 +1,90 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_prp_table_long_s1101",
+                     "prompt":  "A long sturdy rustic wooden trestle table, a thick plank top on two solid A-shaped trestle legs with a stretcher beam, iron nails, empty top with nothing on it, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_table_long_s2202",
+                     "prompt":  "A long sturdy rustic wooden trestle table, a thick plank top on two solid A-shaped trestle legs with a stretcher beam, iron nails, empty top with nothing on it, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_table_long_s3303",
+                     "prompt":  "A long sturdy rustic wooden trestle table, a thick plank top on two solid A-shaped trestle legs with a stretcher beam, iron nails, empty top with nothing on it, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_plinth_stone_s1101",
+                     "prompt":  "A waist-high square stone pedestal made of three stacked chunky carved stone blocks with a leaf pattern band and a little moss at the base, flat empty top, solid simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_plinth_stone_s2202",
+                     "prompt":  "A waist-high square stone pedestal made of three stacked chunky carved stone blocks with a leaf pattern band and a little moss at the base, flat empty top, solid simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_plinth_stone_s3303",
+                     "prompt":  "A waist-high square stone pedestal made of three stacked chunky carved stone blocks with a leaf pattern band and a little moss at the base, flat empty top, solid simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_cold_s1101",
+                     "prompt":  "A cold dead campfire with no fire at all: a ring of chunky grey stones around a small pile of thick charred black logs and grey ash, no flames, no embers, no glow, no smoke, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_cold_s2202",
+                     "prompt":  "A cold dead campfire with no fire at all: a ring of chunky grey stones around a small pile of thick charred black logs and grey ash, no flames, no embers, no glow, no smoke, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_cold_s3303",
+                     "prompt":  "A cold dead campfire with no fire at all: a ring of chunky grey stones around a small pile of thick charred black logs and grey ash, no flames, no embers, no glow, no smoke, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_dummy_b_s1101",
+                     "prompt":  "A combat training dummy: a thick wooden post on a heavy cross base, a fat round straw-stuffed burlap sack body tied with rope, a smaller burlap sack head, a round red and white painted target on the chest, a dented iron pot helmet, two short thick wooden arm stubs, chunky solid shapes, no face. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prp_dummy_b_s2202",
+                     "prompt":  "A combat training dummy: a thick wooden post on a heavy cross base, a fat round straw-stuffed burlap sack body tied with rope, a smaller burlap sack head, a round red and white painted target on the chest, a dented iron pot helmet, two short thick wooden arm stubs, chunky solid shapes, no face. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prp_dummy_b_s3303",
+                     "prompt":  "A combat training dummy: a thick wooden post on a heavy cross base, a fat round straw-stuffed burlap sack body tied with rope, a smaller burlap sack head, a round red and white painted target on the chest, a dented iron pot helmet, two short thick wooden arm stubs, chunky solid shapes, no face. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 }
+             ]
+}
