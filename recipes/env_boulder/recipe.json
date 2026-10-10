@@ -1,0 +1,47 @@
+{
+    "id":  "env_boulder",
+    "title":  "Boulder",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "budget_class":  "env_modular",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape, bare rock only. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                      "seed":  3303,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "trellis2",
+                      "tool":  "comfyui",
+                      "version":  "trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes",
+                      "prompt":  "n/a",
+                      "seed":  2202,
+                      "vram_gb":  24,
+                      "workflow":  "trellis2.json"
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 3000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 1.4 m, origin at the centre of the base.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Environment/env_boulder.glb"
+                    }
+                ],
+    "notes":  "Input image: stylekit/golden/f1/con_env_boulder.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=3000 final_tris=3000 dims=1.397x1.400x1.048 tex=2048. Made with TRELLIS.2 at the coarse remesh setting (192). Judged from a rendered preview only; not yet seen in the headset."
+}
