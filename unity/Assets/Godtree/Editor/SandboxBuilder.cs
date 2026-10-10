@@ -90,6 +90,7 @@ namespace Godtree.EditorTools
             cam.transform.LookAt(lookAt);
             cam.fieldOfView = 60f;
             cam.clearFlags = CameraClearFlags.Skybox;
+            cam.GetUniversalAdditionalCameraData().renderPostProcessing = true;
             var rt = new RenderTexture(1280, 720, 24, RenderTextureFormat.ARGB32);
             cam.targetTexture = rt;
             cam.Render();
@@ -148,7 +149,7 @@ namespace Godtree.EditorTools
 
                 pipeline = UniversalRenderPipelineAsset.Create(rendererData);
                 pipeline.msaaSampleCount = 4;
-                pipeline.supportsHDR = false;
+                pipeline.supportsHDR = true;
                 AssetDatabase.CreateAsset(pipeline, pipelinePath);
             }
 
@@ -228,12 +229,12 @@ namespace Godtree.EditorTools
             }
             var scene = EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
 
-            Material ground = MakeMaterial("Sandbox_Ground", new Color(0.56f, 0.82f, 0.31f));
+            Material ground = MakeMaterial("Sandbox_Ground", new Color(0.40f, 0.66f, 0.30f));
             Material wood = MakeMaterial("Sandbox_Wood", new Color(0.62f, 0.45f, 0.28f));
             Material straw = MakeMaterial("Sandbox_Straw", new Color(0.91f, 0.80f, 0.45f));
             Material steel = MakeMaterial("Sandbox_Steel", new Color(0.73f, 0.76f, 0.81f), 0.6f);
             Material leather = MakeMaterial("Sandbox_Leather", new Color(0.23f, 0.23f, 0.43f));
-            Material stone = MakeMaterial("Sandbox_Stone", new Color(0.73f, 0.76f, 0.81f));
+            Material stone = MakeMaterial("Sandbox_Stone", new Color(0.58f, 0.61f, 0.66f));
 
             var root = new GameObject("---GODTREE SANDBOX---");
 
@@ -259,6 +260,9 @@ namespace Godtree.EditorTools
             new GameObject("Damage feedback", typeof(Godtree.Sandbox.DamageFeedback)).transform.SetParent(root.transform, false);
             new GameObject("Character menu", typeof(Godtree.Sandbox.CharacterMenu)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
+
+            ApplyToonToGeneratedModels(root);
+            BuildLook(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
@@ -753,6 +757,135 @@ namespace Godtree.EditorTools
             target.AddComponent<ImpactSound>().Clips = clips.ToArray();
         }
 
+        // ------------------------------------------------------------ look
+
+        /// <summary>
+        /// Generated models arrive with the importer's standard material. Give each the toon
+        /// shader with its own painted texture, so they are lit the way the art bible asks.
+        /// </summary>
+        private static void ApplyToonToGeneratedModels(GameObject root)
+        {
+            Shader toon = Shader.Find("Godtree/Toon");
+            if (toon == null)
+            {
+                Debug.LogError("[Godtree] Godtree/Toon shader not found");
+                return;
+            }
+            string dir = SandboxDir + "/Materials/Toon";
+            Directory.CreateDirectory(dir);
+            AssetDatabase.Refresh();
+            var cache = new System.Collections.Generic.Dictionary<Material, Material>();
+            int swapped = 0;
+            foreach (Renderer renderer in root.GetComponentsInChildren<Renderer>(true))
+            {
+                Material[] materials = renderer.sharedMaterials;
+                bool changed = false;
+                for (int i = 0; i < materials.Length; i++)
+                {
+                    Material source = materials[i];
+                    if (source == null || source.shader == toon || !AssetDatabase.GetAssetPath(source).EndsWith(".glb"))
+                        continue;
+                    if (!cache.TryGetValue(source, out Material replacement))
+                    {
+                        Texture texture = null;
+                        foreach (string property in new[] { "baseColorTexture", "_BaseMap", "_MainTex" })
+                            if (texture == null && source.HasProperty(property))
+                                texture = source.GetTexture(property);
+                        string modelName = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(source));
+                        string path = $"{dir}/{modelName}_{cache.Count}.mat";
+                        replacement = AssetDatabase.LoadAssetAtPath<Material>(path);
+                        if (replacement == null)
+                        {
+                            replacement = new Material(toon);
+                            AssetDatabase.CreateAsset(replacement, path);
+                        }
+                        replacement.shader = toon;
+                        replacement.SetTexture("_BaseMap", texture);
+                        replacement.SetColor("_BaseColor", Color.white);
+                        EditorUtility.SetDirty(replacement);
+                        cache[source] = replacement;
+                    }
+                    materials[i] = replacement;
+                    changed = true;
+                    swapped++;
+                }
+                if (changed)
+                    renderer.sharedMaterials = materials;
+            }
+            Debug.Log($"[Godtree] Toon materials applied: {swapped}");
+        }
+
+        /// <summary>Sun, sky, haze, colour grading and music: the mood of a bright afternoon in the meadows.</summary>
+        private static void BuildLook(Transform parent)
+        {
+            foreach (Light light in Object.FindObjectsByType<Light>(FindObjectsSortMode.None))
+            {
+                if (light.type != LightType.Directional)
+                    continue;
+                light.color = new Color(1f, 0.96f, 0.86f);
+                light.intensity = 1.05f;
+                light.shadows = LightShadows.Soft;
+                light.transform.rotation = Quaternion.Euler(42f, -35f, 0f);
+                RenderSettings.sun = light;
+            }
+
+            string skyPath = SandboxDir + "/Materials/Sandbox_Sky.mat";
+            var sky = AssetDatabase.LoadAssetAtPath<Material>(skyPath);
+            if (sky == null)
+            {
+                sky = new Material(Shader.Find("Skybox/Procedural"));
+                AssetDatabase.CreateAsset(sky, skyPath);
+            }
+            sky.SetColor("_SkyTint", new Color(0.36f, 0.62f, 0.95f));
+            sky.SetColor("_GroundColor", new Color(0.62f, 0.76f, 0.70f));
+            sky.SetFloat("_AtmosphereThickness", 0.85f);
+            sky.SetFloat("_Exposure", 1.25f);
+            sky.SetFloat("_SunSize", 0.035f);
+            EditorUtility.SetDirty(sky);
+            RenderSettings.skybox = sky;
+
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Trilight;
+            RenderSettings.ambientSkyColor = new Color(0.62f, 0.76f, 0.98f);
+            RenderSettings.ambientEquatorColor = new Color(0.66f, 0.70f, 0.78f);
+            RenderSettings.ambientGroundColor = new Color(0.42f, 0.50f, 0.36f);
+            RenderSettings.fog = true;
+            RenderSettings.fogMode = FogMode.Linear;
+            RenderSettings.fogColor = new Color(0.70f, 0.83f, 0.96f);
+            RenderSettings.fogStartDistance = 35f;
+            RenderSettings.fogEndDistance = 420f;
+
+            string profilePath = SettingsDir + "/Sandbox_PostProcess.asset";
+            var profile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(profilePath);
+            if (profile == null)
+            {
+                profile = ScriptableObject.CreateInstance<VolumeProfile>();
+                AssetDatabase.CreateAsset(profile, profilePath);
+                var bloom = profile.Add<Bloom>(true);
+                bloom.threshold.Override(0.95f);
+                bloom.intensity.Override(0.4f);
+                bloom.scatter.Override(0.65f);
+                var tone = profile.Add<Tonemapping>(true);
+                tone.mode.Override(TonemappingMode.Neutral);
+                var grade = profile.Add<ColorAdjustments>(true);
+                grade.postExposure.Override(0f);
+                grade.contrast.Override(9f);
+                grade.saturation.Override(14f);
+                foreach (VolumeComponent component in profile.components)
+                    AssetDatabase.AddObjectToAsset(component, profile);
+                EditorUtility.SetDirty(profile);
+            }
+            var volumeObject = new GameObject("Post-processing (global)");
+            volumeObject.transform.SetParent(parent, false);
+            var volume = volumeObject.AddComponent<Volume>();
+            volume.isGlobal = true;
+            volume.sharedProfile = profile;
+
+            var polishObject = new GameObject("Scene polish");
+            polishObject.transform.SetParent(parent, false);
+            var polish = polishObject.AddComponent<Godtree.Sandbox.ScenePolish>();
+            polish.music = AssetDatabase.LoadAssetAtPath<AudioClip>(AudioDir + "/Music/mus_huskhaven_town_a.ogg");
+        }
+
         // ------------------------------------------------------------ helpers
 
         private static Rigidbody Body(GameObject go, float mass)
@@ -796,11 +929,12 @@ namespace Godtree.EditorTools
             var material = AssetDatabase.LoadAssetAtPath<Material>(path);
             if (material == null)
             {
-                material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                material = new Material(Shader.Find("Godtree/Toon"));
                 AssetDatabase.CreateAsset(material, path);
             }
             material.SetColor("_BaseColor", color);
-            material.SetFloat("_Smoothness", smoothness);
+            if (material.shader.name != "Godtree/Toon")
+                material.shader = Shader.Find("Godtree/Toon");
             EditorUtility.SetDirty(material);
             return material;
         }

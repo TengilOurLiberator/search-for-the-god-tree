@@ -1,0 +1,137 @@
+{
+    "_about":  "Trial for the shapes that shattered in the first new-look pass (spiky, furry, thatched, spoked): the same concepts with a much coarser remesh (192) and more smoothing, to see whether a simpler surface survives reduction.",
+    "workflow":  "../workflows/trellis2_image_to_glb_coarse.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "prp_cart",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prop_cart.png",
+                     "image":  "con_prop_cart.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  2.2
+                 },
+                 {
+                     "id":  "prp_fence",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prop_fence.png",
+                     "image":  "con_prop_fence.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  3
+                 },
+                 {
+                     "id":  "prp_well",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prop_well.png",
+                     "image":  "con_prop_well.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  2.8
+                 },
+                 {
+                     "id":  "prp_cradle_shrine",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_cradle_b.png",
+                     "image":  "con_prp_cradle_b.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  1.2
+                 },
+                 {
+                     "id":  "env_husk_house",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_envkit_husk_house.png",
+                     "image":  "con_envkit_husk_house.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  4.5
+                 },
+                 {
+                     "id":  "env_stump",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_env_stump.png",
+                     "image":  "con_env_stump.png",
+                     "budget_class":  "env_modular",
+                     "tris":  6000,
+                     "tex":  2048,
+                     "size":  1.3
+                 },
+                 {
+                     "id":  "enm_burrling",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_enm_burrling_b.png",
+                     "image":  "con_enm_burrling_b.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  12000,
+                     "tex":  2048,
+                     "size":  0.5
+                 },
+                 {
+                     "id":  "enm_thornback",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_thornback.png",
+                     "image":  "con_thornback.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  15000,
+                     "tex":  2048,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "enm_thornback_elder",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_thornback_elder.png",
+                     "image":  "con_thornback_elder.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  20000,
+                     "tex":  2048,
+                     "size":  2.6
+                 },
+                 {
+                     "id":  "enm_rootwarden",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rootwarden.png",
+                     "image":  "con_rootwarden.png",
+                     "budget_class":  "enemy_boss",
+                     "tris":  40000,
+                     "tex":  2048,
+                     "size":  4
+                 },
+                 {
+                     "id":  "enm_root_crawler",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_root_crawler.png",
+                     "image":  "con_root_crawler.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  15000,
+                     "tex":  2048,
+                     "size":  1.1
+                 },
+                 {
+                     "id":  "chr_woken_shieldbearer",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_woken_shieldbearer.png",
+                     "image":  "con_woken_shieldbearer.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.75
+                 },
+                 {
+                     "id":  "chr_rooted_merchant",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rooted_merchant.png",
+                     "image":  "con_rooted_merchant.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.9
+                 }
+             ]
+}
