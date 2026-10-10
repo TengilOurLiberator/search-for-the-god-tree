@@ -5,6 +5,7 @@ using Godtree.Diagnostics;
 using Godtree.Sandbox;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
@@ -443,5 +444,86 @@ namespace Godtree.Tests
             Assert.IsTrue(enemy.Dead, $"thirty sword swings did not kill {enemy.name} (health left {enemy.Health:F0})");
             Assert.Greater(limbs.PiecesLost, 0, "the killing blow from a blade should take a limb off");
             Assert.Greater(severedEvents, 0, "no severed piece was reported");
+        }
+        [UnityTest]
+        public IEnumerator TalksWithATownsperson()
+        {
+            const string dir = OutDir + "/talk";
+            // The language model and voice server are separate programs; without them there is nothing to test.
+            foreach (string url in new[] { NpcMind.LlmUrl + "/health", NpcMind.VoiceUrl + "/health" })
+            {
+                using (UnityWebRequest ping = UnityWebRequest.Get(url))
+                {
+                    ping.timeout = 4;
+                    yield return ping.SendWebRequest();
+                    if (ping.result != UnityWebRequest.Result.Success)
+                        Assert.Ignore("NPC services are not running (tools/voice/Start-NpcServices.ps1); conversation not tested.");
+                }
+            }
+            NpcMind innkeeper = null;
+            foreach (NpcMind mind in Object.FindObjectsByType<NpcMind>(FindObjectsSortMode.None))
+                if (mind.npcName == "Tobin")
+                    innkeeper = mind;
+            Assert.IsNotNull(innkeeper, "the innkeeper has no mind");
+
+            yield return _robot.WalkTo(innkeeper.transform.position, 2.0f, 40f, 0.9f);
+            _robot.LookAt(innkeeper.transform.position + Vector3.up * 1.5f);
+            yield return Wait(0.6f);
+            Assert.AreEqual(innkeeper, VoiceInput.Listener(), "standing in front of the innkeeper and looking at him should make him the listener");
+
+            string[] questions = { "Hello! I just woke up in a seed husk. Where am I?", "What is really inside the Godtree?", "Can you send me an email on your computer?" };
+            for (int q = 0; q < questions.Length; q++)
+            {
+                innkeeper.Hear(questions[q]);
+                float waited = 0f;
+                yield return Wait(0.2f);
+                while (innkeeper.Talking && waited < 40f)
+                {
+                    waited += Time.unscaledDeltaTime;
+                    if (q == 0 && innkeeper.LastReplyWasSpoken && waited > 1.5f && !System.IO.File.Exists(dir + "/01_answering.jpg"))
+                        _robot.SnapshotEyes(dir + "/01_answering.jpg");
+                    yield return null;
+                }
+                Debug.Log($"[Robot] asked: {questions[q]}");
+                Debug.Log($"[Robot] {innkeeper.npcName} ({innkeeper.LastThinkSeconds:F1} s to think, {innkeeper.LastVoiceSeconds:F1} s to voice, spoken {innkeeper.LastReplyWasSpoken}): {innkeeper.LastReply}");
+                Assert.IsFalse(string.IsNullOrEmpty(innkeeper.LastReply), "the innkeeper gave no answer");
+                Assert.Less(innkeeper.LastReply.Length, 500, "the answer should be a few sentences, not a speech");
+                Assert.IsTrue(innkeeper.LastReplyWasSpoken, "the answer was not spoken aloud");
+                StringAssert.DoesNotContain("language model", innkeeper.LastReply.ToLowerInvariant());
+                StringAssert.DoesNotContain("as an ai", innkeeper.LastReply.ToLowerInvariant());
+            }
+
+            // Ears: a sentence spoken by a generated voice stands in for the player's microphone.
+            VoiceInput ears = Object.FindFirstObjectByType<VoiceInput>();
+            Assert.IsNotNull(ears, "no voice input in the scene");
+            AudioClip spoken = null;
+            using (var web = new UnityWebRequest(NpcMind.VoiceUrl + "/tts", "POST"))
+            {
+                web.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes("{\"text\":\"What is your name, and what is good to eat here?\",\"voice\":\"af_nova\",\"speed\":1.0}"));
+                web.downloadHandler = new DownloadHandlerBuffer();
+                web.SetRequestHeader("Content-Type", "application/json");
+                yield return web.SendWebRequest();
+                Assert.AreEqual(UnityWebRequest.Result.Success, web.result, "could not make the test sentence");
+                spoken = NpcMind.WavToClip(web.downloadHandler.data, "player");
+            }
+            var original = new float[spoken.samples];
+            spoken.GetData(original, 0);
+            var at16k = new float[(int)(original.Length * 16000L / spoken.frequency)];
+            for (int i = 0; i < at16k.Length; i++)
+                at16k[i] = original[Mathf.Min(original.Length - 1, (int)((long)i * spoken.frequency / 16000))];
+            yield return ears.Understand(at16k);
+            Debug.Log($"[Robot] heard by the game: '{ears.LastHeard}' -> given to {ears.LastListener}");
+            Assert.IsFalse(string.IsNullOrEmpty(ears.LastHeard), "the spoken sentence was not understood at all");
+            StringAssert.Contains("name", ears.LastHeard.ToLowerInvariant());
+            Assert.AreEqual("Tobin", ears.LastListener);
+            float waitedForAnswer = 0f;
+            yield return Wait(0.2f);
+            while (innkeeper.Talking && waitedForAnswer < 40f)
+            {
+                waitedForAnswer += Time.unscaledDeltaTime;
+                yield return null;
+            }
+            Debug.Log($"[Robot] {innkeeper.npcName}: {innkeeper.LastReply}");
+            _robot.SnapshotEyes(dir + "/02_after.jpg");
         }    }
 }

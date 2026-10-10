@@ -295,6 +295,7 @@ namespace Godtree.EditorTools
             feedback.sparkMaterial = AssetDatabase.LoadAssetAtPath<Material>(SandboxDir + "/Materials/Sandbox_Flame.mat");
             new GameObject("Character menu", typeof(Godtree.Sandbox.CharacterMenu)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
+            new GameObject("Voice input (talk to NPCs)", typeof(Godtree.Sandbox.VoiceInput)).transform.SetParent(root.transform, false);
             BuildPlayerBody(root.transform);
 
             ApplyToonToGeneratedModels(root);
@@ -663,7 +664,8 @@ namespace Godtree.EditorTools
                     string role = person.name.Replace("chr_rig_", "chr_");
                     if (!spots.TryGetValue(role, out (float x, float z, float lookX, float lookZ) place))
                         place = (1.6f + (spareSpot += 1.3f), 6.2f, 0f, 0f);
-                    PlaceActor(gallery.transform, person, humanAnimator, new Vector3(place.x, 0f, place.z), new Vector3(place.lookX, 0f, place.lookZ), "Idle_A", person.name.Contains("child") ? 1.25f : 1.72f);
+                    GameObject actor = PlaceActor(gallery.transform, person, humanAnimator, new Vector3(place.x, 0f, place.z), new Vector3(place.lookX, 0f, place.lookZ), "Idle_A", person.name.Contains("child") ? 1.25f : 1.72f);
+                    GiveMind(actor, person.name);
                     continue;
                 }                var instance = (GameObject)PrefabUtility.InstantiatePrefab(person, gallery.transform);
                 if (!spots.TryGetValue(person.name, out (float x, float z, float lookX, float lookZ) spot))
@@ -1027,6 +1029,35 @@ namespace Godtree.EditorTools
             }
         }
 
+        /// <summary>
+        /// Who each person is, for free conversation (decision 0016). Names follow the world
+        /// bible's rule for the Rooted (short, soft). These people and their natures are sandbox
+        /// inventions of the lead, listed for the owner in docs/lead-handoff.md; they are not canon.
+        /// </summary>
+        private static void GiveMind(GameObject actor, string model)
+        {
+            var sheets = new System.Collections.Generic.Dictionary<string, (string name, string role, string nature, string voice, float speed)>
+            {
+                { "chr_rooted_innkeeper", ("Tobin", "the innkeeper of Huskhaven", "A stout, warm, slightly fussy man who cannot see a hungry person without feeding them. He calls every Woken 'seedling', is proud of his stew, and worries when the young ones go out past the wall.", "am_michael", 1.0f) },
+                { "chr_rooted_smith", ("Mira", "the smith of Huskhaven", "Blunt, cheerful and practical. She likes talking about tools, edges and a good hard swing, and teases newcomers gently. She mends what the Woken break and thinks they break too much.", "af_bella", 1.05f) },
+                { "chr_rooted_elder", ("Hale", "the elder of Huskhaven, who keeps the Cradle shrine", "Old, slow and kind. He speaks in short sayings about seeds, rain and patience, and believes the gardener story more firmly than anyone. He has watched many Woken leave for the tree and none come back.", "bm_george", 0.92f) },
+                { "chr_rooted_merchant", ("Senna", "a travelling merchant who has stopped in Huskhaven", "Quick, sly and friendly. She has walked a little way up the Rootway, further than most Rooted dare, and likes to hint at what she saw there, with some exaggeration. She will always try to sell you something.", "bf_emma", 1.05f) },
+                { "chr_rooted_child", ("Nilo", "a village child of eight in Huskhaven", "Curious and fearless, full of questions. Nilo wants to be a Woken and fight Burrlings with a wooden sword, and thinks the Woken are the most exciting people in the world.", "af_sky", 1.12f) },
+                { "chr_woken_starter", ("Aren", "a Woken who woke from his husk only a few days ago", "Eager and unsure. He knows little more than the newcomer does, admits it freely, and is working up the courage to go out through the gate.", "am_puck", 1.0f) },
+                { "chr_woken_weaver", ("Lysa", "a Woken weaver resting in Huskhaven", "Calm and precise, fascinated by motes. She can gather them in her hands and tie them into knots of light, and will explain how it feels, though she says it cannot really be taught in words.", "af_heart", 0.98f) },
+                { "chr_woken_shieldbearer", ("Doran", "a Woken who fights with a shield", "Steady, protective, a man of few words. He has faced Thornbacks in the Windlow and has plain advice about keeping your guard up and your feet moving.", "am_adam", 0.97f) },
+            };
+            if (!sheets.TryGetValue(model, out (string name, string role, string nature, string voice, float speed) sheet))
+                return;
+            var mind = actor.AddComponent<Godtree.Sandbox.NpcMind>();
+            mind.npcName = sheet.name;
+            mind.role = sheet.role;
+            mind.personality = sheet.nature;
+            mind.voice = sheet.voice;
+            mind.voiceSpeed = sheet.speed;
+            actor.name = $"{model} ({sheet.name})";
+        }
+
         private static float WorldBoundsOfPrefab(GameObject prefab)
         {
             float largest = 0f;
@@ -1316,6 +1347,7 @@ namespace Godtree.EditorTools
                 "<b><color=#FFD86B>PUSH KNOT</color></b>   Both hands empty and together:\nhold both TRIGGERS, then let go.\n" +
                 "<b><color=#FFD86B>LIFT KNOT</color></b>   Both TRIGGERS, hands apart: loose\nthings in front of you float until you let go.\n" +
                 "<b><color=#FFD86B>WARD KNOT</color></b>   Empty hand: hold A or X for a shield of light.\n" +
+                "<b><color=#FFD86B>TALK</color></b>   Stand by someone, look at them, and speak.\nThey answer aloud. (Needs the NPC services running.)\n" +
                 "<b><color=#FFD86B>STAFFS, WANDS</color></b>   On the table to your right. Hold one,\nhold TRIGGER, let go. Red is fire, blue frost, violet storm.\nBigger stones know more: hold longer for bigger spells.\n\n" +
                 "<b><color=#FFD86B>CHARACTER</color></b>   Press B (right hand) for your stats,\nequipment and a mirror. Push the arrows with a hand.\n\n" +
                 "<b><color=#FFD86B>MOVE</color></b>   Left stick. Click it to run.\n" +
