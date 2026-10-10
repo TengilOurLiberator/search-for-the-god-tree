@@ -179,6 +179,24 @@ namespace Godtree.Tests
         }
 
         [UnityTest]
+        public IEnumerator HitSparksAndCampfireAreAlive()
+        {
+            // The scripts live outside this test assembly, so they are reached by name.
+            Component feedback = GameObject.Find("Damage feedback").GetComponent("DamageFeedback");
+            Assert.IsNotNull(feedback, "no damage feedback in the scene");
+            System.Type type = feedback.GetType();
+            Assert.IsNotNull(type.GetField("sparkMaterial").GetValue(feedback), "hit sparks have no material, so none would show");
+            type.GetMethod("Sparks").Invoke(feedback, new object[] { new Vector3(0f, 1.2f, 1.5f), 1f, Color.white });
+            yield return null;
+            Assert.Greater((int)type.GetProperty("LiveSparks").GetValue(feedback), 5, "a hard hit should throw sparks");
+
+            GameObject fire = GameObject.Find("Campfire (flames)");
+            Assert.IsNotNull(fire, "the campfire has no flames");
+            yield return new WaitForSeconds(1f);
+            Assert.Greater(fire.GetComponent<ParticleSystem>().particleCount, 5, "the campfire should be burning");
+        }
+
+        [UnityTest]
         public IEnumerator PlayerRigSpawns()
         {
             Assert.Greater(Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Length, 0, "the BIMOS rig should have spawned a camera");

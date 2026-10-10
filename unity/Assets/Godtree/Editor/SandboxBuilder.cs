@@ -289,7 +289,9 @@ namespace Godtree.EditorTools
             BuildAbilities(root.transform);
             new GameObject("Distance grab", typeof(Godtree.Sandbox.DistanceGrab)).transform.SetParent(root.transform, false);
             new GameObject("Player stats", typeof(Godtree.Sandbox.PlayerStats)).transform.SetParent(root.transform, false);
-            new GameObject("Damage feedback", typeof(Godtree.Sandbox.DamageFeedback)).transform.SetParent(root.transform, false);
+            var feedback = new GameObject("Damage feedback").AddComponent<Godtree.Sandbox.DamageFeedback>();
+            feedback.transform.SetParent(root.transform, false);
+            feedback.sparkMaterial = AssetDatabase.LoadAssetAtPath<Material>(SandboxDir + "/Materials/Sandbox_Flame.mat");
             new GameObject("Character menu", typeof(Godtree.Sandbox.CharacterMenu)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
 
@@ -630,7 +632,7 @@ namespace Godtree.EditorTools
             var spots = new System.Collections.Generic.Dictionary<string, (float x, float z, float lookX, float lookZ)>
             {
                 { "chr_rooted_merchant", (5.2f, 10.6f, 2f, 4f) },
-                { "chr_rooted_smith", (-2.3f, 4.5f, 0f, 0f) },
+                { "chr_rooted_smith", (-4.7f, 2.9f, 0f, 1f) },
                 { "chr_rooted_innkeeper", (-8.6f, 11.6f, 0f, 2f) },
                 { "chr_rooted_elder", (4.6f, 17.4f, 0f, 8f) },
                 { "chr_rooted_child", (-4.9f, 9.6f, -6f, 10.5f) },
