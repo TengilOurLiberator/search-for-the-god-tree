@@ -1,0 +1,147 @@
+{
+    "_about":  "Second TRELLIS.2 pass for the models the first pass could not reduce cleanly: coarser remesh (384) and QEM reduction straight to the triangle budget inside ComfyUI. This is now the standard workflow.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "wpn_shield_husk",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_shield_husk.png",
+                     "image":  "con_shield_husk.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.60
+                 },
+                 {
+                     "id":  "prp_lantern_husk",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_lantern_husk.png",
+                     "image":  "con_lantern_husk.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  0.45
+                 },
+                 {
+                     "id":  "prp_cradle_shrine",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_cradle_shrine.png",
+                     "image":  "con_cradle_shrine.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  1.20
+                 },
+                 {
+                     "id":  "env_husk_house",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_envkit_husk_house.png",
+                     "image":  "con_envkit_husk_house.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  4.50
+                 },
+                 {
+                     "id":  "env_stone_wall",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_envkit_stone_wall.png",
+                     "image":  "con_envkit_stone_wall.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  4.00
+                 },
+                 {
+                     "id":  "enm_burrling",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_burrling.png",
+                     "image":  "con_burrling.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  12000,
+                     "tex":  2048,
+                     "size":  0.50
+                 },
+                 {
+                     "id":  "enm_thornback",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_thornback.png",
+                     "image":  "con_thornback.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  15000,
+                     "tex":  2048,
+                     "size":  1.60
+                 },
+                 {
+                     "id":  "prp_barrel",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_barrel.png",
+                     "image":  "con_prop_barrel.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1800,
+                     "tex":  1024,
+                     "size":  1.00
+                 },
+                 {
+                     "id":  "prp_cart",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_cart.png",
+                     "image":  "con_prop_cart.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  2.20
+                 },
+                 {
+                     "id":  "prp_market_stall",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_market_stall.png",
+                     "image":  "con_prop_market_stall.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  9000,
+                     "tex":  2048,
+                     "size":  2.60
+                 },
+                 {
+                     "id":  "prp_mote_vial",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_mote_vial.png",
+                     "image":  "con_prop_mote_vial.png",
+                     "budget_class":  "prop_small",
+                     "tris":  1500,
+                     "tex":  1024,
+                     "size":  0.14
+                 },
+                 {
+                     "id":  "prp_well",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_prop_well.png",
+                     "image":  "con_prop_well.png",
+                     "budget_class":  "prop_hero",
+                     "tris":  8000,
+                     "tex":  2048,
+                     "size":  2.80
+                 },
+                 {
+                     "id":  "env_husk_fragment",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_flora_husk_fragment.png",
+                     "image":  "con_flora_husk_fragment.png",
+                     "budget_class":  "env_modular",
+                     "tris":  5000,
+                     "tex":  2048,
+                     "size":  2.00
+                 },
+                 {
+                     "id":  "env_wind_tree",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_flora_wind_tree.png",
+                     "image":  "con_flora_wind_tree.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  4.00
+                 }
+             ]
+}

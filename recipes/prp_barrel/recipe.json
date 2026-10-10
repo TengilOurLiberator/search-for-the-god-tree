@@ -15,20 +15,13 @@
                       "workflow":  "workflow.json"
                   },
                   {
-                      "generator":  "birefnet",
+                      "generator":  "trellis2",
                       "tool":  "comfyui",
-                      "version":  "birefnet.safetensors (Comfy-Org/BiRefNet), ComfyUI 0.39.0",
+                      "version":  "trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes",
                       "prompt":  "n/a",
-                      "seed":  0,
-                      "vram_gb":  1,
-                      "workflow":  "cutout.json"
-                  },
-                  {
-                      "generator":  "triposr",
-                      "version":  "TripoSR commit 107cefdc, stabilityai/TripoSR weights, torch 2.11.0+cu128, marching cubes via scikit-image, run by tools/pipeline/triposr_run.py (bundled background remover blocked)",
-                      "prompt":  "n/a",
-                      "seed":  0,
-                      "vram_gb":  6
+                      "seed":  1101,
+                      "vram_gb":  24,
+                      "workflow":  "trellis2.json"
                   },
                   {
                       "generator":  "blender",
@@ -50,5 +43,5 @@
                         "path":  "unity/Assets/Godtree/Art/Props/prp_barrel.glb"
                     }
                 ],
-    "notes":  "Input image: stylekit/golden/concepts/con_prop_barrel.png. The background was removed with BiRefNet before TripoSR, which ran at marching-cubes resolution 256. BiRefNet, TripoSR and Blender take no seed (seed 0 is a placeholder). Measured: source_tris=210116 final_tris=1798 dims=0.939x0.815x1.000 tex=1024. Placeholder grade: shape is usable, colours are washed out and soft. To be replaced when a higher-quality 3D generator is approved."
+    "notes":  "Input image: stylekit/golden/concepts/con_prop_barrel.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=650 final_tris=650 dims=0.958x0.953x1.000 tex=1024. Made with TRELLIS.2. Judged from a rendered preview only; not yet seen in the headset."
 }
