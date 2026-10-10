@@ -1,0 +1,27 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_prp_eq_cap_leather_b_s1101",
+                     "prompt":  "A round close-fitting brown leather helmet like an old aviator\u0027s cap, with stitched seams, two short ear flaps and a small brass buckle, hollow and empty inside, no face, no head inside it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_cap_leather_b_s2202",
+                     "prompt":  "A round close-fitting brown leather helmet like an old aviator\u0027s cap, with stitched seams, two short ear flaps and a small brass buckle, hollow and empty inside, no face, no head inside it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_cap_leather_b_s3303",
+                     "prompt":  "A round close-fitting brown leather helmet like an old aviator\u0027s cap, with stitched seams, two short ear flaps and a small brass buckle, hollow and empty inside, no face, no head inside it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 }
+             ]
+}

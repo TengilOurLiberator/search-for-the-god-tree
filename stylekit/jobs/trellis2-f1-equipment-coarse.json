@@ -1,0 +1,67 @@
+{
+    "_about":  "Equipment shown on the player\u0027s body: hollow pieces (cap, helm, hood, three torso pieces). Coarse workflow, which keeps thin shells whole.",
+    "workflow":  "../workflows/trellis2_image_to_glb_coarse.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "prp_eq_cap_leather",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_cap_leather_b.png",
+                     "image":  "con_prp_eq_cap_leather_b.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.26
+                 },
+                 {
+                     "id":  "prp_eq_helm_iron",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_helm_iron.png",
+                     "image":  "con_prp_eq_helm_iron.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.28
+                 },
+                 {
+                     "id":  "prp_eq_hood_weaver",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_hood_weaver.png",
+                     "image":  "con_prp_eq_hood_weaver.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.4
+                 },
+                 {
+                     "id":  "prp_eq_body_padded",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_pauldron_padded.png",
+                     "image":  "con_prp_eq_pauldron_padded.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.62
+                 },
+                 {
+                     "id":  "prp_eq_body_iron",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_pauldron_iron.png",
+                     "image":  "con_prp_eq_pauldron_iron.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.62
+                 },
+                 {
+                     "id":  "prp_eq_body_silk",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_pauldron_silk.png",
+                     "image":  "con_prp_eq_pauldron_silk.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.66
+                 }
+             ]
+}

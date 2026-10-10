@@ -1,0 +1,21 @@
+{
+    "_about":  "Second try at the leather cap: the first wording (\u0027skull-cap\u0027) drew a skull wearing a cap.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_prp_eq_cap_leather_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A round close-fitting brown leather helmet like an old aviator\u0027s cap, with stitched seams, two short ear flaps and a small brass buckle, hollow and empty inside, no face, no head inside it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     }
+                 ]
+}

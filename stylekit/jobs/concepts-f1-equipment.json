@@ -1,0 +1,258 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_prp_eq_cap_leather_s1101",
+                     "prompt":  "A simple brown leather skull-cap helmet with stitched seams and a short neck flap, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_cap_leather_s2202",
+                     "prompt":  "A simple brown leather skull-cap helmet with stitched seams and a short neck flap, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_cap_leather_s3303",
+                     "prompt":  "A simple brown leather skull-cap helmet with stitched seams and a short neck flap, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_helm_iron_s1101",
+                     "prompt":  "A plain rounded iron helmet with a nose guard and a riveted brow band, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_helm_iron_s2202",
+                     "prompt":  "A plain rounded iron helmet with a nose guard and a riveted brow band, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_helm_iron_s3303",
+                     "prompt":  "A plain rounded iron helmet with a nose guard and a riveted brow band, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_hood_weaver_s1101",
+                     "prompt":  "A soft cream cloth hood with a gold-trimmed edge, standing open as if on an invisible head, made of thick stiff cloth. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_hood_weaver_s2202",
+                     "prompt":  "A soft cream cloth hood with a gold-trimmed edge, standing open as if on an invisible head, made of thick stiff cloth. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_hood_weaver_s3303",
+                     "prompt":  "A soft cream cloth hood with a gold-trimmed edge, standing open as if on an invisible head, made of thick stiff cloth. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_padded_s1101",
+                     "prompt":  "A single quilted cream cloth shoulder guard with brown leather trim, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_padded_s2202",
+                     "prompt":  "A single quilted cream cloth shoulder guard with brown leather trim, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_padded_s3303",
+                     "prompt":  "A single quilted cream cloth shoulder guard with brown leather trim, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_iron_s1101",
+                     "prompt":  "A single iron shoulder guard of three overlapping riveted steel plates, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_iron_s2202",
+                     "prompt":  "A single iron shoulder guard of three overlapping riveted steel plates, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_iron_s3303",
+                     "prompt":  "A single iron shoulder guard of three overlapping riveted steel plates, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_silk_s1101",
+                     "prompt":  "A single shoulder mantle piece of stiff pale blue-white silk with gold embroidery, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_silk_s2202",
+                     "prompt":  "A single shoulder mantle piece of stiff pale blue-white silk with gold embroidery, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_pauldron_silk_s3303",
+                     "prompt":  "A single shoulder mantle piece of stiff pale blue-white silk with gold embroidery, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_bracer_iron_s1101",
+                     "prompt":  "A single iron forearm guard: a short curved steel tube open at both ends with an engraved leaf and two leather bands modelled flat against it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_bracer_iron_s2202",
+                     "prompt":  "A single iron forearm guard: a short curved steel tube open at both ends with an engraved leaf and two leather bands modelled flat against it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_bracer_iron_s3303",
+                     "prompt":  "A single iron forearm guard: a short curved steel tube open at both ends with an engraved leaf and two leather bands modelled flat against it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_wrap_runner_s1101",
+                     "prompt":  "A single forearm wrap of green cloth bands wound tightly into a short thick sleeve open at both ends. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_wrap_runner_s2202",
+                     "prompt":  "A single forearm wrap of green cloth bands wound tightly into a short thick sleeve open at both ends. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_wrap_runner_s3303",
+                     "prompt":  "A single forearm wrap of green cloth bands wound tightly into a short thick sleeve open at both ends. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_ring_knot_s1101",
+                     "prompt":  "A single thick gold bracelet engraved with knot patterns, set with one small opaque amber stone. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_ring_knot_s2202",
+                     "prompt":  "A single thick gold bracelet engraved with knot patterns, set with one small opaque amber stone. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_ring_knot_s3303",
+                     "prompt":  "A single thick gold bracelet engraved with knot patterns, set with one small opaque amber stone. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_husk_s1101",
+                     "prompt":  "A small charm: a smooth cream seed-husk the size of a fist bound in a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_husk_s2202",
+                     "prompt":  "A small charm: a smooth cream seed-husk the size of a fist bound in a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_husk_s3303",
+                     "prompt":  "A small charm: a smooth cream seed-husk the size of a fist bound in a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_tusk_s1101",
+                     "prompt":  "A small charm: a curved bark-coloured boar tusk capped with bronze, on a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_tusk_s2202",
+                     "prompt":  "A small charm: a curved bark-coloured boar tusk capped with bronze, on a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_tusk_s3303",
+                     "prompt":  "A small charm: a curved bark-coloured boar tusk capped with bronze, on a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_lantern_s1101",
+                     "prompt":  "A tiny round brass lantern the size of a fist with opaque warm yellow panes and a thick ring on top. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_lantern_s2202",
+                     "prompt":  "A tiny round brass lantern the size of a fist with opaque warm yellow panes and a thick ring on top. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_eq_charm_lantern_s3303",
+                     "prompt":  "A tiny round brass lantern the size of a fist with opaque warm yellow panes and a thick ring on top. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 }
+             ]
+}

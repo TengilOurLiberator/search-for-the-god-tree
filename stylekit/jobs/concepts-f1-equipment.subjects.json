@@ -1,0 +1,131 @@
+{
+    "_about":  "The twelve pieces of equipment in the character menu, as models to be shown on the player\u0027s body (decision 0016): three for the head, three shoulder pieces for the body slot, three for the forearms, three charms for the belt.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_prp_eq_cap_leather",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A simple brown leather skull-cap helmet with stitched seams and a short neck flap, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_helm_iron",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A plain rounded iron helmet with a nose guard and a riveted brow band, hollow inside. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_hood_weaver",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A soft cream cloth hood with a gold-trimmed edge, standing open as if on an invisible head, made of thick stiff cloth. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_pauldron_padded",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single quilted cream cloth shoulder guard with brown leather trim, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_pauldron_iron",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single iron shoulder guard of three overlapping riveted steel plates, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_pauldron_silk",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single shoulder mantle piece of stiff pale blue-white silk with gold embroidery, one curved cap shaped to sit on a shoulder. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_bracer_iron",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single iron forearm guard: a short curved steel tube open at both ends with an engraved leaf and two leather bands modelled flat against it. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_wrap_runner",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single forearm wrap of green cloth bands wound tightly into a short thick sleeve open at both ends. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_ring_knot",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single thick gold bracelet engraved with knot patterns, set with one small opaque amber stone. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_charm_husk",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small charm: a smooth cream seed-husk the size of a fist bound in a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_charm_tusk",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small charm: a curved bark-coloured boar tusk capped with bronze, on a short loop of thick leather cord. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_prp_eq_charm_lantern",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A tiny round brass lantern the size of a fist with opaque warm yellow panes and a thick ring on top. Shown alone and empty with nobody wearing it, solid thick shapes, no thin straps hanging loose, no glow, no transparency."
+                     }
+                 ]
+}

@@ -99,7 +99,7 @@ namespace Godtree.Sandbox
                 // Long things lying side by side have shapes that overlap each other's middles, so
                 // the beam is inside several at once; then the one whose middle is nearest the line wins.
                 float offLine = Vector3.Cross(along, nearest - origin).magnitude
-                                + 0.5f * Vector3.Cross(along, body.worldCenterOfMass - origin).magnitude + hit.distance * 0.002f;
+                                + 1.0f * Vector3.Cross(along, body.worldCenterOfMass - origin).magnitude + hit.distance * 0.002f;
                 if (offLine >= bestDistance)
                     continue;
                 if (body.GetComponentInParent<Player>() != null || body.GetComponentInChildren<Grab>() == null)

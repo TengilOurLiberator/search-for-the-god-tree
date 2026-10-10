@@ -570,15 +570,22 @@ namespace Godtree.EditorTools
 
             Material wood = MakeMaterial("Sandbox_Wood", new Color(0.62f, 0.45f, 0.28f));
 
-            // Weapon tables on the left: two for one-handed weapons, a long one behind for polearms and the like.
+            // Weapon tables on the left, in two rows: tables for one-handed weapons and deeper ones
+            // for polearms and the like. Six short weapons or five long ones to a table.
             const float tableTop = 0.85f;
-            float[] tableZ = { 1.1f, 2.5f, 3.9f };
-            for (int i = 0; i < tableZ.Length; i++)
+            var shortTables = new[] { new Vector3(-2.3f, 0f, 1.1f), new Vector3(-2.3f, 0f, 2.5f), new Vector3(-5.5f, 0f, 1.1f), new Vector3(-5.5f, 0f, 2.5f) };
+            var longTables = new[] { new Vector3(-2.3f, 0f, 3.9f), new Vector3(-5.5f, 0f, 3.9f), new Vector3(-5.5f, 0f, -0.5f) };
+            int tableNumber = 0;
+            foreach (Vector3[] group in new[] { shortTables, longTables })
             {
-                GameObject table = Primitive(PrimitiveType.Cube, "Weapon table " + (i + 1), gallery.transform, new Vector3(-2.3f, tableTop / 2f, tableZ[i]), new Vector3(2.9f, tableTop, i == 2 ? 1.3f : 1.0f), wood);
-                table.isStatic = true;
-                AddImpactSound(table, "sfx_sword_hit_wood_heavy");
-                Dress(table, ArtDir + "/Props/prp_table_long.glb", gallery.transform);
+                foreach (Vector3 at in group)
+                {
+                    bool deep = group == longTables;
+                    GameObject table = Primitive(PrimitiveType.Cube, "Weapon table " + (++tableNumber), gallery.transform, new Vector3(at.x, tableTop / 2f, at.z), new Vector3(2.9f, tableTop, deep ? 1.3f : 1.0f), wood);
+                    table.isStatic = true;
+                    AddImpactSound(table, "sfx_sword_hit_wood_heavy");
+                    Dress(table, ArtDir + "/Props/prp_table_long.glb", gallery.transform);
+                }
             }
 
             int shortIndex = 0, longIndex = 0;
@@ -586,24 +593,31 @@ namespace Godtree.EditorTools
             {
                 if (prefab.name == "wpn_sword_training")
                     continue; // the sword on the plinth is this model
-                if (prefab.name == "wpn_staff_weaver" || prefab.name == "wpn_wand_thorn")
-                    continue; // staffs and wands have a table of their own
+                if (prefab.name.StartsWith("wpn_staff_") || prefab.name.StartsWith("wpn_wand_"))
+                    continue; // staffs and wands have tables of their own
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
                 Vector3 size = WorldBounds(instance).size;
                 bool isLong = Mathf.Max(size.x, size.y, size.z) > 1.15f;
                 LayFlat(instance, alongX: isLong);
-                Vector3 slot = isLong
-                    ? new Vector3(-2.3f, tableTop, tableZ[2] - 0.5f + 0.24f * longIndex++)
-                    : new Vector3(-3.5f + 0.47f * (shortIndex % 6), tableTop, tableZ[shortIndex / 6 % 2]);
-                if (!isLong)
+                Vector3 slot;
+                if (isLong)
+                {
+                    Vector3 at = longTables[Mathf.Min(longIndex / 5, longTables.Length - 1)];
+                    slot = new Vector3(at.x, tableTop, at.z - 0.48f + 0.24f * (longIndex % 5));
+                    longIndex++;
+                }
+                else
+                {
+                    Vector3 at = shortTables[Mathf.Min(shortIndex / 6, shortTables.Length - 1)];
+                    slot = new Vector3(at.x - 1.2f + 0.47f * (shortIndex % 6), tableTop, at.z);
                     shortIndex++;
+                }
                 RestOn(instance, slot);
-                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("shield") || prefab.name.Contains("buckler");
-                // The kite shield is large and held at its centre; at the heavy weight it sagged 28 degrees
-                // in the hand (robot weapons report), so it is light.
-                MakeWeapon(instance, prefab.name.Contains("shield_kite") ? 0.4f : heavy ? 0.9f : 0.5f);
+                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("scythe") || prefab.name.Contains("glaive");
+                bool isShield = prefab.name.Contains("shield") || prefab.name.Contains("buckler");
+                // Shields are held at the centre of a broad face and sag in the hand if heavy.
+                MakeWeapon(instance, isShield ? 0.4f : heavy ? 0.9f : 0.5f);
             }
-
             BuildSpellTable(gallery.transform, wood, tableTop);
 
             // Loose props to pick up, and scenery.
@@ -893,23 +907,37 @@ namespace Godtree.EditorTools
                 Debug.LogWarning("[Godtree] wand or staff model missing; no spell table");
                 return;
             }
-            var foci = new (GameObject prefab, Godtree.Sandbox.SpellElement element, int tier, Vector3 slot, bool alongX)[]
+            // A second, deeper table behind the first for the great staffs.
+            GameObject table2 = Primitive(PrimitiveType.Cube, "Spell table 2", parent, centre + new Vector3(0f, 0f, 1.6f), new Vector3(3.2f, tableTop, 1.0f), wood);
+            table2.isStatic = true;
+            AddImpactSound(table2, "sfx_sword_hit_wood_heavy");
+            Dress(table2, ArtDir + "/Props/prp_table_long.glb", parent);
+
+            // Three tiers of each element: a wand (one spell), a plain staff (two), a great staff
+            // (three). Each element has its own wand and great staff where that model exists;
+            // otherwise the plain wand or staff stands in. Every one carries its element's stone.
+            GameObject Own(string id, GameObject fallback)
             {
-                (wand, Godtree.Sandbox.SpellElement.Ember, 1, new Vector3(2.95f, tableTop, 2.7f), false),
-                (wand, Godtree.Sandbox.SpellElement.Frost, 1, new Vector3(3.20f, tableTop, 2.7f), false),
-                (wand, Godtree.Sandbox.SpellElement.Storm, 1, new Vector3(3.45f, tableTop, 2.7f), false),
-                (staff, Godtree.Sandbox.SpellElement.Ember, 2, new Vector3(4.75f, tableTop, 2.3f), true),
-                (staff, Godtree.Sandbox.SpellElement.Frost, 2, new Vector3(4.75f, tableTop, 2.7f), true),
-                (staff, Godtree.Sandbox.SpellElement.Storm, 3, new Vector3(4.75f, tableTop, 3.1f), true),
-            };
-            string[] numerals = { "", "I", "II", "III" };
+                var own = AssetDatabase.LoadAssetAtPath<GameObject>($"{ArtDir}/Weapons/{id}.glb");
+                return own != null ? own : fallback;
+            }
+            var elements = new[] { Godtree.Sandbox.SpellElement.Ember, Godtree.Sandbox.SpellElement.Frost, Godtree.Sandbox.SpellElement.Storm };
+            var list = new System.Collections.Generic.List<(GameObject prefab, Godtree.Sandbox.SpellElement element, int tier, Vector3 slot, bool alongX)>();
+            for (int e = 0; e < elements.Length; e++)
+            {
+                string word = elements[e].ToString().ToLowerInvariant();
+                list.Add((Own("wpn_wand_" + word, wand), elements[e], 1, new Vector3(2.95f + 0.25f * e, tableTop, 2.7f), false));
+                list.Add((staff, elements[e], 2, new Vector3(4.75f, tableTop, 2.3f + 0.4f * e), true));
+                list.Add((Own("wpn_staff_" + word, staff), elements[e], 3, new Vector3(4.3f, tableTop, 4.0f + 0.3f * e), true));
+            }
+            var foci = list.ToArray();            string[] numerals = { "", "I", "II", "III" };
             foreach ((GameObject prefab, Godtree.Sandbox.SpellElement element, int tier, Vector3 slot, bool alongX) in foci)
             {
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
                 instance.name = $"{prefab.name} ({element} {numerals[tier]})";
                 LayFlat(instance, alongX);
                 RestOn(instance, slot);
-                MakeWeapon(instance, prefab == staff ? 0.6f : 0.25f);
+                MakeWeapon(instance, tier >= 2 ? 0.6f : 0.25f);
 
                 // Spells leave from the end furthest from the hand, along the weapon's length.
                 GripPose pose = instance.GetComponentInChildren<GripPose>();
@@ -1311,9 +1339,9 @@ namespace Godtree.EditorTools
                 widestAlong += radii[i].y;
             widestAlong /= widest;
 
-            bool swordLike = name.Contains("sword") || name.Contains("rapier") || name.Contains("scimitar") || name.Contains("dagger");
+            bool swordLike = name.Contains("sword") || name.Contains("rapier") || name.Contains("scimitar") || name.Contains("dagger") || name.Contains("sabre");
             bool handleIsLow = swordLike ? widestAlong < 0.5f : widestAlong >= 0.5f;
-            bool pole = name.Contains("spear") || name.Contains("halberd") || name.Contains("staff");
+            bool pole = name.Contains("spear") || name.Contains("halberd") || name.Contains("staff") || name.Contains("glaive") || name.Contains("scythe") || name.Contains("greataxe"); // a great axe held at its end hung 107 degrees off in the hand
             float fromHandleEnd = pole ? 0.40f : (name.Contains("dagger") ? 0.18f : (name.Contains("great") ? 0.10f : 0.13f));
 
             pose.style = HoldStyle.Blade;

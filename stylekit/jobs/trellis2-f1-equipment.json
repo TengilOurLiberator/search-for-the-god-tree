@@ -1,0 +1,67 @@
+{
+    "_about":  "Equipment shown on the player\u0027s body: solid pieces (bracer, wrap, ring, charms). Standard workflow.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "prp_eq_bracer_iron",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_bracer_iron.png",
+                     "image":  "con_prp_eq_bracer_iron.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.26
+                 },
+                 {
+                     "id":  "prp_eq_wrap_runner",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_wrap_runner.png",
+                     "image":  "con_prp_eq_wrap_runner.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.26
+                 },
+                 {
+                     "id":  "prp_eq_ring_knot",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_ring_knot.png",
+                     "image":  "con_prp_eq_ring_knot.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.1
+                 },
+                 {
+                     "id":  "prp_eq_charm_husk",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_charm_husk.png",
+                     "image":  "con_prp_eq_charm_husk.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.15
+                 },
+                 {
+                     "id":  "prp_eq_charm_tusk",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_charm_tusk.png",
+                     "image":  "con_prp_eq_charm_tusk.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.16
+                 },
+                 {
+                     "id":  "prp_eq_charm_lantern",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_prp_eq_charm_lantern.png",
+                     "image":  "con_prp_eq_charm_lantern.png",
+                     "budget_class":  "prop_small",
+                     "tris":  2000,
+                     "tex":  1024,
+                     "size":  0.15
+                 }
+             ]
+}

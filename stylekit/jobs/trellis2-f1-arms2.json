@@ -1,0 +1,167 @@
+{
+    "_about":  "A staff and a wand for each element, and ten more arms (decision 0016). Standard workflow, as for the first weapons.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "wpn_glaive",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_glaive.png",
+                     "image":  "con_wpn_glaive.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  2
+                 },
+                 {
+                     "id":  "wpn_greataxe",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_greataxe.png",
+                     "image":  "con_wpn_greataxe.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.5
+                 },
+                 {
+                     "id":  "wpn_greatclub_root",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_greatclub_root.png",
+                     "image":  "con_wpn_greatclub_root.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.4
+                 },
+                 {
+                     "id":  "wpn_morningstar",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_morningstar.png",
+                     "image":  "con_wpn_morningstar.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.9
+                 },
+                 {
+                     "id":  "wpn_sabre",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_sabre_curved.png",
+                     "image":  "con_wpn_sabre_curved.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1
+                 },
+                 {
+                     "id":  "wpn_scythe_war",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_scythe_war.png",
+                     "image":  "con_wpn_scythe_war.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  2
+                 },
+                 {
+                     "id":  "wpn_shield_round",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_shield_round_iron.png",
+                     "image":  "con_wpn_shield_round_iron.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.85
+                 },
+                 {
+                     "id":  "wpn_shield_tower",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_shield_tower.png",
+                     "image":  "con_wpn_shield_tower.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.2
+                 },
+                 {
+                     "id":  "wpn_staff_ember",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_staff_ember.png",
+                     "image":  "con_wpn_staff_ember.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "wpn_staff_frost",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_staff_frost.png",
+                     "image":  "con_wpn_staff_frost.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "wpn_staff_storm",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_staff_storm.png",
+                     "image":  "con_wpn_staff_storm.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "wpn_sword_knight",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_sword_knight.png",
+                     "image":  "con_wpn_sword_knight.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.15
+                 },
+                 {
+                     "id":  "wpn_dagger_leaf",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_twin_dagger.png",
+                     "image":  "con_wpn_twin_dagger.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.42
+                 },
+                 {
+                     "id":  "wpn_wand_ember",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_wand_ember.png",
+                     "image":  "con_wpn_wand_ember.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.42
+                 },
+                 {
+                     "id":  "wpn_wand_frost",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_wand_frost.png",
+                     "image":  "con_wpn_wand_frost.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.42
+                 },
+                 {
+                     "id":  "wpn_wand_storm",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_wand_storm.png",
+                     "image":  "con_wpn_wand_storm.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.42
+                 }
+             ]
+}
