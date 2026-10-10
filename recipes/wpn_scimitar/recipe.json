@@ -9,7 +9,7 @@
                       "generator":  "z-image-turbo",
                       "tool":  "comfyui",
                       "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
-                      "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                      "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
                       "seed":  1101,
                       "vram_gb":  23,
                       "workflow":  "workflow.json"
@@ -43,5 +43,5 @@
                         "path":  "unity/Assets/Godtree/Art/Weapons/wpn_scimitar.glb"
                     }
                 ],
-    "notes":  "Input image: stylekit/golden/concepts/con_wpn_scimitar.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=3988 final_tris=3988 dims=0.214x0.070x0.950 tex=1024. Made with TRELLIS.2. Judged from a rendered preview only; not yet seen in the headset."
+    "notes":  "Input image: stylekit/golden/f1/con_wpn_scimitar.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=3982 final_tris=3982 dims=0.109x0.180x0.950 tex=1024. Made with TRELLIS.2 from a concept in the painterly anime action-RPG look (decision 0014). Judged from a rendered preview only; not yet seen in the headset."
 }

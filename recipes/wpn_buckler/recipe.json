@@ -1,0 +1,47 @@
+{
+    "id":  "wpn_buckler",
+    "title":  "Buckler",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "budget_class":  "weapon",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                      "seed":  2202,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "trellis2",
+                      "tool":  "comfyui",
+                      "version":  "trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes",
+                      "prompt":  "n/a",
+                      "seed":  1101,
+                      "vram_gb":  24,
+                      "workflow":  "trellis2.json"
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 4000 triangles, smart UV unwrap, vertex colours baked to a 1024 px texture, scaled so the longest side is 0.4 m, origin at the centre of the base.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Weapons/wpn_buckler.glb"
+                    }
+                ],
+    "notes":  "Input image: stylekit/golden/f1/con_wpn_buckler_b.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=3146 final_tris=3145 dims=0.400x0.098x0.400 tex=1024. Made with TRELLIS.2 from a concept in the painterly anime action-RPG look (decision 0014). Judged from a rendered preview only; not yet seen in the headset."
+}

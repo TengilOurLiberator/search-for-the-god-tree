@@ -4,18 +4,17 @@ Updated 2026-10-10, mid-afternoon. Read this after AGENTS.md and ROADMAP.md. It 
 
 ## What is running or waiting right now
 
-1. **TRELLIS.2 run for the whole sandbox kit in the new look** (decision 0014).
-   - Job file: `stylekit/jobs/trellis2-f1.json` (60 models). Raw output: `D:\godtree-work\trellis2-f1\*.glb`. Log: `queue.log` there.
-   - It was started detached. If it is not running and fewer than 60 `.glb` files exist, start it again; it skips finished jobs:
-     `powershell -ExecutionPolicy Bypass -File tools/pipeline/Invoke-GenerationQueue.ps1 -JobsPath stylekit/jobs/trellis2-f1.json -OutDir D:\godtree-work\trellis2-f1 -JobTimeoutSeconds 2400`
-2. **Then, in order:**
-   1. Finish: `tools/pipeline/Finish-TrellisModels.ps1 -JobsPath stylekit/jobs/trellis2-f1.json -RawDir D:\godtree-work\trellis2-f1 -OutDir D:\godtree-work\trellis2-f1\finished`
-   2. Contact sheet of `*_preview.png` with `New-ContactSheet.ps1`, and **look at every model**. Keep only the good ones (decision 0013: generate many, keep few).
-   3. Publish keepers with `Publish-Models.ps1 -Trellis -ModelJobs stylekit/jobs/trellis2-f1.json -ConceptSeeds stylekit/golden/f1/README.md -WorkDir D:\godtree-work\trellis2-f1\finished -Ids "..."`, using `-ConceptJobs stylekit/jobs/concepts-f1-models.json` for most and `stylekit/jobs/concepts-f1-redo.json` for `wpn_sword_training`, `env_boulder`, `env_rock_cluster`.
-   4. Remove old-style models that have no new-style replacement and look out of place.
-   5. Close Unity, run `Godtree.EditorTools.SandboxBuilder.Build`, run the PlayMode tests, run `SandboxBuilder.Screenshots`, look at `docs/images/sandbox_player_view.png`.
-   6. Run `tools/checks/Run-Checks.ps1 -All`, commit, push.
+Nothing is running. State at the end of 2026-10-10:
 
+- **Sixty models were generated in the new look** (`stylekit/jobs/trellis2-f1.json`); the lead kept 40 and discarded 20. Review sheets: `docs/review/session-1/models-f1-weapons.jpg` and `models-f1-rest.jpg`.
+- **Kept (new look):** 19 weapons (training sword, short sword, greatsword, scimitar, rapier, dagger, woodcutter's axe, hand axe, pickaxe, maul, war hammer, root club, spear, halberd, quarterstaff, bow, kite shield, buckler, torch); 6 characters (starter, weaver, innkeeper, smith, elder, child); the Barkbound; scenery (banner, bush, rock cluster, stone wall, tent, tree); props (barrel, bench, chest, crate, lantern, market stall, mote vial, signpost).
+- **Discarded, and why:** anything spiky, furry, thatched or with thin spokes still shatters in mesh reduction (Burrling, both Thornbacks, Rootwarden, root crawler, husk house, well, cart, stump, cradle shrine, fence); amber orbs turn black (staff, wand); flames become a flat card (campfire); plus the arch, boulder, merchant, shield-bearer, husk shield and dummy.
+- **Still old-look placeholders in the sandbox:** husk shield, cart, cradle shrine, dummy model, fence, well, husk house, Thornback, Rootwarden. Replace or remove them when a method for those shapes exists.
+- **The sandbox has been rebuilt** with all of the above; nine PlayMode tests pass. The owner has not seen it in the headset.
+
+## The real open problem in 3D
+
+Shapes with many thin or spiky parts. Ideas not yet tried: keep the dense mesh and bake a normal map onto a simple low-poly shell (the stock ComfyUI template does this); generate such subjects at a coarser remesh resolution; or redraw them as chunky solid forms the way the retries were.
 ## Rules learned the hard way
 
 - **Never run generation while the owner is in the headset.** It takes the whole graphics card. Never run two queues into one output folder.

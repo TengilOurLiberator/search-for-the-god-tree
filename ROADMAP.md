@@ -26,7 +26,8 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [x] Bow that draws and shoots; four spell prototypes (mote bolt, push, lift, ward)
 - [x] Character menu (B button): mirror view, stats, four equipment slots that change stats; damage numbers and dummy health
 - [ ] Owner to try all of the above in the headset; none of it has been felt yet
-- [ ] More weapons (16 concepts in generation), judged by the lead before they enter the game
+- [x] Art direction changed to the painterly anime action-RPG look (decision 0014); sixty models regenerated, forty kept: 19 weapons, 6 characters, the Barkbound, scenery and props
+- [ ] Spiky, furry and thatched shapes still fail in 3D (see docs/lead-handoff.md); nine old-look placeholders remain in the sandbox
 - [ ] Hand tracking (wanted; movement without thumbsticks is the open question)
 - [ ] Equipped items are not shown on the character yet; the character is the rig's grey mannequin
 

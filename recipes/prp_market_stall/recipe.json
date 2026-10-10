@@ -9,7 +9,7 @@
                       "generator":  "z-image-turbo",
                       "tool":  "comfyui",
                       "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
-                      "prompt":  "A small wooden market stall with a striped cream and green cloth awning, a counter with baskets of fruit and bread, a hanging lantern. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                      "prompt":  "A small wooden market stall with a striped cream and green cloth awning, a counter with baskets of fruit and bread, a hanging lantern. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
                       "seed":  2202,
                       "vram_gb":  23,
                       "workflow":  "workflow.json"
@@ -32,7 +32,7 @@
                   }
               ],
     "cleanup":  [
-                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 9000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 2.60 m, origin at the centre of the base.",
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 9000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 2.6 m, origin at the centre of the base.",
                     "No hand editing."
                 ],
     "sources":  [
@@ -43,5 +43,5 @@
                         "path":  "unity/Assets/Godtree/Art/Props/prp_market_stall.glb"
                     }
                 ],
-    "notes":  "Input image: stylekit/golden/concepts/con_prop_market_stall.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=8605 final_tris=8603 dims=2.561x1.984x2.600 tex=2048. Made with TRELLIS.2. Judged from a rendered preview only; not yet seen in the headset."
+    "notes":  "Input image: stylekit/golden/f1/con_prop_market_stall.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=8639 final_tris=8636 dims=2.224x1.869x2.600 tex=2048. Made with TRELLIS.2 from a concept in the painterly anime action-RPG look (decision 0014). Judged from a rendered preview only; not yet seen in the headset."
 }
