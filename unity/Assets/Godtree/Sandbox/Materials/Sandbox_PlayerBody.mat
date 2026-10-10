@@ -32,7 +32,7 @@ Material:
     - _Brightness: 1.08
     - _ClipMax: 100000
     - _ClipMin: -100000
-    - _Cull: 0
+    - _Cull: 2
     - _RampSoftness: 0.14
     - _RimPower: 3.2
     - _RimStrength: 0.3

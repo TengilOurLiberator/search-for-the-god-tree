@@ -1491,7 +1491,8 @@ namespace Godtree.EditorTools
 
             Material material = MakeMaterial("Sandbox_PlayerBody", Color.white);
             material.SetTexture("_BaseMap", texture);
-            material.SetFloat("_Cull", 0f);
+            // Outer faces only: looking down from inside the neck, the player must not see the inside of the tunic.
+            material.SetFloat("_Cull", 2f);
             EditorUtility.SetDirty(material);
 
             var body = new GameObject("Player body").AddComponent<Godtree.Sandbox.PlayerBody>();
