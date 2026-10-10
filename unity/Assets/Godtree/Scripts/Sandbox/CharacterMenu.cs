@@ -104,7 +104,10 @@ namespace Godtree.Sandbox
             _mirrorCamera.stereoTargetEye = StereoTargetEyeMask.None;
             _mirrorCamera.targetTexture = _mirrorTexture;
             _mirrorCamera.fieldOfView = 52f;
-            _mirrorCamera.nearClipPlane = 0.1f;
+            // The camera stands 2.2 m in front of the player. It ignores everything in the first
+            // 1.5 m, so whatever stands between it and the player (once, the training dummy filled
+            // the whole picture) is left out, while the player and anything they hold are kept.
+            _mirrorCamera.nearClipPlane = 1.5f;
             _mirrorCamera.cullingMask = ~(LayerMask.GetMask("UI", "BIMOSMenu") | (1 << BoardLayer)); // the mirror must not see the menu itself
             var view = new GameObject("Mirror");
             view.transform.SetParent(_board.transform, false);
