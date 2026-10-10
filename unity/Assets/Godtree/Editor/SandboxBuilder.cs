@@ -242,8 +242,20 @@ namespace Godtree.EditorTools
 
             // A wide meadow-green ground just under the base scene's small floor, so nothing can
             // roll or be thrown off the edge of the world.
-            GameObject floor = Primitive(PrimitiveType.Cube, "Ground", root.transform, new Vector3(0f, -0.52f, 0f), new Vector3(80f, 1f, 80f), ground);
+            GameObject floor = Primitive(PrimitiveType.Cube, "Ground", root.transform, new Vector3(0f, -0.5f, 0f), new Vector3(120f, 1f, 120f), ground);
             floor.isStatic = true;
+            var meadow = AssetDatabase.LoadAssetAtPath<Texture2D>(ArtDir + "/Environment/env_ground_meadow_albedo.png");
+            if (meadow != null)
+            {
+                ground.SetTexture("_BaseMap", meadow);
+                ground.SetTextureScale("_BaseMap", new Vector2(32f, 32f));
+                ground.SetColor("_BaseColor", new Color(0.92f, 0.98f, 0.90f));
+            }
+            // The base scene's own small grey floor is hidden; its collider stays, level with the meadow.
+            GameObject baseEnvironment = GameObject.Find("---ENVIRONMENT---");
+            if (baseEnvironment != null)
+                foreach (MeshRenderer baseRenderer in baseEnvironment.GetComponentsInChildren<MeshRenderer>())
+                    baseRenderer.enabled = false;
 
             // A stone plinth holding the sword at hand height, one step in front of the spawn.
             GameObject plinth = Primitive(PrimitiveType.Cube, "Plinth", root.transform, new Vector3(0.45f, 0.45f, 0.9f), new Vector3(0.45f, 0.9f, 1.15f), stone);
@@ -392,7 +404,7 @@ namespace Godtree.EditorTools
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
                 if (System.Array.IndexOf(loose, prefab.name) >= 0)
                 {
-                    RestOn(instance, new Vector3(1.5f + (looseIndex % 3) * 0.85f, 0f, 0.4f + (looseIndex / 3) * 0.9f));
+                    RestOn(instance, new Vector3(2.1f + (looseIndex % 3) * 0.95f, 0f, -0.3f + (looseIndex / 3) * 1.0f));
                     looseIndex++;
                     MakeGrabbable(instance, prefab.name.Contains("vial") ? 0.2f : (prefab.name.Contains("lantern") ? 0.6f : 6f));
                 }

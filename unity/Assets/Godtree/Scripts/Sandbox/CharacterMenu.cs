@@ -53,7 +53,7 @@ namespace Godtree.Sandbox
                 // Frame the whole body: aim at the middle of the player from a little above waist height.
                 float floorY = _player.transform.position.y;
                 float middleY = Mathf.Lerp(floorY, head.position.y, 0.52f);
-                Vector3 from = new Vector3(head.position.x, middleY + 0.1f, head.position.z) + flat * 2.7f;
+                Vector3 from = new Vector3(head.position.x, middleY + 0.1f, head.position.z) + flat * 2.2f;
                 Vector3 target = new Vector3(head.position.x, middleY, head.position.z);
                 _mirrorCamera.transform.SetPositionAndRotation(from, Quaternion.LookRotation(target - from));
             }
@@ -103,7 +103,7 @@ namespace Godtree.Sandbox
             _mirrorCamera = mirrorObject.AddComponent<Camera>();
             _mirrorCamera.stereoTargetEye = StereoTargetEyeMask.None;
             _mirrorCamera.targetTexture = _mirrorTexture;
-            _mirrorCamera.fieldOfView = 42f;
+            _mirrorCamera.fieldOfView = 52f;
             _mirrorCamera.nearClipPlane = 0.1f;
             _mirrorCamera.cullingMask = ~(LayerMask.GetMask("UI", "BIMOSMenu") | (1 << BoardLayer)); // the mirror must not see the menu itself
             var view = new GameObject("Mirror");

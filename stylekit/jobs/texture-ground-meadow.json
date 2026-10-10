@@ -1,0 +1,27 @@
+{
+    "_about":  "Ground texture for the meadow: a top-down painterly grass tile.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "jobs":  [
+                 {
+                     "id":  "env_ground_meadow_s1101",
+                     "prompt":  "Seamless tileable game texture seen straight from above, flat and evenly lit: a lush meadow lawn of short painterly grass in bright fresh greens with a few tiny pale flowers and clover patches, no shadows, no horizon, no objects, no borders, uniform density across the whole image. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "env_ground_meadow_s2202",
+                     "prompt":  "Seamless tileable game texture seen straight from above, flat and evenly lit: a lush meadow lawn of short painterly grass in bright fresh greens with a few tiny pale flowers and clover patches, no shadows, no horizon, no objects, no borders, uniform density across the whole image. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "env_ground_meadow_s3303",
+                     "prompt":  "Seamless tileable game texture seen straight from above, flat and evenly lit: a lush meadow lawn of short painterly grass in bright fresh greens with a few tiny pale flowers and clover patches, no shadows, no horizon, no objects, no borders, uniform density across the whole image. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 }
+             ]
+}

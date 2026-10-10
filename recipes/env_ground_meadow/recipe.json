@@ -1,0 +1,29 @@
+{
+    "id":  "env_ground_meadow",
+    "title":  "Ground Meadow",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "Seamless tileable game texture seen straight from above, flat and evenly lit: a lush meadow lawn of short painterly grass in bright fresh greens with a few tiny pale flowers and clover patches, no shadows, no horizon, no objects, no borders, uniform density across the whole image. High-end anime fantasy RPG environment art, stylised 3D look with painterly textures, soft cel shading with warm sunlight and cool sky light, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no straps, no belts, no equipment, no photorealism, no text, no watermark, no logo.",
+                      "seed":  2202,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  }
+              ],
+    "cleanup":  [
+                    "Made seamless by mirroring: the image and its three reflections were pasted into a 2 by 2 tile and resized to 1024 px with Pillow (LANCZOS). No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Environment/env_ground_meadow_albedo.png"
+                    }
+                ],
+    "notes":  "Top-down painterly grass for the sandbox ground. The mirroring makes the edges match exactly but leaves a faint symmetry visible from high above."
+}
