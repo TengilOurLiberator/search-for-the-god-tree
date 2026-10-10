@@ -37,6 +37,8 @@ Material:
     - _RimPower: 3.2
     - _RimStrength: 0.3
     - _SkyFill: 0.35
+    - _Sway: 0
+    - _SwayFrom: 0.4
     m_Colors:
     - _BaseColor: {r: 0.73, g: 0.76, b: 0.81, a: 1}
     - _ClipAxis: {r: 0, g: 1, b: 0, a: 0}

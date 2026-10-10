@@ -88,6 +88,7 @@ namespace Godtree.EditorTools
             Shot(new Vector3(0f, 1.65f, 6f), new Vector3(0f, 5f, 40f), Path.Combine(outDir, "sandbox_road_view.png"));
             Shot(new Vector3(4.4f, 1.65f, 0.4f), new Vector3(7.8f, 0.8f, 3.8f), Path.Combine(outDir, "sandbox_camp_view.png"));
             Shot(new Vector3(0f, 1.65f, 15f), new Vector3(0f, 2f, 27f), Path.Combine(outDir, "sandbox_gate_view.png"));
+            Shot(new Vector3(3.3f, 1.5f, 15.4f), new Vector3(4.6f, 1.25f, 17.4f), Path.Combine(outDir, "sandbox_elder_view.png"));
         }
 
         private static void Shot(Vector3 from, Vector3 lookAt, string path)
@@ -1235,6 +1236,12 @@ namespace Godtree.EditorTools
                         replacement.shader = toon;
                         replacement.SetTexture("_BaseMap", texture);
                         replacement.SetColor("_BaseColor", Color.white);
+                        // Things the wind moves: metres of sway at three metres up, and the height it starts at.
+                        float sway = modelName == "env_tree_blob" ? 0.10f : modelName == "env_bush" ? 0.05f : modelName == "env_banner" ? 0.07f : modelName == "env_tent" ? 0.015f : 0f;
+                        replacement.SetFloat("_Sway", sway);
+                        replacement.SetFloat("_SwayFrom", modelName == "env_tree_blob" ? 1.6f : modelName == "env_banner" ? 0.9f : 0.2f);
+                        // Generated people have some inside-out faces; drawn two-sided they show no holes.
+                        replacement.SetFloat("_Cull", modelName.StartsWith("chr_") ? 0f : 2f);
                         EditorUtility.SetDirty(replacement);
                         cache[source] = replacement;
                     }

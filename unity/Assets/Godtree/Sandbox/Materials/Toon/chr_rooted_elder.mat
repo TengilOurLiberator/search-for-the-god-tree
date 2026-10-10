@@ -32,11 +32,13 @@ Material:
     - _Brightness: 1.08
     - _ClipMax: 100000
     - _ClipMin: -100000
-    - _Cull: 2
+    - _Cull: 0
     - _RampSoftness: 0.14
     - _RimPower: 3.2
     - _RimStrength: 0.3
     - _SkyFill: 0.35
+    - _Sway: 0
+    - _SwayFrom: 0.2
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _ClipAxis: {r: 0, g: 1, b: 0, a: 0}

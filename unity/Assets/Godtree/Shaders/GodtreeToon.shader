@@ -21,6 +21,9 @@ Shader "Godtree/Toon"
         _ClipMin ("Slice From", Float) = -100000
         _ClipMax ("Slice To", Float) = 100000
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Float) = 2
+        // Leaves, cloth and grass lean and rock in the wind; more the higher above the ground.
+        _Sway ("Wind Sway (metres)", Range(0, 0.5)) = 0
+        _SwayFrom ("Sway Starts At Height", Float) = 0.4
     }
 
     SubShader
@@ -47,7 +50,19 @@ Shader "Godtree/Toon"
             float4 _ClipAxis;
             float _ClipMin;
             float _ClipMax;
+            half _Sway;
+            half _SwayFrom;
         CBUFFER_END
+
+        // Every pass must move the surface the same way, or shadows and depth come apart.
+        float3 Sway(float3 positionWS)
+        {
+            float reach = saturate((positionWS.y - _SwayFrom) / 3.0);
+            float phase = _Time.y * 1.3 + positionWS.x * 0.35 + positionWS.z * 0.27;
+            float2 push = float2(sin(phase) + 0.4 * sin(phase * 2.7 + 1.3), 0.6 * cos(phase * 0.8) + 0.3 * sin(phase * 3.1));
+            positionWS.xz += push * (_Sway * reach);
+            return positionWS;
+        }
 
         float SliceCoord(float3 positionOS) { return dot(positionOS, _ClipAxis.xyz); }
         void ClipSlice(float coord) { clip(min(coord - _ClipMin, _ClipMax - coord)); }
@@ -96,12 +111,12 @@ Shader "Godtree/Toon"
                 UNITY_TRANSFER_INSTANCE_ID(input, output);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-                VertexPositionInputs positions = GetVertexPositionInputs(input.positionOS.xyz);
-                output.positionCS = positions.positionCS;
-                output.positionWS = positions.positionWS;
+                float3 positionWS = Sway(TransformObjectToWorld(input.positionOS.xyz));
+                output.positionCS = TransformWorldToHClip(positionWS);
+                output.positionWS = positionWS;
                 output.normalWS = TransformObjectToWorldNormal(input.normalOS);
                 output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
-                output.fogFactor = ComputeFogFactor(positions.positionCS.z);
+                output.fogFactor = ComputeFogFactor(output.positionCS.z);
                 output.slice = SliceCoord(input.positionOS.xyz);
                 return output;
             }
@@ -171,7 +186,7 @@ Shader "Godtree/Toon"
             ShadowVaryings shadowVert(ShadowAttributes input)
             {
                 UNITY_SETUP_INSTANCE_ID(input);
-                float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
+                float3 positionWS = Sway(TransformObjectToWorld(input.positionOS.xyz));
                 float3 normalWS = TransformObjectToWorldNormal(input.normalOS);
                 #if defined(_CASTING_PUNCTUAL_LIGHT_SHADOW)
                     float3 lightDirection = normalize(_LightPosition - positionWS);
@@ -231,7 +246,7 @@ Shader "Godtree/Toon"
                 UNITY_SETUP_INSTANCE_ID(input);
                 UNITY_TRANSFER_INSTANCE_ID(input, output);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
-                output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
+                output.positionCS = TransformWorldToHClip(Sway(TransformObjectToWorld(input.positionOS.xyz)));
                 output.slice = SliceCoord(input.positionOS.xyz);
                 return output;
             }
