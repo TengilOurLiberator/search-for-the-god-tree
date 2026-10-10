@@ -251,6 +251,7 @@ namespace Godtree.EditorTools
             AddImpactSound(plinth, "sfx_sword_hit_stone");
             BuildGallery(root.transform);
             BuildInstructions(root.transform);
+            new GameObject("Session recorder", typeof(Godtree.Diagnostics.SessionRecorder)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
