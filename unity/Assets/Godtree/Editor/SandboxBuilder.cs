@@ -248,9 +248,14 @@ namespace Godtree.EditorTools
             var meadow = AssetDatabase.LoadAssetAtPath<Texture2D>(ArtDir + "/Environment/env_ground_meadow_albedo.png");
             if (meadow != null)
             {
+                // The ground shader hides the texture's repeat and paints the road toward the arch.
+                Shader groundShader = Shader.Find("Godtree/Ground");
+                if (groundShader != null && groundShader.isSupported)
+                    ground.shader = groundShader;
                 ground.SetTexture("_BaseMap", meadow);
                 ground.SetTextureScale("_BaseMap", new Vector2(32f, 32f));
                 ground.SetColor("_BaseColor", new Color(0.92f, 0.98f, 0.90f));
+                EditorUtility.SetDirty(ground);
             }
             // The base scene's own small grey floor is hidden; its collider stays, level with the meadow.
             GameObject baseEnvironment = GameObject.Find("---ENVIRONMENT---");
