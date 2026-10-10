@@ -1,0 +1,47 @@
+{
+    "id":  "chr_rooted_merchant",
+    "title":  "Rooted Merchant",
+    "origin":  "generated",
+    "licence":  "CC0-1.0",
+    "budget_class":  "character_npc",
+    "steps":  [
+                  {
+                      "generator":  "z-image-turbo",
+                      "tool":  "comfyui",
+                      "version":  "z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0",
+                      "prompt":  "A travelling merchant with an enormous backpack stacked with pots, rolled rugs and lanterns, a wide-brimmed hat, a patched long coat in tan and leaf green, friendly sly smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                      "seed":  2202,
+                      "vram_gb":  23,
+                      "workflow":  "workflow.json"
+                  },
+                  {
+                      "generator":  "trellis2",
+                      "tool":  "comfyui",
+                      "version":  "trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes",
+                      "prompt":  "n/a",
+                      "seed":  1101,
+                      "vram_gb":  24,
+                      "workflow":  "trellis2.json"
+                  },
+                  {
+                      "generator":  "blender",
+                      "version":  "Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py",
+                      "prompt":  "n/a",
+                      "seed":  0,
+                      "vram_gb":  0
+                  }
+              ],
+    "cleanup":  [
+                    "Automatic only, by tools/pipeline/blender_finish_model.py: stood upright, welded, decimated to 25000 triangles, smart UV unwrap, vertex colours baked to a 2048 px texture, scaled so the longest side is 1.9 m, origin at the centre of the base.",
+                    "No hand editing."
+                ],
+    "sources":  [
+
+                ],
+    "outputs":  [
+                    {
+                        "path":  "unity/Assets/Godtree/Art/Characters/chr_rooted_merchant.glb"
+                    }
+                ],
+    "notes":  "Input image: stylekit/golden/f1/con_rooted_merchant.png. The concept image went through TRELLIS.2 (BiRefNet cut-out, shape, texture, remesh, reduce to about 40,000 triangles, unwrap, bake), then Blender reduced it to the budget and re-baked the texture. Measured: source_tris=24254 final_tris=24254 dims=1.084x1.166x1.900 tex=2048. Made with TRELLIS.2 at the coarse remesh setting (192), which keeps spiky, furry and thatched shapes whole. Judged from a rendered preview only; not yet seen in the headset."
+}

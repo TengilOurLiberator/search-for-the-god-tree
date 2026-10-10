@@ -12,9 +12,10 @@ Nothing is running. State at the end of 2026-10-10:
 - **Still old-look placeholders in the sandbox:** husk shield, cart, cradle shrine, dummy model, fence, well, husk house, Thornback, Rootwarden. Replace or remove them when a method for those shapes exists.
 - **The sandbox has been rebuilt** with all of the above; nine PlayMode tests pass. The owner has not seen it in the headset.
 
-## The real open problem in 3D
+## 3D: what works now
 
-Shapes with many thin or spiky parts. Ideas not yet tried: keep the dense mesh and bake a normal map onto a simple low-poly shell (the stock ComfyUI template does this); generate such subjects at a coarser remesh resolution; or redraw them as chunky solid forms the way the retries were.
+Spiky, furry and thatched shapes shattered at the standard remesh setting (384). The **coarse workflow** (`stylekit/workflows/trellis2_image_to_glb_coarse.api.json`, remesh 192) fixed twelve of thirteen: Burrling, both Thornbacks, root crawler, husk house, well, cart, stump, cradle shrine, fence, merchant, shield-bearer. Use it for creatures and buildings; keep the standard one for weapons and simple props. Still failing: the Rootwarden (noisy surface), amber orbs (staff, wand), flames (campfire), arch, boulder. The Rootwarden and husk shield in the sandbox are the last old-look models.
+
 ## Rules learned the hard way
 
 - **Never run generation while the owner is in the headset.** It takes the whole graphics card. Never run two queues into one output folder.

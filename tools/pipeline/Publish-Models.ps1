@@ -62,7 +62,10 @@ foreach ($id in $Ids) {
     $imageStep = [ordered]@{ generator = 'z-image-turbo'; tool = 'comfyui'; version = 'z_image_turbo_bf16 (Comfy-Org repack), ComfyUI 0.39.0'; prompt = [string]$concept.prompt; seed = $seed; vram_gb = 23; workflow = 'workflow.json' }
     $blenderStep = [ordered]@{ generator = 'blender'; version = 'Blender 5.2.2 LTS, tools/pipeline/blender_finish_model.py'; prompt = 'n/a'; seed = 0; vram_gb = 0 }
     if ($Trellis) {
-        Copy-Item -LiteralPath (Join-Path (Split-Path $workflowSrc -Parent) 'trellis2_image_to_glb.api.json') -Destination (Join-Path $recipeDir 'trellis2.json') -Force
+        # The workflow the model job file names (standard or coarse), so the recipe records what was really run.
+        $trellisWorkflow = Join-Path (Split-Path $workflowSrc -Parent) 'trellis2_image_to_glb.api.json'
+        if ($null -ne $models.PSObject.Properties['workflow']) { $trellisWorkflow = Join-Path (Split-Path (Resolve-Path $ModelJobs).Path -Parent) ([string]$models.workflow) }
+        Copy-Item -LiteralPath $trellisWorkflow -Destination (Join-Path $recipeDir 'trellis2.json') -Force
         $steps = @(
             $imageStep,
             [ordered]@{ generator = 'trellis2'; tool = 'comfyui'; version = 'trellis_2_bf16 with shape and texture VAEs and dino_v3_vit_l (Comfy-Org/TRELLIS.2), BiRefNet background removal inside the workflow, ComfyUI 0.39.0 built-in nodes'; prompt = 'n/a'; seed = [long]$job.seed; vram_gb = 24; workflow = 'trellis2.json' },
