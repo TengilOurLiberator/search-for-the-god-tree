@@ -2,6 +2,7 @@ using System.Collections;
 using BIMOS;
 using Godtree.Combat;
 using Godtree.Diagnostics;
+using Godtree.Sandbox;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -238,5 +239,91 @@ namespace Godtree.Tests
             Debug.Log($"[Robot] bow routine: {stuckInDummy} in the dummy, {flew} flew elsewhere, {stuckNearHand} stuck near the hand");
             Assert.AreEqual(0, stuckNearHand, "arrows stuck where they were loosed instead of flying");
             Assert.GreaterOrEqual(stuckInDummy, 3, "at least three of five aimed arrows should hit a dummy three metres away");
+        }
+        /// <summary>Hold a staff or wand so that it points at a place, correcting by eye as a person would.</summary>
+        private IEnumerator AimFocus(bool left, SpellFocus focus, Vector3 target)
+        {
+            Vector3 toward = Vector3.ProjectOnPlane(target - _robot.Head.position, Vector3.up).normalized;
+            Vector3 side = Vector3.Cross(Vector3.up, toward) * (left ? -1f : 1f);
+            Vector3 hand = _robot.Feet + Vector3.up * 1.15f + toward * 0.35f + side * 0.25f;
+            Quaternion rotation = Quaternion.LookRotation((target - hand).normalized);
+            yield return _robot.MoveHandWorld(left, hand, rotation, 0.5f);
+            for (int correction = 0; correction < 5; correction++)
+            {
+                yield return Wait(0.25f);
+                rotation = Quaternion.FromToRotation(focus.Aim, (target - focus.Tip).normalized) * rotation;
+                yield return _robot.MoveHandWorld(left, hand, rotation, 0.15f);
+            }
+            yield return Wait(0.3f);
+            Debug.Log($"[Robot] {focus.name} points {Vector3.Angle(focus.Aim, target - focus.Tip):F1} degrees off its target");
+        }
+
+        private IEnumerator CastHeld(bool left, float seconds)
+        {
+            _robot.SetTrigger(left, 1f);
+            yield return Wait(seconds);
+            _robot.SetTrigger(left, 0f);
+            yield return Wait(0.15f);
+        }
+
+        [UnityTest]
+        public IEnumerator CastsEverySpellThroughStaffsAndWands()
+        {
+            const string dir = OutDir + "/spells";
+            Rigidbody torso = GameObject.Find("Torso").GetComponent<Rigidbody>();
+            Vector3 chest = torso.position + Vector3.up * 0.1f;
+            var plan = new (string focus, float hold, string spell)[]
+            {
+                ("wpn_wand_thorn (Ember I)", 0.1f, "Ember bolt"),
+                ("wpn_wand_thorn (Ember I)", 2.2f, "Ember bolt"),          // a tier-one wand knows only one spell
+                ("wpn_staff_weaver (Ember II)", 1.0f, "Fireball"),
+                ("wpn_staff_weaver (Frost II)", 0.1f, "Frost shard"),
+                ("wpn_staff_weaver (Frost II)", 1.0f, "Frost burst"),
+                ("wpn_staff_weaver (Storm III)", 0.1f, "Spark"),
+                ("wpn_staff_weaver (Storm III)", 1.0f, "Chain lightning"),
+                ("wpn_staff_weaver (Storm III)", 2.1f, "Thunderclap"),
+            };
+            string holding = null;
+            SpellFocus focus = null;
+            int shot = 0;
+            foreach ((string focusName, float hold, string spell) in plan)
+            {
+                if (focusName != holding)
+                {
+                    if (holding != null)
+                    {
+                        _robot.SetGrip(false, false);
+                        yield return Wait(0.6f);
+                    }
+                    GameObject found = GameObject.Find(focusName);
+                    Assert.IsNotNull(found, "no " + focusName + " in the scene");
+                    yield return PullToHand(false, found);
+                    focus = _robot.RightHand.CurrentGrab.GetComponentInParent<Rigidbody>().GetComponent<SpellFocus>();
+                    Assert.IsNotNull(focus, focusName + " is not a spell focus");
+                    holding = focusName;
+                    yield return _robot.MoveHandBody(false, new Vector3(0.3f, 1.1f, 0.3f), Quaternion.identity, 0.4f);
+                    yield return _robot.WalkTo(torso.position + new Vector3(0.9f, 0f, -3.0f), 0.3f);
+                }
+                yield return AimFocus(false, focus, chest);
+                int castsBefore = FocusCasting.Casts, affectedBefore = FocusCasting.BodiesAffected;
+                _robot.SetTrigger(false, 1f);
+                yield return Wait(Mathf.Max(0.1f, hold * 0.5f));
+                if (hold >= 1f)
+                    _robot.Snapshot($"{dir}/{shot:00}_{spell.Replace(' ', '_')}_charging.jpg", new Vector3(-1.5f, 1.5f, 1.2f));
+                yield return Wait(hold * 0.5f);
+                _robot.SetTrigger(false, 0f);
+                yield return Wait(0.12f);
+                _robot.Snapshot($"{dir}/{shot:00}_{spell.Replace(' ', '_')}_cast.jpg", new Vector3(1.8f, 1.6f, -1.6f), 1.0f, chest);
+                yield return Wait(0.9f);
+                Assert.AreEqual(castsBefore + 1, FocusCasting.Casts, $"holding TRIGGER {hold} s on {focusName} cast nothing");
+                Assert.AreEqual(spell, FocusCasting.LastSpell, $"holding TRIGGER {hold} s on {focusName} gave the wrong spell");
+                Debug.Log($"[Robot] {focusName}, held {hold} s: {FocusCasting.LastSpell}, bodies affected {FocusCasting.BodiesAffected - affectedBefore}");
+                Assert.Greater(FocusCasting.BodiesAffected, affectedBefore, $"{spell} aimed at the dummy from three metres touched nothing");
+                if (spell == "Frost burst")
+                    Assert.IsNotNull(torso.GetComponent<Chilled>(), "Frost burst should leave the dummy chilled");
+                shot++;
+                yield return Wait(0.8f);
+            }
+            _robot.SnapshotEyes(dir + "/99_eyes.jpg");
         }    }
 }

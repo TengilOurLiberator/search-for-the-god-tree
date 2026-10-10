@@ -549,6 +549,8 @@ namespace Godtree.EditorTools
             {
                 if (prefab.name == "wpn_sword_training")
                     continue; // the sword on the plinth is this model
+                if (prefab.name == "wpn_staff_weaver" || prefab.name == "wpn_wand_thorn")
+                    continue; // staffs and wands have a table of their own
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
                 Vector3 size = WorldBounds(instance).size;
                 bool isLong = Mathf.Max(size.x, size.y, size.z) > 1.15f;
@@ -562,6 +564,8 @@ namespace Godtree.EditorTools
                 bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("shield") || prefab.name.Contains("buckler");
                 MakeWeapon(instance, heavy ? 0.9f : 0.5f);
             }
+
+            BuildSpellTable(gallery.transform, wood, tableTop);
 
             // Loose props to pick up, and scenery.
             string[] loose = { "prp_crate", "prp_chest", "prp_barrel", "prp_mote_vial", "prp_lantern_husk", "prp_bench" };
@@ -782,6 +786,84 @@ namespace Godtree.EditorTools
             source.rolloffMode = AudioRolloffMode.Linear;
             source.minDistance = 1f;
             source.maxDistance = range;
+        }
+
+        /// <summary>
+        /// A table of staffs and wands on the right (decision 0016): three elements, and tiers
+        /// one to three. Each is the same wand or staff model with a coloured stone at its tip
+        /// that tells the element (colour) and the tier (size).
+        /// </summary>
+        private static void BuildSpellTable(Transform parent, Material wood, float tableTop)
+        {
+            var centre = new Vector3(4.3f, tableTop / 2f, 2.7f);
+            GameObject table = Primitive(PrimitiveType.Cube, "Spell table", parent, centre, new Vector3(3.2f, tableTop, 1.3f), wood);
+            table.isStatic = true;
+            AddImpactSound(table, "sfx_sword_hit_wood_heavy");
+            Dress(table, ArtDir + "/Props/prp_table_long.glb", parent);
+
+            var wand = AssetDatabase.LoadAssetAtPath<GameObject>(ArtDir + "/Weapons/wpn_wand_thorn.glb");
+            var staff = AssetDatabase.LoadAssetAtPath<GameObject>(ArtDir + "/Weapons/wpn_staff_weaver.glb");
+            if (wand == null || staff == null)
+            {
+                Debug.LogWarning("[Godtree] wand or staff model missing; no spell table");
+                return;
+            }
+            var foci = new (GameObject prefab, Godtree.Sandbox.SpellElement element, int tier, Vector3 slot, bool alongX)[]
+            {
+                (wand, Godtree.Sandbox.SpellElement.Ember, 1, new Vector3(2.95f, tableTop, 2.7f), false),
+                (wand, Godtree.Sandbox.SpellElement.Frost, 1, new Vector3(3.20f, tableTop, 2.7f), false),
+                (wand, Godtree.Sandbox.SpellElement.Storm, 1, new Vector3(3.45f, tableTop, 2.7f), false),
+                (staff, Godtree.Sandbox.SpellElement.Ember, 2, new Vector3(4.75f, tableTop, 2.3f), true),
+                (staff, Godtree.Sandbox.SpellElement.Frost, 2, new Vector3(4.75f, tableTop, 2.7f), true),
+                (staff, Godtree.Sandbox.SpellElement.Storm, 3, new Vector3(4.75f, tableTop, 3.1f), true),
+            };
+            string[] numerals = { "", "I", "II", "III" };
+            foreach ((GameObject prefab, Godtree.Sandbox.SpellElement element, int tier, Vector3 slot, bool alongX) in foci)
+            {
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
+                instance.name = $"{prefab.name} ({element} {numerals[tier]})";
+                LayFlat(instance, alongX);
+                RestOn(instance, slot);
+                MakeWeapon(instance, prefab == staff ? 0.6f : 0.25f);
+
+                // Spells leave from the end furthest from the hand, along the weapon's length.
+                GripPose pose = instance.GetComponentInChildren<GripPose>();
+                Rigidbody body = instance.GetComponentInChildren<Rigidbody>();
+                if (pose == null || body == null)
+                    continue;
+                Vector3 grip = pose.transform.TransformPoint(pose.localGripPoint);
+                Vector3 axis = pose.transform.TransformDirection(pose.localMainAxis).normalized;
+                float furthest = 0f;
+                foreach (MeshFilter filter in instance.GetComponentsInChildren<MeshFilter>())
+                    foreach (Vector3 vertex in filter.sharedMesh.vertices)
+                        furthest = Mathf.Max(furthest, Vector3.Dot(filter.transform.TransformPoint(vertex) - grip, axis));
+                Vector3 tip = grip + axis * furthest;
+                var focus = body.gameObject.AddComponent<Godtree.Sandbox.SpellFocus>();
+                focus.element = element;
+                focus.tier = tier;
+                focus.localTip = body.transform.InverseTransformPoint(tip);
+                focus.localAim = body.transform.InverseTransformDirection(axis);
+
+                GameObject stone = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                stone.name = "Element stone";
+                Object.DestroyImmediate(stone.GetComponent<Collider>());
+                stone.transform.SetParent(body.transform, true);
+                stone.transform.position = tip - axis * 0.02f;
+                float stoneSize = 0.035f + 0.02f * tier;
+                Vector3 lossy = body.transform.lossyScale;
+                stone.transform.localScale = new Vector3(stoneSize / lossy.x, stoneSize / lossy.y, stoneSize / lossy.z);
+                string stonePath = $"{SandboxDir}/Materials/Sandbox_Stone_{element}.mat";
+                var stoneMaterial = AssetDatabase.LoadAssetAtPath<Material>(stonePath);
+                if (stoneMaterial == null)
+                {
+                    stoneMaterial = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+                    AssetDatabase.CreateAsset(stoneMaterial, stonePath);
+                }
+                stoneMaterial.SetColor("_BaseColor", Godtree.Sandbox.SpellFocus.ColourOf(element) * 1.8f);
+                EditorUtility.SetDirty(stoneMaterial);
+                stone.GetComponent<MeshRenderer>().sharedMaterial = stoneMaterial;
+                stone.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
         }
 
         private static float WorldBoundsOfPrefab(GameObject prefab)
@@ -1072,7 +1154,8 @@ namespace Godtree.EditorTools
                 "<b><color=#FFD86B>MOTE BOLT</color></b>   Empty hand: hold TRIGGER to gather\nlight, let go to loose it. Throw it or point it.\n" +
                 "<b><color=#FFD86B>PUSH KNOT</color></b>   Both hands empty and together:\nhold both TRIGGERS, then let go.\n" +
                 "<b><color=#FFD86B>LIFT KNOT</color></b>   Both TRIGGERS, hands apart: loose\nthings in front of you float until you let go.\n" +
-                "<b><color=#FFD86B>WARD KNOT</color></b>   Empty hand: hold A or X for a shield of light.\n\n" +
+                "<b><color=#FFD86B>WARD KNOT</color></b>   Empty hand: hold A or X for a shield of light.\n" +
+                "<b><color=#FFD86B>STAFFS, WANDS</color></b>   On the table to your right. Hold one,\nhold TRIGGER, let go. Red is fire, blue frost, violet storm.\nBigger stones know more: hold longer for bigger spells.\n\n" +
                 "<b><color=#FFD86B>CHARACTER</color></b>   Press B (right hand) for your stats,\nequipment and a mirror. Push the arrows with a hand.\n\n" +
                 "<b><color=#FFD86B>MOVE</color></b>   Left stick. Click it to run.\n" +
                 "<b><color=#FFD86B>TURN</color></b>   Right stick left or right.\n" +
@@ -1118,6 +1201,14 @@ namespace Godtree.EditorTools
                 trail.SetFloat("_Trail", 1f);
                 EditorUtility.SetDirty(trail);
                 abilities.glowMaterial = trail;
+
+                var casting = new GameObject("Focus casting (staffs and wands)").AddComponent<Godtree.Sandbox.FocusCasting>();
+                casting.transform.SetParent(parent, false);
+                casting.glowMaterial = AssetDatabase.LoadAssetAtPath<Material>(SandboxDir + "/Materials/Sandbox_Flame.mat");
+                casting.trailMaterial = trail;
+                casting.chargeClips = LoadClips("sfx_mote_chime");
+                casting.castClips = LoadClips("sfx_knot_cast");
+                casting.hitClips = LoadClips("sfx_mote_chime");
             }
         }
 
