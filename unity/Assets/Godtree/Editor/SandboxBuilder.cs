@@ -1098,6 +1098,23 @@ namespace Godtree.EditorTools
             abilities.bowReleaseClips = LoadClips("sfx_bow_release");
             abilities.arrowHitClips = LoadClips("sfx_arrow_hit_wood");
             abilities.boltHitClips = LoadClips("sfx_mote_chime");
+            Shader glow = Shader.Find("Godtree/Glow");
+            if (glow != null)
+            {
+                string trailPath = SandboxDir + "/Materials/Sandbox_Trail.mat";
+                var trail = AssetDatabase.LoadAssetAtPath<Material>(trailPath);
+                if (trail == null)
+                {
+                    trail = new Material(glow);
+                    AssetDatabase.CreateAsset(trail, trailPath);
+                }
+                trail.shader = glow;
+                trail.SetFloat("_Intensity", 2.4f);
+                trail.SetFloat("_Softness", 1.2f);
+                trail.SetFloat("_Trail", 1f);
+                EditorUtility.SetDirty(trail);
+                abilities.glowMaterial = trail;
+            }
         }
 
         private static AudioClip[] LoadClips(string soundId)

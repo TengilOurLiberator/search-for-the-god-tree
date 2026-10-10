@@ -27,6 +27,7 @@ Material:
     m_Floats:
     - _Intensity: 2.2
     - _Softness: 1.5
+    - _Trail: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

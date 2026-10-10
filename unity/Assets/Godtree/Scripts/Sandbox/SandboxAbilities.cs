@@ -28,6 +28,9 @@ namespace Godtree.Sandbox
     {
         public AudioClip[] castClips, boltClips, pushClips, bowReleaseClips, arrowHitClips, boltHitClips;
 
+        [Tooltip("Additive glow material for the trail behind a mote bolt. No trail if empty.")]
+        public Material glowMaterial;
+
         private const float PressAt = 0.6f, ReleaseAt = 0.3f;
 
         private Player _player;
@@ -60,7 +63,8 @@ namespace Godtree.Sandbox
                 _player = null;
                 return false;
             }
-            _moteMaterial = Unlit(new Color(1f, 0.85f, 0.42f));
+            // Brighter than white, so the bloom makes motes glow.
+            _moteMaterial = Unlit(new Color(2.4f, 2.0f, 1.0f));
             _waveMaterial = Unlit(new Color(1f, 0.85f, 0.42f, 0.35f));
             _woodMaterial = Lit(new Color(0.62f, 0.45f, 0.28f));
             _steelMaterial = Lit(new Color(0.73f, 0.76f, 0.81f));
@@ -352,6 +356,17 @@ namespace Godtree.Sandbox
             body.mass = Mathf.Lerp(0.15f, 0.4f, charge) * PlayerStats.FocusNow;
             body.useGravity = false;
             body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            if (glowMaterial != null)
+            {
+                var trail = bolt.AddComponent<TrailRenderer>();
+                trail.sharedMaterial = glowMaterial;
+                trail.time = 0.28f;
+                trail.startWidth = bolt.transform.localScale.x * 1.6f;
+                trail.endWidth = 0f;
+                trail.startColor = new Color(1f, 0.85f, 0.42f, 0.9f);
+                trail.endColor = new Color(1f, 0.55f, 0.2f, 0f);
+                trail.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
             var projectile = bolt.AddComponent<SandboxProjectile>();
             projectile.lifeSeconds = 5f;
             projectile.hitClips = boltHitClips;

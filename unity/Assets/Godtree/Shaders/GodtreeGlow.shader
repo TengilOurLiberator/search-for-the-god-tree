@@ -7,6 +7,7 @@ Shader "Godtree/Glow"
     {
         _Intensity ("Intensity", Range(0, 8)) = 2
         _Softness ("Softness", Range(0.5, 4)) = 1.6
+        [Toggle] _Trail ("Is A Trail", Float) = 0
     }
 
     SubShader
@@ -30,6 +31,7 @@ Shader "Godtree/Glow"
             CBUFFER_START(UnityPerMaterial)
                 half _Intensity;
                 half _Softness;
+                half _Trail;
             CBUFFER_END
 
             struct Attributes
@@ -61,7 +63,10 @@ Shader "Godtree/Glow"
 
             half4 frag(Varyings input) : SV_Target
             {
-                half fromCentre = length(input.uv - 0.5) * 2.0;
+                // Particles are square: glow falls off from the middle. On a trail the image runs along
+                // its length, so there only the distance across counts.
+                float2 offset = input.uv - 0.5;
+                half fromCentre = lerp(length(offset), abs(offset.y), _Trail) * 2.0;
                 half glow = pow(saturate(1.0 - fromCentre), _Softness);
                 return half4(input.color.rgb * _Intensity, input.color.a * glow);
             }
