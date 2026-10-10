@@ -81,6 +81,7 @@ namespace Godtree.EditorTools
             Shot(new Vector3(0f, 7f, -4f), new Vector3(0f, 0.5f, 7f), Path.Combine(outDir, "sandbox_gallery_view.png"));
             Shot(new Vector3(0.9f, 1.25f, 0.45f), new Vector3(0.45f, 0.98f, 0.95f), Path.Combine(outDir, "sandbox_sword_closeup.png"));
             Shot(new Vector3(0f, 1.65f, -3f), new Vector3(0f, 6f, 40f), Path.Combine(outDir, "sandbox_horizon_view.png"));
+            Shot(new Vector3(0f, 1.65f, 6f), new Vector3(0f, 5f, 40f), Path.Combine(outDir, "sandbox_road_view.png"));
         }
 
         private static void Shot(Vector3 from, Vector3 lookAt, string path)
@@ -405,34 +406,62 @@ namespace Godtree.EditorTools
             {
                 if (prefab.name == "prp_table_long" || prefab.name == "prp_plinth_stone")
                     continue; // used as the tables and the sword's plinth
+                if (System.Array.IndexOf(loose, prefab.name) < 0)
+                    continue; // scenery is placed by the layout below
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
-                if (System.Array.IndexOf(loose, prefab.name) >= 0)
                 {
                     RestOn(instance, new Vector3(2.1f + (looseIndex % 3) * 0.95f, 0f, -0.3f + (looseIndex / 3) * 1.0f));
                     looseIndex++;
                     MakeGrabbable(instance, prefab.name.Contains("vial") ? 0.2f : (prefab.name.Contains("lantern") ? 0.6f : 6f));
                 }
-                else
-                {
-                    instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-                    RestOn(instance, new Vector3(sceneryX, 0f, 6.5f));
-                    MakeSolid(instance);
-                    sceneryX += 3.6f;
-                }
+
             }
 
-            // Scenery in a wide arc beyond the dummy: small pieces near, big ones far.
-            var scenery = LoadModels("Environment");
-            scenery.Sort((x, y) => WorldBoundsOfPrefab(x).CompareTo(WorldBoundsOfPrefab(y)));
-            for (int i = 0; i < scenery.Count; i++)
+            // Scenery, composed: a road ahead through a stone arch toward the Godtree, a small camp
+            // on the right, a corner of Huskhaven on the left, trees and rocks for depth.
+            // name, x, z, turn in degrees. A model may be placed more than once.
+            var layout = new (string name, float x, float z, float yaw)[]
             {
-                var instance = (GameObject)PrefabUtility.InstantiatePrefab(scenery[i], gallery.transform);
-                float angle = Mathf.Lerp(-70f, 70f, scenery.Count == 1 ? 0.5f : i % 2 == 0 ? 0.5f + 0.5f * i / scenery.Count : 0.5f - 0.5f * i / scenery.Count);
-                float radius = 9f + 1.1f * i;
-                Vector3 spot = new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad) * radius, 0f, 3f + Mathf.Cos(angle * Mathf.Deg2Rad) * radius);
-                instance.transform.localRotation = Quaternion.Euler(0f, 180f + angle, 0f);
-                RestOn(instance, spot);
+                ("env_arch", 0f, 22f, 0f),
+                ("env_stone_wall", -5.2f, 22f, 0f), ("env_stone_wall", 5.2f, 22f, 0f),
+                ("env_banner", -2.6f, 19.5f, 0f), ("env_banner", 2.6f, 19.5f, 0f),
+                ("env_tent", 9.5f, 5.5f, -70f), ("env_campfire", 7.4f, 3.4f, 0f), ("env_stump", 6.3f, 4.6f, 30f),
+                ("env_husk_house", -10.5f, 14f, 140f), ("env_tree_blob", -15f, 20f, 0f), ("env_tree_blob", 13f, 21f, 80f),
+                ("env_tree_blob", 21f, 9f, 200f), ("env_tree_blob", -22f, 6f, 130f), ("env_tree_blob", -6f, 30f, 40f), ("env_tree_blob", 8f, 33f, 250f),
+                ("env_bush", -4.2f, 9f, 0f), ("env_bush", 4.6f, 12f, 90f), ("env_bush", 11f, 9f, 200f), ("env_bush", -8f, 8f, 300f), ("env_bush", 1.6f, 17f, 45f),
+                ("env_rock_cluster", 3.4f, 15f, 20f), ("env_rock_cluster", -12f, 8f, 110f), ("env_boulder", -3.2f, 14f, 70f), ("env_boulder", 15f, 13f, 10f),
+                ("prp_well", -6f, 10.5f, 0f), ("prp_market_stall", 5.6f, 9.2f, 200f), ("prp_cart", -12.5f, 10f, 60f),
+                ("prp_signpost", 3.2f, 11f, -20f), ("prp_fence", -7.5f, 5.5f, 20f), ("prp_cradle_shrine", 3f, 19f, 200f),
+                ("prp_dummy_training", -4.2f, 5.6f, 160f), ("prp_dummy_training", -5.8f, 6.3f, 190f)
+            };
+            var placed = new System.Collections.Generic.HashSet<string>();
+            foreach ((string name, float x, float z, float yaw) in layout)
+            {
+                string folder = name.StartsWith("env_") ? "Environment" : "Props";
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{ArtDir}/{folder}/{name}.glb");
+                if (prefab == null)
+                    continue;
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
+                instance.transform.localRotation = Quaternion.Euler(0f, yaw, 0f);
+                RestOn(instance, new Vector3(x, 0f, z));
                 MakeSolid(instance);
+                placed.Add(name);
+            }
+
+            // Anything not in the layout yet still appears, in a row at the back, so nothing is hidden.
+            float spareX = -12f;
+            foreach (string folder in new[] { "Environment", "Props" })
+            {
+                foreach (GameObject prefab in LoadModels(folder))
+                {
+                    if (placed.Contains(prefab.name) || prefab.name == "prp_table_long" || prefab.name == "prp_plinth_stone" || System.Array.IndexOf(loose, prefab.name) >= 0)
+                        continue;
+                    var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
+                    instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                    RestOn(instance, new Vector3(spareX, 0f, 38f));
+                    MakeSolid(instance);
+                    spareX += 5f;
+                }
             }
 
             // The people of Huskhaven, standing about as statues until they can be rigged.
