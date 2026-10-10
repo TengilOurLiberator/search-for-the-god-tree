@@ -116,7 +116,11 @@ Shader "Godtree/Ground"
                 half mixAB = smoothstep(0.3, 0.7, Noise(ground * 0.23));
                 // Far away the fine layer shimmers into a pattern, so lean on the large one there.
                 half far = saturate(distance(ground, _WorldSpaceCameraPos.xz) / 40.0);
-                half3 grass = lerp(grassA, grassB, saturate(mixAB + far * 0.6)) * _BaseColor.rgb;
+                half3 grass = lerp(grassA, grassB, saturate(mixAB + far * 0.6));
+                // Further still, any repeat shows as stripes on the hills, so fade to the texture's
+                // average colour (its smallest mip) and let the broad patches carry the variety.
+                half3 average = SAMPLE_TEXTURE2D_LOD(_BaseMap, sampler_BaseMap, uvA, 10).rgb;
+                grass = lerp(grass, average, saturate((distance(ground, _WorldSpaceCameraPos.xz) - 40.0) / 90.0) * 0.9) * _BaseColor.rgb;
 
                 // Broad sun-dried patches.
                 half patch = smoothstep(0.52, 0.78, Noise(ground * 0.06 + 11.0) * 0.7 + Noise(ground * 0.19) * 0.3);

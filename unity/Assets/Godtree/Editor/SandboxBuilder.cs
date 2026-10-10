@@ -77,11 +77,17 @@ namespace Godtree.EditorTools
             EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
             string outDir = Path.GetFullPath(Path.Combine(Application.dataPath, "../../docs/images"));
             Directory.CreateDirectory(outDir);
+            // Run fires forward a little, or a still picture shows them unlit.
+            foreach (ParticleSystem system in Object.FindObjectsByType<ParticleSystem>(FindObjectsSortMode.None))
+                if (system.transform.parent == null || system.transform.parent.GetComponent<ParticleSystem>() == null)
+                    system.Simulate(2f, true, true);
             Shot(new Vector3(1.6f, 1.7f, -1.4f), new Vector3(0f, 1.0f, 1.8f), Path.Combine(outDir, "sandbox_player_view.png"));
             Shot(new Vector3(0f, 7f, -4f), new Vector3(0f, 0.5f, 7f), Path.Combine(outDir, "sandbox_gallery_view.png"));
             Shot(new Vector3(0.9f, 1.25f, 0.45f), new Vector3(0.45f, 0.98f, 0.95f), Path.Combine(outDir, "sandbox_sword_closeup.png"));
             Shot(new Vector3(0f, 1.65f, -3f), new Vector3(0f, 6f, 40f), Path.Combine(outDir, "sandbox_horizon_view.png"));
             Shot(new Vector3(0f, 1.65f, 6f), new Vector3(0f, 5f, 40f), Path.Combine(outDir, "sandbox_road_view.png"));
+            Shot(new Vector3(4.4f, 1.65f, 0.4f), new Vector3(7.8f, 0.8f, 3.8f), Path.Combine(outDir, "sandbox_camp_view.png"));
+            Shot(new Vector3(0f, 1.65f, 15f), new Vector3(0f, 2f, 27f), Path.Combine(outDir, "sandbox_gate_view.png"));
         }
 
         private static void Shot(Vector3 from, Vector3 lookAt, string path)
@@ -580,7 +586,7 @@ namespace Godtree.EditorTools
                 ("env_arch", 0f, 22f, 0f),
                 ("env_stone_wall", -5.2f, 22f, 0f), ("env_stone_wall", 5.2f, 22f, 0f),
                 ("env_banner", -2.6f, 19.5f, 0f), ("env_banner", 2.6f, 19.5f, 0f),
-                ("env_tent", 9.5f, 5.5f, -70f), ("env_campfire", 7.4f, 3.4f, 0f), ("env_stump", 6.3f, 4.6f, 30f),
+                ("env_tent", 11.2f, 6.6f, -70f), ("env_campfire", 7.4f, 3.4f, 0f), ("env_stump", 8.3f, 1.9f, 30f),
                 ("env_husk_house", -10.5f, 14f, 140f), ("env_tree_blob", -15f, 20f, 0f), ("env_tree_blob", 13f, 21f, 80f),
                 ("env_tree_blob", 21f, 9f, 200f), ("env_tree_blob", -22f, 6f, 130f), ("env_tree_blob", -6f, 30f, 40f), ("env_tree_blob", 8f, 33f, 250f),
                 ("env_bush", -4.2f, 9f, 0f), ("env_bush", 4.6f, 12f, 90f), ("env_bush", 11f, 9f, 200f), ("env_bush", -8f, 8f, 300f), ("env_bush", 1.6f, 17f, 45f),
@@ -619,28 +625,157 @@ namespace Godtree.EditorTools
                 }
             }
 
-            // The people of Huskhaven, standing about as statues until they can be rigged.
-            var people = LoadModels("Characters");
-            for (int i = 0; i < people.Count; i++)
+            // The people of Huskhaven, each where they would be, as statues until they can be rigged:
+            // name, where they stand (x, z), what they face (x, z).
+            var spots = new System.Collections.Generic.Dictionary<string, (float x, float z, float lookX, float lookZ)>
             {
-                var instance = (GameObject)PrefabUtility.InstantiatePrefab(people[i], gallery.transform);
-                float angle = Mathf.Lerp(25f, 75f, people.Count == 1 ? 0.5f : (float)i / (people.Count - 1));
-                Vector3 spot = new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad) * 5.2f, 0f, 1f + Mathf.Cos(angle * Mathf.Deg2Rad) * 5.2f);
-                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 1f - spot.z));
-                RestOn(instance, spot);
+                { "chr_rooted_merchant", (5.2f, 10.6f, 2f, 4f) },
+                { "chr_rooted_smith", (2.3f, 3.4f, 0f, 0f) },
+                { "chr_rooted_innkeeper", (-8.6f, 11.6f, 0f, 2f) },
+                { "chr_rooted_elder", (4.6f, 17.4f, 0f, 8f) },
+                { "chr_rooted_child", (-4.9f, 9.6f, -6f, 10.5f) },
+                { "chr_woken_starter", (9.3f, 3.1f, 7.4f, 3.4f) },
+                { "chr_woken_weaver", (8.4f, 5.1f, 7.4f, 3.4f) },
+                { "chr_woken_shieldbearer", (6.4f, 5.2f, 7.4f, 3.4f) }
+            };
+            var people = LoadModels("Characters");
+            float spareSpot = 0f;
+            foreach (GameObject person in people)
+            {
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(person, gallery.transform);
+                if (!spots.TryGetValue(person.name, out (float x, float z, float lookX, float lookZ) spot))
+                    spot = (12f + (spareSpot += 1.2f), 1f, 0f, 0f);
+                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(spot.lookX - spot.x, 0f, spot.lookZ - spot.z));
+                RestOn(instance, new Vector3(spot.x, 0f, spot.z));
                 MakeSolid(instance);
             }
 
-            // Creatures on the far left, facing the player.
+            // Creatures wait beyond the wall, either side of the road, facing the gate.
             var creatures = LoadModels("Enemies");
             for (int i = 0; i < creatures.Count; i++)
             {
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(creatures[i], gallery.transform);
-                Vector3 spot = new Vector3(-7f - 2.4f * (i % 4), 0f, 5.5f + 3.5f * (i / 4));
-                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, -spot.z));
+                int side = i % 2 == 0 ? -1 : 1;
+                Vector3 spot = new Vector3(side * (3.2f + 3.1f * (i / 2)), 0f, 26.5f + 1.2f * (i / 2));
+                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 20f - spot.z));
                 RestOn(instance, spot);
                 MakeSolid(instance);
             }
+
+            BuildCampfire(gallery.transform, new Vector3(7.4f, 0f, 3.4f));
+            AddLoopingSound(gallery.transform, "Shrine hum", "sfx_cradle_hum_01", new Vector3(3f, 1f, 19f), 0.35f, 9f);
+        }
+
+        /// <summary>Flames, sparks, a wavering warm light and a crackle on the campfire model.</summary>
+        private static void BuildCampfire(Transform parent, Vector3 position)
+        {
+            Shader glow = Shader.Find("Godtree/Glow");
+            if (glow == null)
+            {
+                Debug.LogWarning("[Godtree] Godtree/Glow shader not found; the campfire stays cold");
+                return;
+            }
+            string path = SandboxDir + "/Materials/Sandbox_Flame.mat";
+            var material = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (material == null)
+            {
+                material = new Material(glow);
+                AssetDatabase.CreateAsset(material, path);
+            }
+            material.shader = glow;
+            material.SetFloat("_Intensity", 2.2f);
+            material.SetFloat("_Softness", 1.5f);
+            EditorUtility.SetDirty(material);
+
+            var fire = new GameObject("Campfire (flames)");
+            fire.transform.SetParent(parent, false);
+            fire.transform.position = position + Vector3.up * 0.22f;
+            fire.transform.rotation = Quaternion.Euler(-90f, 0f, 0f); // particle cones point along Z
+
+            ParticleSystem flames = fire.AddComponent<ParticleSystem>();
+            ConfigureFire(flames, material, rate: 34f, life: (0.55f, 1.0f), speed: (0.55f, 1.1f), size: (0.22f, 0.42f), radius: 0.16f,
+                new Color(1f, 0.86f, 0.42f), new Color(1f, 0.42f, 0.12f), new Color(0.75f, 0.12f, 0.05f));
+
+            var sparkObject = new GameObject("Sparks");
+            sparkObject.transform.SetParent(fire.transform, false);
+            ParticleSystem sparks = sparkObject.AddComponent<ParticleSystem>();
+            ConfigureFire(sparks, material, rate: 7f, life: (1.2f, 2.2f), speed: (0.9f, 1.8f), size: (0.025f, 0.05f), radius: 0.12f,
+                new Color(1f, 0.9f, 0.6f), new Color(1f, 0.6f, 0.2f), new Color(1f, 0.3f, 0.1f));
+            ParticleSystem.NoiseModule drift = sparks.noise;
+            drift.enabled = true;
+            drift.strength = 0.5f;
+            drift.frequency = 0.8f;
+
+            var lightObject = new GameObject("Firelight");
+            lightObject.transform.SetParent(fire.transform, false);
+            lightObject.transform.position = position + Vector3.up * 0.7f;
+            Light light = lightObject.AddComponent<Light>();
+            light.type = LightType.Point;
+            light.color = new Color(1f, 0.62f, 0.28f);
+            light.range = 6f;
+            light.intensity = 2.2f;
+            light.shadows = LightShadows.None;
+            lightObject.AddComponent<Godtree.Sandbox.FireFlicker>();
+
+            AddLoopingSound(fire.transform, "Crackle", "sfx_lantern_flame_01", position + Vector3.up * 0.3f, 0.5f, 8f);
+        }
+
+        private static void ConfigureFire(ParticleSystem system, Material material, float rate, (float min, float max) life, (float min, float max) speed,
+            (float min, float max) size, float radius, Color young, Color middle, Color old)
+        {
+            ParticleSystem.MainModule main = system.main;
+            main.loop = true;
+            main.startLifetime = new ParticleSystem.MinMaxCurve(life.min, life.max);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(speed.min, speed.max);
+            main.startSize = new ParticleSystem.MinMaxCurve(size.min, size.max);
+            main.startColor = Color.white;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
+            main.maxParticles = 200;
+
+            ParticleSystem.EmissionModule emission = system.emission;
+            emission.rateOverTime = rate;
+
+            ParticleSystem.ShapeModule shape = system.shape;
+            shape.shapeType = ParticleSystemShapeType.Cone;
+            shape.angle = 9f;
+            shape.radius = radius;
+
+            ParticleSystem.ColorOverLifetimeModule colour = system.colorOverLifetime;
+            colour.enabled = true;
+            var gradient = new Gradient();
+            gradient.SetKeys(
+                new[] { new GradientColorKey(young, 0f), new GradientColorKey(middle, 0.45f), new GradientColorKey(old, 1f) },
+                new[] { new GradientAlphaKey(0f, 0f), new GradientAlphaKey(0.9f, 0.12f), new GradientAlphaKey(0.6f, 0.6f), new GradientAlphaKey(0f, 1f) });
+            colour.color = gradient;
+
+            ParticleSystem.SizeOverLifetimeModule shrink = system.sizeOverLifetime;
+            shrink.enabled = true;
+            shrink.size = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.Linear(0f, 1f, 1f, 0.25f));
+
+            var renderer = system.GetComponent<ParticleSystemRenderer>();
+            renderer.sharedMaterial = material;
+            renderer.renderMode = ParticleSystemRenderMode.Billboard;
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
+
+        /// <summary>A sound that plays on a loop from one place and fades with distance.</summary>
+        private static void AddLoopingSound(Transform parent, string name, string clipId, Vector3 position, float volume, float range)
+        {
+            var clip = AssetDatabase.LoadAssetAtPath<AudioClip>($"{AudioDir}/Sfx/{clipId}.ogg");
+            if (clip == null)
+                return;
+            var holder = new GameObject(name + " (sound)");
+            holder.transform.SetParent(parent, false);
+            holder.transform.position = position;
+            AudioSource source = holder.AddComponent<AudioSource>();
+            source.clip = clip;
+            source.loop = true;
+            source.playOnAwake = true;
+            source.volume = volume;
+            source.spatialBlend = 1f;
+            source.rolloffMode = AudioRolloffMode.Linear;
+            source.minDistance = 1f;
+            source.maxDistance = range;
         }
 
         private static float WorldBoundsOfPrefab(GameObject prefab)
