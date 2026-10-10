@@ -54,3 +54,12 @@ The owner was away, so these were done by rendering:
 - **Grip check** (`docs/images/grip_check.png`): each weapon from above with its palm point and pointing direction drawn on. It showed the dagger, greatsword and rapier would be held by the blade (their concept art was drawn point-down) and the buckler was treated as a blade. Holds are now taken from each model's own long axis and where it is widest. All twenty look right in the render; none has been held yet.
 - **Menu preview** (`docs/images/menu_preview.png`): the mirror showed the menu itself and only the player's legs. Fixed; the board is now opaque.
 - **Shader**: the first version drew everything black. Cause: it borrowed passes from Unity's standard shader, whose material layout differs. It now has its own passes.
+
+## Changes made without a headset (2026-10-10, evening)
+
+None of these has been seen or felt in a headset yet.
+
+- **Training dummy.** The plain cylinders are replaced by the generated sack-and-helmet model, drawn as three pieces (stand, sack, head) that each rock on their own spring. Its springs are stiffer and better damped than before, because with the old values the taller sack swayed for six seconds after one blow. To judge in the headset: does it feel solid, and does it settle quickly enough.
+- **Ground.** The repeating pattern in the grass is gone, a dirt road runs from the spawn through the arch, and hills ring the meadow.
+- **Flickering grey patches on the floor** around the plinth were the base scene's own floor showing through the meadow. It is hidden now.
+- **Layout.** Scenery is arranged as a road, an arch with walls and banners, a camp on the right and a house, well and cart on the left.

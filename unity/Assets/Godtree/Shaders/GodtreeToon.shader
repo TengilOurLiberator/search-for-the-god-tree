@@ -15,6 +15,12 @@ Shader "Godtree/Toon"
         _RimStrength ("Rim Strength", Range(0, 1)) = 0.30
         _SkyFill ("Sky Fill", Range(0, 1)) = 0.35
         _Brightness ("Brightness", Range(0.5, 2)) = 1.08
+        // Show only the part of the mesh between two heights along an axis (object space).
+        // Lets one model be drawn as separate moving pieces, as the training dummy is.
+        _ClipAxis ("Slice Axis", Vector) = (0, 1, 0, 0)
+        _ClipMin ("Slice From", Float) = -100000
+        _ClipMax ("Slice To", Float) = 100000
+        [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Float) = 2
     }
 
     SubShader
@@ -38,13 +44,20 @@ Shader "Godtree/Toon"
             half _RimStrength;
             half _SkyFill;
             half _Brightness;
+            float4 _ClipAxis;
+            float _ClipMin;
+            float _ClipMax;
         CBUFFER_END
+
+        float SliceCoord(float3 positionOS) { return dot(positionOS, _ClipAxis.xyz); }
+        void ClipSlice(float coord) { clip(min(coord - _ClipMin, _ClipMax - coord)); }
         ENDHLSL
 
         Pass
         {
             Name "ForwardLit"
             Tags { "LightMode" = "UniversalForward" }
+            Cull [_Cull]
 
             HLSLPROGRAM
             #pragma vertex vert
@@ -71,6 +84,7 @@ Shader "Godtree/Toon"
                 float3 normalWS : TEXCOORD1;
                 float3 positionWS : TEXCOORD2;
                 float fogFactor : TEXCOORD3;
+                float slice : TEXCOORD4;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
                 UNITY_VERTEX_OUTPUT_STEREO
             };
@@ -88,6 +102,7 @@ Shader "Godtree/Toon"
                 output.normalWS = TransformObjectToWorldNormal(input.normalOS);
                 output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
                 output.fogFactor = ComputeFogFactor(positions.positionCS.z);
+                output.slice = SliceCoord(input.positionOS.xyz);
                 return output;
             }
 
@@ -96,6 +111,7 @@ Shader "Godtree/Toon"
                 UNITY_SETUP_INSTANCE_ID(input);
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
+                ClipSlice(input.slice);
                 half4 albedo = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv) * _BaseColor;
                 float3 normal = normalize(input.normalWS);
                 float3 view = normalize(GetWorldSpaceViewDir(input.positionWS));
@@ -127,6 +143,7 @@ Shader "Godtree/Toon"
             ZWrite On
             ZTest LEqual
             ColorMask 0
+            Cull [_Cull]
 
             HLSLPROGRAM
             #pragma vertex shadowVert
@@ -145,7 +162,13 @@ Shader "Godtree/Toon"
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
-            float4 shadowVert(ShadowAttributes input) : SV_POSITION
+            struct ShadowVaryings
+            {
+                float4 positionCS : SV_POSITION;
+                float slice : TEXCOORD0;
+            };
+
+            ShadowVaryings shadowVert(ShadowAttributes input)
             {
                 UNITY_SETUP_INSTANCE_ID(input);
                 float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
@@ -161,10 +184,17 @@ Shader "Godtree/Toon"
                 #else
                     positionCS.z = max(positionCS.z, UNITY_NEAR_CLIP_VALUE);
                 #endif
-                return positionCS;
+                ShadowVaryings output;
+                output.positionCS = positionCS;
+                output.slice = SliceCoord(input.positionOS.xyz);
+                return output;
             }
 
-            half4 shadowFrag() : SV_Target { return 0; }
+            half4 shadowFrag(ShadowVaryings input) : SV_Target
+            {
+                ClipSlice(input.slice);
+                return 0;
+            }
             ENDHLSL
         }
 
@@ -174,6 +204,7 @@ Shader "Godtree/Toon"
             Tags { "LightMode" = "DepthOnly" }
             ZWrite On
             ColorMask R
+            Cull [_Cull]
 
             HLSLPROGRAM
             #pragma vertex depthVert
@@ -189,6 +220,7 @@ Shader "Godtree/Toon"
             struct DepthVaryings
             {
                 float4 positionCS : SV_POSITION;
+                float slice : TEXCOORD0;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
                 UNITY_VERTEX_OUTPUT_STEREO
             };
@@ -200,16 +232,19 @@ Shader "Godtree/Toon"
                 UNITY_TRANSFER_INSTANCE_ID(input, output);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
                 output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
+                output.slice = SliceCoord(input.positionOS.xyz);
                 return output;
             }
 
             half4 depthFrag(DepthVaryings input) : SV_Target
             {
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+                ClipSlice(input.slice);
                 return 0;
             }
             ENDHLSL
-        }    }
+        }
+    }
 
     FallBack "Universal Render Pipeline/Lit"
 }

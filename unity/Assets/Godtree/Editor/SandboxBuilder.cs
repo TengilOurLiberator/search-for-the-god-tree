@@ -262,6 +262,11 @@ namespace Godtree.EditorTools
             if (baseEnvironment != null)
                 foreach (MeshRenderer baseRenderer in baseEnvironment.GetComponentsInChildren<MeshRenderer>())
                     baseRenderer.enabled = false;
+            // The base scene's floor is a loose object at the top level, exactly level with the meadow,
+            // so the two flickered through each other in grey patches.
+            foreach (GameObject top in scene.GetRootGameObjects())
+                if (top.name == "Ground" && top.TryGetComponent(out MeshRenderer topRenderer))
+                    topRenderer.enabled = false;
 
             // A stone plinth holding the sword at hand height, one step in front of the spawn.
             GameObject plinth = Primitive(PrimitiveType.Cube, "Plinth", root.transform, new Vector3(0.45f, 0.45f, 0.9f), new Vector3(0.45f, 0.9f, 1.15f), stone);
@@ -283,6 +288,7 @@ namespace Godtree.EditorTools
             BuildAmbience(root.transform);
 
             ApplyToonToGeneratedModels(root);
+            SliceDummy();
             BuildLook(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -311,10 +317,17 @@ namespace Godtree.EditorTools
             MakeWeapon(sword, 0.5f);
         }
 
+        // The dummy's three drawn pieces and the two heights (world, at rest) where the model is cut.
+        private static GameObject[] _dummyPieces;
+        private static float _dummyLowCut, _dummyNeckCut;
+
         /// <summary>
-        /// Training dummy, first in-house physically simulated target: a fixed post with a
-        /// torso, head and two arms hung on spring-driven joints, so every part reacts to
-        /// the real force of a hit and then recovers its pose.
+        /// Training dummy, first in-house physically simulated target. It is the generated
+        /// sack-and-helmet model, drawn three times with each copy showing one slice: the stand
+        /// (fixed), the sack (hung on a spring from the post) and the head (hung on a spring from
+        /// the sack). Every part reacts to the real force of a hit and then recovers its pose.
+        /// The cut heights are found from the model's own outline: the post is its narrowest
+        /// place low down and the neck its narrowest place high up.
         /// </summary>
         private static void BuildDummy(Transform parent, Vector3 position, Material wood, Material straw, Material steel)
         {
@@ -322,42 +335,179 @@ namespace Godtree.EditorTools
             dummy.transform.SetParent(parent, false);
             dummy.transform.position = position;
 
-            GameObject baseA = Primitive(PrimitiveType.Cube, "BaseA", dummy.transform, new Vector3(0f, 0.04f, 0f), new Vector3(0.9f, 0.08f, 0.12f), wood);
-            GameObject baseB = Primitive(PrimitiveType.Cube, "BaseB", dummy.transform, new Vector3(0f, 0.04f, 0f), new Vector3(0.12f, 0.08f, 0.9f), wood);
-            baseA.isStatic = true;
-            baseB.isStatic = true;
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(ArtDir + "/Props/prp_dummy_training.glb");
+            if (prefab == null)
+            {
+                Debug.LogError("[Godtree] prp_dummy_training.glb is missing; the sandbox has no dummy");
+                return;
+            }
 
-            GameObject post = Primitive(PrimitiveType.Cylinder, "Post", dummy.transform, new Vector3(0f, 0.45f, 0f), new Vector3(0.1f, 0.45f, 0.1f), wood);
+            const float height = 1.7f;
+            string[] names = { "Dummy stand (model)", "Dummy sack (model)", "Dummy head (model)" };
+            _dummyPieces = new GameObject[3];
+            for (int i = 0; i < 3; i++)
+            {
+                var piece = (GameObject)PrefabUtility.InstantiatePrefab(prefab, dummy.transform);
+                piece.name = names[i];
+                piece.transform.localRotation = Quaternion.Euler(0f, DummyYaw, 0f);
+                piece.transform.localScale *= height / WorldBounds(piece).size.y;
+                RestOn(piece, position);
+                _dummyPieces[i] = piece;
+            }
+
+            // Outline of the model: how wide it is at each height.
+            var points = new System.Collections.Generic.List<Vector3>();
+            // Points are spread across every triangle, not just its corners: the simplified mesh
+            // has long triangles down the post with no corners in between.
+            foreach (MeshFilter filter in _dummyPieces[0].GetComponentsInChildren<MeshFilter>())
+            {
+                Vector3[] vertices = filter.sharedMesh.vertices;
+                int[] indices = filter.sharedMesh.triangles;
+                for (int i = 0; i < indices.Length; i += 3)
+                {
+                    Vector3 a = filter.transform.TransformPoint(vertices[indices[i]]);
+                    Vector3 b = filter.transform.TransformPoint(vertices[indices[i + 1]]);
+                    Vector3 c = filter.transform.TransformPoint(vertices[indices[i + 2]]);
+                    float longest = Mathf.Max((a - b).magnitude, (b - c).magnitude, (c - a).magnitude);
+                    int steps = Mathf.Clamp(Mathf.CeilToInt(longest / 0.025f), 1, 24);
+                    for (int s = 0; s <= steps; s++)
+                        for (int q = 0; q <= steps - s; q++)
+                            points.Add(a + (b - a) * (s / (float)steps) + (c - a) * (q / (float)steps));
+                }
+            }
+            const int bins = 48;
+            float bottom = position.y;
+            var width = new float[bins];
+            for (int b = 0; b < bins; b++)
+            {
+                float from = bottom + height * b / bins, to = bottom + height * (b + 1) / bins;
+                width[b] = SliceBounds(points, from, to, out Bounds slice) ? Mathf.Max(slice.size.x, slice.size.z) : (b > 0 ? width[b - 1] : 0f);
+            }
+            int postBin = Narrowest(width, bins * 8 / 100, bins * 40 / 100);
+            int sackBin = postBin;
+            while (sackBin < bins - 1 && width[sackBin] < width[postBin] * 1.7f)
+                sackBin++;
+            // The neck is the narrowest place between the middle of the sack and the helmet's brim,
+            // the brim being the widest place near the top.
+            int brimBin = bins * 70 / 100;
+            for (int b = brimBin; b <= bins * 92 / 100; b++)
+                if (width[b] > width[brimBin])
+                    brimBin = b;
+            int neckBin = Narrowest(width, bins * 55 / 100, brimBin);
+            _dummyLowCut = bottom + height * sackBin / bins;
+            _dummyNeckCut = bottom + height * (neckBin + 0.5f) / bins;
+            SliceBounds(points, bottom, _dummyLowCut, out Bounds stand);
+            SliceBounds(points, _dummyLowCut, _dummyNeckCut, out Bounds sack);
+            SliceBounds(points, _dummyNeckCut, bottom + height + 1f, out Bounds helm);
+            Debug.Log($"[Godtree] dummy cuts: post {width[postBin]:F2} m wide, sack from {_dummyLowCut:F2} m, neck at {_dummyNeckCut:F2} m; sack {sack.size}, head {helm.size}");
+
+            // Stand: plain hidden shapes to collide with, never moving.
+            GameObject foot = Primitive(PrimitiveType.Cube, "Base", dummy.transform, new Vector3(0f, 0.06f, 0f), new Vector3(stand.size.x * 0.8f, 0.12f, stand.size.z * 0.8f), wood);
+            foot.isStatic = true;
+            foot.GetComponent<MeshRenderer>().enabled = false;
+            float postHeight = _dummyLowCut - bottom;
+            GameObject post = Primitive(PrimitiveType.Cylinder, "Post", dummy.transform, new Vector3(0f, postHeight * 0.5f, 0f), new Vector3(width[postBin], postHeight * 0.5f, width[postBin]), wood);
+            post.GetComponent<MeshRenderer>().enabled = false;
             Rigidbody postBody = post.AddComponent<Rigidbody>();
             postBody.isKinematic = true;
             AddImpactSound(post, "sfx_sword_hit_wood_heavy");
 
-            GameObject torso = Primitive(PrimitiveType.Cylinder, "Torso", dummy.transform, new Vector3(0f, 1.15f, 0f), new Vector3(0.36f, 0.28f, 0.30f), straw);
+            // Sack: one round body hung from the top of the post.
+            var torso = new GameObject("Torso");
+            torso.transform.SetParent(dummy.transform, false);
+            torso.transform.position = sack.center;
             Rigidbody torsoBody = Body(torso, 14f);
-            Spring(torsoBody, postBody, new Vector3(0f, -1f, 0f), 900f, 35f);
+            // The narrower way across: the wider one includes the stub arms.
+            float sackWidth = Mathf.Min(sack.size.x, sack.size.z) * 0.95f;
+            GameObject sackShape = Primitive(PrimitiveType.Capsule, "Shape", torso.transform, Vector3.zero, new Vector3(sackWidth, Mathf.Max(sack.size.y, sackWidth) * 0.5f, sackWidth), straw);
+            sackShape.GetComponent<MeshRenderer>().enabled = false;
+            _dummyPieces[1].transform.SetParent(torso.transform, true);
+            // Stiffer and better damped than the first dummy: this sack is taller and carries the
+            // head high above the pivot, and with the old values it swayed for six seconds.
+            Spring(torsoBody, postBody, new Vector3(0f, _dummyLowCut - sack.center.y, 0f), 2600f, 170f);
             torso.AddComponent<ImpactFlash>();
             AddImpactSound(torso, "sfx_sword_hit_straw");
 
-            GameObject head = Primitive(PrimitiveType.Sphere, "Head", dummy.transform, new Vector3(0f, 1.60f, 0f), new Vector3(0.26f, 0.28f, 0.26f), straw);
-            Rigidbody headBody = Body(head, 4f);
-            Spring(headBody, torsoBody, new Vector3(0f, -0.5f, 0f), 220f, 10f);
+            // Head and helmet: a ball hung from the neck.
+            var head = new GameObject("Head");
+            head.transform.SetParent(dummy.transform, false);
+            head.transform.position = helm.center;
+            Rigidbody headBody = Body(head, 2f);
+            float headWidth = Mathf.Min((helm.size.x + helm.size.z) * 0.5f, helm.size.y) * 0.95f;
+            GameObject headShape = Primitive(PrimitiveType.Sphere, "Shape", head.transform, Vector3.zero, Vector3.one * headWidth, steel);
+            headShape.GetComponent<MeshRenderer>().enabled = false;
+            _dummyPieces[2].transform.SetParent(head.transform, true);
+            Spring(headBody, torsoBody, new Vector3(0f, _dummyNeckCut - helm.center.y, 0f), 320f, 16f);
             head.AddComponent<ImpactFlash>();
             AddImpactSound(head, "sfx_sword_hit_metal");
+        }
 
-            GameObject helmet = Primitive(PrimitiveType.Sphere, "Helmet", head.transform, new Vector3(0f, 0.28f, 0f), new Vector3(1.15f, 0.7f, 1.15f), steel);
-            Object.DestroyImmediate(helmet.GetComponent<Collider>());
+        // Which way the dummy model is turned so its painted target faces the player.
+        private const float DummyYaw = 180f;
 
-            for (int side = -1; side <= 1; side += 2)
+        /// <summary>
+        /// Gives each drawn piece of the dummy its own copy of the model's material, set to show
+        /// only that piece's slice. Runs after the toon materials exist.
+        /// </summary>
+        private static void SliceDummy()
+        {
+            if (_dummyPieces == null)
+                return;
+            for (int i = 0; i < _dummyPieces.Length; i++)
             {
-                string label = side < 0 ? "ArmL" : "ArmR";
-                GameObject arm = Primitive(PrimitiveType.Cylinder, label, dummy.transform, new Vector3(side * 0.36f, 1.28f, 0f), new Vector3(0.07f, 0.18f, 0.07f), wood);
-                arm.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
-                Rigidbody armBody = Body(arm, 2f);
-                // Anchor at the shoulder end of the arm (cylinder local Y runs along its length).
-                Spring(armBody, torsoBody, new Vector3(0f, side * 1f, 0f), 120f, 6f);
-                arm.AddComponent<ImpactFlash>();
-                AddImpactSound(arm, "sfx_sword_hit_wood_light");
+                int r = 0;
+                foreach (Renderer renderer in _dummyPieces[i].GetComponentsInChildren<Renderer>())
+                {
+                    string path = $"{SandboxDir}/Materials/Sandbox_DummyPiece{i}_{r++}.mat";
+                    var material = AssetDatabase.LoadAssetAtPath<Material>(path);
+                    if (material == null)
+                    {
+                        material = new Material(renderer.sharedMaterial);
+                        AssetDatabase.CreateAsset(material, path);
+                    }
+                    material.shader = renderer.sharedMaterial.shader;
+                    material.CopyPropertiesFromMaterial(renderer.sharedMaterial);
+                    Transform t = renderer.transform;
+                    Vector3 axis = t.InverseTransformDirection(Vector3.up).normalized;
+                    float low = Vector3.Dot(axis, t.InverseTransformPoint(new Vector3(t.position.x, _dummyLowCut, t.position.z)));
+                    float neck = Vector3.Dot(axis, t.InverseTransformPoint(new Vector3(t.position.x, _dummyNeckCut, t.position.z)));
+                    material.SetVector("_ClipAxis", axis);
+                    material.SetFloat("_ClipMin", i == 0 ? -100000f : i == 1 ? low : neck);
+                    material.SetFloat("_ClipMax", i == 0 ? low : i == 1 ? neck : 100000f);
+                    // Both sides drawn, so a cut edge shows the inside of the sack and not a hole.
+                    material.SetFloat("_Cull", 0f);
+                    EditorUtility.SetDirty(material);
+                    renderer.sharedMaterial = material;
+                }
             }
+            _dummyPieces = null;
+        }
+
+        /// <summary>Bounds of the points whose height lies in a band; false if there are none.</summary>
+        private static bool SliceBounds(System.Collections.Generic.List<Vector3> points, float from, float to, out Bounds bounds)
+        {
+            bounds = default;
+            bool any = false;
+            foreach (Vector3 point in points)
+            {
+                if (point.y < from || point.y >= to)
+                    continue;
+                if (!any)
+                    bounds = new Bounds(point, Vector3.zero);
+                else
+                    bounds.Encapsulate(point);
+                any = true;
+            }
+            return any;
+        }
+
+        private static int Narrowest(float[] width, int from, int to)
+        {
+            int best = from;
+            for (int b = from; b <= to && b < width.Length; b++)
+                if (width[b] < width[best])
+                    best = b;
+            return best;
         }
 
         /// <summary>
@@ -901,6 +1051,7 @@ namespace Godtree.EditorTools
             Directory.CreateDirectory(dir);
             AssetDatabase.Refresh();
             var cache = new System.Collections.Generic.Dictionary<Material, Material>();
+            var used = new System.Collections.Generic.HashSet<string>();
             int swapped = 0;
             foreach (Renderer renderer in root.GetComponentsInChildren<Renderer>(true))
             {
@@ -918,7 +1069,9 @@ namespace Godtree.EditorTools
                             if (texture == null && source.HasProperty(property))
                                 texture = source.GetTexture(property);
                         string modelName = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(source));
-                        string path = $"{dir}/{modelName}_{cache.Count}.mat";
+                        string path = $"{dir}/{modelName}.mat";
+                        for (int n = 2; !used.Add(path); n++)
+                            path = $"{dir}/{modelName}_{n}.mat";
                         replacement = AssetDatabase.LoadAssetAtPath<Material>(path);
                         if (replacement == null)
                         {
@@ -937,6 +1090,13 @@ namespace Godtree.EditorTools
                 }
                 if (changed)
                     renderer.sharedMaterials = materials;
+            }
+            // Materials left over from models no longer in the scene.
+            foreach (string guid in AssetDatabase.FindAssets("t:Material", new[] { dir }))
+            {
+                string stale = AssetDatabase.GUIDToAssetPath(guid);
+                if (!used.Contains(stale))
+                    AssetDatabase.DeleteAsset(stale);
             }
             Debug.Log($"[Godtree] Toon materials applied: {swapped}");
         }
