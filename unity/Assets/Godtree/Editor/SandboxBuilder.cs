@@ -399,25 +399,51 @@ namespace Godtree.EditorTools
                 }
             }
 
-            float envX = -6f;
-            foreach (GameObject prefab in LoadModels("Environment"))
+            // Scenery in a wide arc beyond the dummy: small pieces near, big ones far.
+            var scenery = LoadModels("Environment");
+            scenery.Sort((x, y) => WorldBoundsOfPrefab(x).CompareTo(WorldBoundsOfPrefab(y)));
+            for (int i = 0; i < scenery.Count; i++)
             {
-                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
-                instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-                RestOn(instance, new Vector3(envX, 0f, 12f));
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(scenery[i], gallery.transform);
+                float angle = Mathf.Lerp(-70f, 70f, scenery.Count == 1 ? 0.5f : i % 2 == 0 ? 0.5f + 0.5f * i / scenery.Count : 0.5f - 0.5f * i / scenery.Count);
+                float radius = 9f + 1.1f * i;
+                Vector3 spot = new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad) * radius, 0f, 3f + Mathf.Cos(angle * Mathf.Deg2Rad) * radius);
+                instance.transform.localRotation = Quaternion.Euler(0f, 180f + angle, 0f);
+                RestOn(instance, spot);
                 MakeSolid(instance);
-                envX += 8f;
             }
 
-            float enemyX = 4f;
-            foreach (GameObject prefab in LoadModels("Enemies"))
+            // The people of Huskhaven, standing about as statues until they can be rigged.
+            var people = LoadModels("Characters");
+            for (int i = 0; i < people.Count; i++)
             {
-                var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
-                instance.transform.localRotation = Quaternion.Euler(0f, 200f, 0f);
-                RestOn(instance, new Vector3(enemyX, 0f, 9f));
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(people[i], gallery.transform);
+                float angle = Mathf.Lerp(25f, 75f, people.Count == 1 ? 0.5f : (float)i / (people.Count - 1));
+                Vector3 spot = new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad) * 5.2f, 0f, 1f + Mathf.Cos(angle * Mathf.Deg2Rad) * 5.2f);
+                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 1f - spot.z));
+                RestOn(instance, spot);
                 MakeSolid(instance);
-                enemyX += 3.5f;
             }
+
+            // Creatures on the far left, facing the player.
+            var creatures = LoadModels("Enemies");
+            for (int i = 0; i < creatures.Count; i++)
+            {
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(creatures[i], gallery.transform);
+                Vector3 spot = new Vector3(-7f - 2.4f * (i % 4), 0f, 5.5f + 3.5f * (i / 4));
+                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, -spot.z));
+                RestOn(instance, spot);
+                MakeSolid(instance);
+            }
+        }
+
+        private static float WorldBoundsOfPrefab(GameObject prefab)
+        {
+            float largest = 0f;
+            foreach (MeshFilter filter in prefab.GetComponentsInChildren<MeshFilter>())
+                if (filter.sharedMesh != null)
+                    largest = Mathf.Max(largest, filter.sharedMesh.bounds.size.magnitude);
+            return largest;
         }
 
         private static System.Collections.Generic.List<GameObject> LoadModels(string folder)

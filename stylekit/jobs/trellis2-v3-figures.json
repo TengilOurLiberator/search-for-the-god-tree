@@ -1,0 +1,137 @@
+{
+    "_about":  "Characters and creatures from existing golden concepts, through TRELLIS.2, as unrigged statues for the sandbox. The lead judges each before publishing.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "chr_woken_starter",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_woken_starter.png",
+                     "image":  "con_woken_starter.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.7
+                 },
+                 {
+                     "id":  "chr_woken_weaver",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_woken_weaver.png",
+                     "image":  "con_woken_weaver.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.7
+                 },
+                 {
+                     "id":  "chr_woken_shieldbearer",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_woken_shieldbearer.png",
+                     "image":  "con_woken_shieldbearer.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.75
+                 },
+                 {
+                     "id":  "chr_rooted_innkeeper",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_rooted_innkeeper.png",
+                     "image":  "con_rooted_innkeeper.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.75
+                 },
+                 {
+                     "id":  "chr_rooted_smith",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_rooted_smith.png",
+                     "image":  "con_rooted_smith.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.7
+                 },
+                 {
+                     "id":  "chr_rooted_elder",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_rooted_elder.png",
+                     "image":  "con_rooted_elder.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.55
+                 },
+                 {
+                     "id":  "chr_rooted_merchant",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_rooted_merchant.png",
+                     "image":  "con_rooted_merchant.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.9
+                 },
+                 {
+                     "id":  "chr_rooted_child",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_rooted_child.png",
+                     "image":  "con_rooted_child.png",
+                     "budget_class":  "character_npc",
+                     "tris":  25000,
+                     "tex":  2048,
+                     "size":  1.2
+                 },
+                 {
+                     "id":  "enm_barkbound",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_barkbound.png",
+                     "image":  "con_barkbound.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  20000,
+                     "tex":  2048,
+                     "size":  1.9
+                 },
+                 {
+                     "id":  "enm_root_crawler",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_root_crawler.png",
+                     "image":  "con_root_crawler.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  15000,
+                     "tex":  2048,
+                     "size":  1.1
+                 },
+                 {
+                     "id":  "enm_mote_wisp",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_mote_wisp.png",
+                     "image":  "con_mote_wisp.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  12000,
+                     "tex":  2048,
+                     "size":  0.6
+                 },
+                 {
+                     "id":  "enm_thornback_elder",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_thornback_elder.png",
+                     "image":  "con_thornback_elder.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  20000,
+                     "tex":  2048,
+                     "size":  2.6
+                 },
+                 {
+                     "id":  "enm_burrling_alpha",
+                     "seed":  1101,
+                     "image_path":  "../golden/concepts/con_burrling_alpha.png",
+                     "image":  "con_burrling_alpha.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  15000,
+                     "tex":  2048,
+                     "size":  0.9
+                 }
+             ]
+}

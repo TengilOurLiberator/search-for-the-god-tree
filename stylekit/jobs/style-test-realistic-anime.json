@@ -1,0 +1,174 @@
+{
+    "_about":  "Style test for the owner (2026-10-10): the same four subjects in the current style (A), three readings of \"realistic anime\" (B, C, D) and two of the polished anime action-RPG look the owner then named as the target (E, F). No existing work is named in any prompt. Not canon until the owner picks one.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "jobs":  [
+                 {
+                     "id":  "style_chr_A_current",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, a short sword at the hip, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_chr_B_anime_film",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, a short sword at the hip, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. Modern high-budget anime film style with realistic proportions and anatomy, detailed believable materials (worn leather, brushed steel, woven cloth, wood grain), soft realistic daylight with gentle rim light and ambient occlusion, smooth gradient shading with a few crisp cel edges, clean thin line art, rich natural colours, cinematic depth, clearly anime but grounded and detailed, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_chr_C_anime_game",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, a short sword at the hip, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. Semi-realistic anime action RPG key art, realistic proportions, physically believable materials with fine surface detail and soft specular highlights, painterly anime shading with realistic lighting and soft shadows, subtle outlines, slightly desaturated natural palette with strong accent colours, heroic and grounded, like a high-end anime video game illustration, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_chr_D_detailed_cel",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, a short sword at the hip, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. Detailed cel-shaded anime illustration with realistic proportions, three-tone shading with sharp shadow shapes, accurate detailed costume and equipment design, confident dark line art of varying weight, realistic lighting direction, saturated but natural colours, crisp and polished like a top-tier anime production still, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_wpn_A_current",
+                     "prompt":  "A one-handed arming sword standing upright point up, straight steel blade with a fuller, leaf-shaped bronze crossguard, dark leather-wrapped grip, round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_wpn_B_anime_film",
+                     "prompt":  "A one-handed arming sword standing upright point up, straight steel blade with a fuller, leaf-shaped bronze crossguard, dark leather-wrapped grip, round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Modern high-budget anime film style with realistic proportions and anatomy, detailed believable materials (worn leather, brushed steel, woven cloth, wood grain), soft realistic daylight with gentle rim light and ambient occlusion, smooth gradient shading with a few crisp cel edges, clean thin line art, rich natural colours, cinematic depth, clearly anime but grounded and detailed, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_wpn_C_anime_game",
+                     "prompt":  "A one-handed arming sword standing upright point up, straight steel blade with a fuller, leaf-shaped bronze crossguard, dark leather-wrapped grip, round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Semi-realistic anime action RPG key art, realistic proportions, physically believable materials with fine surface detail and soft specular highlights, painterly anime shading with realistic lighting and soft shadows, subtle outlines, slightly desaturated natural palette with strong accent colours, heroic and grounded, like a high-end anime video game illustration, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_wpn_D_detailed_cel",
+                     "prompt":  "A one-handed arming sword standing upright point up, straight steel blade with a fuller, leaf-shaped bronze crossguard, dark leather-wrapped grip, round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Detailed cel-shaded anime illustration with realistic proportions, three-tone shading with sharp shadow shapes, accurate detailed costume and equipment design, confident dark line art of varying weight, realistic lighting direction, saturated but natural colours, crisp and polished like a top-tier anime production still, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_enm_A_current",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "style_enm_B_anime_film",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Modern high-budget anime film style with realistic proportions and anatomy, detailed believable materials (worn leather, brushed steel, woven cloth, wood grain), soft realistic daylight with gentle rim light and ambient occlusion, smooth gradient shading with a few crisp cel edges, clean thin line art, rich natural colours, cinematic depth, clearly anime but grounded and detailed, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "style_enm_C_anime_game",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Semi-realistic anime action RPG key art, realistic proportions, physically believable materials with fine surface detail and soft specular highlights, painterly anime shading with realistic lighting and soft shadows, subtle outlines, slightly desaturated natural palette with strong accent colours, heroic and grounded, like a high-end anime video game illustration, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "style_enm_D_detailed_cel",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Detailed cel-shaded anime illustration with realistic proportions, three-tone shading with sharp shadow shapes, accurate detailed costume and equipment design, confident dark line art of varying weight, realistic lighting direction, saturated but natural colours, crisp and polished like a top-tier anime production still, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "style_env_A_current",
+                     "prompt":  "The gate of a small friendly town built in and around a giant fallen seed husk the size of a hall, patched wooden houses, rope bridges, paper lanterns, banners, market stalls, villagers. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "style_env_B_anime_film",
+                     "prompt":  "The gate of a small friendly town built in and around a giant fallen seed husk the size of a hall, patched wooden houses, rope bridges, paper lanterns, banners, market stalls, villagers. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Modern high-budget anime film style with realistic proportions and anatomy, detailed believable materials (worn leather, brushed steel, woven cloth, wood grain), soft realistic daylight with gentle rim light and ambient occlusion, smooth gradient shading with a few crisp cel edges, clean thin line art, rich natural colours, cinematic depth, clearly anime but grounded and detailed, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "style_env_C_anime_game",
+                     "prompt":  "The gate of a small friendly town built in and around a giant fallen seed husk the size of a hall, patched wooden houses, rope bridges, paper lanterns, banners, market stalls, villagers. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Semi-realistic anime action RPG key art, realistic proportions, physically believable materials with fine surface detail and soft specular highlights, painterly anime shading with realistic lighting and soft shadows, subtle outlines, slightly desaturated natural palette with strong accent colours, heroic and grounded, like a high-end anime video game illustration, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "style_env_D_detailed_cel",
+                     "prompt":  "The gate of a small friendly town built in and around a giant fallen seed husk the size of a hall, patched wooden houses, rope bridges, paper lanterns, banners, market stalls, villagers. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Detailed cel-shaded anime illustration with realistic proportions, three-tone shading with sharp shadow shapes, accurate detailed costume and equipment design, confident dark line art of varying weight, realistic lighting direction, saturated but natural colours, crisp and polished like a top-tier anime production still, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "style_chr_E_anime_rpg_render",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, a short sword at the hip, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. Polished 3D anime action RPG game render, cel-shaded with soft gradient shadows and a bright rim light, clean smooth surfaces, realistic proportions with elegant anime faces, detailed layered fantasy costume design with fabric folds, metal trims, straps and small accessories, glossy stylised hair, vivid saturated colours, bright airy fantasy lighting, crisp and high quality, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_chr_F_anime_rpg_painterly",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, a short sword at the hip, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_wpn_E_anime_rpg_render",
+                     "prompt":  "A one-handed arming sword standing upright point up, straight steel blade with a fuller, leaf-shaped bronze crossguard, dark leather-wrapped grip, round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Polished 3D anime action RPG game render, cel-shaded with soft gradient shadows and a bright rim light, clean smooth surfaces, realistic proportions with elegant anime faces, detailed layered fantasy costume design with fabric folds, metal trims, straps and small accessories, glossy stylised hair, vivid saturated colours, bright airy fantasy lighting, crisp and high quality, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_wpn_F_anime_rpg_painterly",
+                     "prompt":  "A one-handed arming sword standing upright point up, straight steel blade with a fuller, leaf-shaped bronze crossguard, dark leather-wrapped grip, round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "style_enm_E_anime_rpg_render",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Polished 3D anime action RPG game render, cel-shaded with soft gradient shadows and a bright rim light, clean smooth surfaces, realistic proportions with elegant anime faces, detailed layered fantasy costume design with fabric folds, metal trims, straps and small accessories, glossy stylised hair, vivid saturated colours, bright airy fantasy lighting, crisp and high quality, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "style_enm_F_anime_rpg_painterly",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "style_env_E_anime_rpg_render",
+                     "prompt":  "The gate of a small friendly town built in and around a giant fallen seed husk the size of a hall, patched wooden houses, rope bridges, paper lanterns, banners, market stalls, villagers. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. Polished 3D anime action RPG game render, cel-shaded with soft gradient shadows and a bright rim light, clean smooth surfaces, realistic proportions with elegant anime faces, detailed layered fantasy costume design with fabric folds, metal trims, straps and small accessories, glossy stylised hair, vivid saturated colours, bright airy fantasy lighting, crisp and high quality, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 },
+                 {
+                     "id":  "style_env_F_anime_rpg_painterly",
+                     "prompt":  "The gate of a small friendly town built in and around a giant fallen seed husk the size of a hall, patched wooden houses, rope bridges, paper lanterns, banners, market stalls, villagers. Very far away, beyond a range of distant blue mountains that it dwarfs, rises one impossibly colossal world-sized tree, its trunk wider than the mountains, its vast crown spreading above the cloud layer, faded to pale hazy sky-blue by atmospheric distance, a faint silhouette in the sky, not near, not in the foreground. Wide establishing shot, deep space, clear foreground, midground and background layers, big open sky. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, dreamy atmospheric depth, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1344,
+                     "height":  768
+                 }
+             ]
+}

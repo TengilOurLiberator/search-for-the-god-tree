@@ -19,3 +19,4 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0011](0011-background-removal-incident.md) | 2026-10-10 | A non-commercial background remover was used by mistake; models rebuilt with BiRefNet; rule added | Lead; history purge is the owner's |
 | [0012](0012-trellis2-approved.md) | 2026-10-10 | TRELLIS.2 approved, through ComfyUI's built-in nodes only; owner accepted the DINOv3 licence | Owner |
 | [0013](0013-sandbox-first.md) | 2026-10-10 | Sandbox first; prototypes ahead of the roadmap; point-and-pull grabbing; generate many models, keep few | Owner |
+| [0014](0014-art-direction-anime-rpg.md) | 2026-10-10 | Art direction changes to the painterly anime action-RPG look; fragments version 1 | Owner |

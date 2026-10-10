@@ -1,0 +1,1266 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  1,
+    "jobs":  [
+                 {
+                     "id":  "con_rootwarden_s1101",
+                     "prompt":  "A towering guardian golem made of twisted pale tree roots and grey stone slabs, four metres tall, broad shoulders, long heavy arms, small head with one soft gold glowing knot for a face, moss on its shoulders, calm not evil. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rootwarden_s2202",
+                     "prompt":  "A towering guardian golem made of twisted pale tree roots and grey stone slabs, four metres tall, broad shoulders, long heavy arms, small head with one soft gold glowing knot for a face, moss on its shoulders, calm not evil. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rootwarden_s3303",
+                     "prompt":  "A towering guardian golem made of twisted pale tree roots and grey stone slabs, four metres tall, broad shoulders, long heavy arms, small head with one soft gold glowing knot for a face, moss on its shoulders, calm not evil. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_thornback_s1101",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_thornback_s2202",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_thornback_s3303",
+                     "prompt":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_barkbound_s1101",
+                     "prompt":  "A haunted empty suit of rusty old knight armour completely overgrown and held together by thick brown tree bark and twisting roots, bark bursting through every gap between the plates, roots wrapped around the arms and legs like muscles, a hollow dark helmet with green leaves and one small gold glow inside, mossy shoulders, holding a chipped sword and a round wooden shield, human sized, clearly more tree than metal. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_barkbound_s2202",
+                     "prompt":  "A haunted empty suit of rusty old knight armour completely overgrown and held together by thick brown tree bark and twisting roots, bark bursting through every gap between the plates, roots wrapped around the arms and legs like muscles, a hollow dark helmet with green leaves and one small gold glow inside, mossy shoulders, holding a chipped sword and a round wooden shield, human sized, clearly more tree than metal. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_barkbound_s3303",
+                     "prompt":  "A haunted empty suit of rusty old knight armour completely overgrown and held together by thick brown tree bark and twisting roots, bark bursting through every gap between the plates, roots wrapped around the arms and legs like muscles, a hollow dark helmet with green leaves and one small gold glow inside, mossy shoulders, holding a chipped sword and a round wooden shield, human sized, clearly more tree than metal. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_starter_s1101",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_starter_s2202",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_starter_s3303",
+                     "prompt":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, friendly determined face, short hair. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_innkeeper_s1101",
+                     "prompt":  "A warm middle-aged village innkeeper with rolled sleeves, a patched apron, a wooden ladle on the belt, kind smile, earthy clothes in cream, tan and leaf green. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_innkeeper_s2202",
+                     "prompt":  "A warm middle-aged village innkeeper with rolled sleeves, a patched apron, a wooden ladle on the belt, kind smile, earthy clothes in cream, tan and leaf green. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_innkeeper_s3303",
+                     "prompt":  "A warm middle-aged village innkeeper with rolled sleeves, a patched apron, a wooden ladle on the belt, kind smile, earthy clothes in cream, tan and leaf green. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_sword_training_s1101",
+                     "prompt":  "A short one-handed training sword, plain steel blade with a rounded tip, simple straight crossguard, leather-wrapped grip, round pommel, slightly chunky proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_sword_training_s2202",
+                     "prompt":  "A short one-handed training sword, plain steel blade with a rounded tip, simple straight crossguard, leather-wrapped grip, round pommel, slightly chunky proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_sword_training_s3303",
+                     "prompt":  "A short one-handed training sword, plain steel blade with a rounded tip, simple straight crossguard, leather-wrapped grip, round pommel, slightly chunky proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_shield_husk_s1101",
+                     "prompt":  "A round shield made from a curved piece of pale cream seed husk, rimmed with riveted iron, a leaf emblem painted in green, leather straps at the back, front view tilted. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_shield_husk_s2202",
+                     "prompt":  "A round shield made from a curved piece of pale cream seed husk, rimmed with riveted iron, a leaf emblem painted in green, leather straps at the back, front view tilted. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_shield_husk_s3303",
+                     "prompt":  "A round shield made from a curved piece of pale cream seed husk, rimmed with riveted iron, a leaf emblem painted in green, leather straps at the back, front view tilted. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_spear_meadow_s1101",
+                     "prompt":  "A simple long spear, ash wood shaft, leaf-shaped steel head, green cloth wrap below the head, standing upright. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_spear_meadow_s2202",
+                     "prompt":  "A simple long spear, ash wood shaft, leaf-shaped steel head, green cloth wrap below the head, standing upright. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_spear_meadow_s3303",
+                     "prompt":  "A simple long spear, ash wood shaft, leaf-shaped steel head, green cloth wrap below the head, standing upright. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_axe_woodcutter_s1101",
+                     "prompt":  "A one-handed woodcutter\u0027s axe adapted for fighting, curved wooden haft, single bearded steel head, leather wrap, slightly chunky proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_axe_woodcutter_s2202",
+                     "prompt":  "A one-handed woodcutter\u0027s axe adapted for fighting, curved wooden haft, single bearded steel head, leather wrap, slightly chunky proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_axe_woodcutter_s3303",
+                     "prompt":  "A one-handed woodcutter\u0027s axe adapted for fighting, curved wooden haft, single bearded steel head, leather wrap, slightly chunky proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_dagger_thorn_s1101",
+                     "prompt":  "A short dagger with no metal blade: the blade is a single huge curved dark brown wooden thorn, polished and sharp like a giant rose thorn, wood grain visible, set in a brass collar, with a green cord-wrapped grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_dagger_thorn_s2202",
+                     "prompt":  "A short dagger with no metal blade: the blade is a single huge curved dark brown wooden thorn, polished and sharp like a giant rose thorn, wood grain visible, set in a brass collar, with a green cord-wrapped grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_dagger_thorn_s3303",
+                     "prompt":  "A short dagger with no metal blade: the blade is a single huge curved dark brown wooden thorn, polished and sharp like a giant rose thorn, wood grain visible, set in a brass collar, with a green cord-wrapped grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_bow_willow_s1101",
+                     "prompt":  "A simple wooden recurve bow of pale willow with green cord wrapping at the grip, strung, standing upright. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_bow_willow_s2202",
+                     "prompt":  "A simple wooden recurve bow of pale willow with green cord wrapping at the grip, strung, standing upright. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_bow_willow_s3303",
+                     "prompt":  "A simple wooden recurve bow of pale willow with green cord wrapping at the grip, strung, standing upright. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_dummy_training_s1101",
+                     "prompt":  "A combat training dummy: a wooden post with a straw-stuffed burlap torso and head, two short wooden arms, a dented old pot helmet, a painted red target on the chest, on a wooden cross base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_dummy_training_s2202",
+                     "prompt":  "A combat training dummy: a wooden post with a straw-stuffed burlap torso and head, two short wooden arms, a dented old pot helmet, a painted red target on the chest, on a wooden cross base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_dummy_training_s3303",
+                     "prompt":  "A combat training dummy: a wooden post with a straw-stuffed burlap torso and head, two short wooden arms, a dented old pot helmet, a painted red target on the chest, on a wooden cross base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_envkit_husk_house_s1101",
+                     "prompt":  "A small one-room cottage built from curved pale husk panels and timber, round door, thatched roof, a crooked chimney, flower box under a round window. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_envkit_husk_house_s2202",
+                     "prompt":  "A small one-room cottage built from curved pale husk panels and timber, round door, thatched roof, a crooked chimney, flower box under a round window. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_envkit_husk_house_s3303",
+                     "prompt":  "A small one-room cottage built from curved pale husk panels and timber, round door, thatched roof, a crooked chimney, flower box under a round window. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_envkit_stone_wall_s1101",
+                     "prompt":  "A straight four-metre section of low dry-stone field wall, chunky rounded grey stones, moss and small flowers on top, modular with flat ends. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_envkit_stone_wall_s2202",
+                     "prompt":  "A straight four-metre section of low dry-stone field wall, chunky rounded grey stones, moss and small flowers on top, modular with flat ends. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_envkit_stone_wall_s3303",
+                     "prompt":  "A straight four-metre section of low dry-stone field wall, chunky rounded grey stones, moss and small flowers on top, modular with flat ends. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_thornback_elder_s1101",
+                     "prompt":  "A huge old boar-like beast the size of a cart, a tall ridge of long wooden thorns and small saplings growing along its back, grey mossy fur, cracked bark tusks, one scarred eye, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_thornback_elder_s2202",
+                     "prompt":  "A huge old boar-like beast the size of a cart, a tall ridge of long wooden thorns and small saplings growing along its back, grey mossy fur, cracked bark tusks, one scarred eye, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_thornback_elder_s3303",
+                     "prompt":  "A huge old boar-like beast the size of a cart, a tall ridge of long wooden thorns and small saplings growing along its back, grey mossy fur, cracked bark tusks, one scarred eye, side-on three-quarter view. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_root_crawler_s1101",
+                     "prompt":  "A low cave creature like a beetle the size of a dog whose shell is a knot of pale tree roots, six thin root legs, two gold glowing dot eyes, pale cream and grey. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_root_crawler_s2202",
+                     "prompt":  "A low cave creature like a beetle the size of a dog whose shell is a knot of pale tree roots, six thin root legs, two gold glowing dot eyes, pale cream and grey. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_root_crawler_s3303",
+                     "prompt":  "A low cave creature like a beetle the size of a dog whose shell is a knot of pale tree roots, six thin root legs, two gold glowing dot eyes, pale cream and grey. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_rooted_smith_s1101",
+                     "prompt":  "A sturdy cheerful village blacksmith woman with strong arms, a thick leather apron, rolled sleeves, short tied-back hair, soot on one cheek, hammer hanging from the belt, earthy cream and tan clothes with a leaf-green scarf. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_smith_s2202",
+                     "prompt":  "A sturdy cheerful village blacksmith woman with strong arms, a thick leather apron, rolled sleeves, short tied-back hair, soot on one cheek, hammer hanging from the belt, earthy cream and tan clothes with a leaf-green scarf. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_smith_s3303",
+                     "prompt":  "A sturdy cheerful village blacksmith woman with strong arms, a thick leather apron, rolled sleeves, short tied-back hair, soot on one cheek, hammer hanging from the belt, earthy cream and tan clothes with a leaf-green scarf. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_elder_s1101",
+                     "prompt":  "A small wise old village elder with a long pale beard, a round straw hat, a long cream robe with a soft green sash, a walking staff of pale twisted root with a tiny lantern hanging from it. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_elder_s2202",
+                     "prompt":  "A small wise old village elder with a long pale beard, a round straw hat, a long cream robe with a soft green sash, a walking staff of pale twisted root with a tiny lantern hanging from it. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_elder_s3303",
+                     "prompt":  "A small wise old village elder with a long pale beard, a round straw hat, a long cream robe with a soft green sash, a walking staff of pale twisted root with a tiny lantern hanging from it. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_child_s1101",
+                     "prompt":  "A curious village child about eight years old with messy hair, a too-big cream tunic, a wooden toy sword tucked in a rope belt, bare knees, big smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_child_s2202",
+                     "prompt":  "A curious village child about eight years old with messy hair, a too-big cream tunic, a wooden toy sword tucked in a rope belt, bare knees, big smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_child_s3303",
+                     "prompt":  "A curious village child about eight years old with messy hair, a too-big cream tunic, a wooden toy sword tucked in a rope belt, bare knees, big smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_merchant_s1101",
+                     "prompt":  "A travelling merchant with an enormous backpack stacked with pots, rolled rugs and lanterns, a wide-brimmed hat, a patched long coat in tan and leaf green, friendly sly smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_merchant_s2202",
+                     "prompt":  "A travelling merchant with an enormous backpack stacked with pots, rolled rugs and lanterns, a wide-brimmed hat, a patched long coat in tan and leaf green, friendly sly smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_rooted_merchant_s3303",
+                     "prompt":  "A travelling merchant with an enormous backpack stacked with pots, rolled rugs and lanterns, a wide-brimmed hat, a patched long coat in tan and leaf green, friendly sly smile. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_weaver_s1101",
+                     "prompt":  "A young adventurer who casts magic with bare hands: light cream robe-coat tied with a gold cord, soft green hood down, fingerless wraps on both hands, small pouches, calm focused face, a few warm gold light points floating around the open hands. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_weaver_s2202",
+                     "prompt":  "A young adventurer who casts magic with bare hands: light cream robe-coat tied with a gold cord, soft green hood down, fingerless wraps on both hands, small pouches, calm focused face, a few warm gold light points floating around the open hands. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_weaver_s3303",
+                     "prompt":  "A young adventurer who casts magic with bare hands: light cream robe-coat tied with a gold cord, soft green hood down, fingerless wraps on both hands, small pouches, calm focused face, a few warm gold light points floating around the open hands. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_shieldbearer_s1101",
+                     "prompt":  "A sturdy young adventurer in simple padded armour of quilted cream cloth and brown leather, a steel shoulder plate, a round pale shield on the left arm, a short sword at the hip, short green cloak, steady confident face. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_shieldbearer_s2202",
+                     "prompt":  "A sturdy young adventurer in simple padded armour of quilted cream cloth and brown leather, a steel shoulder plate, a round pale shield on the left arm, a short sword at the hip, short green cloak, steady confident face. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_woken_shieldbearer_s3303",
+                     "prompt":  "A sturdy young adventurer in simple padded armour of quilted cream cloth and brown leather, a steel shoulder plate, a round pale shield on the left arm, a short sword at the hip, short green cloak, steady confident face. Full-body character design, one person standing in a relaxed A-pose facing the viewer, whole body in frame from head to feet, plain flat white background, even lighting, anime proportions about seven heads tall, slightly large hands. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prop_barrel_s1101",
+                     "prompt":  "A chunky wooden barrel with two iron hoops and a wooden lid, slightly bulging, warm brown. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_barrel_s2202",
+                     "prompt":  "A chunky wooden barrel with two iron hoops and a wooden lid, slightly bulging, warm brown. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_barrel_s3303",
+                     "prompt":  "A chunky wooden barrel with two iron hoops and a wooden lid, slightly bulging, warm brown. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_crate_s1101",
+                     "prompt":  "A sturdy wooden supply crate with rope handles and a painted green leaf mark on the side. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_crate_s2202",
+                     "prompt":  "A sturdy wooden supply crate with rope handles and a painted green leaf mark on the side. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_crate_s3303",
+                     "prompt":  "A sturdy wooden supply crate with rope handles and a painted green leaf mark on the side. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_market_stall_s1101",
+                     "prompt":  "A small wooden market stall with a striped cream and green cloth awning, a counter with baskets of fruit and bread, a hanging lantern. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_market_stall_s2202",
+                     "prompt":  "A small wooden market stall with a striped cream and green cloth awning, a counter with baskets of fruit and bread, a hanging lantern. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_market_stall_s3303",
+                     "prompt":  "A small wooden market stall with a striped cream and green cloth awning, a counter with baskets of fruit and bread, a hanging lantern. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_signpost_s1101",
+                     "prompt":  "A crooked wooden signpost with three blank arrow boards pointing different ways and a small lantern hanging from the top. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prop_signpost_s2202",
+                     "prompt":  "A crooked wooden signpost with three blank arrow boards pointing different ways and a small lantern hanging from the top. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prop_signpost_s3303",
+                     "prompt":  "A crooked wooden signpost with three blank arrow boards pointing different ways and a small lantern hanging from the top. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prop_well_s1101",
+                     "prompt":  "A round stone village well with a small thatched roof on two wooden posts, a rope, a wooden bucket. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_well_s2202",
+                     "prompt":  "A round stone village well with a small thatched roof on two wooden posts, a rope, a wooden bucket. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_well_s3303",
+                     "prompt":  "A round stone village well with a small thatched roof on two wooden posts, a rope, a wooden bucket. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_cart_s1101",
+                     "prompt":  "A two-wheeled wooden hand cart loaded with hay and a few sacks, big spoked wheels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_cart_s2202",
+                     "prompt":  "A two-wheeled wooden hand cart loaded with hay and a few sacks, big spoked wheels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_cart_s3303",
+                     "prompt":  "A two-wheeled wooden hand cart loaded with hay and a few sacks, big spoked wheels. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_bench_s1101",
+                     "prompt":  "A simple rustic wooden bench made from a split log on two stumpy legs. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_bench_s2202",
+                     "prompt":  "A simple rustic wooden bench made from a split log on two stumpy legs. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_bench_s3303",
+                     "prompt":  "A simple rustic wooden bench made from a split log on two stumpy legs. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_fence_s1101",
+                     "prompt":  "A straight three-metre section of rustic wooden rail fence, two posts and two rough rails, modular with flat ends. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_fence_s2202",
+                     "prompt":  "A straight three-metre section of rustic wooden rail fence, two posts and two rough rails, modular with flat ends. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_fence_s3303",
+                     "prompt":  "A straight three-metre section of rustic wooden rail fence, two posts and two rough rails, modular with flat ends. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_chest_s1101",
+                     "prompt":  "A small treasure chest made from a pale cream seed husk half with a wooden lid, brass bands and a round brass lock, closed. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_chest_s2202",
+                     "prompt":  "A small treasure chest made from a pale cream seed husk half with a wooden lid, brass bands and a round brass lock, closed. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prop_chest_s3303",
+                     "prompt":  "A small treasure chest made from a pale cream seed husk half with a wooden lid, brass bands and a round brass lock, closed. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_greatsword_s1101",
+                     "prompt":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatsword_s2202",
+                     "prompt":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_greatsword_s3303",
+                     "prompt":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_mace_s1101",
+                     "prompt":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_mace_s2202",
+                     "prompt":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_mace_s3303",
+                     "prompt":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_warhammer_s1101",
+                     "prompt":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_warhammer_s2202",
+                     "prompt":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_warhammer_s3303",
+                     "prompt":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_club_root_s1101",
+                     "prompt":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_club_root_s2202",
+                     "prompt":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_club_root_s3303",
+                     "prompt":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scimitar_s1101",
+                     "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scimitar_s2202",
+                     "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_scimitar_s3303",
+                     "prompt":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_rapier_s1101",
+                     "prompt":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_rapier_s2202",
+                     "prompt":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_rapier_s3303",
+                     "prompt":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_halberd_s1101",
+                     "prompt":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_halberd_s2202",
+                     "prompt":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_halberd_s3303",
+                     "prompt":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shortsword_s1101",
+                     "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shortsword_s2202",
+                     "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_shortsword_s3303",
+                     "prompt":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_kite_shield_s1101",
+                     "prompt":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_kite_shield_s2202",
+                     "prompt":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_kite_shield_s3303",
+                     "prompt":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_pickaxe_s1101",
+                     "prompt":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_pickaxe_s2202",
+                     "prompt":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_pickaxe_s3303",
+                     "prompt":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_quarterstaff_s1101",
+                     "prompt":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_quarterstaff_s2202",
+                     "prompt":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_quarterstaff_s3303",
+                     "prompt":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_buckler_b_s1101",
+                     "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_b_s2202",
+                     "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_b_s3303",
+                     "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_b_s1101",
+                     "prompt":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_b_s2202",
+                     "prompt":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_b_s3303",
+                     "prompt":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_b_s1101",
+                     "prompt":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_b_s2202",
+                     "prompt":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_b_s3303",
+                     "prompt":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_b_s1101",
+                     "prompt":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_b_s2202",
+                     "prompt":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_b_s3303",
+                     "prompt":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_b_s1101",
+                     "prompt":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_b_s2202",
+                     "prompt":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_b_s3303",
+                     "prompt":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prp_lantern_b_s1101",
+                     "prompt":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_lantern_b_s2202",
+                     "prompt":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_lantern_b_s3303",
+                     "prompt":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_enm_burrling_b_s1101",
+                     "prompt":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_enm_burrling_b_s2202",
+                     "prompt":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_enm_burrling_b_s3303",
+                     "prompt":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_cradle_b_s1101",
+                     "prompt":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_cradle_b_s2202",
+                     "prompt":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_cradle_b_s3303",
+                     "prompt":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_vial_b_s1101",
+                     "prompt":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_vial_b_s2202",
+                     "prompt":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_vial_b_s3303",
+                     "prompt":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_boulder_s1101",
+                     "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_boulder_s2202",
+                     "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_boulder_s3303",
+                     "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_rock_cluster_s1101",
+                     "prompt":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_rock_cluster_s2202",
+                     "prompt":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_rock_cluster_s3303",
+                     "prompt":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_stump_s1101",
+                     "prompt":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_stump_s2202",
+                     "prompt":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_stump_s3303",
+                     "prompt":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_bush_s1101",
+                     "prompt":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_bush_s2202",
+                     "prompt":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_bush_s3303",
+                     "prompt":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tree_blob_s1101",
+                     "prompt":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_tree_blob_s2202",
+                     "prompt":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_tree_blob_s3303",
+                     "prompt":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_arch_s1101",
+                     "prompt":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_arch_s2202",
+                     "prompt":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_arch_s3303",
+                     "prompt":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_campfire_s1101",
+                     "prompt":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_s2202",
+                     "prompt":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_s3303",
+                     "prompt":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tent_s1101",
+                     "prompt":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tent_s2202",
+                     "prompt":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tent_s3303",
+                     "prompt":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_banner_s1101",
+                     "prompt":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_banner_s2202",
+                     "prompt":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_banner_s3303",
+                     "prompt":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 }
+             ]
+}

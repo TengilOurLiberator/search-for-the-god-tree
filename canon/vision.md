@@ -15,7 +15,7 @@ You wake in a bright world with a colossal tree on the horizon, a god is said to
 - **Combat is physical.** Weapons have weight. Hits, blocks and parries come from simulated collisions, never from canned animations. Enemies are physically simulated too.
 - **Roles come from what you carry.** Melee weapons (swords, spears, axes, daggers, shields), bows, and magic cast with hand gestures. Tank, healer and damage roles emerge from gear and skills; nobody picks a class from a menu.
 - **Movement is free and comfortable.** Smooth thumbstick locomotion with comfort options, teleport as an alternative, and climbing, gliding and dashing as core traversal.
-- **It looks like a bright cel-shaded anime.** Readable silhouettes and strong colour matter more than realism.
+- **It looks like a painterly anime action RPG:** a bright stylised 3D world with realistic proportions, expressive anime faces and detailed, ornate gear. Readable silhouettes and strong colour still matter more than realism.
 - **The tone is adventure and wonder**, with real danger in dungeons and boss fights.
 
 ## What it is not

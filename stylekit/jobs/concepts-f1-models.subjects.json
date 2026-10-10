@@ -1,0 +1,611 @@
+{
+    "_about":  "Every subject that becomes a 3D model, regenerated in the painterly anime action-RPG look (fragments version 1, decision 0014). Collected from the earlier subject files; retries replace the originals they were made for.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_rootwarden",
+                         "framing":  "creature_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A towering guardian golem made of twisted pale tree roots and grey stone slabs, four metres tall, broad shoulders, long heavy arms, small head with one soft gold glowing knot for a face, moss on its shoulders, calm not evil."
+                     },
+                     {
+                         "id":  "con_thornback",
+                         "framing":  "creature_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A stocky boar-like beast with a ridge of long wooden thorns along its back, mossy green-brown fur, short bark-coloured tusks, lowered head ready to charge, side-on three-quarter view."
+                     },
+                     {
+                         "id":  "con_barkbound",
+                         "framing":  "creature_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A haunted empty suit of rusty old knight armour completely overgrown and held together by thick brown tree bark and twisting roots, bark bursting through every gap between the plates, roots wrapped around the arms and legs like muscles, a hollow dark helmet with green leaves and one small gold glow inside, mossy shoulders, holding a chipped sword and a round wooden shield, human sized, clearly more tree than metal."
+                     },
+                     {
+                         "id":  "con_woken_starter",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A young adventurer in simple starter clothes: cream linen tunic, soft green short cloak, brown leather belt with pouches, sturdy boots, fingerless gloves, friendly determined face, short hair."
+                     },
+                     {
+                         "id":  "con_rooted_innkeeper",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A warm middle-aged village innkeeper with rolled sleeves, a patched apron, a wooden ladle on the belt, kind smile, earthy clothes in cream, tan and leaf green."
+                     },
+                     {
+                         "id":  "con_sword_training",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short one-handed training sword, plain steel blade with a rounded tip, simple straight crossguard, leather-wrapped grip, round pommel, slightly chunky proportions."
+                     },
+                     {
+                         "id":  "con_shield_husk",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A round shield made from a curved piece of pale cream seed husk, rimmed with riveted iron, a leaf emblem painted in green, leather straps at the back, front view tilted."
+                     },
+                     {
+                         "id":  "con_spear_meadow",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A simple long spear, ash wood shaft, leaf-shaped steel head, green cloth wrap below the head, standing upright."
+                     },
+                     {
+                         "id":  "con_axe_woodcutter",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A one-handed woodcutter\u0027s axe adapted for fighting, curved wooden haft, single bearded steel head, leather wrap, slightly chunky proportions."
+                     },
+                     {
+                         "id":  "con_dagger_thorn",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short dagger with no metal blade: the blade is a single huge curved dark brown wooden thorn, polished and sharp like a giant rose thorn, wood grain visible, set in a brass collar, with a green cord-wrapped grip."
+                     },
+                     {
+                         "id":  "con_bow_willow",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A simple wooden recurve bow of pale willow with green cord wrapping at the grip, strung, standing upright."
+                     },
+                     {
+                         "id":  "con_dummy_training",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A combat training dummy: a wooden post with a straw-stuffed burlap torso and head, two short wooden arms, a dented old pot helmet, a painted red target on the chest, on a wooden cross base."
+                     },
+                     {
+                         "id":  "con_envkit_husk_house",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small one-room cottage built from curved pale husk panels and timber, round door, thatched roof, a crooked chimney, flower box under a round window."
+                     },
+                     {
+                         "id":  "con_envkit_stone_wall",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A straight four-metre section of low dry-stone field wall, chunky rounded grey stones, moss and small flowers on top, modular with flat ends."
+                     },
+                     {
+                         "id":  "con_thornback_elder",
+                         "framing":  "creature_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A huge old boar-like beast the size of a cart, a tall ridge of long wooden thorns and small saplings growing along its back, grey mossy fur, cracked bark tusks, one scarred eye, side-on three-quarter view."
+                     },
+                     {
+                         "id":  "con_root_crawler",
+                         "framing":  "creature_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A low cave creature like a beetle the size of a dog whose shell is a knot of pale tree roots, six thin root legs, two gold glowing dot eyes, pale cream and grey."
+                     },
+                     {
+                         "id":  "con_rooted_smith",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A sturdy cheerful village blacksmith woman with strong arms, a thick leather apron, rolled sleeves, short tied-back hair, soot on one cheek, hammer hanging from the belt, earthy cream and tan clothes with a leaf-green scarf."
+                     },
+                     {
+                         "id":  "con_rooted_elder",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small wise old village elder with a long pale beard, a round straw hat, a long cream robe with a soft green sash, a walking staff of pale twisted root with a tiny lantern hanging from it."
+                     },
+                     {
+                         "id":  "con_rooted_child",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A curious village child about eight years old with messy hair, a too-big cream tunic, a wooden toy sword tucked in a rope belt, bare knees, big smile."
+                     },
+                     {
+                         "id":  "con_rooted_merchant",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A travelling merchant with an enormous backpack stacked with pots, rolled rugs and lanterns, a wide-brimmed hat, a patched long coat in tan and leaf green, friendly sly smile."
+                     },
+                     {
+                         "id":  "con_woken_weaver",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A young adventurer who casts magic with bare hands: light cream robe-coat tied with a gold cord, soft green hood down, fingerless wraps on both hands, small pouches, calm focused face, a few warm gold light points floating around the open hands."
+                     },
+                     {
+                         "id":  "con_woken_shieldbearer",
+                         "framing":  "character_sheet",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A sturdy young adventurer in simple padded armour of quilted cream cloth and brown leather, a steel shoulder plate, a round pale shield on the left arm, a short sword at the hip, short green cloak, steady confident face."
+                     },
+                     {
+                         "id":  "con_prop_barrel",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A chunky wooden barrel with two iron hoops and a wooden lid, slightly bulging, warm brown."
+                     },
+                     {
+                         "id":  "con_prop_crate",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A sturdy wooden supply crate with rope handles and a painted green leaf mark on the side."
+                     },
+                     {
+                         "id":  "con_prop_market_stall",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small wooden market stall with a striped cream and green cloth awning, a counter with baskets of fruit and bread, a hanging lantern."
+                     },
+                     {
+                         "id":  "con_prop_signpost",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A crooked wooden signpost with three blank arrow boards pointing different ways and a small lantern hanging from the top."
+                     },
+                     {
+                         "id":  "con_prop_well",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A round stone village well with a small thatched roof on two wooden posts, a rope, a wooden bucket."
+                     },
+                     {
+                         "id":  "con_prop_cart",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A two-wheeled wooden hand cart loaded with hay and a few sacks, big spoked wheels."
+                     },
+                     {
+                         "id":  "con_prop_bench",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A simple rustic wooden bench made from a split log on two stumpy legs."
+                     },
+                     {
+                         "id":  "con_prop_fence",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A straight three-metre section of rustic wooden rail fence, two posts and two rough rails, modular with flat ends."
+                     },
+                     {
+                         "id":  "con_prop_chest",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small treasure chest made from a pale cream seed husk half with a wooden lid, brass bands and a round brass lock, closed."
+                     },
+                     {
+                         "id":  "con_wpn_greatsword",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A large two-handed greatsword standing upright point up, broad straight steel blade, long leather-wrapped grip for two hands, wide crossguard shaped like two leaves, round bronze pommel, chunky readable proportions."
+                     },
+                     {
+                         "id":  "con_wpn_mace",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A one-handed flanged mace standing upright, head up: a heavy iron head with six thick blunt flanges, short sturdy wooden haft, leather grip, iron ring at the base."
+                     },
+                     {
+                         "id":  "con_wpn_warhammer",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A two-handed war hammer standing upright, head up: a big square stone hammer head bound with iron bands, a thick wooden shaft with green cord wrapping, simple and heavy."
+                     },
+                     {
+                         "id":  "con_wpn_club_root",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A rough wooden club made from a pale twisted tree root standing upright, thick knotted head at the top, narrow handle wrapped in brown leather at the bottom."
+                     },
+                     {
+                         "id":  "con_wpn_scimitar",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A curved single-edged sabre standing upright point up, broad polished steel blade with a gentle curve, small round brass guard, dark green wrapped grip, brass pommel."
+                     },
+                     {
+                         "id":  "con_wpn_rapier",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A slim thrusting sword standing upright point up, narrow straight steel blade, a bronze cup-shaped hand guard, dark leather grip, small round pommel."
+                     },
+                     {
+                         "id":  "con_wpn_halberd",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A halberd standing upright: a long wooden pole with an axe blade on one side, a short spike on top and a hook on the back, steel head, leather wrap below the head."
+                     },
+                     {
+                         "id":  "con_wpn_shortsword",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short broad-bladed sword standing upright point up, leaf-shaped steel blade, small bronze guard, wooden grip with a brass ring, round pommel, sturdy and simple."
+                     },
+                     {
+                         "id":  "con_wpn_kite_shield",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A tall kite-shaped wooden shield seen from the front and slightly to one side, painted cream with a large green tree emblem, thick steel rim with rivets, solid and flat."
+                     },
+                     {
+                         "id":  "con_wpn_pickaxe",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A miner\u0027s pickaxe standing upright, head up: a sturdy wooden handle and a thick double-pointed iron head, leather wrap at the grip."
+                     },
+                     {
+                         "id":  "con_wpn_quarterstaff",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A plain fighting quarterstaff standing upright, a long straight pole of dark polished wood with brass caps on both ends and a leather wrap in the middle."
+                     },
+                     {
+                         "id":  "con_wpn_buckler_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections."
+                     },
+                     {
+                         "id":  "con_wpn_handaxe_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte."
+                     },
+                     {
+                         "id":  "con_wpn_staff_weaver_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_wpn_torch_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte."
+                     },
+                     {
+                         "id":  "con_wpn_wand_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow."
+                     },
+                     {
+                         "id":  "con_prp_lantern_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency."
+                     },
+                     {
+                         "id":  "con_enm_burrling_b",
+                         "framing":  "creature_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail."
+                     },
+                     {
+                         "id":  "con_prp_cradle_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow."
+                     },
+                     {
+                         "id":  "con_prp_vial_b",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass."
+                     },
+                     {
+                         "id":  "con_env_boulder",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape."
+                     },
+                     {
+                         "id":  "con_env_rock_cluster",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes."
+                     },
+                     {
+                         "id":  "con_env_stump",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes."
+                     },
+                     {
+                         "id":  "con_env_bush",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves."
+                     },
+                     {
+                         "id":  "con_env_tree_blob",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like."
+                     },
+                     {
+                         "id":  "con_env_arch",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes."
+                     },
+                     {
+                         "id":  "con_env_campfire",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes."
+                     },
+                     {
+                         "id":  "con_env_tent",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes."
+                     },
+                     {
+                         "id":  "con_env_banner",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes."
+                     }
+                 ]
+}

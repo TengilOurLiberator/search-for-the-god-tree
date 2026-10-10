@@ -1,0 +1,510 @@
+{
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "fragments_version":  0,
+    "jobs":  [
+                 {
+                     "id":  "con_wpn_buckler_b_s1101",
+                     "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_b_s2202",
+                     "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_b_s3303",
+                     "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_buckler_b_s4404",
+                     "prompt":  "A small round wooden buckler shield seen straight from the front, thick solid planks painted leaf green with a cream ring, a solid domed iron boss in the middle, iron rim with big rivets, matte, no reflections. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_b_s1101",
+                     "prompt":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_b_s2202",
+                     "prompt":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_b_s3303",
+                     "prompt":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_handaxe_b_s4404",
+                     "prompt":  "A small hand axe standing perfectly upright, head at the top: a short straight thick wooden handle and one chunky wedge-shaped steel blade on one side, simple solid shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_b_s1101",
+                     "prompt":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_b_s2202",
+                     "prompt":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_b_s3303",
+                     "prompt":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_staff_weaver_b_s4404",
+                     "prompt":  "A wizard\u0027s staff standing perfectly upright, a thick straight pale wooden pole, at the top three short thick wooden prongs gripping a solid opaque amber stone ball, a green cloth band below it, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_b_s1101",
+                     "prompt":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_b_s2202",
+                     "prompt":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_b_s3303",
+                     "prompt":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_torch_b_s4404",
+                     "prompt":  "An unlit wooden torch standing perfectly upright, a thick wooden stick whose top is a fat bundle of dark tarred cloth bound with two iron bands, no flame, solid chunky shapes, matte. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_b_s1101",
+                     "prompt":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_b_s2202",
+                     "prompt":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_b_s3303",
+                     "prompt":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_wpn_wand_b_s4404",
+                     "prompt":  "A short thick magic wand standing perfectly upright, carved from pale wood with a spiral groove, wide leather-wrapped grip at the bottom, a solid opaque amber stone knob at the top, chunky proportions like a small club, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_prp_lantern_b_s1101",
+                     "prompt":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_lantern_b_s2202",
+                     "prompt":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_lantern_b_s3303",
+                     "prompt":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_lantern_b_s4404",
+                     "prompt":  "A small lantern standing on a flat base, a solid iron frame with four opaque warm amber panels, a pointed iron roof with a ring handle on top, chunky solid shapes, no glow, no transparency. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_enm_burrling_b_s1101",
+                     "prompt":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_enm_burrling_b_s2202",
+                     "prompt":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_enm_burrling_b_s3303",
+                     "prompt":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_enm_burrling_b_s4404",
+                     "prompt":  "A small round creature like a smooth chestnut-brown ball with about twelve big fat blunt cream cone spikes spaced apart, two stubby feet, two round angry white eyes, simple solid toy-like shapes, no fur, no fine detail. A single creature alone, centred, whole body in frame with margin, neutral standing pose, three-quarter front view, plain flat white background, even shadowless lighting, no ground, no scenery. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_cradle_b_s1101",
+                     "prompt":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_cradle_b_s2202",
+                     "prompt":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_cradle_b_s3303",
+                     "prompt":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_cradle_b_s4404",
+                     "prompt":  "A small wayside shrine: a waist-high thick-walled pale cream stone egg with a large round opening in the front showing a solid green moss cushion inside, standing on a flat ring of grey stones, chunky solid shapes, no glow. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_vial_b_s1101",
+                     "prompt":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_vial_b_s2202",
+                     "prompt":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_vial_b_s3303",
+                     "prompt":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_prp_vial_b_s4404",
+                     "prompt":  "A small squat potion bottle of solid opaque mint-green ceramic with a fat cork and a brown string tied around the neck, chunky toy-like shape, matte, no transparency, no glass. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_boulder_s1101",
+                     "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_boulder_s2202",
+                     "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_boulder_s3303",
+                     "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_boulder_s4404",
+                     "prompt":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_rock_cluster_s1101",
+                     "prompt":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_rock_cluster_s2202",
+                     "prompt":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_rock_cluster_s3303",
+                     "prompt":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_rock_cluster_s4404",
+                     "prompt":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, simple solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_stump_s1101",
+                     "prompt":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_stump_s2202",
+                     "prompt":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_stump_s3303",
+                     "prompt":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_stump_s4404",
+                     "prompt":  "A wide old tree stump with thick spreading roots, flat cut top showing rings, brown bark, a patch of moss, chunky solid shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_bush_s1101",
+                     "prompt":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_bush_s2202",
+                     "prompt":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_bush_s3303",
+                     "prompt":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_bush_s4404",
+                     "prompt":  "A round bush drawn as one solid smooth green blob made of a few big rounded lumps, with a few tiny pink flowers, like a sculpted clay bush, no separate leaves. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tree_blob_s1101",
+                     "prompt":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_tree_blob_s2202",
+                     "prompt":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_tree_blob_s3303",
+                     "prompt":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_tree_blob_s4404",
+                     "prompt":  "A stylised tree with a short thick brown trunk and a canopy made of three big smooth solid green rounded lumps like scoops of clay, no separate leaves, no gaps, toy-like. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_arch_s1101",
+                     "prompt":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_arch_s2202",
+                     "prompt":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_arch_s3303",
+                     "prompt":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_arch_s4404",
+                     "prompt":  "A free-standing stone archway gate made of big chunky grey blocks with a keystone, thick pillars, moss on top, wide enough to walk through, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_campfire_s1101",
+                     "prompt":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_s2202",
+                     "prompt":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_s3303",
+                     "prompt":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_campfire_s4404",
+                     "prompt":  "An unlit campfire: a ring of chunky grey stones around a small pyramid of thick brown logs, no flames, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tent_s1101",
+                     "prompt":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tent_s2202",
+                     "prompt":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tent_s3303",
+                     "prompt":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_tent_s4404",
+                     "prompt":  "A small adventurer\u0027s tent of thick cream canvas with a green stripe, a simple solid triangular prism shape with a closed front flap, wooden pegs, no ropes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1280,
+                     "height":  1024
+                 },
+                 {
+                     "id":  "con_env_banner_s1101",
+                     "prompt":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  1101,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_banner_s2202",
+                     "prompt":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  2202,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_banner_s3303",
+                     "prompt":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  3303,
+                     "width":  1024,
+                     "height":  1280
+                 },
+                 {
+                     "id":  "con_env_banner_s4404",
+                     "prompt":  "A tall wooden pole on a heavy stone base carrying a thick stiff cream banner with a large green tree emblem, the banner hangs flat like a board, solid simple shapes. A single object alone, centred, whole object in frame with margin, three-quarter view from slightly above, plain flat white background, even shadowless lighting, no ground, no hands, no extra objects. Cel-shaded anime game art, flat colours with two-tone shading, clean dark ink outlines on characters and objects, bright saturated palette, blue-violet shadows instead of black, soft clear daylight, simple readable shapes, strong silhouette, hand-painted look, no photorealism, no film grain, no text, no watermark, no logo.",
+                     "seed":  4404,
+                     "width":  1024,
+                     "height":  1280
+                 }
+             ]
+}

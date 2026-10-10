@@ -2,18 +2,22 @@
 
 Status: Approved by the owner, 2026-10-09 (decisions/0008). Numbers are starting points and will be tuned in the VR sandbox and pipeline milestones.
 
-The look is a bright, cel-shaded anime. If a choice is between readable and realistic, choose readable.
+The look is a **painterly anime action-RPG**: a stylised 3D world with the polish of a modern anime role-playing game. Chosen by the owner on 2026-10-10 ([decision 0014](../decisions/0014-art-direction-anime-rpg.md)), replacing the flatter storybook look of the first draft. If a choice is between readable and realistic, still choose readable.
 
 ## Rules of the look
 
 1. **Silhouette first.** Every character, enemy and weapon must be recognisable as a flat black shape at ten metres. Enemy attacks must change the silhouette before they land.
-2. **Flat colour, clean shapes.** Two or three tones per material: base, shadow, and sometimes a highlight. No photographic texture noise, no grime passes, no realistic skin pores.
-3. **Coloured shadows.** Shadows lean blue-violet outdoors and warm violet indoors. Never grey or black.
-4. **One strong light.** Outdoors the sun sets the mood; the Godtree's glow is the second light near roots and at night. Dungeons are lit by motes, lanterns and the player.
-5. **Colour carries meaning.** Danger is red-pink, healing is mint, motes and magic are gold, the Godtree is pale bark and soft green. Nothing else uses those colours at full strength.
-6. **Outlines on characters.** Characters, enemies and held weapons have an ink outline. Environments do not, so living things stand out.
-7. **Proportions.** Anime proportions at roughly six and a half to seven heads tall. Hands and weapons slightly large, because players look at them all day.
+2. **Painterly, not flat and not photographic.** Surfaces carry brushed, hand-painted texture and believable material: engraved metal, worn leather, woven cloth, wood grain. No photo textures, no grime for its own sake.
+3. **Soft cel shading.** A clear light side and shadow side with a soft edge between them, warm bounce light in the shadows and a cool rim light on the edge away from the sun. Shadows are coloured, never grey or black.
+4. **Realistic proportions, anime faces.** Bodies are built like real people, about seven to seven and a half heads tall; faces are expressive and clearly anime. Hands and weapons are true to scale.
+5. **Detailed, ornate equipment.** Gear is designed, not generic: layered cloth and leather, metal trims, straps, small accessories, engraved or leaf-shaped details that tie it to the Godtree.
+6. **Lush colour, luminous highlights.** Bright, saturated, natural colour. Light sources and magic glow.
+7. **Colour carries meaning.** Danger is red-pink, healing is mint, motes and magic are gold, the Godtree is pale bark and soft green. Nothing else uses those colours at full strength.
+8. **One strong light, with depth.** Outdoors the sun sets the mood and distance fades into haze; the Godtree's glow is the second light near roots and at night. Dungeons are lit by motes, lanterns and the player.
 
+## What the 3D step can and cannot do (2026-10-10)
+
+Concepts that feed image-to-3D are drawn as **solid shapes**: no glow, no glass, no thin loops or loose strands, no flames. Those are added in the engine as effects. A model that loses its shape or colour in conversion is discarded, however good its concept.
 ## Palette
 
 The anchor colours are in [data/budgets.json](../data/budgets.json) under `palette`. Key art, the interface and the golden reference assets are built from them, and recipe prompts quote them.
@@ -21,8 +25,8 @@ The anchor colours are in [data/budgets.json](../data/budgets.json) under `palet
 ## Rendering
 
 - Unity Universal Render Pipeline.
-- Avatars are VRM 1.0 with the MToon shader (only VRM 1.0 has an MToon shader for this pipeline).
-- The toon shader for environments, weapons and enemies is not chosen yet; it is settled in the pipeline milestone and must match MToon characters side by side.
+- Models carry their painted look in their base-colour texture and are lit with soft cel shading. The shader that does this in the engine is not chosen yet; until it is, the sandbox uses Unity's standard lit shader, which is flatter and duller than the target.
+- Avatars are planned as VRM 1.0 (only VRM 1.0 has a toon shader for this pipeline); whether its shader can deliver this look is untested.
 - Realistic texture sets from libraries are raw material for stylising, never used as-is.
 
 ## Budgets

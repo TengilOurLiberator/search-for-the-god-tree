@@ -102,3 +102,28 @@ Subjects in [../../jobs/concepts-v2-weapons.subjects.json](../../jobs/concepts-v
 | `con_wpn_warhammer.png` | 3303 |
 
 Note: the mace came out as a blunt maul, not a flanged mace; kept as a maul.
+
+## Fourth batch (v3, retries and environment), 2026-10-10
+
+Subjects in [../../jobs/concepts-v3.subjects.json](../../jobs/concepts-v3.subjects.json), prompts and seeds in [../../jobs/concepts-v3.json](../../jobs/concepts-v3.json). 72 images (18 subjects, 4 seeds each); one per subject chosen. The retries (names ending `_b`) were redrawn as solid shapes with no glow, glass or thin loops, because those do not survive the 3D step.
+
+| File | Seed |
+|---|---|
+| `con_enm_burrling_b.png` | 2202 |
+| `con_env_arch.png` | 3303 |
+| `con_env_banner.png` | 1101 |
+| `con_env_boulder.png` | 2202 |
+| `con_env_bush.png` | 1101 |
+| `con_env_campfire.png` | 1101 |
+| `con_env_rock_cluster.png` | 3303 |
+| `con_env_stump.png` | 1101 |
+| `con_env_tent.png` | 4404 |
+| `con_env_tree_blob.png` | 1101 |
+| `con_prp_cradle_b.png` | 2202 |
+| `con_prp_lantern_b.png` | 3303 |
+| `con_prp_vial_b.png` | 3303 |
+| `con_wpn_buckler_b.png` | 2202 |
+| `con_wpn_handaxe_b.png` | 1101 |
+| `con_wpn_staff_weaver_b.png` | 3303 |
+| `con_wpn_torch_b.png` | 1101 |
+| `con_wpn_wand_b.png` | 1101 |
