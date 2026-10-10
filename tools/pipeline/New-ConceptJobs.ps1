@@ -31,7 +31,8 @@ foreach ($s in @($spec.subjects)) {
         $parts += [string]$frag.world.PSObject.Properties[[string]$w].Value
     }
     $parts += [string]$frag.framing.PSObject.Properties[[string]$s.framing].Value
-    $parts += [string]$frag.style
+    $isObject = @('object_for_3d', 'creature_for_3d') -contains [string]$s.framing
+    if ($isObject -and $null -ne $frag.PSObject.Properties['style_object']) { $parts += [string]$frag.style_object } else { $parts += [string]$frag.style }
     if ((@('landscape', 'interior') -contains [string]$s.framing) -and $null -ne $frag.PSObject.Properties['style_scene_extra']) { $parts += [string]$frag.style_scene_extra }
     $prompt = ($parts -join ' ')
     foreach ($seed in @($spec.seeds)) {

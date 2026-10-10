@@ -1,5 +1,5 @@
 {
-    "_about":  "Shared prompt fragments. Every image recipe is built as: subject sentence + world fragments + one framing fragment + the style fragment. Change these only with a decision entry; bump version when you do. Version 1 is the painterly anime action-RPG look chosen by the owner (decision 0014). No existing work, studio or artist is ever named.",
+    "_about":  "Shared prompt fragments. Every image recipe is built as: subject sentence + world fragments + one framing fragment + the style fragment. Change these only with a decision entry; bump version when you do. Version 1 is the painterly anime action-RPG look chosen by the owner (decision 0014). No existing work, studio or artist is ever named. Objects and creatures use style_object, which leaves out the wording about faces, proportions and equipment: with the full style line, plain objects such as boulders came out with gear and faces on them.",
     "version":  1,
     "style":  "High-end anime fantasy RPG key visual, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, detailed ornate equipment with engraved metal, layered cloth and leather, realistic proportions, expressive anime faces, lush bright colours with luminous highlights, original design, no photorealism, no text, no watermark, no logo.",
     "style_scene_extra":  "Dreamy atmospheric depth.",
@@ -16,5 +16,6 @@
                   "motes":  "Small drifting points of warm gold light float in the air.",
                   "husk":  "A giant fallen seed husk, pale cream and tan, ribbed like a split walnut shell the size of a house."
               },
-    "palette_words":  "sky blue #6EC6FF, leaf green #7BE0A4, pale bark cream #E9DCC3, mote gold #FFD86B, meadow green #8FD14F, deep violet shadow #3B3A6E"
+    "palette_words":  "sky blue #6EC6FF, leaf green #7BE0A4, pale bark cream #E9DCC3, mote gold #FFD86B, meadow green #8FD14F, deep violet shadow #3B3A6E",
+    "style_object":  "High-end anime fantasy RPG prop art, stylised 3D look with painterly textures, soft cel shading with warm bounce light and cool rim light, carefully designed surface detail, lush bright colours with luminous highlights, only the object described and nothing else on it, original design, no characters, no faces, no photorealism, no text, no watermark, no logo."
 }

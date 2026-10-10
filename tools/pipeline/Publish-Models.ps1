@@ -83,6 +83,8 @@ foreach ($id in $Ids) {
         $wanted = ($Trellis -and $stale -eq 'trellis2.json') -or (-not $Trellis -and $stale -eq 'cutout.json')
         if (-not $wanted -and (Test-Path -LiteralPath $stalePath)) { [System.IO.File]::Delete($stalePath) }
     }
+    $inputImage = 'stylekit/golden/concepts/' + [string]$job.image
+    if ($null -ne $job.PSObject.Properties['image_path']) { $inputImage = 'stylekit/' + ([string]$job.image_path -replace '^\.\./', '') }
     $stats = $log[$id]
     $plainName = (($id -split '_', 2)[1]) -replace '_', ' '
     $title = $titles.ToTitleCase($plainName)
@@ -99,7 +101,7 @@ foreach ($id in $Ids) {
         )
         sources      = @()
         outputs      = @( [ordered]@{ path = $assetRel } )
-        notes        = ("Input image: stylekit/golden/concepts/$($job.image). $how Measured: $stats. $Note").Trim()
+        notes        = ("Input image: $inputImage. $how Measured: $stats. $Note").Trim()
     }
     [System.IO.File]::WriteAllText((Join-Path $recipeDir 'recipe.json'), ((($recipe | ConvertTo-Json -Depth 6) -replace "`r`n", "`n") + "`n"), $enc)
     Write-Output "published $id -> $assetRel"

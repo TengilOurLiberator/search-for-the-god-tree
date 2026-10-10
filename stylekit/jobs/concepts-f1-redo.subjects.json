@@ -1,0 +1,41 @@
+{
+    "_about":  "Redos from the first pass in the new look: two rocks that picked up gear and faces, and the training sword, which came out diagonal.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_env_boulder",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A single large rounded grey boulder with a few flat facets and a patch of green moss on top, chunky simple shape, bare rock only."
+                     },
+                     {
+                         "id":  "con_env_rock_cluster",
+                         "framing":  "object_for_3d",
+                         "width":  1280,
+                         "height":  1024,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A cluster of three chunky grey rocks of different sizes sitting together, moss and two small flowers on top, bare rock only."
+                     },
+                     {
+                         "id":  "con_sword_training",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "One single one-handed training sword standing perfectly upright, point up, seen flat from the front: plain straight steel blade with a rounded tip, simple straight crossguard, leather-wrapped grip, round pommel, slightly chunky proportions."
+                     }
+                 ]
+}
