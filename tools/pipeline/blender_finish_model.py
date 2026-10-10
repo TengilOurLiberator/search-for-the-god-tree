@@ -20,7 +20,7 @@ from mathutils import Vector
 
 def parse_args():
     argv = sys.argv[sys.argv.index("--") + 1:]
-    opts = {"tris": 5000, "tex": 1024, "size": 1.0, "rotx": -90.0, "textured": 0, "weld": 1e-5}
+    opts = {"tris": 5000, "tex": 1024, "size": 1.0, "rotx": -90.0, "textured": 0, "weld": 1e-5, "voxels": 220.0}
     positional = []
     i = 0
     while i < len(argv):
@@ -85,6 +85,24 @@ def main():
             mod = obj.modifiers.new("decimate", "DECIMATE")
             mod.ratio = target / src_tris
             bpy.ops.object.modifier_apply(modifier=mod.name)
+        def tri_count(o):
+            return sum(len(p.vertices) - 2 for p in o.data.polygons)
+
+        if tri_count(obj) > target * 1.02:
+            # Collapse stalls on non-manifold input (double walls, inner shells). Rebuild the
+            # outer skin as one watertight surface, then reduce that. Colour still comes
+            # from the untouched copy.
+            rem = obj.modifiers.new("remesh", "REMESH")
+            rem.mode = "VOXEL"
+            rem.voxel_size = max(obj.dimensions) / opts["voxels"]
+            rem.adaptivity = 0.0
+            bpy.ops.object.modifier_apply(modifier=rem.name)
+            n = tri_count(obj)
+            if n > target:
+                mod2 = obj.modifiers.new("decimate_after_remesh", "DECIMATE")
+                mod2.ratio = target / n
+                bpy.ops.object.modifier_apply(modifier=mod2.name)
+            print("GODTREE_NOTE voxel remesh fallback used")
         bpy.ops.object.shade_smooth()
 
         # Unwrap the low mesh.

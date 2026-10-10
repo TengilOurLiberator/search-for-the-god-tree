@@ -279,7 +279,7 @@ namespace Godtree.EditorTools
                 var visual = (GameObject)PrefabUtility.InstantiatePrefab(generated, sword.transform);
                 visual.name = "Visual (generated)";
                 visual.transform.localPosition = new Vector3(0f, -0.13f, 0f);
-                visual.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+                visual.transform.localRotation = Quaternion.identity;
                 foreach (MeshRenderer primitive in sword.GetComponentsInChildren<MeshRenderer>())
                     if (!primitive.transform.IsChildOf(visual.transform))
                         primitive.enabled = false;
@@ -360,7 +360,7 @@ namespace Godtree.EditorTools
             var gallery = new GameObject("Gallery (generated models)");
             gallery.transform.SetParent(parent, false);
 
-            string[] rows = { "Weapons", "Props", "Environment" };
+            string[] rows = { "Weapons", "Props", "Environment", "Enemies" };
             float z = 4.5f;
             foreach (string row in rows)
             {
@@ -370,7 +370,7 @@ namespace Godtree.EditorTools
 
                 string[] guids = AssetDatabase.FindAssets("t:GameObject", new[] { dir });
                 System.Array.Sort(guids, (a, b) => string.CompareOrdinal(AssetDatabase.GUIDToAssetPath(a), AssetDatabase.GUIDToAssetPath(b)));
-                float spacing = row == "Environment" ? 6f : (row == "Props" ? 3f : 1.2f);
+                float spacing = (row == "Environment" || row == "Enemies") ? 6f : (row == "Props" ? 3f : 1.2f);
                 float x = -(guids.Length - 1) * spacing / 2f;
                 foreach (string guid in guids)
                 {
