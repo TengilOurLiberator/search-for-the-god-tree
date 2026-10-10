@@ -254,6 +254,7 @@ namespace Godtree.EditorTools
             new GameObject("Session recorder", typeof(Godtree.Diagnostics.SessionRecorder)).transform.SetParent(root.transform, false);
             new GameObject("Held object collision filter", typeof(HeldObjectCollisionFilter)).transform.SetParent(root.transform, false);
             BuildAbilities(root.transform);
+            new GameObject("Distance grab", typeof(Godtree.Sandbox.DistanceGrab)).transform.SetParent(root.transform, false);
             BuildAmbience(root.transform);
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -279,7 +280,7 @@ namespace Godtree.EditorTools
             sword.name = "wpn_sword_training";
             LayFlat(sword, alongX: false);
             RestOn(sword, plinthTop);
-            MakeGrabbable(sword, 0.7f);
+            MakeWeapon(sword, 0.5f);
         }
 
         /// <summary>
@@ -360,7 +361,7 @@ namespace Godtree.EditorTools
                 LayFlat(instance, alongX: isSpear);
                 Vector3 slot = isSpear ? new Vector3(-1.5f, tableTop, 1.42f) : new Vector3(slotX, tableTop, 1.0f);
                 RestOn(instance, slot);
-                MakeGrabbable(instance, prefab.name.Contains("shield") ? 1.2f : (isSpear ? 0.8f : 0.6f));
+                MakeWeapon(instance, prefab.name.Contains("shield") ? 1.0f : 0.5f);
                 if (!isSpear)
                     slotX += 0.42f;
             }
@@ -485,6 +486,101 @@ namespace Godtree.EditorTools
             }
         }
 
+        /// <summary>
+        /// A weapon: physical like any grabbable, but grabbed into a proper hold (see GripPose)
+        /// wherever it is touched or pulled from.
+        /// </summary>
+        private static void MakeWeapon(GameObject go, float mass)
+        {
+            Rigidbody body = go.AddComponent<Rigidbody>();
+            body.mass = mass;
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            body.interpolation = RigidbodyInterpolation.Interpolate;
+            body.maxAngularVelocity = 50f;
+
+            foreach (MeshFilter filter in go.GetComponentsInChildren<MeshFilter>())
+            {
+                if (filter.sharedMesh == null)
+                    continue;
+                MeshCollider collider = filter.gameObject.AddComponent<MeshCollider>();
+                collider.sharedMesh = filter.sharedMesh;
+                collider.convex = true;
+            }
+
+            GripPose pose = go.AddComponent<GripPose>();
+            ConfigureGrip(go, pose);
+            SnappedGrab grab = go.AddComponent<SnappedGrab>();
+            grab.EnableGrabs = new Grab[0];
+            grab.DisableGrabs = new Grab[0];
+        }
+
+        /// <summary>Works out where the handle is and which way the weapon points, from its shape.</summary>
+        private static void ConfigureGrip(GameObject go, GripPose pose)
+        {
+            var points = new System.Collections.Generic.List<Vector3>();
+            foreach (MeshFilter filter in go.GetComponentsInChildren<MeshFilter>())
+            {
+                if (filter.sharedMesh == null)
+                    continue;
+                foreach (Vector3 v in filter.sharedMesh.vertices)
+                    points.Add(go.transform.InverseTransformPoint(filter.transform.TransformPoint(v)));
+            }
+            if (points.Count == 0)
+                return;
+
+            Bounds b = new Bounds(points[0], Vector3.zero);
+            foreach (Vector3 p in points)
+                b.Encapsulate(p);
+            Vector3 size = b.size;
+            int longAxis = size.x >= size.y && size.x >= size.z ? 0 : (size.y >= size.z ? 1 : 2);
+            int thinAxis = size.x <= size.y && size.x <= size.z ? 0 : (size.y <= size.z ? 1 : 2);
+            if (thinAxis == longAxis)
+                thinAxis = (longAxis + 1) % 3;
+            int midAxis = 3 - longAxis - thinAxis;
+            Vector3 Unit(int axis) => axis == 0 ? Vector3.right : (axis == 1 ? Vector3.up : Vector3.forward);
+
+            string name = go.name;
+            if (name.Contains("shield"))
+            {
+                pose.style = HoldStyle.Shield;
+                pose.localMainAxis = Unit(thinAxis);
+                pose.localSideAxis = Unit(longAxis);
+                pose.localGripPoint = b.center - Unit(thinAxis) * (size[thinAxis] * 0.5f);
+                return;
+            }
+            if (name.Contains("bow"))
+            {
+                pose.style = HoldStyle.Bow;
+                pose.localMainAxis = Unit(longAxis);
+                pose.localSideAxis = Unit(midAxis);
+                pose.localGripPoint = b.center;
+                return;
+            }
+
+            // Blade-like: find which end is the bulky one (guard and pommel on a sword, the head on an axe or spear).
+            float low = b.min[longAxis], length = size[longAxis];
+            float widestLow = 0f, widestHigh = 0f;
+            foreach (Vector3 p in points)
+            {
+                Vector3 off = p - b.center;
+                off[longAxis] = 0f;
+                float along = (p[longAxis] - low) / Mathf.Max(length, 1e-5f);
+                if (along < 0.3f) widestLow = Mathf.Max(widestLow, off.magnitude);
+                else if (along > 0.7f) widestHigh = Mathf.Max(widestHigh, off.magnitude);
+            }
+            bool bulkyEndIsLow = widestLow > widestHigh;
+            bool handleAtBulkyEnd = name.Contains("sword"); // a sword's guard and pommel are its bulk; on a dagger, axe or spear the business end is
+            bool handleIsLow = handleAtBulkyEnd ? bulkyEndIsLow : !bulkyEndIsLow;
+            float fromHandleEnd = name.Contains("spear") ? 0.42f : (name.Contains("dagger") ? 0.18f : (name.Contains("sword") ? 0.13f : 0.15f));
+
+            pose.style = HoldStyle.Blade;
+            pose.localMainAxis = Unit(longAxis) * (handleIsLow ? 1f : -1f);
+            pose.localSideAxis = Unit(midAxis);
+            Vector3 grip = b.center;
+            grip[longAxis] = handleIsLow ? low + fromHandleEnd * length : low + (1f - fromHandleEnd) * length;
+            pose.localGripPoint = grip;
+        }
+
         /// <summary>Scenery you cannot walk or swing through.</summary>
         private static void MakeSolid(GameObject go)
         {
@@ -535,10 +631,8 @@ namespace Godtree.EditorTools
             text.supportRichText = true;
             text.text =
                 "<size=70><b>HOW TO PLAY</b></size>\n\n" +
-                "<b><color=#FFD86B>PICK UP</color></b>   Put your hand on a thing and HOLD the\n" +
-                "<b>GRIP</b> button (side of the controller, under your\nmiddle finger). Let go to drop it. Not the trigger.\n\n" +
-                "<b><color=#FFD86B>SWORD</color></b>   On the stone block. Take it by the handle;\nit keeps the angle your hand had when you gripped.\n" +
-                "<b><color=#FFD86B>OTHER WEAPONS</color></b>   On the wooden table to your left.\nGrab them anywhere.\n\n" +
+                "<b><color=#FFD86B>PICK UP</color></b>   POINT at a thing (a gold dot appears over\nit) and squeeze <b>GRIP</b> (side button, middle finger).\nIt flies to your hand. Let go of grip to drop it.\nYou can also just touch it and squeeze grip.\n\n" +
+                "<b><color=#FFD86B>WEAPONS</color></b>   Sword on the stone block, the rest on the\ntable to your left. They snap into a proper hold.\n\n" +
                 "<b><color=#FFD86B>FIGHT</color></b>   Swing at the straw dummy. Harder swings\nflash brighter and sound louder.\n\n" +
                 "<b><color=#FFD86B>BOW</color></b>   Hold the bow in one hand. Bring your other\nhand to it, hold that hand's TRIGGER, pull back,\nlet go. Pull further to shoot faster.\n\n" +
                 "<b><color=#FFD86B>MOTE BOLT</color></b>   Empty hand: hold TRIGGER to gather\nlight, let go to loose it. Throw it or point it.\n" +

@@ -27,6 +27,10 @@ namespace Godtree.Combat
         private readonly Dictionary<Hand, Rigidbody> _heldBy = new Dictionary<Hand, Rigidbody>();
         private readonly Dictionary<Rigidbody, int> _holdCount = new Dictionary<Rigidbody, int>();
         private readonly Dictionary<Hand, ConfigurableJoint> _looseJoints = new Dictionary<Hand, ConfigurableJoint>();
+        private readonly Dictionary<Hand, JointDrive> _originalTurnDrive = new Dictionary<Hand, JointDrive>();
+
+        [Tooltip("How much harder the hand holds its angle while it carries something. The rig's own setting lets a long weapon trail 20 to 30 degrees behind the controller.")]
+        [SerializeField] private float heldTurnStrength = 5f;
 
         private bool FindRig()
         {
@@ -57,16 +61,42 @@ namespace Godtree.Combat
                     if (_looseJoints.TryGetValue(hand, out ConfigurableJoint loose) && loose != null)
                         Destroy(loose);
                     _looseJoints.Remove(hand);
+                    StiffenHand(hand, false);
                     Release(before);
                 }
                 if (now != null)
                 {
                     bool second = _holdCount.ContainsKey(now);
                     Hold(now);
+                    StiffenHand(hand, true);
                     if (second)
                         LoosenSecondHand(hand, now);
                 }
                 _heldBy[hand] = now;
+            }
+        }
+
+        private void StiffenHand(Hand hand, bool holding)
+        {
+            ConfigurableJoint joint = hand.IsLeftHand ? _player.PhysicsRig.LeftHandJoint : _player.PhysicsRig.RightHandJoint;
+            if (joint == null)
+                return;
+            if (holding)
+            {
+                if (!_originalTurnDrive.ContainsKey(hand))
+                    _originalTurnDrive[hand] = joint.slerpDrive;
+                JointDrive original = _originalTurnDrive[hand];
+                joint.slerpDrive = new JointDrive
+                {
+                    positionSpring = original.positionSpring * heldTurnStrength,
+                    positionDamper = original.positionDamper * Mathf.Sqrt(heldTurnStrength) * 1.5f,
+                    maximumForce = original.maximumForce * heldTurnStrength
+                };
+            }
+            else if (_originalTurnDrive.TryGetValue(hand, out JointDrive original))
+            {
+                joint.slerpDrive = original;
+                _originalTurnDrive.Remove(hand);
             }
         }
 

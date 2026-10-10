@@ -83,13 +83,13 @@ namespace Godtree.Tests
         [UnityTest]
         public IEnumerator TableWeaponsAndLoosePropsAreGrabbableAndStayPut()
         {
-            BIMOS.AutoGrab[] grabs = Object.FindObjectsByType<BIMOS.AutoGrab>(FindObjectsSortMode.None);
+            BIMOS.Grab[] grabs = Object.FindObjectsByType<BIMOS.Grab>(FindObjectsSortMode.None);
             Assert.GreaterOrEqual(grabs.Length, 8, "weapons on the table and loose props should all be grabbable");
-            foreach (BIMOS.AutoGrab grab in grabs)
+            foreach (BIMOS.Grab grab in grabs)
             {
                 Rigidbody body = grab.GetComponentInParent<Rigidbody>();
                 Assert.IsNotNull(body, grab.name + " has a grab but no rigidbody");
-                Assert.IsNotNull(grab.GetComponent<Collider>(), grab.name + " has a grab but no collider");
+                Assert.IsNotNull(body.GetComponentInChildren<Collider>(), grab.name + " has a grab but no collider");
                 Assert.Greater(body.position.y, -0.5f, body.name + " fell through the floor");
             }
             yield break;
