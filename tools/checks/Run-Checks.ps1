@@ -408,7 +408,8 @@ foreach ($r in $recipesToCheck) {
     if ($lic -cne [string]$licences.project.assets) {
         Write-Fail 'recipe' "$where 'licence' must be $($licences.project.assets) (the project asset licence); found '$lic'"
     }
-    if ($null -eq (Get-Prop $d 'cleanup')) {
+    # An empty list is valid (no manual steps), so test that the field exists, not that it has a value.
+    if ($null -eq $d.PSObject.Properties['cleanup']) {
         Write-Fail 'recipe' "$where 'cleanup' is missing (list the manual steps, or use an empty list if there were none)"
     }
 

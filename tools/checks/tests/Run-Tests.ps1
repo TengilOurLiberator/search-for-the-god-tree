@@ -142,7 +142,7 @@ try {
     Assert-Result 'rejected generator fails' (Invoke-Checks $f) $false "status 'rejected'"
 
     $f = New-GoodFixture
-    Write-File $f 'recipes/wpn_sword_training/recipe.json' (Get-Recipe -Generator 'trellis2')
+    Write-File $f 'recipes/wpn_sword_training/recipe.json' (Get-Recipe -Generator 'stable-fast-3d')
     Assert-Result 'conditional generator fails' (Invoke-Checks $f) $false "status 'conditional'"
 
     $f = New-GoodFixture
@@ -213,6 +213,14 @@ try {
     Write-File $f 'unity/Assets/Godtree/Art/Weapons/wpn_sword_helper.exe' 'MZ'
     Add-Content -LiteralPath (Join-Path $f 'changed.txt') -Value "A`tunity/Assets/Godtree/Art/Weapons/wpn_sword_helper.exe"
     Assert-Result 'executable in an asset folder fails' (Invoke-Checks $f) $false 'restricted area'
+
+    $f = New-GoodFixture
+    Write-File $f 'recipes/wpn_sword_training/recipe.json' ((Get-Recipe) -replace '"cleanup": \[ "Decimated to budget in Blender 4.5" \]', '"cleanup": []')
+    Assert-Result 'empty clean-up list is accepted' (Invoke-Checks $f) $true
+
+    $f = New-GoodFixture
+    Write-File $f 'recipes/wpn_sword_training/recipe.json' ((Get-Recipe) -replace '"cleanup": \[ "Decimated to budget in Blender 4.5" \],', '')
+    Assert-Result 'missing clean-up field fails' (Invoke-Checks $f) $false "'cleanup' is missing"
 
     $f = New-Fixture
     Write-File $f 'docs/guide.md' 'A guide.'
