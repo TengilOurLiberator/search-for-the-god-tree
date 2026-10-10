@@ -1,17 +1,17 @@
 # Lead hand-off: where the work stands
 
-Updated 2026-10-10, mid-afternoon. Read this after AGENTS.md and ROADMAP.md. It is the working state that is not obvious from the files.
+Updated 2026-10-10, evening. Read this after AGENTS.md and ROADMAP.md. It is the working state that is not obvious from the files.
 
 ## What is running or waiting right now
 
 Nothing is running. State at the end of 2026-10-10:
 
-- **Sixty models were generated in the new look** (`stylekit/jobs/trellis2-f1.json`); the lead kept 40 and discarded 20. Review sheets: `docs/review/session-1/models-f1-weapons.jpg` and `models-f1-rest.jpg`.
-- **Kept (new look):** 19 weapons (training sword, short sword, greatsword, scimitar, rapier, dagger, woodcutter's axe, hand axe, pickaxe, maul, war hammer, root club, spear, halberd, quarterstaff, bow, kite shield, buckler, torch); 6 characters (starter, weaver, innkeeper, smith, elder, child); the Barkbound; scenery (banner, bush, rock cluster, stone wall, tent, tree); props (barrel, bench, chest, crate, lantern, market stall, mote vial, signpost).
-- **Discarded, and why:** anything spiky, furry, thatched or with thin spokes still shatters in mesh reduction (Burrling, both Thornbacks, Rootwarden, root crawler, husk house, well, cart, stump, cradle shrine, fence); amber orbs turn black (staff, wand); flames become a flat card (campfire); plus the arch, boulder, merchant, shield-bearer, husk shield and dummy.
-- **Still old-look placeholders in the sandbox:** husk shield, cart, cradle shrine, dummy model, fence, well, husk house, Thornback, Rootwarden. Replace or remove them when a method for those shapes exists.
-- **The sandbox has been rebuilt** with all of the above; nine PlayMode tests pass. The owner has not seen it in the headset.
-
+- **Every model in the sandbox is in the new look** (decision 0014): 21 weapons, 8 characters, 6 creatures, scenery and props. Review sheets are in `docs/review/session-1/`.
+- **The sandbox is a small place now, not a row of objects.** `SandboxBuilder.BuildGallery` holds a layout table (name, x, z, turn): a road from the spawn through a stone arch toward the Godtree, a camp with a lit fire on the right, a house, well and cart on the left, creatures beyond the wall. People stand at named spots. A model not in the table still appears, in a row at z = 38, so nothing is silently hidden.
+- **Ground:** `Godtree/Ground` paints by world position (grass at two sizes, dry patches, the road). The ring of hills uses the same material. To move the road, change the shader's road properties; it always runs along world Z.
+- **Training dummy:** one generated model drawn three times, each material showing one slice (`_ClipAxis/_ClipMin/_ClipMax` on `Godtree/Toon`). Cut heights come from the model's outline. Replace the model and the cuts follow.
+- **Screenshots** (`Godtree > Render Sandbox Screenshots`) now include road, camp and gate views.
+- Ten PlayMode tests pass. **The owner has seen none of the evening's work in the headset.**
 ## 3D: what works now
 
 Spiky, furry and thatched shapes shattered at the standard remesh setting (384). The **coarse workflow** (`stylekit/workflows/trellis2_image_to_glb_coarse.api.json`, remesh 192) fixed twelve of thirteen: Burrling, both Thornbacks, root crawler, husk house, well, cart, stump, cradle shrine, fence, merchant, shield-bearer. Use it for creatures and buildings; keep the standard one for weapons and simple props. Still failing: the Rootwarden (noisy surface), amber orbs (staff, wand), flames (campfire), arch, boulder. The Rootwarden and husk shield in the sandbox are the last old-look models.
@@ -32,7 +32,7 @@ Spiky, furry and thatched shapes shattered at the standard remesh setting (384).
 ## Open with the owner
 
 - Has not yet felt, in the headset: point-and-pull, snapped weapon holds, the character menu, damage numbers, lift and ward knots, the eleven newer weapons. Weapon grip points and angles are computed guesses.
-- Hand tracking: wanted; not started; movement without thumbsticks is undecided.
+- Hand tracking: wanted; researched, not started (docs/research/hand-tracking-and-player-body.md). Over Link it is a developer-only feature that may not work in a built game. First step is the owner switching on Developer Runtime Features in the Link app; then a one-to-two-day editor prototype.
 - Rename "the Underroot" (docs/name-check.md).
 - Listen to the audio; none of it has been heard.
 - Purge of superseded files from git history (decision 0011): lead recommends leaving it.
@@ -40,7 +40,7 @@ Spiky, furry and thatched shapes shattered at the standard remesh setting (384).
 
 ## Next ideas, not started
 
-- A toon shader in Unity so models show the painted look instead of flat standard lighting.
-- Rigging the character models (UniRig is approved) so the mirror shows a real character and equipment can appear on it.
-- Landscape and key art in the new look for a sky backdrop with the Godtree.
+- Rig one character in Blender to a fixed humanoid skeleton and swap it into the rig, so the mirror shows a real character and equipment can appear on it. Plan and risks: `docs/research/hand-tracking-and-player-body.md`. Do not upgrade BIMOS to 2.0.0 for this.
 - Enemies that move and attack, so vigor and armour mean something.
+- Clouds, and a painted far landscape behind the hills.
+- The elder model has small holes in its face; regenerate it.

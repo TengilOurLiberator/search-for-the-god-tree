@@ -30,9 +30,10 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [x] Spiky, furry and thatched shapes solved with a coarser 3D setting; twelve more models in the new look (Burrling, both Thornbacks, root crawler, husk house, well, cart and others)
 - [x] The sandbox looks like the game: stylised shader, sun, sky, haze, colour grading, painted meadow ground, music, and the Godtree on the horizon
 - [x] Every weapon's hold checked by rendering it (`docs/images/grip_check.png`); three that would have been held by the blade were fixed
-- [ ] Still failing in 3D: the Rootwarden, glowing orbs, flames, the arch and the boulder
-- [ ] Hand tracking (wanted; movement without thumbsticks is the open question)
-- [ ] Equipped items are not shown on the character yet; the character is the rig's grey mannequin
+- [x] The sandbox is laid out as a place: a road through a stone arch toward the Godtree, a camp with a lit fire, a corner of town, creatures beyond the wall, hills all round; the training dummy uses its generated model (2026-10-10, evening; not yet seen in the headset)
+- [ ] Flames and glow are made in Unity (particles), not in 3D generation, which cannot do them
+- [ ] Hand tracking (wanted; researched in docs/research/hand-tracking-and-player-body.md: over Link it is a developer-only feature, so the first step is the owner switching it on in the Link app, then an editor prototype)
+- [ ] Equipped items are not shown on the character yet; the character is the rig's grey mannequin. Plan for a rigged body is in the same research note
 
 ## Milestones
 
