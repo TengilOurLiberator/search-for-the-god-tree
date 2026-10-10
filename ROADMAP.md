@@ -27,7 +27,10 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [x] Character menu (B button): mirror view, stats, four equipment slots that change stats; damage numbers and dummy health
 - [ ] Owner to try all of the above in the headset; none of it has been felt yet
 - [x] Art direction changed to the painterly anime action-RPG look (decision 0014); sixty models regenerated, forty kept: 19 weapons, 6 characters, the Barkbound, scenery and props
-- [ ] Spiky, furry and thatched shapes still fail in 3D (see docs/lead-handoff.md); nine old-look placeholders remain in the sandbox
+- [x] Spiky, furry and thatched shapes solved with a coarser 3D setting; twelve more models in the new look (Burrling, both Thornbacks, root crawler, husk house, well, cart and others)
+- [x] The sandbox looks like the game: stylised shader, sun, sky, haze, colour grading, painted meadow ground, music, and the Godtree on the horizon
+- [x] Every weapon's hold checked by rendering it (`docs/images/grip_check.png`); three that would have been held by the blade were fixed
+- [ ] Still failing in 3D: the Rootwarden, glowing orbs, flames, the arch and the boulder
 - [ ] Hand tracking (wanted; movement without thumbsticks is the open question)
 - [ ] Equipped items are not shown on the character yet; the character is the rig's grey mannequin
 

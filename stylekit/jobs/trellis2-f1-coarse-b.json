@@ -1,0 +1,77 @@
+{
+    "_about":  "Second coarse-workflow trial: the last failures from the new-look pass, with a different seed.",
+    "workflow":  "../workflows/trellis2_image_to_glb_coarse.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "wpn_staff_weaver",
+                     "seed":  2202,
+                     "image_path":  "../golden/f1/con_wpn_staff_weaver_b.png",
+                     "image":  "con_wpn_staff_weaver_b.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "wpn_wand_thorn",
+                     "seed":  2202,
+                     "image_path":  "../golden/f1/con_wpn_wand_b.png",
+                     "image":  "con_wpn_wand_b.png",
+                     "budget_class":  "weapon",
+                     "tris":  4000,
+                     "tex":  1024,
+                     "size":  0.38
+                 },
+                 {
+                     "id":  "env_arch",
+                     "seed":  2202,
+                     "image_path":  "../golden/f1/con_env_arch.png",
+                     "image":  "con_env_arch.png",
+                     "budget_class":  "env_modular",
+                     "tris":  7000,
+                     "tex":  2048,
+                     "size":  3.2
+                 },
+                 {
+                     "id":  "env_boulder",
+                     "seed":  2202,
+                     "image_path":  "../golden/f1/con_env_boulder.png",
+                     "image":  "con_env_boulder.png",
+                     "budget_class":  "env_modular",
+                     "tris":  3000,
+                     "tex":  2048,
+                     "size":  1.4
+                 },
+                 {
+                     "id":  "env_campfire",
+                     "seed":  2202,
+                     "image_path":  "../golden/f1/con_env_campfire.png",
+                     "image":  "con_env_campfire.png",
+                     "budget_class":  "env_modular",
+                     "tris":  6000,
+                     "tex":  2048,
+                     "size":  1.3
+                 },
+                 {
+                     "id":  "enm_rootwarden",
+                     "seed":  2202,
+                     "image_path":  "../golden/f1/con_rootwarden.png",
+                     "image":  "con_rootwarden.png",
+                     "budget_class":  "enemy_boss",
+                     "tris":  40000,
+                     "tex":  2048,
+                     "size":  4
+                 },
+                 {
+                     "id":  "enm_barkbound",
+                     "seed":  2202,
+                     "image_path":  "../golden/f1/con_barkbound.png",
+                     "image":  "con_barkbound.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  20000,
+                     "tex":  2048,
+                     "size":  1.9
+                 }
+             ]
+}

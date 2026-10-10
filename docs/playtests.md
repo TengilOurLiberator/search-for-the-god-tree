@@ -46,3 +46,11 @@ What each recorded session in the sandbox showed, and what was changed because o
 ### Not yet answered by the owner
 
 How the sword feels now (lag, wrong angle or wobble); whether bow aiming is natural; whether the two spells are fun and the right strength.
+
+## Checks made without a headset (2026-10-10, afternoon)
+
+The owner was away, so these were done by rendering:
+
+- **Grip check** (`docs/images/grip_check.png`): each weapon from above with its palm point and pointing direction drawn on. It showed the dagger, greatsword and rapier would be held by the blade (their concept art was drawn point-down) and the buckler was treated as a blade. Holds are now taken from each model's own long axis and where it is widest. All twenty look right in the render; none has been held yet.
+- **Menu preview** (`docs/images/menu_preview.png`): the mirror showed the menu itself and only the player's legs. Fixed; the board is now opaque.
+- **Shader**: the first version drew everything black. Cause: it borrowed passes from Unity's standard shader, whose material layout differs. It now has its own passes.
