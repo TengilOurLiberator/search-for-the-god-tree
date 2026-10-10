@@ -630,7 +630,7 @@ namespace Godtree.EditorTools
             var spots = new System.Collections.Generic.Dictionary<string, (float x, float z, float lookX, float lookZ)>
             {
                 { "chr_rooted_merchant", (5.2f, 10.6f, 2f, 4f) },
-                { "chr_rooted_smith", (2.3f, 3.4f, 0f, 0f) },
+                { "chr_rooted_smith", (-2.3f, 4.5f, 0f, 0f) },
                 { "chr_rooted_innkeeper", (-8.6f, 11.6f, 0f, 2f) },
                 { "chr_rooted_elder", (4.6f, 17.4f, 0f, 8f) },
                 { "chr_rooted_child", (-4.9f, 9.6f, -6f, 10.5f) },
@@ -1250,18 +1250,32 @@ namespace Godtree.EditorTools
                 RenderSettings.sun = light;
             }
 
-            string skyPath = SandboxDir + "/Materials/Sandbox_Sky.mat";
+            // Painted-looking sky with drifting clouds; Unity's plain procedural sky if the shader is missing.
+            Shader skyShader = Shader.Find("Godtree/Sky");
+            bool ownSky = skyShader != null && skyShader.isSupported;
+            string skyPath = SandboxDir + (ownSky ? "/Materials/Sandbox_CloudSky.mat" : "/Materials/Sandbox_Sky.mat");
             var sky = AssetDatabase.LoadAssetAtPath<Material>(skyPath);
             if (sky == null)
             {
-                sky = new Material(Shader.Find("Skybox/Procedural"));
+                sky = new Material(ownSky ? skyShader : Shader.Find("Skybox/Procedural"));
                 AssetDatabase.CreateAsset(sky, skyPath);
             }
-            sky.SetColor("_SkyTint", new Color(0.36f, 0.62f, 0.95f));
-            sky.SetColor("_GroundColor", new Color(0.80f, 0.89f, 0.98f));
-            sky.SetFloat("_AtmosphereThickness", 0.7f);
-            sky.SetFloat("_Exposure", 1.25f);
-            sky.SetFloat("_SunSize", 0.035f);
+            if (ownSky)
+            {
+                sky.shader = skyShader;
+                sky.SetColor("_ZenithColor", new Color(0.20f, 0.42f, 0.86f));
+                sky.SetColor("_HorizonColor", new Color(0.72f, 0.86f, 0.98f));
+                sky.SetColor("_GroundColor", new Color(0.70f, 0.83f, 0.96f));
+                sky.SetFloat("_Coverage", 0.46f);
+            }
+            else
+            {
+                sky.SetColor("_SkyTint", new Color(0.36f, 0.62f, 0.95f));
+                sky.SetColor("_GroundColor", new Color(0.80f, 0.89f, 0.98f));
+                sky.SetFloat("_AtmosphereThickness", 0.7f);
+                sky.SetFloat("_Exposure", 1.25f);
+                sky.SetFloat("_SunSize", 0.035f);
+            }
             EditorUtility.SetDirty(sky);
             RenderSettings.skybox = sky;
 
