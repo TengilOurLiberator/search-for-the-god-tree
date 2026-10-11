@@ -46,6 +46,7 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [x] Free conversation with every townsperson by voice, through a language model and speech running on the PC (prototype; cannot ship as built, see THIRD_PARTY_LICENCES.md section 8)
 - [ ] Owner to try all of the above in the headset
 - [x] Huskhaven is a small walled town; the Windlow meadow, its creatures and the Rootwarden's arch lie beyond the gate
+- [x] Seven more arms after that (50 weapons and foci in all, with a second bow)
 - [x] Sixteen more arms (38 in all), with a wand and a great staff for each element; the robot pulls, holds and swings every one
 - [x] Equipment is shown on the body: ten of the twelve menu items (forearms, wrists, belt, a padded jack, three for the head)
 - [x] A fourth element, root (thorn dart, snare, mend); frost slows creatures and roots hold them

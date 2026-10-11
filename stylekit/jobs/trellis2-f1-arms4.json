@@ -1,0 +1,77 @@
+{
+    "_about":  "A fourth set of arms (decision 0016). Standard workflow.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "wpn_bow_long",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_bow_long.png",
+                     "image":  "con_wpn_bow_long.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "wpn_claymore",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_claymore.png",
+                     "image":  "con_wpn_claymore.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.5
+                 },
+                 {
+                     "id":  "wpn_cleaver",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_cleaver.png",
+                     "image":  "con_wpn_cleaver.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.55
+                 },
+                 {
+                     "id":  "wpn_club_spiked",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_club_spiked.png",
+                     "image":  "con_wpn_club_spiked.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.8
+                 },
+                 {
+                     "id":  "wpn_shield_husk",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_shield_husk.png",
+                     "image":  "con_wpn_shield_husk.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1
+                 },
+                 {
+                     "id":  "wpn_trident",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_trident.png",
+                     "image":  "con_wpn_trident.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  2
+                 },
+                 {
+                     "id":  "wpn_warpick",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_warpick.png",
+                     "image":  "con_wpn_warpick.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.75
+                 }
+             ]
+}

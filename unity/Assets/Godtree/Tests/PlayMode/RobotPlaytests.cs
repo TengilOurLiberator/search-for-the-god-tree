@@ -593,6 +593,8 @@ namespace Godtree.Tests
             }
             weapons.Sort((a, b) => string.CompareOrdinal(a.name, b.name));
             Assert.Greater(weapons.Count, 15, "expected the weapon tables to be full");
+            // The idle left hand goes down by the hip, out of the way of broad shields held in the right.
+            yield return _robot.MoveHandBody(true, new Vector3(-0.42f, 0.85f, -0.05f), Quaternion.identity, 0.4f);
             var report = new System.Text.StringBuilder();
             int failed = 0;
 

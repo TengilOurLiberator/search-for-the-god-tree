@@ -617,7 +617,7 @@ namespace Godtree.EditorTools
                     shortIndex++;
                 }
                 RestOn(instance, slot);
-                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("glaive"); // not the war scythe: its blade hangs far off the haft and at this weight it sagged 40 to 60 degrees in the hand
+                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("glaive") || prefab.name.Contains("claymore"); // not the war scythe: its blade hangs far off the haft and at this weight it sagged 40 to 60 degrees in the hand
                 bool isShield = prefab.name.Contains("shield") || prefab.name.Contains("buckler");
                 // Shields are held at the centre of a broad face and sag in the hand if heavy.
                 MakeWeapon(instance, isShield ? 0.4f : heavy ? 0.9f : 0.5f);
@@ -1378,9 +1378,9 @@ namespace Godtree.EditorTools
                 widestAlong += radii[i].y;
             widestAlong /= widest;
 
-            bool swordLike = name.Contains("sword") || name.Contains("rapier") || name.Contains("scimitar") || name.Contains("dagger") || name.Contains("sabre");
+            bool swordLike = name.Contains("sword") || name.Contains("rapier") || name.Contains("scimitar") || name.Contains("dagger") || name.Contains("sabre") || name.Contains("claymore") || name.Contains("cleaver");
             bool handleIsLow = swordLike ? widestAlong < 0.5f : widestAlong >= 0.5f;
-            bool pole = name.Contains("spear") || name.Contains("halberd") || name.Contains("staff") || name.Contains("glaive") || name.Contains("scythe") || name.Contains("greataxe"); // a great axe held at its end hung 107 degrees off in the hand
+            bool pole = name.Contains("spear") || name.Contains("halberd") || name.Contains("staff") || name.Contains("glaive") || name.Contains("scythe") || name.Contains("greataxe") || name.Contains("trident"); // a great axe held at its end hung 107 degrees off in the hand
             float fromHandleEnd = pole ? 0.40f : (name.Contains("dagger") ? 0.18f : (name.Contains("great") ? 0.10f : 0.13f));
 
             pose.style = HoldStyle.Blade;

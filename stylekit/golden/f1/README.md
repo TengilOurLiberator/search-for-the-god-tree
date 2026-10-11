@@ -144,3 +144,10 @@ The last five rows come from [../../jobs/concepts-f1-furniture.json](../../jobs/
 | `con_rig_enm_barkbound_brute.png` | 3303 |
 | `con_rig_enm_barkbound_scout.png` | 1101 |
 | `con_rig_enm_husk_wight.png` | 1101 |
+| `con_wpn_bow_long.png` | 1101 |
+| `con_wpn_claymore.png` | 2202 |
+| `con_wpn_cleaver.png` | 1101 |
+| `con_wpn_club_spiked.png` | 1101 |
+| `con_wpn_shield_husk.png` | 2202 |
+| `con_wpn_trident.png` | 3303 |
+| `con_wpn_warpick.png` | 1101 |

@@ -1,0 +1,81 @@
+{
+    "_about":  "A fourth set of arms for the sandbox: seven more, including a second bow (the bow code works for anything named a bow).",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_wpn_warpick",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A one-handed war pick: a stout wooden handle with a leather grip and a steel head with one long curved spike and a small flat hammer face on the back. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_trident",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A trident: a long thick wooden pole with a bronze head of three stout straight prongs, a bronze collar and a bronze butt spike. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_cleaver",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A heavy fighting cleaver: a broad rectangular steel blade with a clipped corner and a round hole near the tip, a short thick wooden handle with brass rivets. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_claymore",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A great two-handed sword: a very long broad straight steel blade, a long down-swept crossguard ending in round knobs, a long leather-wrapped grip and a heavy disc pommel. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_bow_long",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A tall longbow of dark polished yew with pale horn tips and a wrapped leather grip in the middle, shown without a string, a single smooth curved stave thick enough to look solid. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_club_spiked",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A stout wooden club widening toward the top, its head studded with fat blunt iron studs, a leather-wrapped grip and a wrist ring modelled solidly. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels."
+                     },
+                     {
+                         "id":  "con_wpn_shield_husk",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A shield made from a single curved plate of cream seed-husk shell rimmed with bronze, shaped like a pointed oval, with a painted green spiral, seen from the front, solid thick shape."
+                     }
+                 ]
+}
