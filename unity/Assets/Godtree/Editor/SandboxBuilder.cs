@@ -617,7 +617,7 @@ namespace Godtree.EditorTools
                     shortIndex++;
                 }
                 RestOn(instance, slot);
-                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("scythe") || prefab.name.Contains("glaive");
+                bool heavy = prefab.name.Contains("great") || prefab.name.Contains("halberd") || prefab.name.Contains("warhammer") || prefab.name.Contains("glaive"); // not the war scythe: its blade hangs far off the haft and at this weight it sagged 40 to 60 degrees in the hand
                 bool isShield = prefab.name.Contains("shield") || prefab.name.Contains("buckler");
                 // Shields are held at the centre of a broad face and sag in the hand if heavy.
                 MakeWeapon(instance, isShield ? 0.4f : heavy ? 0.9f : 0.5f);

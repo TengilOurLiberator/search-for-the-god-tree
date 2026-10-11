@@ -673,10 +673,16 @@ namespace Godtree.Tests
                 _robot.SetGrip(false, false);
                 yield return _robot.MoveHandBody(false, new Vector3(0.5f, 1.0f, 0.2f), Quaternion.identity, 0.3f);
                 yield return Wait(0.5f);
+                // Put it out of the way. Left where they fell, dropped weapons pile up underfoot and
+                // knock into the next one being held, which showed as twists that came and went.
+                weapon.gameObject.SetActive(false);
             }
             Debug.Log("[Robot] weapons report:\n" + report);
             System.IO.Directory.CreateDirectory(OutDir);
             System.IO.File.WriteAllText(OutDir + "/weapons_report.txt", report.ToString());
+            // Forty-odd things pulled off crowded tables by physics: one or two odd readings in a run are
+            // noise (they differ from run to run); more than that is a fault. The report always lists them.
+            Assert.LessOrEqual(failed, 2, "weapons did not come to hand, or fight the hand when held:\n" + report);
             // Thirty-eight things pulled off crowded tables by physics: one or two odd ones in a run are noise
         }
 
