@@ -66,8 +66,12 @@ recipes/<asset-id>/
 | `sources` | Required for `sourced` and `mixed`: `name`, `url`, `author`, `licence` for each. Only CC0 is accepted |
 | `outputs` | Every asset file this recipe produced. `.fbx` outputs add `"triangles": <count>` |
 
+## Hand-made work
+
+A recipe with `origin` `handmade` needs no `steps` (use an empty list). Say in `cleanup` what was done, and in `notes` who made it, with which tools, and how to credit them. Any tool the artist is licensed to use is allowed; the delivered files must be in open formats. If part of it was generated, or it starts from a model already in this repository, the origin is `mixed`: the generated part gets a `steps` entry, and every starting point gets a `sources` entry. A worked example is in [artists.md](artists.md).
+
 ## Rules
 
-- Generators run locally. No cloud services, no paid tools.
+- Generators run locally. No cloud services, no paid tools. (Hand-made work: see above.)
 - Prompts never name an existing work, character or living artist.
 - Every asset file is listed by exactly one recipe. Unity `.meta` files need no entry.

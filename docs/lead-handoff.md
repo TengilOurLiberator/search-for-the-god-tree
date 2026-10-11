@@ -40,7 +40,8 @@ Twenty-two PlayMode tests (`-testCategory Robot` runs the ten robot routines alo
 Two scheduled tasks in the owner's Claude desktop app, `godtree-pr-review` (every 15 minutes) and `godtree-idea-review` (daily), review pull requests and voted ideas. They run only while the app is open, and may use nothing but `tools/review/safe.mjs`, run with Node and the GitHub CLI from `D:\godtree-tools`.
 
 - The script takes its rules from **GitHub's main branch**, and the tasks run the script from **this working copy**. Push rule changes before expecting them to apply, and keep the working copy's `tools/review/` in step with main.
-- `data/review.json` keeps the project closed: the reviewer comments, approves nothing. Only the owner flips it.
+- `data/review.json` is open since decision 0018: the reviewer may approve assets, documentation and proposals when the checks are green. Only the owner changes that file. A first-time contributor's checks wait for the owner to press "Approve and run" on GitHub; until then the reviewer cannot approve.
+- **Artists' offers** arrive as issues labelled `art-offer` (docs/artists.md), not through the scheduled runs. Handle them in a working session: look at the preview first; download attached files only with the owner's agreement, into a folder of their own; import through Blender with script auto-run off; write the recipe; add the artist to CREDITS.md.
 - After changing the script: `node tools/review/safe.mjs selftest`, then `prs` and `ideas` against GitHub.
 - The daily run opens task issues for accepted ideas. It cannot touch the canon; ideas that need a canon change are left for a working session, and listed in that run's summary.
 - The GitHub CLI is signed in as a second account of the owner's with admin rights, not as the repository owner. Pull requests opened by that account are skipped as the reviewer's own.

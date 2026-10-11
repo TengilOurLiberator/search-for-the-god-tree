@@ -4,7 +4,7 @@ A co-operative PC VR action role-playing game, built in the open by many contrib
 
 You wake in a bright, cel-shaded world with a colossal tree on the horizon. A god is said to live in it. The game is the journey there: zone by zone, with friends, fighting with full physics melee where every hit, block and parry comes from what your hands actually did.
 
-**State (2026-10-10): a VR sandbox you can play in. A physics rig with your own character's body; twenty weapons that snap into your hand; a bow; staffs and wands in three elements; townsfolk who move, greet you and hold a spoken conversation through a language model running on your PC; two kinds of creature that fight back and can lose limbs; all in a painterly anime look with the Godtree on the horizon. It has had four recorded headset sessions. Everything newer than the fourth is tested only by a robot player, not yet in a headset.** The project is not yet open to outside contributions.
+**State (2026-10-10): a VR sandbox you can play in. A physics rig with your own character's body; twenty weapons that snap into your hand; a bow; staffs and wands in three elements; townsfolk who move, greet you and hold a spoken conversation through a language model running on your PC; two kinds of creature that fight back and can lose limbs; all in a painterly anime look with the Godtree on the horizon. It has had four recorded headset sessions. Everything newer than the fourth is tested only by a robot player, not yet in a headset.** The project is open for art, animation, documentation and proposals from anyone.
 
 [ROADMAP.md](ROADMAP.md) says where things stand.
 
@@ -18,6 +18,7 @@ You wake in a bright, cel-shaded world with a colossal tree on the horizon. A go
 |---|---|
 | Understand the game | [canon/vision.md](canon/vision.md), [canon/pillars.md](canon/pillars.md) |
 | Contribute | [AGENTS.md](AGENTS.md), then [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Give models, animation, art or sound you made | [docs/artists.md](docs/artists.md) |
 | Suggest or vote on what gets built | [docs/voting.md](docs/voting.md) |
 | See what is planned and what is blocked | [ROADMAP.md](ROADMAP.md) |
 | Know why something was decided | [decisions/](decisions/) |

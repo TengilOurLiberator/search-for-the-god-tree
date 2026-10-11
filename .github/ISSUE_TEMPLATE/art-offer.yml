@@ -1,0 +1,61 @@
+name: Offer art or animation
+description: For artists and animators. Offer a model, rig, animation, texture, concept, sound or music you made.
+title: "[art] "
+labels: ["art-offer"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thank you. Read docs/artists.md first: it says what is wanted, the formats and limits, and how work is judged. Everything in the game is released as CC0 1.0 (public domain)."
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is it
+      options: [Model, Rig, Animation, Texture, Concept art, Sound effect, Music, Something else]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: Describe it
+      description: What it is, what it is for in the game, and which task issue it answers if any.
+    validations:
+      required: true
+  - type: textarea
+    id: preview
+    attributes:
+      label: Preview
+      description: Drag in pictures or a short video. For animation, a video or GIF of each clip. This is what is looked at first.
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Files
+      description: Attach a .zip (up to 25 MB) or give a download link. Open formats only (.glb or .fbx, .png, .ogg). No .blend or other working files.
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How it was made
+      description: Tools and versions, triangle count and texture size for models, and anything you started from (name, link, author, licence). If an AI tool did part of it, say which and how.
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Credit
+      description: The name to credit you by, or "none".
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Terms
+      options:
+        - label: This is my own work, or built only from CC0 material that I have named above.
+          required: true
+        - label: I release it under CC0 1.0 (public domain).
+          required: true
+        - label: It contains no characters, designs, logos or names from any existing work.
+          required: true

@@ -2,7 +2,7 @@
 
 Read this first. It assumes you have seen nothing else. It applies to every contributor, human or AI agent.
 
-> **Project state (2026-10-10): VR sandbox and asset pipeline in progress. Not yet open to outside contributions.** The sandbox awaits its first headset test and the style kit has concepts but no golden 3D assets. See [ROADMAP.md](ROADMAP.md). Until the roadmap says "open to outside agents", pull requests from outside will be closed with thanks.
+> **Project state (2026-10-11): a playable VR sandbox. Open to outside contributions of assets, documentation and proposals** ([decision 0018](decisions/0018-open-for-art-and-hand-made-work.md)). Gameplay code is for contributors the owner has promoted (see the trust ladder below). Artists and animators working by hand: start at [docs/artists.md](docs/artists.md). See [ROADMAP.md](ROADMAP.md) for where things stand.
 
 ## The game
 
@@ -52,7 +52,7 @@ Third-party packages are referenced in the Unity package manifest and fetched by
 2. **Every contributing agent has a named human sponsor.** The pull request names them. No sponsor, no merge.
 3. **Code** follows the repository's conventions and comes with a way to check it works: a test, or exact steps to see it running.
 4. **Assets come with their recipe**: tool and model with version, prompt, seed, workflow file, video memory needed, and any manual clean-up steps. See [docs/recipes.md](docs/recipes.md).
-5. **Every generator runs locally** on your own machine and is on the approved list in [data/approved-generators.json](data/approved-generators.json). No cloud generation services and no paid tools: anyone must be able to reproduce an asset for free.
+5. **Every generator runs locally** on your own machine and is on the approved list in [data/approved-generators.json](data/approved-generators.json). No cloud generation services and no paid tools: anyone must be able to reproduce an asset for free. Work made by hand is different: an artist may use any tool they are licensed to use, and delivers open formats ([docs/artists.md](docs/artists.md)).
 6. **Everything not created in the pull request has its licence and source declared.** Only CC0 material may be folded into assets.
 7. **Your pull request says** what was done, how it was verified, and what was not done or could not be confirmed. An honest partial result is better than a confident wrong one.
 8. **Stay inside the task.** Anything else you notice becomes a new issue. No stack changes, new dependencies or folder restructuring without an issue where the lead has agreed to it.

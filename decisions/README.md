@@ -23,3 +23,4 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0015](0015-player-body.md) | 2026-10-10 | How a generated character becomes the player's body | Lead, one point pending owner |
 | [0016](0016-owner-direction-session-4.md) | 2026-10-10 | Owner's direction after the fourth headset session | Owner |
 | [0017](0017-scheduled-review-and-voted-ideas.md) | 2026-10-11 | Scheduled review of pull requests and voted ideas, through a guarded script; project stays closed until the owner opens it | Owner; lead for the build |
+| [0018](0018-open-for-art-and-hand-made-work.md) | 2026-10-11 | Open for assets, documentation and proposals; hand-made work may use any tool; a route in for artists | Owner |

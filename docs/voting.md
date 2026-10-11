@@ -2,7 +2,7 @@
 
 Anyone with a GitHub account can say what the game should get next, and vote on what others have said.
 
-> The project is not yet open to outside contributions ([ROADMAP.md](../ROADMAP.md)). Ideas and votes are welcome now; accepted ideas become task briefs that the lead works from, and that outside contributors can take once the project opens.
+> Accepted ideas become task briefs that anyone can take: assets, documentation and proposals are open to all, gameplay code to contributors the owner has promoted ([AGENTS.md](../AGENTS.md)).
 
 ## How to vote
 

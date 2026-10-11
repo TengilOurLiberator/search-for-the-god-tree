@@ -66,4 +66,4 @@ Target: 90 frames per second in VR on a mid-high gaming PC. The enforced numbers
 
 ## The style kit
 
-The style kit ([stylekit/](../stylekit/)) holds the approved generators, shared prompt fragments and golden reference assets that make work from many hands look like one game. It does not exist yet; it is built in the pipeline milestone, and asset contributions open only after it does.
+The style kit ([stylekit/](../stylekit/)) holds the approved generators, shared prompt fragments and golden reference assets that make work from many hands look like one game. It holds prompt fragments and golden concept pictures today; golden 3D assets are still to be chosen. Asset contributions are open ([decision 0018](../decisions/0018-open-for-art-and-hand-made-work.md)); people working by hand start at [docs/artists.md](../docs/artists.md).
