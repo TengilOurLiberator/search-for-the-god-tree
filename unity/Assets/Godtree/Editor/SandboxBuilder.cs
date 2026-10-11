@@ -294,6 +294,9 @@ namespace Godtree.EditorTools
                 ground.SetTexture("_BaseMap", meadow);
                 ground.SetTextureScale("_BaseMap", new Vector2(32f, 32f));
                 ground.SetColor("_BaseColor", new Color(0.92f, 0.98f, 0.90f));
+                // Huskhaven's square is paved; the meadow beyond the walls is not.
+                ground.SetVector("_SquareCentre", new Vector4(0f, 10f, 0f, 0f));
+                ground.SetFloat("_SquareRadius", 10.5f);
                 EditorUtility.SetDirty(ground);
             }
             // The base scene's own small grey floor is hidden; its collider stays, level with the meadow.

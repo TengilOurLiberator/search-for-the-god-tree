@@ -14,6 +14,10 @@ Shader "Godtree/Ground"
         _RoadColor ("Road Color", Color) = (0.66, 0.53, 0.36, 1)
         _RoadWidth ("Road Half Width", Range(0, 5)) = 1.3
         _RoadStart ("Road Starts At Z", Float) = 4
+        // A paved town square: cobbles inside a rough circle.
+        _SquareCentre ("Square Centre (x, z)", Vector) = (0, 9, 0, 0)
+        _SquareRadius ("Square Radius (0 = none)", Float) = 0
+        _CobbleColor ("Cobble Color", Color) = (0.74, 0.70, 0.62, 1)
         _ShadowColor ("Shadow Tint", Color) = (0.60, 0.58, 0.84, 1)
         _Brightness ("Brightness", Range(0.5, 2)) = 1.08
     }
@@ -36,6 +40,9 @@ Shader "Godtree/Ground"
             half4 _RoadColor;
             half _RoadWidth;
             float _RoadStart;
+            float4 _SquareCentre;
+            float _SquareRadius;
+            half4 _CobbleColor;
             half4 _ShadowColor;
             half _Brightness;
         CBUFFER_END
@@ -134,6 +141,23 @@ Shader "Godtree/Ground"
                 half3 dirt = _RoadColor.rgb * (0.86 + 0.22 * Noise(ground * 3.1) + 0.10 * Noise(ground * 17.0));
                 half3 albedo = lerp(grass, dirt, road * 0.92);
 
+                // The square: rounded cobbles, each a slightly different stone, dark in the joints,
+                // with grass creeping in at a ragged edge.
+                if (_SquareRadius > 0.0)
+                {
+                    float fromCentre = distance(ground, _SquareCentre.xy) + (Noise(ground * 0.9) - 0.5) * 1.6 + (Noise(ground * 4.0) - 0.5) * 0.35;
+                    half paved = 1.0 - smoothstep(_SquareRadius - 0.5, _SquareRadius, fromCentre);
+                    // The rows wander a little, so the paving does not read as a grid.
+                    float2 cell = ground * 2.3 + float2(Noise(ground * 0.7 + 5.0), Noise(ground * 0.7 + 31.0)) * 0.9;
+                    cell.x += step(1.0, fmod(floor(cell.y), 2.0)) * 0.5; // every other row offset, like laid stones
+                    float2 inCell = frac(cell) - 0.5;
+                    half stone = 1.0 - smoothstep(0.36, 0.49, max(abs(inCell.x), abs(inCell.y)) + 0.10 * length(inCell));
+                    half tone = 0.90 + 0.18 * Hash(floor(cell)) + 0.06 * Noise(ground * 9.0);
+                    // Seen from far off the joints would shimmer, so they fade out with distance.
+                    half near = 1.0 - saturate((distance(ground, _WorldSpaceCameraPos.xz) - 9.0) / 16.0);
+                    half3 cobble = lerp(_CobbleColor.rgb * lerp(0.93, 0.76, near), _CobbleColor.rgb * tone, stone);
+                    albedo = lerp(albedo, cobble, paved * 0.95);
+                }
                 float3 normal = normalize(input.normalWS);
                 Light mainLight = GetMainLight(TransformWorldToShadowCoord(input.positionWS));
                 half lit = saturate(dot(normal, mainLight.direction) * 4.0) * mainLight.shadowAttenuation;

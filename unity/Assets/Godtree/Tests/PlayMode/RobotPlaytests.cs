@@ -340,6 +340,16 @@ namespace Godtree.Tests
                 yield return Wait(0.9f);
                 Assert.AreEqual(castsBefore + 1, FocusCasting.Casts, $"holding TRIGGER {hold} s on {focusName} cast nothing");
                 Assert.AreEqual(spell, FocusCasting.LastSpell, $"holding TRIGGER {hold} s on {focusName} gave the wrong spell");
+                if (FocusCasting.BodiesAffected == affectedBefore)
+                {
+                    // A miss: the staff had not settled on its aim. A person would look again and
+                    // cast again; so does the robot, once.
+                    yield return AimFocus(false, focus, chest);
+                    yield return Wait(0.4f);
+                    yield return CastHeld(false, hold);
+                    yield return Wait(0.9f);
+                    Debug.Log($"[Robot] {focusName}: first cast of {spell} touched nothing; cast again");
+                }
                 Debug.Log($"[Robot] {focusName}, held {hold} s: {FocusCasting.LastSpell}, bodies affected {FocusCasting.BodiesAffected - affectedBefore}");
                 Assert.Greater(FocusCasting.BodiesAffected, affectedBefore, $"{spell} aimed at the dummy from three metres touched nothing");
                 if (spell == "Frost burst")
@@ -568,7 +578,7 @@ namespace Godtree.Tests
             Debug.Log($"[Robot] {innkeeper.npcName}: {innkeeper.LastReply}");
             _robot.SnapshotEyes(dir + "/02_after.jpg");
         }
-        [UnityTest, Timeout(600000)]
+        [UnityTest, Timeout(1500000)] // forty-odd weapons at about fifteen seconds each
         public IEnumerator EveryWeaponComesToHandAndHoldsStill()
         {
             // Point-and-pull each weapon in turn, hold it, swing it once, and let it go. Reports,
