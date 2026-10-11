@@ -767,8 +767,8 @@ namespace Godtree.EditorTools
                     // kind -> (x, z, height in metres, health, weapon model or null)
                     var kinds = new System.Collections.Generic.Dictionary<string, (float x, float z, float tall, float health, string weapon)>
                     {
-                        { "enm_barkbound", (-4.5f, 33f, 1.85f, 90f, "wpn_mace") },
-                        { "enm_barkbound_scout", (5.5f, 36f, 1.75f, 55f, "wpn_handaxe") },
+                        { "enm_barkbound", (-4.5f, 33f, 1.85f, 110f, "wpn_mace") },
+                        { "enm_barkbound_scout", (10f, 41f, 1.75f, 60f, "wpn_handaxe") }, // far enough off that it does not join the first fight
                         { "enm_barkbound_brute", (-7.5f, 42f, 2.25f, 170f, "wpn_warhammer") },
                         { "enm_husk_wight", (7f, 44f, 1.95f, 120f, null) },
                         { "enm_rootwarden", (0f, 49f, 2.9f, 260f, null) }, // in the road before the arch, as the world bible has it
@@ -1121,7 +1121,7 @@ namespace Godtree.EditorTools
             var mind = enemy.AddComponent<Godtree.Sandbox.EnemyActor>();
             mind.maxHealth = health;
             mind.strikeDistance = 1.5f * Mathf.Sqrt(size);
-            mind.strikeDamage = 12f * size;
+            mind.strikeDamage = 9f * size;
             mind.walkSpeed = 1.0f * Mathf.Sqrt(size);
             // An armoured thing stands and strikes like a fighter; the big ones lumber.
             if (enemy.name.Contains("barkbound") && !enemy.name.Contains("brute"))
@@ -1135,7 +1135,7 @@ namespace Godtree.EditorTools
             if (enemy.name.Contains("brute"))
             {
                 mind.walkSpeed = 0.8f;
-                mind.strikeDamage = 22f;
+                mind.strikeDamage = 18f;
             }
 
             // Something in its right hand: for show, fixed to the hand bone. These models stand

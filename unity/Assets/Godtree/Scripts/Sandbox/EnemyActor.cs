@@ -18,7 +18,7 @@ namespace Godtree.Sandbox
     {
         public float maxHealth = 90f;
         public float walkSpeed = 1.0f;
-        public float noticeDistance = 9f;
+        public float noticeDistance = 7.5f;
         public float strikeDistance = 1.6f;
         public float strikeDamage = 12f;
 
@@ -149,7 +149,7 @@ namespace Godtree.Sandbox
                 _clip = null; // so the same strike can be played again next time
                 _strikeLandsAt = Time.time + 0.55f;
                 _busyUntil = Time.time + 1.3f;
-                _nextStrike = Time.time + (Slowed ? 4.2f : 2.4f);
+                _nextStrike = Time.time + (Slowed ? 5f : 3.2f);
             }
             else
             {
@@ -180,9 +180,20 @@ namespace Godtree.Sandbox
 
         // ---------------------------------------------------------------- being hit
 
-        private void OnCollisionEnter(Collision collision)
+        // When each thing last landed a blow, so one that stays in contact (a blade drawn across,
+        // a weapon pressed in and then swung again) counts again after a moment, and a single
+        // touch does not count many times.
+        private readonly System.Collections.Generic.Dictionary<Rigidbody, float> _lastBlow = new System.Collections.Generic.Dictionary<Rigidbody, float>();
+
+        private void OnCollisionEnter(Collision collision) => Struck(collision, 0.12f);
+
+        private void OnCollisionStay(Collision collision) => Struck(collision, 0.4f);
+
+        private void Struck(Collision collision, float gapSeconds)
         {
             if (Dead || IsPlayer(collision.collider) && collision.rigidbody == null)
+                return;
+            if (collision.rigidbody != null && _lastBlow.TryGetValue(collision.rigidbody, out float last) && Time.time - last < gapSeconds)
                 return;
             Rigidbody striker = collision.rigidbody;
             if (striker == null || striker.isKinematic)
@@ -193,14 +204,18 @@ namespace Godtree.Sandbox
             // This body is moved by animation, so the physics engine's own figure for the blow can
             // be enormous (the weapon is pressed into something that will not give). Judge the blow
             // by how fast the thing was moving and how heavy it is.
-            float impulse = collision.relativeVelocity.magnitude * Mathf.Min(striker.mass, 1.5f);
+            // Capped at 12 m/s: now and then the engine reports a wild speed for one frame.
+            float impulse = Mathf.Min(collision.relativeVelocity.magnitude, 12f) * Mathf.Min(striker.mass, 1.5f);
             if (impulse < 1.2f)
                 return;
+            _lastBlow[striker] = Time.time;
             Vector3 point = collision.contactCount > 0 ? collision.GetContact(0).point : striker.worldCenterOfMass;
             bool spell = striker.name.StartsWith("Mote") || striker.name.StartsWith("Spell");
             GripPose weapon = striker.GetComponent<GripPose>();
             bool blade = weapon != null && (weapon.style == HoldStyle.Blade);
-            float damage = impulse * 4f * (spell ? PlayerStats.FocusNow : PlayerStats.StrengthNow);
+            // Six health per newton second: a decent one-handed sword stroke takes about fifteen.
+            // (At four, the robot facing two creatures at once could not win in seventy strokes.)
+            float damage = impulse * 6f * (spell ? PlayerStats.FocusNow : PlayerStats.StrengthNow);
             TakeHit(point, collision.relativeVelocity.normalized * -impulse, damage, blade);
         }
 
