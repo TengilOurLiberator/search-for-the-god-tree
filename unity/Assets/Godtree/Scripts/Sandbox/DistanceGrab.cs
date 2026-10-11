@@ -83,23 +83,34 @@ namespace Godtree.Sandbox
         private Rigidbody FindAimed(int i)
         {
             Transform controller = _controllers[i];
-            RaycastHit[] hits = Physics.SphereCastAll(controller.position + controller.forward * 0.25f, aimRadius, controller.forward, range, Physics.AllLayers, QueryTriggerInteraction.Ignore);
-            // Of everything the wide beam touches, take the thing nearest the line the hand points
-            // along, not the first thing touched: on a crowded table the first is often the
-            // neighbour (the robot player pulled the wrong weapon three times in twenty-five).
+            Vector3 origin = controller.position, along = controller.forward;
+            Vector3 start = origin + along * 0.25f;
+
+            // Everything the wide beam touches. A sweep does not report what it already overlaps
+            // at its start, so things right under the hand (a bulky weapon on a table, pointed at
+            // from just above) are gathered separately. Before this they were sometimes not
+            // found at all, and the pull brought nothing.
+            var touched = new System.Collections.Generic.List<(Collider collider, float distance, Vector3 point)>();
+            foreach (Collider near in Physics.OverlapSphere(start, aimRadius, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+                touched.Add((near, 0f, near.ClosestPoint(start)));
+            foreach (RaycastHit hit in Physics.SphereCastAll(start, aimRadius, along, range, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+                touched.Add((hit.collider, hit.distance, hit.point));
+
+            // Of those, take the thing nearest the line the hand points along, not the first thing
+            // touched: on a crowded table the first is often the neighbour (the robot player
+            // pulled the wrong weapon three times in twenty-five).
             Rigidbody best = null;
             float bestDistance = float.MaxValue;
-            Vector3 origin = controller.position, along = controller.forward;
-            foreach (RaycastHit hit in hits)
+            foreach ((Collider collider, float distance, Vector3 point) in touched)
             {
-                Rigidbody body = hit.rigidbody;
+                Rigidbody body = collider.attachedRigidbody;
                 if (body == null || body.isKinematic)
                     continue;
-                Vector3 nearest = hit.collider.ClosestPoint(origin + along * Vector3.Dot(hit.point - origin, along));
+                Vector3 nearest = collider.ClosestPoint(origin + along * Vector3.Dot(point - origin, along));
                 // Long things lying side by side have shapes that overlap each other's middles, so
                 // the beam is inside several at once; then the one whose middle is nearest the line wins.
                 float offLine = Vector3.Cross(along, nearest - origin).magnitude
-                                + 1.0f * Vector3.Cross(along, body.worldCenterOfMass - origin).magnitude + hit.distance * 0.002f;
+                                + 1.0f * Vector3.Cross(along, body.worldCenterOfMass - origin).magnitude + distance * 0.002f;
                 if (offLine >= bestDistance)
                     continue;
                 if (body.GetComponentInParent<Player>() != null || body.GetComponentInChildren<Grab>() == null)
@@ -111,7 +122,6 @@ namespace Godtree.Sandbox
             }
             return best;
         }
-
         private bool IsHeld(Rigidbody body)
         {
             foreach (Hand hand in _hands)
