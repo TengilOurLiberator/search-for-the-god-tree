@@ -1,6 +1,6 @@
 # Lead hand-off: where the work stands
 
-Updated 2026-10-11, in the small hours. Read this after AGENTS.md and ROADMAP.md. It is the working state that is not obvious from the files.
+Updated 2026-10-11, in the small hours. Read this after AGENTS.md and ROADMAP.md. The owner's summary of the night is `docs/reports/2026-10-11-night.md`. It is the working state that is not obvious from the files.
 
 ## The owner's standing direction (decision 0016)
 
@@ -14,10 +14,10 @@ Everything below was checked by the robot player and by looking at its pictures.
 |---|---|---|
 | Robot player: drives head, hands and buttons through the real input actions; walks with path-finding; saves pictures | `Scripts/Diagnostics/RobotPlayer.cs`, `Tests/PlayMode/RobotPlaytests.cs` (category Robot) | Its own routines |
 | Arrows no longer stick in the bow | `SandboxAbilities.LooseArrow` | Robot puts 5 of 5 arrows in the dummy |
-| Staffs and wands: Ember, Frost, Storm; tiers 1 to 3; hold TRIGGER longer for the bigger spells | `SpellFocus.cs`, `FocusCasting.cs`; spell table built in `SandboxBuilder.BuildSpellTable` | Robot casts 8 spells and checks each |
+| Staffs and wands: Ember, Frost, Storm, Root; tiers 1 to 3; hold TRIGGER longer for the bigger spells | `SpellFocus.cs`, `FocusCasting.cs`; spell table built in `SandboxBuilder.BuildSpellTable` | Robot casts 8 spells and checks each |
 | The player's body | `PlayerBody.cs` (decision 0015) | Mirror picture |
 | Animated townsfolk (8), on the CC0 Mesh2Motion human skeleton with 44 clips | `NpcActor.cs`; `recipes/anm_human_basic`; `SandboxBuilder.PlaceActor`, `BuildHumanAnimator` | Robot walks up; they turn and greet |
-| Fighting monsters: Barkbound, Rootwarden | `EnemyActor.cs`; `SandboxBuilder.MakeEnemy` | Robot fights the Barkbound to the death |
+| Fighting monsters: Barkbound, its scout and brute, a husk wight, the Rootwarden; each kind's place, size, health and carried weapon is one row of a table in `BuildGallery` | `EnemyActor.cs`; `SandboxBuilder.MakeEnemy` | Robot fights whichever comes until one falls. The scout is fast and joins fights |
 | Dismemberment: models pre-cut into ten capped pieces; a joint is severed, nothing is cut at run time | `Combat/Dismemberable.cs`; `blender_rig_body.py --parts` | Robot's killing blow takes the head off |
 | Talking NPCs by voice | `NpcMind.cs`, `VoiceInput.cs`; `tools/voice/` | Robot asks the innkeeper four things, one of them by generated speech |
 | Huskhaven as a walled town; the Windlow meadow and the Rootwarden's arch beyond the gate | layout table in `SandboxBuilder.BuildGallery`; twelve building models | Pictures from above and from the square; the robot walks out through the gate to fight |

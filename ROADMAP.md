@@ -47,9 +47,12 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [ ] Owner to try all of the above in the headset
 - [x] Huskhaven is a small walled town; the Windlow meadow, its creatures and the Rootwarden's arch lie beyond the gate
 - [x] Sixteen more arms (38 in all), with a wand and a great staff for each element; the robot pulls, holds and swings every one
-- [x] Equipment is shown on the body where its model is good enough (forearms, wrists, belt)
+- [x] Equipment is shown on the body: ten of the twelve menu items (forearms, wrists, belt, a padded jack, three for the head)
+- [x] A fourth element, root (thorn dart, snare, mend); frost slows creatures and roots hold them
+- [x] Five kinds of man-shaped creature in the meadow, each with its own size, toughness and weapon
+- [x] Night report for the owner: [docs/reports/2026-10-11-night.md](docs/reports/2026-10-11-night.md)
 - [ ] Burrlings, Thornbacks and the root crawler are still statues
-- [ ] Helms and breast pieces are not shown yet: their models came out badly and are being retried
+- [ ] Chain Shirt and Mote-silk Robe show nothing on the body: their models came out badly twice
 
 ## Milestones
 
