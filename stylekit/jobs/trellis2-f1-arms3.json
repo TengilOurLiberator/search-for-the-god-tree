@@ -1,0 +1,67 @@
+{
+    "_about":  "A root-element staff and wand and four weapons with an element\u0027s look (decision 0016). Standard workflow.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "wpn_axe_root",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_axe_root.png",
+                     "image":  "con_wpn_axe_root.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.75
+                 },
+                 {
+                     "id":  "wpn_hammer_ember",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_hammer_ember.png",
+                     "image":  "con_wpn_hammer_ember.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.8
+                 },
+                 {
+                     "id":  "wpn_spear_storm",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_spear_storm.png",
+                     "image":  "con_wpn_spear_storm.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  2
+                 },
+                 {
+                     "id":  "wpn_staff_root",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_staff_root.png",
+                     "image":  "con_wpn_staff_root.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.6
+                 },
+                 {
+                     "id":  "wpn_sword_frost",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_sword_frost.png",
+                     "image":  "con_wpn_sword_frost.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  1.05
+                 },
+                 {
+                     "id":  "wpn_wand_root",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_wpn_wand_root.png",
+                     "image":  "con_wpn_wand_root.png",
+                     "budget_class":  "weapon",
+                     "tris":  4500,
+                     "tex":  1024,
+                     "size":  0.42
+                 }
+             ]
+}

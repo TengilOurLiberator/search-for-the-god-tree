@@ -741,5 +741,38 @@ namespace Godtree.Tests
             _robot.SetSecondary(false, false);
             yield return Wait(0.4f);
             Assert.IsFalse(board.activeInHierarchy, "B did not close the character menu");
+        }
+        [UnityTest]
+        public IEnumerator EquipmentShowsOnTheBody()
+        {
+            const string dir = OutDir + "/equipment";
+            PlayerEquipment equipment = Object.FindFirstObjectByType<PlayerEquipment>();
+            Assert.IsNotNull(equipment, "no player equipment in the scene");
+            yield return Wait(0.5f);
+            Assert.AreEqual(0, equipment.Shown, "nothing is worn at the start, so nothing should be shown");
+
+            // Hold both forearms up in view, as when looking at your own hands.
+            yield return _robot.MoveHandBody(true, new Vector3(-0.18f, 1.35f, 0.38f), Quaternion.Euler(-60f, 20f, 0f), 0.4f);
+            yield return _robot.MoveHandBody(false, new Vector3(0.18f, 1.35f, 0.38f), Quaternion.Euler(-60f, -20f, 0f), 0.4f);
+            _robot.LookAt(_robot.BodyToWorld(new Vector3(0f, 1.25f, 0.4f)));
+
+            // Step through everything each slot offers, with a picture of each.
+            foreach (EquipSlot slot in new[] { EquipSlot.Hands, EquipSlot.Charm, EquipSlot.Body, EquipSlot.Head })
+            {
+                for (int choice = 0; choice < 3; choice++)
+                {
+                    PlayerStats.Instance.Cycle(slot, 1);
+                    yield return Wait(0.3f);
+                    EquipmentItem worn = PlayerStats.Instance.Equipped(slot);
+                    if (worn == null)
+                        continue;
+                    string file = worn.name.Replace(' ', '_').Replace("'", "");
+                    Debug.Log($"[Robot] wearing {worn.name}: {equipment.Shown} models on the body");
+                    if (slot == EquipSlot.Hands)
+                        _robot.SnapshotEyes($"{dir}/eyes_{file}.jpg");
+                    _robot.Snapshot($"{dir}/{slot}_{file}.jpg", new Vector3(0.7f, 1.55f, 1.25f), 1.35f, null, asMirror: true);
+                }
+            }
+            Assert.Greater(equipment.Shown, 0, "with every slot filled, nothing was shown on the body");
         }    }
 }

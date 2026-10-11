@@ -1,6 +1,6 @@
 # Lead hand-off: where the work stands
 
-Updated 2026-10-10, late night. Read this after AGENTS.md and ROADMAP.md. It is the working state that is not obvious from the files.
+Updated 2026-10-11, in the small hours. Read this after AGENTS.md and ROADMAP.md. It is the working state that is not obvious from the files.
 
 ## The owner's standing direction (decision 0016)
 
@@ -20,8 +20,11 @@ Everything below was checked by the robot player and by looking at its pictures.
 | Fighting monsters: Barkbound, Rootwarden | `EnemyActor.cs`; `SandboxBuilder.MakeEnemy` | Robot fights the Barkbound to the death |
 | Dismemberment: models pre-cut into ten capped pieces; a joint is severed, nothing is cut at run time | `Combat/Dismemberable.cs`; `blender_rig_body.py --parts` | Robot's killing blow takes the head off |
 | Talking NPCs by voice | `NpcMind.cs`, `VoiceInput.cs`; `tools/voice/` | Robot asks the innkeeper four things, one of them by generated speech |
+| Huskhaven as a walled town; the Windlow meadow and the Rootwarden's arch beyond the gate | layout table in `SandboxBuilder.BuildGallery`; twelve building models | Pictures from above and from the square; the robot walks out through the gate to fight |
+| 38 weapons and foci; three tiers of staff per element | `BuildGallery` (tables), `BuildSpellTable` | Robot pulls, holds and swings every one and writes `D:\godtree-work\robot\weapons_report.txt`; grip check picture |
+| Equipment shown on the body: forearm guards, wrist rings, belt charms (head and chest pieces only if their models pass) | `PlayerEquipment.cs`; `SandboxBuilder.BuildPlayerEquipment` | Robot wears each piece and photographs it |
 
-Nineteen PlayMode tests pass (`-testCategory Robot` runs the seven robot routines alone). The robot's pictures are in `D:\godtree-work\robot\<routine>\`.
+Twenty-two PlayMode tests (`-testCategory Robot` runs the ten robot routines alone; the whole suite takes about thirteen minutes). The talking test skips itself when the helper programs are not running. The robot's pictures are in `D:\godtree-work\robot\<routine>\`.
 
 ## How to run things
 
@@ -55,6 +58,9 @@ Nineteen PlayMode tests pass (`-testCategory Robot` runs the seven robot routine
 
 ## Known weak spots
 
+- **The physics hand trails the controller by about 34 cm in a 5.5 m/s swing**, empty or holding anything (robot weapons report). That is the rig's own lag and is probably what "weapons do not follow my hand" felt like in session 1. Not yet tuned: it needs the owner's feel.
+- The weapons routine sometimes has one or two odd readings (a pull that brings nothing, a hand left behind). They differ from run to run; the routine allows two.
+- Small generated things at the 2,000 triangle budget are rough (the bracer, the charms). Hollow things (helms, hoods, breast pieces) came out with black patches at the coarse setting and were thrown away.
 - The Barkbound is hunched and small in play; its model reads more as armour than as bark.
 - The old husk house is badly shattered up close; town buildings are being regenerated (`stylekit/jobs/concepts-f1-town.subjects.json`).
 - Rigged people have ragged hems (elder, weaver) and fingers that do not bend. Mouths do not move when they speak.
@@ -65,6 +71,6 @@ Nineteen PlayMode tests pass (`-testCategory Robot` runs the seven robot routine
 
 ## Next, in the owner's order
 
-1. Huskhaven as a small town: buildings, a wall and gate, lantern posts; people at their places; a monster area outside.
-2. Then weapons, equipment and spells, generated in batches on the PC and judged from pictures.
+1. More weapons, equipment and spells, generated in batches on the PC and judged from pictures (`Invoke-ModelRun.ps1` does image to finished model unattended).
+2. Paving for the town square; lit lanterns; doors that open.
 3. Four-legged creatures on the CC0 fox and spider rigs already fetched (`D:\godtree-tools\downloads\mesh2motion`).

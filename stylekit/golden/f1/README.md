@@ -135,3 +135,9 @@ The last five rows come from [../../jobs/concepts-f1-furniture.json](../../jobs/
 | `con_prp_eq_charm_husk.png` | 1101 |
 | `con_prp_eq_charm_tusk.png` | 2202 |
 | `con_prp_eq_charm_lantern.png` | 3303 |
+| `con_wpn_axe_root.png` | 1101 |
+| `con_wpn_hammer_ember.png` | 1101 |
+| `con_wpn_spear_storm.png` | 1101 |
+| `con_wpn_staff_root.png` | 1101 |
+| `con_wpn_sword_frost.png` | 2202 |
+| `con_wpn_wand_root.png` | 1101 |

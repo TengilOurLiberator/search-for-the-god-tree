@@ -45,9 +45,11 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [x] Dismemberment with stylised blood: a hard blade blow on a weakened creature takes a limb; the killing blow always does
 - [x] Free conversation with every townsperson by voice, through a language model and speech running on the PC (prototype; cannot ship as built, see THIRD_PARTY_LICENCES.md section 8)
 - [ ] Owner to try all of the above in the headset
-- [ ] Huskhaven as a small town with a monster area outside (in progress)
+- [x] Huskhaven is a small walled town; the Windlow meadow, its creatures and the Rootwarden's arch lie beyond the gate
+- [x] Sixteen more arms (38 in all), with a wand and a great staff for each element; the robot pulls, holds and swings every one
+- [x] Equipment is shown on the body where its model is good enough (forearms, wrists, belt)
 - [ ] Burrlings, Thornbacks and the root crawler are still statues
-- [ ] Equipped items are not shown on the character yet
+- [ ] Helms and breast pieces are not shown yet: their models came out badly and are being retried
 
 ## Milestones
 

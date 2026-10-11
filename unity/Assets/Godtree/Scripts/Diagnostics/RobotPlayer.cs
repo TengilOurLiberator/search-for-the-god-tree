@@ -457,20 +457,21 @@ namespace Godtree.Diagnostics
         // ---------------------------------------------------------------- pictures
 
         /// <summary>Save what an onlooker would see: a camera off to one side, looking at the player.</summary>
-        public void Snapshot(string path, Vector3 bodyOffset, float lookHeight = 1.1f, Vector3? lookAtWorld = null)
+        public void Snapshot(string path, Vector3 bodyOffset, float lookHeight = 1.1f, Vector3? lookAtWorld = null, bool asMirror = false)
         {
             Vector3 from = BodyToWorld(bodyOffset);
             Vector3 target = lookAtWorld ?? (FloorUnderHead() + Vector3.up * lookHeight);
-            Render(path, from, Quaternion.LookRotation(target - from), 60f);
+            Render(path, from, Quaternion.LookRotation(target - from), 60f, asMirror);
         }
 
         /// <summary>Save what the player sees.</summary>
         public void SnapshotEyes(string path)
         {
-            Render(path, Head.position, Head.rotation, 90f);
+            Render(path, Head.position, Head.rotation, 90f, false);
         }
 
-        private void Render(string path, Vector3 position, Quaternion rotation, float fieldOfView)
+        // asMirror: also show what only mirrors see (the player's own head and anything on it).
+        private void Render(string path, Vector3 position, Quaternion rotation, float fieldOfView, bool asMirror)
         {
             var cameraObject = new GameObject("Robot snapshot camera");
             var cam = cameraObject.AddComponent<Camera>();
@@ -478,7 +479,9 @@ namespace Godtree.Diagnostics
             cam.fieldOfView = fieldOfView;
             cam.nearClipPlane = 0.05f;
             cam.farClipPlane = 2000f;
-            cam.cullingMask = _rig.CameraTransform.GetComponent<Camera>().cullingMask;
+            cam.cullingMask = _rig.CameraTransform.GetComponent<Camera>().cullingMask | (asMirror ? 1 << 29 : 0);
+            if (asMirror)
+                cameraObject.name = "Mirror camera"; // so the body's own sweep leaves this camera's view of the head alone
             cam.transform.SetPositionAndRotation(position, rotation);
             var target = new RenderTexture(960, 540, 24);
             cam.targetTexture = target;

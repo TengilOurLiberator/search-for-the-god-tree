@@ -1,6 +1,6 @@
 {
-    "_about":  "Equipment shown on the player\u0027s body: hollow pieces (cap, helm, hood, three torso pieces). Coarse workflow, which keeps thin shells whole.",
-    "workflow":  "../workflows/trellis2_image_to_glb_coarse.api.json",
+    "_about":  "Second try at the hollow equipment (cap, helm, hood, three chest pieces). The coarse run at 2,000 triangles came out with large black patches and was thrown away. This run uses the standard workflow and a larger budget.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
     "output_ext":  "glb",
     "jobs":  [
                  {
@@ -8,9 +8,9 @@
                      "seed":  1101,
                      "image_path":  "../golden/f1/con_prp_eq_cap_leather_b.png",
                      "image":  "con_prp_eq_cap_leather_b.png",
-                     "budget_class":  "prop_small",
-                     "tris":  2000,
-                     "tex":  1024,
+                     "budget_class":  "prop_hero",
+                     "tris":  6000,
+                     "tex":  2048,
                      "size":  0.26
                  },
                  {
@@ -18,9 +18,9 @@
                      "seed":  1101,
                      "image_path":  "../golden/f1/con_prp_eq_helm_iron.png",
                      "image":  "con_prp_eq_helm_iron.png",
-                     "budget_class":  "prop_small",
-                     "tris":  2000,
-                     "tex":  1024,
+                     "budget_class":  "prop_hero",
+                     "tris":  6000,
+                     "tex":  2048,
                      "size":  0.28
                  },
                  {
@@ -28,9 +28,9 @@
                      "seed":  1101,
                      "image_path":  "../golden/f1/con_prp_eq_hood_weaver.png",
                      "image":  "con_prp_eq_hood_weaver.png",
-                     "budget_class":  "prop_small",
-                     "tris":  2000,
-                     "tex":  1024,
+                     "budget_class":  "prop_hero",
+                     "tris":  6000,
+                     "tex":  2048,
                      "size":  0.4
                  },
                  {
@@ -38,9 +38,9 @@
                      "seed":  1101,
                      "image_path":  "../golden/f1/con_prp_eq_pauldron_padded.png",
                      "image":  "con_prp_eq_pauldron_padded.png",
-                     "budget_class":  "prop_small",
-                     "tris":  2000,
-                     "tex":  1024,
+                     "budget_class":  "prop_hero",
+                     "tris":  6000,
+                     "tex":  2048,
                      "size":  0.62
                  },
                  {
@@ -48,9 +48,9 @@
                      "seed":  1101,
                      "image_path":  "../golden/f1/con_prp_eq_pauldron_iron.png",
                      "image":  "con_prp_eq_pauldron_iron.png",
-                     "budget_class":  "prop_small",
-                     "tris":  2000,
-                     "tex":  1024,
+                     "budget_class":  "prop_hero",
+                     "tris":  6000,
+                     "tex":  2048,
                      "size":  0.62
                  },
                  {
@@ -58,9 +58,9 @@
                      "seed":  1101,
                      "image_path":  "../golden/f1/con_prp_eq_pauldron_silk.png",
                      "image":  "con_prp_eq_pauldron_silk.png",
-                     "budget_class":  "prop_small",
-                     "tris":  2000,
-                     "tex":  1024,
+                     "budget_class":  "prop_hero",
+                     "tris":  6000,
+                     "tex":  2048,
                      "size":  0.66
                  }
              ]

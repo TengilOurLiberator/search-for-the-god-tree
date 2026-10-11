@@ -39,6 +39,16 @@ namespace Godtree.Sandbox
         public string Problem { get; private set; }
 
         private bool _tried;
+        private readonly Dictionary<string, Transform> _boneByName = new Dictionary<string, Transform>();
+
+        /// <summary>A bone of the rig's skeleton by its name (Hips, Neck, LeftLowerArm ...), or null.</summary>
+        public Transform Bone(string boneName) => _boneByName.TryGetValue(boneName, out Transform bone) ? bone : null;
+
+        /// <summary>The copy of the head that only mirrors see; helms are fixed to it.</summary>
+        public Transform MirrorHead => _mirrorHead;
+
+        /// <summary>The head's box in the mirror head's own space.</summary>
+        public Bounds HeadBox { get; private set; }
 
         // The rig hides the head (a first-person player must not see the inside of their own
         // face), so a mirror shows a headless body. A separate copy of the head is drawn on a
@@ -105,7 +115,10 @@ namespace Godtree.Sandbox
             var rigIndex = new Dictionary<string, int>();
             for (int i = 0; i < bones.Length; i++)
                 if (bones[i] != null)
+                {
                     rigIndex[bones[i].name] = i;
+                    _boneByName[bones[i].name] = bones[i];
+                }
             var boneMap = new int[BoneNames.Length];
             for (int i = 0; i < BoneNames.Length; i++)
             {
@@ -233,6 +246,15 @@ namespace Godtree.Sandbox
                 headMesh.uv = source.uv;
                 headMesh.triangles = headTriangles.ToArray();
                 headMesh.RecalculateBounds();
+                var headBox = new Bounds();
+                bool anyHead = false;
+                foreach (int index in headTriangles)
+                {
+                    if (!anyHead) headBox = new Bounds(headVertices[index], Vector3.zero);
+                    else headBox.Encapsulate(headVertices[index]);
+                    anyHead = true;
+                }
+                HeadBox = headBox;
                 var headObject = new GameObject("Player head (mirror only)", typeof(MeshFilter), typeof(MeshRenderer));
                 headObject.layer = MirrorOnlyLayer;
                 headObject.GetComponent<MeshFilter>().sharedMesh = headMesh;

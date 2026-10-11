@@ -329,6 +329,7 @@ namespace Godtree.EditorTools
             BuildAmbience(root.transform);
             new GameObject("Voice input (talk to NPCs)", typeof(Godtree.Sandbox.VoiceInput)).transform.SetParent(root.transform, false);
             BuildPlayerBody(root.transform);
+            BuildPlayerEquipment(root.transform);
 
             ApplyToonToGeneratedModels(root);
             SliceDummy();
@@ -702,7 +703,7 @@ namespace Godtree.EditorTools
             {
                 foreach (GameObject prefab in LoadModels(folder))
                 {
-                    if (placed.Contains(prefab.name) || retired.Contains(prefab.name) || prefab.name == "prp_table_long" || prefab.name == "prp_plinth_stone" || System.Array.IndexOf(loose, prefab.name) >= 0)
+                    if (placed.Contains(prefab.name) || retired.Contains(prefab.name) || prefab.name.StartsWith("prp_eq_") || prefab.name == "prp_table_long" || prefab.name == "prp_plinth_stone" || System.Array.IndexOf(loose, prefab.name) >= 0)
                         continue;
                     var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, gallery.transform);
                     instance.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
@@ -1884,6 +1885,51 @@ namespace Godtree.EditorTools
             body.material = material;
             Debug.Log($"[Godtree] player body source: {copy.vertexCount} vertices, bounds {copy.bounds.center} {copy.bounds.size}, texture {(texture != null ? texture.name : "none")}");
         }
+
+        /// <summary>
+        /// The models for the twelve things in the character menu, kept in the scene switched
+        /// off, and the component that copies the worn ones onto the player's body.
+        /// </summary>
+        private static void BuildPlayerEquipment(Transform parent)
+        {
+            var items = new (string item, string model, Godtree.Sandbox.PlayerEquipment.Mount mount, float yaw)[]
+            {
+                ("Leather Cap", "prp_eq_cap_leather", Godtree.Sandbox.PlayerEquipment.Mount.Head, EquipmentYaw),
+                ("Iron Helm", "prp_eq_helm_iron", Godtree.Sandbox.PlayerEquipment.Mount.Head, EquipmentYaw),
+                ("Weaver's Hood", "prp_eq_hood_weaver", Godtree.Sandbox.PlayerEquipment.Mount.Head, EquipmentYaw),
+                ("Padded Jack", "prp_eq_body_padded", Godtree.Sandbox.PlayerEquipment.Mount.Chest, EquipmentYaw),
+                ("Chain Shirt", "prp_eq_body_iron", Godtree.Sandbox.PlayerEquipment.Mount.Chest, EquipmentYaw),
+                ("Mote-silk Robe", "prp_eq_body_silk", Godtree.Sandbox.PlayerEquipment.Mount.Chest, EquipmentYaw),
+                ("Iron Bracers", "prp_eq_bracer_iron", Godtree.Sandbox.PlayerEquipment.Mount.Forearms, 0f),
+                ("Runner's Wraps", "prp_eq_wrap_runner", Godtree.Sandbox.PlayerEquipment.Mount.Forearms, 0f),
+                ("Knot-rings", "prp_eq_ring_knot", Godtree.Sandbox.PlayerEquipment.Mount.Wrists, 0f),
+                ("Husk Charm", "prp_eq_charm_husk", Godtree.Sandbox.PlayerEquipment.Mount.Belt, 0f),
+                ("Thornback Tusk", "prp_eq_charm_tusk", Godtree.Sandbox.PlayerEquipment.Mount.Belt, 0f),
+                ("Mote Lantern", "prp_eq_charm_lantern", Godtree.Sandbox.PlayerEquipment.Mount.Belt, 0f),
+            };
+            var holder = new GameObject("Player equipment");
+            holder.transform.SetParent(parent, false);
+            var equipment = holder.AddComponent<Godtree.Sandbox.PlayerEquipment>();
+            var templates = new GameObject("Templates (switched off)");
+            templates.transform.SetParent(holder.transform, false);
+            int found = 0;
+            foreach ((string item, string model, Godtree.Sandbox.PlayerEquipment.Mount mount, float yaw) in items)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{ArtDir}/Props/{model}.glb");
+                if (prefab == null)
+                    continue;
+                var template = (GameObject)PrefabUtility.InstantiatePrefab(prefab, templates.transform);
+                template.name = model;
+                template.SetActive(false);
+                equipment.pieces.Add(new Godtree.Sandbox.PlayerEquipment.Piece { item = item, template = template, mount = mount, yaw = yaw });
+                found++;
+            }
+            Debug.Log($"[Godtree] player equipment: {found} of {items.Length} models found");
+        }
+
+        // How head and chest pieces must be turned so their front faces the way the player faces.
+        // Set by looking at the menu's mirror picture.
+        private const float EquipmentYaw = 0f;
 
         // ------------------------------------------------------------ helpers
 

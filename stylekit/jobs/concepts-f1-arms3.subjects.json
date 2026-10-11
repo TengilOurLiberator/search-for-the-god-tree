@@ -1,0 +1,71 @@
+{
+    "_about":  "A fourth element for the sandbox (root: thorns, snaring roots, mending), with its staff and wand, and four weapons that carry an element\u0027s look.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_wpn_staff_root",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A nature wizard\u0027s staff: a thick pale living root twisted like rope, at the top it curls into a tight spiral holding a solid opaque leaf-green stone, a few fat buds modelled solidly on the wood. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels, no loose leaves."
+                     },
+                     {
+                         "id":  "con_wpn_wand_root",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A short nature wand the length of a forearm: a stout pale twisted root with a bronze collar holding a solid opaque leaf-green faceted stone at the tip. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels, no loose leaves."
+                     },
+                     {
+                         "id":  "con_wpn_hammer_ember",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A one-handed war hammer whose blocky dark iron head has an orange-red stone set solidly into each face, a short thick wooden handle wrapped in red leather. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels, no loose leaves."
+                     },
+                     {
+                         "id":  "con_wpn_sword_frost",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A straight single-handed sword with a broad pale blue-white blade like polished ice, a silver crossguard shaped like two snowflake arms, a white leather grip and a round silver pommel. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels, no loose leaves."
+                     },
+                     {
+                         "id":  "con_wpn_spear_storm",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A spear with a thick dark wooden shaft wound with a copper band, a long leaf-shaped bronze spearhead with a small violet stone set solidly at its base. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels, no loose leaves."
+                     },
+                     {
+                         "id":  "con_wpn_axe_root",
+                         "framing":  "object_for_3d",
+                         "width":  1024,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A one-handed axe whose haft is a twisted pale root and whose broad head is a single wedge of polished green stone bound on with thick cord. The weapon stands perfectly upright, shown whole from end to tip, chunky solid shapes, no glow, no transparency, no chains, no thin strings, no tassels, no loose leaves."
+                     }
+                 ]
+}
