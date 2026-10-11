@@ -222,6 +222,9 @@ namespace Godtree.Tests
                     yield return _robot.MoveHandWorld(true, bowTarget, Quaternion.LookRotation(aim), 0.2f);
                     yield return Wait(0.25f);
                 }
+                // The arrow flies where the bow hand's controller points: point it at the target.
+                yield return _robot.MoveHandWorld(true, bowTarget, Quaternion.LookRotation(chest - _robot.LeftHand.PalmTransform.position), 0.15f);
+                yield return Wait(0.25f);
                 aim = (chest - _robot.RightHand.PalmTransform.position).normalized;
                 Vector3 actual = (_robot.LeftHand.PalmTransform.position - _robot.RightHand.PalmTransform.position).normalized;                Debug.Log($"[Robot] shot {shot + 1}: the hands point {Vector3.Angle(actual, aim):F1} degrees off the intended line, draw {Vector3.Distance(_robot.LeftHand.PalmTransform.position, _robot.RightHand.PalmTransform.position):F2} m");                yield return Wait(0.2f);
                 if (shot == 0)
@@ -254,6 +257,37 @@ namespace Godtree.Tests
             Assert.AreEqual(0, stuckNearHand, "arrows stuck where they were loosed instead of flying");
             Assert.GreaterOrEqual(stuckInDummy, 3, "at least three of five aimed arrows should hit a dummy three metres away");
         }
+        [UnityTest]
+        public IEnumerator AnArrowHurtsACreature()
+        {
+            EnemyActor enemy = Object.FindFirstObjectByType<EnemyActor>();
+            Assert.IsNotNull(enemy, "no creature in the scene");
+            float before = enemy.Health;
+            // Aim at the middle of its biggest part, so the arrow cannot pass between its legs.
+            Collider biggest = null;
+            foreach (Collider part in enemy.GetComponentsInChildren<Collider>())
+                if (biggest == null || part.bounds.size.sqrMagnitude > biggest.bounds.size.sqrMagnitude)
+                    biggest = part;
+            Assert.IsNotNull(biggest, enemy.name + " has no shape to hit");
+            Vector3 chest = biggest.bounds.center;
+            Vector3 from = chest + enemy.transform.forward * 2.5f;
+            // Built as SandboxAbilities.LooseArrow builds one, at the speed of a good draw.
+            var arrow = new GameObject("Arrow");
+            arrow.transform.SetPositionAndRotation(from, Quaternion.LookRotation(chest - from));
+            var capsule = arrow.AddComponent<CapsuleCollider>();
+            capsule.direction = 2;
+            capsule.radius = 0.012f;
+            capsule.height = 0.7f;
+            Rigidbody body = arrow.AddComponent<Rigidbody>();
+            body.mass = 0.08f;
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            arrow.AddComponent<SandboxProjectile>().sticks = true;
+            body.linearVelocity = (chest - from).normalized * 32f;
+            yield return Wait(0.6f);
+            Debug.Log($"[Robot] an arrow at 32 m/s took {before - enemy.Health:F0} health from {enemy.name}; it ended in: {(arrow.transform.parent != null ? arrow.transform.parent.name : "nothing")}, {Vector3.Distance(arrow.transform.position, from):F2} m from where it began");
+            Assert.Less(enemy.Health, before - 15f, "an arrow at 32 m/s should hurt a creature");
+        }
+
         /// <summary>Hold a staff or wand so that it points at a place, correcting by eye as a person would.</summary>
         private IEnumerator AimFocus(bool left, SpellFocus focus, Vector3 target)
         {
@@ -262,14 +296,9 @@ namespace Godtree.Tests
             Vector3 hand = _robot.Feet + Vector3.up * 1.15f + toward * 0.35f + side * 0.25f;
             Quaternion rotation = Quaternion.LookRotation((target - hand).normalized);
             yield return _robot.MoveHandWorld(left, hand, rotation, 0.5f);
-            for (int correction = 0; correction < 5; correction++)
-            {
-                yield return Wait(0.25f);
-                rotation = Quaternion.FromToRotation(focus.Aim, (target - focus.Tip).normalized) * rotation;
-                yield return _robot.MoveHandWorld(left, hand, rotation, 0.15f);
-            }
-            yield return Wait(0.3f);
-            Debug.Log($"[Robot] {focus.name} points {Vector3.Angle(focus.Aim, target - focus.Tip):F1} degrees off its target");
+            // Spells go where the controller points, whichever way the staff leans in the hand.
+            yield return Wait(0.6f);
+            Debug.Log($"[Robot] {focus.name} leans {Vector3.Angle(focus.Aim, target - focus.Tip):F1} degrees off the line the controller points along");
         }
 
         private IEnumerator CastHeld(bool left, float seconds)

@@ -10,10 +10,10 @@ namespace Godtree.Sandbox
     /// (the real bow and the real magic system come in later milestones):
     ///
     ///   BOW          Hold the bow in one hand. Bring the other hand to it, hold that hand's
-    ///                TRIGGER, pull back, let go. Further pull, faster arrow.
-    ///   MOTE BOLT    Empty hand: hold TRIGGER to gather a mote, let go to loose it. A
-    ///                throwing motion sends it where your hand was going; otherwise it
-    ///                flies where the controller points.
+    ///                TRIGGER, pull back, let go. Further pull, faster arrow. It flies where
+    ///                the bow hand's controller points.
+    ///   MOTE BOLT    Empty hand: hold TRIGGER to gather a mote, let go to loose it. It flies
+    ///                where the controller points; a throwing motion makes it faster.
     ///   PUSH KNOT    Both hands empty: hold both TRIGGERS with your hands together, then
     ///                let go. Everything in front of you is shoved away.
     ///   LIFT KNOT    Both hands empty: hold both TRIGGERS with your hands apart. Loose things
@@ -115,8 +115,8 @@ namespace Godtree.Sandbox
                 if (_drawing[i])
                 {
                     if (!otherHoldsBow || !free) { _drawing[i] = false; HideNocked(); }
-                    else if (_pressed[i]) ShowNocked(_hands[other].PalmTransform.position, _hands[i].PalmTransform.position);
-                    else { _drawing[i] = false; HideNocked(); LooseArrow(_hands[other].PalmTransform.position, _hands[i].PalmTransform.position); }
+                    else if (_pressed[i]) ShowNocked(_hands[other].PalmTransform.position, _controllers[other].forward);
+                    else { _drawing[i] = false; HideNocked(); LooseArrow(_hands[other].PalmTransform.position, _hands[i].PalmTransform.position, _controllers[other].forward); }
                 }
 
                 if (_charging[i])
@@ -202,17 +202,18 @@ namespace Godtree.Sandbox
 
         // ------------------------------------------------------------ bow
 
-        private void ShowNocked(Vector3 bowHand, Vector3 drawHand)
+        // The arrow lies and flies the way the bow hand's controller points (the owner's fifth
+        // session: everything shot should go where the controller points). The pull only sets the speed.
+        private void ShowNocked(Vector3 bowHand, Vector3 direction)
         {
             if (_nockedArrow == null)
             {
                 _nockedArrow = BuildArrowVisual();
                 _nockedArrow.name = "Nocked arrow";
             }
-            Vector3 direction = bowHand - drawHand;
-            if (direction.sqrMagnitude < 0.0004f)
-                return;
-            _nockedArrow.transform.SetPositionAndRotation(drawHand + direction.normalized * 0.35f, Quaternion.LookRotation(direction));
+            // Its tail comes back as far as the string hand has been pulled.
+            float pulled = Mathf.Clamp(Vector3.Distance(bowHand, _hands[HoldsBow(_hands[0]) ? 1 : 0].PalmTransform.position), 0f, 0.75f);
+            _nockedArrow.transform.SetPositionAndRotation(bowHand + direction * (0.35f - pulled), Quaternion.LookRotation(direction));
         }
 
         private void HideNocked()
@@ -222,14 +223,13 @@ namespace Godtree.Sandbox
             _nockedArrow = null;
         }
 
-        private void LooseArrow(Vector3 bowHand, Vector3 drawHand)
+        private void LooseArrow(Vector3 bowHand, Vector3 drawHand, Vector3 direction)
         {
             Vector3 pull = bowHand - drawHand;
             float draw = Mathf.Clamp(pull.magnitude, 0f, 0.75f);
             if (draw < 0.15f)
                 return; // not drawn: nothing happens
 
-            Vector3 direction = pull.normalized;
             float speed = Mathf.Lerp(8f, 42f, Mathf.InverseLerp(0.15f, 0.7f, draw));
 
             GameObject arrow = BuildArrowVisual();
@@ -349,7 +349,8 @@ namespace Godtree.Sandbox
 
             Vector3 velocity = _palmVelocity[i];
             bool thrown = velocity.magnitude > 1.5f;
-            Vector3 direction = thrown ? velocity.normalized : _controllers[i].forward;
+            // Always where the controller points; a throwing motion only adds speed.
+            Vector3 direction = _controllers[i].forward;
             float speed = 10f + 12f * charge + (thrown ? Mathf.Min(velocity.magnitude, 6f) : 0f);
 
             GameObject bolt = GameObject.CreatePrimitive(PrimitiveType.Sphere);

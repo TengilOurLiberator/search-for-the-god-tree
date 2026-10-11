@@ -101,7 +101,7 @@ namespace Godtree.Sandbox
                     _charging[i] = false;
                     HideTip(i);
                     if (focus != null)
-                        Cast(focus, focus.SpellFor(Time.time - _started[i]));
+                        Cast(focus, focus.SpellFor(Time.time - _started[i]), i);
                 }
                 if (_charging[i] && focus != null)
                     ShowTip(i, focus, Time.time - _started[i]);
@@ -149,11 +149,34 @@ namespace Godtree.Sandbox
 
         // ---------------------------------------------------------------- casting
 
-        private void Cast(SpellFocus focus, int spell)
+        /// <summary>
+        /// Spells leave the tip of the focus but go where the hand's controller points, not where
+        /// the staff happens to lean (the owner's fifth session: staffs shot upward). The aim is
+        /// from the tip to whatever the controller's pointing line first meets.
+        /// </summary>
+        private Vector3 AimOf(SpellFocus focus, int hand)
+        {
+            Transform controller = hand == 0 ? _player.ControllerRig.LeftControllerTransform : _player.ControllerRig.RightControllerTransform;
+            Vector3 origin = controller.position, along = controller.forward;
+            Vector3 target = origin + along * 40f;
+            float nearest = 40f;
+            foreach (RaycastHit hit in Physics.RaycastAll(origin, along, 40f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+            {
+                // Not the caster, not the focus, and nothing closer than the tip's own reach.
+                if (hit.distance >= nearest || hit.distance < 1.5f || hit.collider.transform.IsChildOf(focus.transform)
+                    || hit.collider.transform.IsChildOf(_player.transform.root))
+                    continue;
+                nearest = hit.distance;
+                target = hit.point;
+            }
+            return (target - focus.Tip).normalized;
+        }
+
+        private void Cast(SpellFocus focus, int spell, int hand)
         {
             float power = (0.8f + 0.35f * focus.tier) * PlayerStats.FocusNow;
             _casting = focus.element;
-            Vector3 tip = focus.Tip, aim = focus.Aim;
+            Vector3 tip = focus.Tip, aim = AimOf(focus, hand);
             Color colour = SpellFocus.ColourOf(focus.element);
             LastSpell = SpellFocus.NameOf(focus.element, spell);
             Casts++;

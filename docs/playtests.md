@@ -71,6 +71,16 @@ None of these has been seen or felt in a headset yet.
 - Owner: "This is okay." Asked for: staffs and wands that cast; arrows "get stuck when shooting"; animated NPCs and monsters; a conversation with every NPC; and a way for the lead to playtest alone.
 - Four arrows were loosed at 26 to 31 m/s. Cause of the sticking: each arrow began inside the bow's own shape, struck it and stuck. Fixed.
 
+### Session 5 (2026-10-11, morning, about 7 minutes)
+
+The first time the owner saw the night's work: the town, the animated people and creatures, staffs, dismemberment.
+
+- Owner: "It seems to work pretty okay"; "they look pretty good".
+- **The bow "still doesn't do any damage".** The record agrees: 17 arrows at 25 to 34 m/s, and not one counted against a creature. Two causes: a creature judged every blow by speed times weight, and an arrow weighs 80 grams, so every arrow fell under the threshold; and an arrow that lands freezes itself in place first, after which the creature ignored it as a thing that does not move. Arrows are now judged by speed alone (about one health per metre per second; the robot's arrow at 32 m/s took 30). A robot routine now checks this; none did before, which is why the night's testing missed it.
+- **Spells from a staff went "up", not where the controller faces.** They flew along the staff, which leans in the hand. Owner's rule: magic, arrows "and stuff like that" go where the controller points, like the pointer arrows in the headset's own menus. Now: spells leave the staff's tip toward what the controller's pointing line meets; arrows fly where the bow hand's controller points (the pull sets only the speed); a mote bolt always flies where the controller points.
+- Not yet clear: whether thrown objects should also be steered toward where the controller points. Asked.
+- The creatures died to weapons: a Barkbound and the brute, one limb severed. 43 spells and 42 mote bolts were cast.
+
 ## Robot playtests (from 2026-10-10, night)
 
 The robot player stands in for a person: it drives the rig's head, hands and buttons through the real input path, walks with the stick, and saves pictures. It shows whether a thing works. It says nothing about comfort or fun. Routines are in `unity/Assets/Godtree/Tests/PlayMode/RobotPlaytests.cs`; pictures in `D:\godtree-work\robot\`.

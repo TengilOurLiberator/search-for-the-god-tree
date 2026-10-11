@@ -196,7 +196,8 @@ namespace Godtree.Sandbox
             if (collision.rigidbody != null && _lastBlow.TryGetValue(collision.rigidbody, out float last) && Time.time - last < gapSeconds)
                 return;
             Rigidbody striker = collision.rigidbody;
-            if (striker == null || striker.isKinematic)
+            // (An arrow that has just landed has already made itself kinematic so as to stay put.)
+            if (striker == null || (striker.isKinematic && striker.name != "Arrow"))
                 return;
             // Bare hands and the player's own body do not count as blows.
             if (striker.GetComponentInParent<Player>() != null)
@@ -205,11 +206,23 @@ namespace Godtree.Sandbox
             // be enormous (the weapon is pressed into something that will not give). Judge the blow
             // by how fast the thing was moving and how heavy it is.
             // Capped at 12 m/s: now and then the engine reports a wild speed for one frame.
+            Vector3 point = collision.contactCount > 0 ? collision.GetContact(0).point : striker.worldCenterOfMass;
+            // An arrow is far too light for the rule below (in the owner's fifth session seventeen
+            // arrows did nothing). It pierces: it is judged by its speed alone, about one health
+            // for each metre per second, so a full draw takes thirty to forty.
+            if (striker.name == "Arrow")
+            {
+                float speed = Mathf.Min(collision.relativeVelocity.magnitude, 45f);
+                if (speed < 6f)
+                    return;
+                _lastBlow[striker] = Time.time;
+                TakeHit(point, collision.relativeVelocity.normalized * -(speed * striker.mass), speed * 0.95f * PlayerStats.StrengthNow, false);
+                return;
+            }
             float impulse = Mathf.Min(collision.relativeVelocity.magnitude, 12f) * Mathf.Min(striker.mass, 1.5f);
             if (impulse < 1.2f)
                 return;
             _lastBlow[striker] = Time.time;
-            Vector3 point = collision.contactCount > 0 ? collision.GetContact(0).point : striker.worldCenterOfMass;
             bool spell = striker.name.StartsWith("Mote") || striker.name.StartsWith("Spell");
             GripPose weapon = striker.GetComponent<GripPose>();
             bool blade = weapon != null && (weapon.style == HoldStyle.Blade);
