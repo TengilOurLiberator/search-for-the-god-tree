@@ -1,0 +1,37 @@
+{
+    "_about":  "Three more man-shaped creatures, to be rigged to the CC0 human skeleton and cut into parts (decision 0016). Generated well under the 20,000 triangle budget because cutting into capped parts adds about two thirds again.",
+    "workflow":  "../workflows/trellis2_image_to_glb.api.json",
+    "output_ext":  "glb",
+    "jobs":  [
+                 {
+                     "id":  "enm_barkbound_brute",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_enm_barkbound_brute.png",
+                     "image":  "con_rig_enm_barkbound_brute.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  12000,
+                     "tex":  2048,
+                     "size":  2.2
+                 },
+                 {
+                     "id":  "enm_barkbound_scout",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_enm_barkbound_scout.png",
+                     "image":  "con_rig_enm_barkbound_scout.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  10000,
+                     "tex":  2048,
+                     "size":  1.8
+                 },
+                 {
+                     "id":  "enm_husk_wight",
+                     "seed":  1101,
+                     "image_path":  "../golden/f1/con_rig_enm_husk_wight.png",
+                     "image":  "con_rig_enm_husk_wight.png",
+                     "budget_class":  "enemy_common",
+                     "tris":  10000,
+                     "tex":  2048,
+                     "size":  1.9
+                 }
+             ]
+}

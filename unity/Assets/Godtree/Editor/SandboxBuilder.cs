@@ -757,15 +757,24 @@ namespace Godtree.EditorTools
                 var instance = (GameObject)PrefabUtility.InstantiatePrefab(creatures[i], gallery.transform);
                 int side = i % 2 == 0 ? -1 : 1;
                 Vector3 spot = new Vector3(side * (4.5f + 4f * (i / 2)), 0f, 34f + 4f * (i / 2));
-                if (creatures[i].name.Contains("rootwarden"))
-                    spot = new Vector3(0f, 0f, 49f); // it stands in the road before the arch, as the world bible has it
                 if (creatures[i].GetComponentInChildren<SkinnedMeshRenderer>() != null && humanAnimator != null)
                 {
-                    // Man-shaped and rigged: it lives, fights and can lose limbs.
+                    // Man-shaped and rigged: it lives, fights and can lose limbs. Each kind has its
+                    // place in the meadow, its size, its toughness and what it carries.
+                    // kind -> (x, z, height in metres, health, weapon model or null)
+                    var kinds = new System.Collections.Generic.Dictionary<string, (float x, float z, float tall, float health, string weapon)>
+                    {
+                        { "enm_barkbound", (-4.5f, 33f, 1.85f, 90f, "wpn_mace") },
+                        { "enm_barkbound_scout", (5.5f, 36f, 1.75f, 55f, "wpn_handaxe") },
+                        { "enm_barkbound_brute", (-7.5f, 42f, 2.25f, 170f, "wpn_warhammer") },
+                        { "enm_husk_wight", (7f, 44f, 1.95f, 120f, null) },
+                        { "enm_rootwarden", (0f, 49f, 2.9f, 260f, null) }, // in the road before the arch, as the world bible has it
+                    };
                     Object.DestroyImmediate(instance);
-                    float tall = creatures[i].name.Contains("rootwarden") ? 2.9f : 1.85f;
-                    GameObject enemy = PlaceActor(gallery.transform, creatures[i], humanAnimator, spot, new Vector3(0f, 0f, 24f), "Zombie_Idle", tall);
-                    MakeEnemy(enemy, tall, creatures[i].name.Contains("rootwarden") ? 260f : 90f);
+                    if (!kinds.TryGetValue(creatures[i].name, out (float x, float z, float tall, float health, string weapon) kind))
+                        kind = (spot.x, spot.z, 1.85f, 90f, null);
+                    GameObject enemy = PlaceActor(gallery.transform, creatures[i], humanAnimator, new Vector3(kind.x, 0f, kind.z), new Vector3(0f, 0f, 24f), "Zombie_Idle", kind.tall);
+                    MakeEnemy(enemy, kind.tall, kind.health, kind.weapon);
                     continue;
                 }                instance.transform.localRotation = Quaternion.LookRotation(new Vector3(-spot.x, 0f, 24f - spot.z));
                 RestOn(instance, spot);
@@ -1063,7 +1072,7 @@ namespace Godtree.EditorTools
         /// weapons to strike, the limb-losing component if its model was cut into parts, and the
         /// mind that walks it up to the player.
         /// </summary>
-        private static void MakeEnemy(GameObject enemy, float heightMetres, float health)
+        private static void MakeEnemy(GameObject enemy, float heightMetres, float health, string weaponModel)
         {
             Object.DestroyImmediate(enemy.GetComponent<Godtree.Sandbox.NpcActor>());
             Object.DestroyImmediate(enemy.GetComponent<CapsuleCollider>());
@@ -1111,14 +1120,40 @@ namespace Godtree.EditorTools
             mind.strikeDistance = 1.5f * Mathf.Sqrt(size);
             mind.strikeDamage = 12f * size;
             mind.walkSpeed = 1.0f * Mathf.Sqrt(size);
-            // An armoured thing stands and strikes like a fighter; the big one lumbers.
-            if (enemy.name.Contains("barkbound"))
+            // An armoured thing stands and strikes like a fighter; the big ones lumber.
+            if (enemy.name.Contains("barkbound") && !enemy.name.Contains("brute"))
             {
                 mind.idleClip = "Fighting Idle";
                 mind.walkClip = "Walk";
-                mind.strikeClip = "Punch_Cross";
+                mind.strikeClip = weaponModel != null ? "Sword_Regular_A" : "Punch_Cross";
             }
-        }
+            if (enemy.name.Contains("scout"))
+                mind.walkSpeed = 1.9f;
+            if (enemy.name.Contains("brute"))
+            {
+                mind.walkSpeed = 0.8f;
+                mind.strikeDamage = 22f;
+            }
+
+            // Something in its right hand: for show, fixed to the hand bone. These models stand
+            // head up and handle down, so the handle end goes in the fist and the head points
+            // the way the creature faces.
+            if (weaponModel != null && bones.TryGetValue("hand_r", out Transform hand))
+            {
+                var weaponPrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{ArtDir}/Weapons/{weaponModel}.glb");
+                if (weaponPrefab != null)
+                {
+                    var weapon = (GameObject)PrefabUtility.InstantiatePrefab(weaponPrefab, enemy.transform);
+                    weapon.name = "Carried " + weaponModel;
+                    weapon.transform.rotation = Quaternion.LookRotation(Vector3.up, -enemy.transform.forward) * Quaternion.identity;
+                    weapon.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemy.transform.forward);
+                    weapon.transform.localScale *= size;
+                    Bounds held = WorldBounds(weapon);
+                    Vector3 handleEnd = held.center - enemy.transform.forward * Vector3.Dot(held.extents, new Vector3(Mathf.Abs(enemy.transform.forward.x), Mathf.Abs(enemy.transform.forward.y), Mathf.Abs(enemy.transform.forward.z)));
+                    weapon.transform.position += hand.position - handleEnd - enemy.transform.forward * (0.07f * size);
+                    weapon.transform.SetParent(hand, true);
+                }
+            }        }
 
         /// <summary>
         /// Who each person is, for free conversation (decision 0016). Names follow the world
