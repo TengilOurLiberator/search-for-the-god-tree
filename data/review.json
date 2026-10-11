@@ -1,0 +1,5 @@
+{
+  "_about": "Switches for the scheduled AI reviewer (tools/review/safe.mjs), read from the main branch. Only the owner changes this file. While open_to_outside is false the reviewer may read and comment on pull requests but can approve none. A missing or unreadable file means closed.",
+  "version": 1,
+  "open_to_outside": false
+}

@@ -35,6 +35,16 @@ Twenty-two PlayMode tests (`-testCategory Robot` runs the ten robot routines alo
 - **A new rigged person or man-shaped monster:** concept with the `character_tpose` framing, then `tools/pipeline/Invoke-RiggedCharacters.ps1` (image to 3D, finishing, rigging, publishing, recipe). Monsters (`enm_`) are cut into parts automatically. Look at the `_check_pose` and `_check_parts` pictures in the work folder before trusting a model.
 - **A new player body:** decision 0015.
 
+## Scheduled runs (decision 0017)
+
+Two scheduled tasks in the owner's Claude desktop app, `godtree-pr-review` (every 15 minutes) and `godtree-idea-review` (daily), review pull requests and voted ideas. They run only while the app is open, and may use nothing but `tools/review/safe.mjs`, run with Node and the GitHub CLI from `D:\godtree-tools`.
+
+- The script takes its rules from **GitHub's main branch**, and the tasks run the script from **this working copy**. Push rule changes before expecting them to apply, and keep the working copy's `tools/review/` in step with main.
+- `data/review.json` keeps the project closed: the reviewer comments, approves nothing. Only the owner flips it.
+- After changing the script: `node tools/review/safe.mjs selftest`, then `prs` and `ideas` against GitHub.
+- The daily run opens task issues for accepted ideas. It cannot touch the canon; ideas that need a canon change are left for a working session, and listed in that run's summary.
+- The GitHub CLI is signed in as a second account of the owner's with admin rights, not as the repository owner. Pull requests opened by that account are skipped as the reviewer's own.
+
 ## Rules learned the hard way
 
 - **Never run generation while the owner is in the headset.** Never run two queues into one output folder.

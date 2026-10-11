@@ -19,6 +19,7 @@ Order of work: melee physics, then multiplayer, then role-playing systems, then 
 | 10 | **Player body and licences** ([decision 0015](decisions/0015-player-body.md)): the rig's MIT skeleton was used to measure the body's weights; none of it is in the CC0 file | Accept as CC0; say if you want the stricter route |
 | 11 | **Three sandbox choices that touch canon** ([decision 0016](decisions/0016-owner-direction-session-4.md)): elemental staffs, stylised blood, and eight named townsfolk with natures the lead invented | Try them first; then say which become canon |
 | 12 | **Talking NPCs cannot ship as built**: they need helper programs, a strong PC, and one speech part is GPL | Decide after trying it whether it is worth designing the game around |
+| 13 | **Open to outside contributions?** The scheduled reviewer and the Ideas board exist ([decision 0017](decisions/0017-scheduled-review-and-voted-ideas.md)) but `data/review.json` keeps the project closed | Open for assets, docs and proposals once you have tried the sandbox; keep code at tier 1 |
 | 8 | GPU power limit: image batches draw the full 600 W. Lowering it needs administrator rights | Set a limit of about 450 W in your GPU tool for unattended runs |
 
 ## Current priority (decision 0013, 2026-10-10)
@@ -99,6 +100,11 @@ Nothing here has been seen in a headset. Passing tests prove the physics behaves
 ### 4. Open to outside agents: not started
 
 Briefs published, trust ladder in effect. Requires something runnable (2) and a style kit (3).
+
+- [x] Scheduled review built (2026-10-11, [decision 0017](decisions/0017-scheduled-review-and-voted-ideas.md)): pull requests every 15 minutes and voted ideas once a day, through `tools/review/safe.mjs`. Its 58 offline tests pass and it reads this repository; it has not yet reviewed a real pull request or idea, because there are none
+- [x] Ideas board: Discussions switched on, category Ideas ([docs/voting.md](docs/voting.md))
+- [ ] **Owner: open the project** by setting `open_to_outside` to true in `data/review.json` and changing the "not yet open" notices. Until then the reviewer comments but approves nothing
+- [ ] First task briefs published as issues
 
 ### 5. Multiplayer slice: not started
 

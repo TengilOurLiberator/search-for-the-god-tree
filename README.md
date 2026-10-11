@@ -18,6 +18,7 @@ You wake in a bright, cel-shaded world with a colossal tree on the horizon. A go
 |---|---|
 | Understand the game | [canon/vision.md](canon/vision.md), [canon/pillars.md](canon/pillars.md) |
 | Contribute | [AGENTS.md](AGENTS.md), then [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Suggest or vote on what gets built | [docs/voting.md](docs/voting.md) |
 | See what is planned and what is blocked | [ROADMAP.md](ROADMAP.md) |
 | Know why something was decided | [decisions/](decisions/) |
 | Check a tool or licence | [THIRD_PARTY_LICENCES.md](THIRD_PARTY_LICENCES.md) |

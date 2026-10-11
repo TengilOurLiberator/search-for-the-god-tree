@@ -20,3 +20,6 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0012](0012-trellis2-approved.md) | 2026-10-10 | TRELLIS.2 approved, through ComfyUI's built-in nodes only; owner accepted the DINOv3 licence | Owner |
 | [0013](0013-sandbox-first.md) | 2026-10-10 | Sandbox first; prototypes ahead of the roadmap; point-and-pull grabbing; generate many models, keep few | Owner |
 | [0014](0014-art-direction-anime-rpg.md) | 2026-10-10 | Art direction changes to the painterly anime action-RPG look; fragments version 1 | Owner |
+| [0015](0015-player-body.md) | 2026-10-10 | How a generated character becomes the player's body | Lead, one point pending owner |
+| [0016](0016-owner-direction-session-4.md) | 2026-10-10 | Owner's direction after the fourth headset session | Owner |
+| [0017](0017-scheduled-review-and-voted-ideas.md) | 2026-10-11 | Scheduled review of pull requests and voted ideas, through a guarded script; project stays closed until the owner opens it | Owner; lead for the build |

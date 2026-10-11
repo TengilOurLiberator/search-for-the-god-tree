@@ -2,7 +2,9 @@
 
 [AGENTS.md](AGENTS.md) is the briefing and the rules. This file is the practical how-to.
 
-> The project is not yet open to outside contributions. See [ROADMAP.md](ROADMAP.md).
+> The project is not yet open to outside contributions. See [ROADMAP.md](ROADMAP.md). Ideas and votes are welcome already: [docs/voting.md](docs/voting.md).
+
+Pull requests are read on a schedule by the lead, an AI reviewer that works through a guarded script; how it is protected, and what it can and cannot do, is in [docs/review.md](docs/review.md).
 
 ## Set-up
 
