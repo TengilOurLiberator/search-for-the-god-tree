@@ -30,7 +30,9 @@ Unity 6000.3 LTS with the Universal Render Pipeline, OpenXR, a physics player ri
 
 ## Licence
 
-- Code: MIT. See [LICENSE](LICENSE).
+Public domain: free for anyone to use, change, share and sell, with no conditions and no credit required.
+
+- Code: the Unlicense. See [LICENSE](LICENSE).
 - Assets, recipes, documentation and canon text: CC0 1.0. See [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
 - Unity itself is not open source, and third-party packages (FishNet, Steamworks and others) are fetched under their own licences and are not covered by the above. See [THIRD_PARTY_LICENCES.md](THIRD_PARTY_LICENCES.md).
 

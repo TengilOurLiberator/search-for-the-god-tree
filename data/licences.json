@@ -1,8 +1,8 @@
 {
-  "_about": "Licences the checks accept. Project licences were confirmed by the owner on 2026-10-09 (decisions/0002). Third-party material folded into an asset must carry a licence from accepted_asset_input_licences; anything else needs an issue where the lead has agreed to it first.",
+  "_about": "Licences the checks accept. Project licences were set by the owner on 2026-10-09 (decisions/0002); code moved from MIT to the Unlicense on 2026-10-11 (decisions/0019). Third-party material folded into an asset must carry a licence from accepted_asset_input_licences; anything else needs an issue where the lead has agreed to it first.",
   "version": 1,
   "project": {
-    "code": "MIT",
+    "code": "Unlicense",
     "assets": "CC0-1.0"
   },
   "accepted_asset_input_licences": [ "CC0-1.0" ]

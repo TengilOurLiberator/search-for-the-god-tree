@@ -7,7 +7,7 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | # | Date | Decision | By |
 |---|---|---|---|
 | [0001](0001-title-spelling.md) | 2026-10-09 | The title is "Search for the Godtree"; "Godtree" is one word | Owner |
-| [0002](0002-licences.md) | 2026-10-09 | MIT for code, CC0 1.0 for assets | Owner |
+| [0002](0002-licences.md) | 2026-10-09 | MIT for code, CC0 1.0 for assets (code half replaced by 0019) | Owner |
 | [0003](0003-checks-in-powershell-rules-as-json.md) | 2026-10-09 | Checks are written in PowerShell; rules are JSON data | Lead |
 | [0004](0004-repository-layout-and-recipes.md) | 2026-10-09 | Repository layout; recipes live in `recipes/<asset-id>/` | Lead |
 | [0005](0005-stack-changes-after-verification.md) | 2026-10-09 | Stack changes forced by licence and compatibility findings | Lead |
@@ -24,3 +24,4 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0016](0016-owner-direction-session-4.md) | 2026-10-10 | Owner's direction after the fourth headset session | Owner |
 | [0017](0017-scheduled-review-and-voted-ideas.md) | 2026-10-11 | Scheduled review of pull requests and voted ideas, through a guarded script; project stays closed until the owner opens it | Owner; lead for the build |
 | [0018](0018-open-for-art-and-hand-made-work.md) | 2026-10-11 | Open for assets, documentation and proposals; hand-made work may use any tool; a route in for artists | Owner |
+| [0019](0019-code-to-public-domain.md) | 2026-10-11 | Code moves from MIT to the Unlicense: everything the project owns is public domain | Owner |

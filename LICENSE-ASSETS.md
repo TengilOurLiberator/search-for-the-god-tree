@@ -14,6 +14,6 @@ Everything in `canon/`, `docs/`, `proposals/`, `recipes/`, `stylekit/`, `unity/A
 
 ## What it does not cover
 
-- Code, which is MIT: see [LICENSE](LICENSE).
+- Code, which is also public domain, under the Unlicense: see [LICENSE](LICENSE).
 - Third-party packages, engines, SDKs and tools, which are fetched under their own licences and are not part of this repository: see [THIRD_PARTY_LICENCES.md](THIRD_PARTY_LICENCES.md).
 - Any folder that carries its own licence notice (none yet).

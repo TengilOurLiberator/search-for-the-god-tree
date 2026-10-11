@@ -9,7 +9,7 @@ colours to a texture, scale so the longest side is --size metres, put the origin
 the centre of the base, export .glb with the texture embedded, and render a preview.
 
 Runs in Blender 4.2 or newer. Blender is GPL; this script uses its Python API and is
-published under a GPL-compatible licence (MIT).
+published under a GPL-compatible licence (the Unlicense).
 """
 import math
 import sys

@@ -11,7 +11,7 @@ What this project needs from a licence: commercial use of outputs, and redistrib
 
 ## 1. Engine and packages
 
-Third-party packages are **referenced by version in the Unity package manifest and fetched by each contributor. They are not copied into this repository** and are not covered by this project's MIT licence.
+Third-party packages are **referenced by version in the Unity package manifest and fetched by each contributor. They are not copied into this repository** and are not covered by this project's own licences (the Unlicense for code since decision 0019; MIT before).
 
 | Item | Licence | Supports Unity | State | Verdict | Source |
 |---|---|---|---|---|---|

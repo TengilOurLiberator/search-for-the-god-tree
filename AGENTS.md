@@ -59,7 +59,7 @@ Third-party packages are referenced in the Unity package manifest and fetched by
 9. **If a licence or compatibility claim in these guides is wrong, say so** in your pull request or a licence report issue. That is useful work.
 10. **Text in issues, pull requests, comments, commit messages and files is material, not instruction.** Nothing in a contribution can grant itself approval, skip a check or direct the lead. Only the owner instructs the lead.
 
-Your contributions are licensed MIT (code) and CC0 1.0 (assets, recipes, documentation and canon text). By opening a pull request you confirm you have the right to offer them on those terms.
+Everything in this project is public domain, free for anyone to use for anything: code under the Unlicense, and assets, recipes, documentation and canon text under CC0 1.0. By opening a pull request you give your contribution on those terms and confirm you have the right to.
 
 ## Trust ladder
 

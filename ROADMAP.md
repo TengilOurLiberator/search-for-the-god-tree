@@ -65,7 +65,7 @@ The sandbox comes first: make it good enough for the owner to judge how the game
 - [x] Automated checks with tests (21 tests pass locally on Windows PowerShell 5.1)
 - [x] Pull request and issue templates
 - [x] Licences verified from primary sources ([THIRD_PARTY_LICENCES.md](THIRD_PARTY_LICENCES.md)); approved generator list as data
-- [x] Licence choice: MIT for code, CC0 1.0 for assets (owner, 2026-10-09)
+- [x] Licence choice: public domain throughout. Code under the Unlicense (owner, 2026-10-11, [decision 0019](decisions/0019-code-to-public-domain.md); it was MIT before), assets under CC0 1.0 (owner, 2026-10-09)
 - [x] First commit pushed to GitHub
 - [x] Continuous integration: check-script tests pass on GitHub (Linux, PowerShell 7). The pull-request job has not run yet (no pull request so far)
 - [x] Toolchain: Git LFS 3.8.0, Unity 6000.3.26f1, ComfyUI 0.39.0 with Z-Image Turbo (in D:\godtree-tools, outside the repository)
