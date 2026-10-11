@@ -81,6 +81,14 @@ namespace Godtree.Sandbox
             }
         }
 
+        /// <summary>Give health back, up to Vigor. Returns how much was actually restored.</summary>
+        public float Heal(float amount)
+        {
+            float before = Health;
+            Health = Mathf.Min(Vigor, Health + Mathf.Max(0f, amount));
+            return Health - before;
+        }
+
         private void LateUpdate()
         {
             Health = Mathf.Min(Health, Vigor);

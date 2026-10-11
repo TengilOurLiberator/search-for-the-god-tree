@@ -1,0 +1,42 @@
+{
+    "_about":  "Three more man-shaped creatures for the meadow, drawn so they can be rigged, animated and cut apart: two kinds of Barkbound (the world bible\u0027s armour grown through with bark) and a husk wight, which is a sandbox invention and not canon.",
+    "workflow":  "../workflows/z_image_turbo_t2i.api.json",
+    "seeds":  [
+                  1101,
+                  2202,
+                  3303,
+                  4404
+              ],
+    "subjects":  [
+                     {
+                         "id":  "con_rig_enm_barkbound_brute",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A monster shaped like a very broad heavy man: an empty suit of thick rusty plate armour split open by a tree trunk growing through it, huge bark shoulders, thick root arms bursting from the gauntlets, a dented great helm with a crown of small dead branches and two gold glows inside, moss and mushrooms on the back, clearly more tree than metal. Close-fitting shapes. No cloak, no cape, nothing held in the hands, no loose hanging cloth, arms well clear of the body, empty hands."
+                     },
+                     {
+                         "id":  "con_rig_enm_barkbound_scout",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A monster shaped like a lean man: an empty suit of old light leather armour and a rusted round helmet, filled and held together by thin pale twisting roots and bark, long thin root fingers, a few green leaves at the collar, one small gold glow inside the helmet, clearly more tree than leather. Close-fitting shapes. No cloak, no cape, nothing held in the hands, no loose hanging cloth, arms well clear of the body, empty hands."
+                     },
+                     {
+                         "id":  "con_rig_enm_husk_wight",
+                         "framing":  "character_tpose",
+                         "width":  1280,
+                         "height":  1280,
+                         "world":  [
+
+                                   ],
+                         "subject":  "A monster shaped like a man made entirely of pale cream seed-husk shell plates over dark twisting roots, a smooth blank oval husk for a face with one vertical glowing gold crack, broad plated shoulders, long plated arms, clearly a thing grown not built. Close-fitting shapes. No cloak, no cape, nothing held in the hands, no loose hanging cloth, arms well clear of the body, empty hands."
+                     }
+                 ]
+}

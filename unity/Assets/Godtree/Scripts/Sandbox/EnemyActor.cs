@@ -45,6 +45,17 @@ namespace Godtree.Sandbox
         private Quaternion _homeFacing;
         private string _clip;
         private float _busyUntil, _nextStrike, _strikeLandsAt = -1f, _diedAt;
+        private float _slowUntil, _slowFactor = 1f;
+
+        /// <summary>True while frost or roots are holding it back.</summary>
+        public bool Slowed => Time.time < _slowUntil;
+
+        /// <summary>Frost and roots: for some seconds it walks at a fraction of its speed (0 holds it where it stands) and strikes less often.</summary>
+        public void Slow(float seconds, float factor)
+        {
+            _slowUntil = Mathf.Max(_slowUntil, Time.time + seconds);
+            _slowFactor = Mathf.Clamp01(factor);
+        }
 
         private void Awake()
         {
@@ -122,7 +133,9 @@ namespace Godtree.Sandbox
             if (distance > strikeDistance)
             {
                 Play(walkClip);
-                Vector3 step = transform.forward * (walkSpeed * Time.deltaTime);
+                float pace = Slowed ? _slowFactor : 1f;
+                _animator.speed = Slowed ? Mathf.Max(0.15f, _slowFactor) : 1f;
+                Vector3 step = transform.forward * (walkSpeed * pace * Time.deltaTime);
                 // Do not walk through walls or tables: look a body's width ahead at waist height.
                 if (!Physics.SphereCast(transform.position + Vector3.up * 0.9f, 0.25f, transform.forward, out RaycastHit ahead, 0.45f, Physics.AllLayers, QueryTriggerInteraction.Ignore)
                     || ahead.collider.transform.IsChildOf(transform) || IsPlayer(ahead.collider))
@@ -136,7 +149,7 @@ namespace Godtree.Sandbox
                 _clip = null; // so the same strike can be played again next time
                 _strikeLandsAt = Time.time + 0.55f;
                 _busyUntil = Time.time + 1.3f;
-                _nextStrike = Time.time + 2.4f;
+                _nextStrike = Time.time + (Slowed ? 4.2f : 2.4f);
             }
             else
             {

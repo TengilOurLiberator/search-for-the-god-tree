@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Godtree.Sandbox
 {
-    public enum SpellElement { Ember, Frost, Storm }
+    public enum SpellElement { Ember, Frost, Storm, Root }
 
     /// <summary>
     /// Marks a staff or wand as something spells are cast through (decision 0016): it has an
@@ -30,6 +30,7 @@ namespace Godtree.Sandbox
             {
                 case SpellElement.Ember: return new Color(1f, 0.45f, 0.12f);
                 case SpellElement.Frost: return new Color(0.55f, 0.85f, 1f);
+                case SpellElement.Root: return new Color(0.45f, 0.92f, 0.35f);
                 default: return new Color(0.75f, 0.6f, 1f);
             }
         }
@@ -47,6 +48,7 @@ namespace Godtree.Sandbox
             {
                 case SpellElement.Ember: return spell == 1 ? "Ember bolt" : spell == 2 ? "Fireball" : "Flame wave";
                 case SpellElement.Frost: return spell == 1 ? "Frost shard" : spell == 2 ? "Frost burst" : "Winter's grasp";
+                case SpellElement.Root: return spell == 1 ? "Thorn dart" : spell == 2 ? "Snare" : "Mend";
                 default: return spell == 1 ? "Spark" : spell == 2 ? "Chain lightning" : "Thunderclap";
             }
         }

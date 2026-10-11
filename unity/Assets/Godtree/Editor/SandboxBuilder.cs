@@ -922,14 +922,14 @@ namespace Godtree.EditorTools
                 var own = AssetDatabase.LoadAssetAtPath<GameObject>($"{ArtDir}/Weapons/{id}.glb");
                 return own != null ? own : fallback;
             }
-            var elements = new[] { Godtree.Sandbox.SpellElement.Ember, Godtree.Sandbox.SpellElement.Frost, Godtree.Sandbox.SpellElement.Storm };
+            var elements = new[] { Godtree.Sandbox.SpellElement.Ember, Godtree.Sandbox.SpellElement.Frost, Godtree.Sandbox.SpellElement.Storm, Godtree.Sandbox.SpellElement.Root };
             var list = new System.Collections.Generic.List<(GameObject prefab, Godtree.Sandbox.SpellElement element, int tier, Vector3 slot, bool alongX)>();
             for (int e = 0; e < elements.Length; e++)
             {
                 string word = elements[e].ToString().ToLowerInvariant();
-                list.Add((Own("wpn_wand_" + word, wand), elements[e], 1, new Vector3(2.95f + 0.25f * e, tableTop, 2.7f), false));
-                list.Add((staff, elements[e], 2, new Vector3(4.75f, tableTop, 2.3f + 0.4f * e), true));
-                list.Add((Own("wpn_staff_" + word, staff), elements[e], 3, new Vector3(4.3f, tableTop, 4.0f + 0.3f * e), true));
+                list.Add((Own("wpn_wand_" + word, wand), elements[e], 1, new Vector3(2.82f + 0.31f * e, tableTop, 2.7f), false));
+                list.Add((staff, elements[e], 2, new Vector3(4.75f, tableTop, 2.25f + 0.3f * e), true));
+                list.Add((Own("wpn_staff_" + word, staff), elements[e], 3, new Vector3(4.3f, tableTop, 3.92f + 0.25f * e), true));
             }
             var foci = list.ToArray();            string[] numerals = { "", "I", "II", "III" };
             foreach ((GameObject prefab, Godtree.Sandbox.SpellElement element, int tier, Vector3 slot, bool alongX) in foci)
@@ -1439,7 +1439,7 @@ namespace Godtree.EditorTools
                 "<b><color=#FFD86B>LIFT KNOT</color></b>   Both TRIGGERS, hands apart: loose\nthings in front of you float until you let go.\n" +
                 "<b><color=#FFD86B>WARD KNOT</color></b>   Empty hand: hold A or X for a shield of light.\n" +
                 "<b><color=#FFD86B>TALK</color></b>   Stand by someone, look at them, and speak.\nThey answer aloud. (Needs the NPC services running.)\n" +
-                "<b><color=#FFD86B>STAFFS, WANDS</color></b>   On the table to your right. Hold one,\nhold TRIGGER, let go. Red is fire, blue frost, violet storm.\nBigger stones know more: hold longer for bigger spells.\n\n" +
+                "<b><color=#FFD86B>STAFFS, WANDS</color></b>   On the tables to your right. Hold one,\nhold TRIGGER, let go. Red fire, blue frost, violet storm, green root.\nWand: one spell. Staff: two. Great staff: three; hold longer.\n\n" +
                 "<b><color=#FFD86B>CHARACTER</color></b>   Press B (right hand) for your stats,\nequipment and a mirror. Push the arrows with a hand.\n\n" +
                 "<b><color=#FFD86B>MOVE</color></b>   Left stick. Click it to run.\n" +
                 "<b><color=#FFD86B>TURN</color></b>   Right stick left or right.\n" +

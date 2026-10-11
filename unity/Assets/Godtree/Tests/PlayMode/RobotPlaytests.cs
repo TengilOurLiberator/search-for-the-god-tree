@@ -286,6 +286,10 @@ namespace Godtree.Tests
                 (SpellElement.Storm, 3, 0.1f, "Spark"),
                 (SpellElement.Storm, 3, 1.0f, "Chain lightning"),
                 (SpellElement.Storm, 3, 2.1f, "Thunderclap"),
+                (SpellElement.Root, 1, 0.1f, "Thorn dart"),
+                (SpellElement.Root, 2, 1.0f, "Snare"),
+                (SpellElement.Root, 2, 2.1f, "Snare"),           // a plain staff knows two spells, not three
+                (SpellElement.Root, 3, 2.1f, "Mend"),
             };
             SpellFocus holding = null;
             SpellFocus focus = null;

@@ -152,6 +152,7 @@ namespace Godtree.Sandbox
         private void Cast(SpellFocus focus, int spell)
         {
             float power = (0.8f + 0.35f * focus.tier) * PlayerStats.FocusNow;
+            _casting = focus.element;
             Vector3 tip = focus.Tip, aim = focus.Aim;
             Color colour = SpellFocus.ColourOf(focus.element);
             LastSpell = SpellFocus.NameOf(focus.element, spell);
@@ -171,12 +172,35 @@ namespace Godtree.Sandbox
                     else if (spell == 2) Launch(focus, tip, aim, colour, 0.14f, 16f, 0.4f * power, burst: 2.8f, impulse: 4f * power, slow: 5f);
                     else Cone(tip, aim, colour, reach: 7f, halfAngle: 50f, impulse: 3f * power, slow: 8f);
                     break;
+                case SpellElement.Root:
+                    // Thorns that bite, roots that hold a creature where it stands, and a knot that mends the caster.
+                    if (spell == 1) Launch(focus, tip, aim, colour, 0.05f, 34f, 0.2f * power, burst: 0.5f, impulse: 7f * power, slow: 0f);
+                    else if (spell == 2) Launch(focus, tip, aim, colour, 0.12f, 18f, 0.3f * power, burst: 2.6f, impulse: 1.5f * power, slow: 6f);
+                    else Mend(tip, colour, 35f * power);
+                    break;
                 default:
                     if (spell == 1) Strike(tip, aim, colour, jumps: 0, impulse: 6f * power);
                     else if (spell == 2) Strike(tip, aim, colour, jumps: 3, impulse: 8f * power);
                     else Thunderclap(tip, aim, colour, 3.5f, 26f * power);
                     break;
             }
+        }
+
+        private SpellElement _casting;
+
+        /// <summary>Mending: health back to the caster, with a soft green burst at the chest.</summary>
+        private void Mend(Vector3 tip, Color colour, float amount)
+        {
+            if (PlayerStats.Instance == null)
+                return;
+            float restored = PlayerStats.Instance.Heal(amount);
+            BodiesAffected++;
+            Camera cam = Camera.main;
+            Vector3 chest = cam != null ? cam.transform.position - Vector3.up * 0.35f + cam.transform.forward * 0.25f : tip;
+            Flash(chest, colour, 0.9f);
+            if (DamageFeedback.Instance != null && cam != null)
+                DamageFeedback.Instance.Popup(cam.transform.position + cam.transform.forward * 0.7f - Vector3.up * 0.15f, "+" + Mathf.RoundToInt(restored), colour, 0.07f);
+            Play(hitClips, chest, 0.8f);
         }
 
         /// <summary>A flying spell: travels straight, bursts where it lands.</summary>
@@ -376,6 +400,9 @@ namespace Godtree.Sandbox
                 Vector3 point = hit.ClosestPoint(centre);
                 float falloff = Mathf.Clamp01(1.15f - Vector3.Distance(point, centre) / Mathf.Max(radius, 0.1f));
                 creature.TakeHit(point, (point - centre).normalized * impulse * falloff, (impulse * 3f + slow * 2f) * falloff, false);
+                // Frost slows a creature to a third; roots hold it where it stands.
+                if (slow > 0f && creature is EnemyActor enemy)
+                    enemy.Slow(slow, _casting == SpellElement.Root ? 0f : 0.35f);
                 BodiesAffected++;
             }
             return true;
