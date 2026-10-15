@@ -1,4 +1,4 @@
-# Decision log
+﻿# Decision log
 
 Every creative or technical ruling, with its reason, so it is not reargued later. One file per decision, numbered, never rewritten: a decision that changes gets a new entry that names the one it replaces.
 
@@ -25,3 +25,4 @@ Each entry states: the date, who decided (owner or lead), the decision, the reas
 | [0017](0017-scheduled-review-and-voted-ideas.md) | 2026-10-11 | Scheduled review of pull requests and voted ideas, through a guarded script; project stays closed until the owner opens it | Owner; lead for the build |
 | [0018](0018-open-for-art-and-hand-made-work.md) | 2026-10-11 | Open for assets, documentation and proposals; hand-made work may use any tool; a route in for artists | Owner |
 | [0019](0019-code-to-public-domain.md) | 2026-10-11 | Code moves from MIT to the Unlicense: everything the project owns is public domain | Owner |
+| [0020](0020-lifelike-vr-and-lead-as-director.md) | 2026-10-16 | As lifelike as VR can be in the anime style; the lead directs agents; the game's state must be readable | Owner |
