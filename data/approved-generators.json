@@ -49,7 +49,7 @@
   "sources": [
     { "id": "polyhaven",   "name": "Poly Haven",   "status": "approved", "licence": "CC0-1.0", "note": "Assets only; site logos and renders are not CC0. No scraping." },
     { "id": "ambientcg",   "name": "ambientCG",    "status": "approved", "licence": "CC0-1.0", "note": "" },
-    { "id": "quaternius",  "name": "Quaternius",   "status": "approved", "licence": "CC0-1.0", "note": "Free-tier packs. Check the licence file inside any paid-tier download before using it." },
+    { "id": "quaternius",  "name": "Quaternius",   "status": "approved", "licence": "CC0-1.0", "note": "Site-wide licence changed on 2026-08-28 to the Quaternius Asset License (no standalone redistribution), conflicting with the CC0 on pack pages. Material already received under CC0 (e.g. inside the Mesh2Motion pack) stays CC0. Any new download: check the pack page and the licence file inside, save both with a date, and ask the lead first." },
     { "id": "kenney",      "name": "Kenney",       "status": "approved", "licence": "CC0-1.0", "note": "Do not include the Kenney logo." },
     { "id": "kaykit",      "name": "KayKit",       "status": "approved", "licence": "CC0-1.0", "note": "Free-tier packs verified on one pack only." },
     { "id": "mixamo",      "name": "Mixamo",       "status": "rejected", "licence": "Adobe General Terms of Use", "note": "Files may be embedded in a shipped product but not distributed stand-alone, and the licence cannot be sublicensed, so they cannot live in a public CC0 repository, raw or retargeted." }
